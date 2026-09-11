@@ -6,8 +6,6 @@ export const images = {
   delivery: 'https://images.pexels.com/photos/8989470/pexels-photo-8989470.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
 };
 
-export const navItems = ['Inicio', 'Cómo funciona', 'Beneficios', 'Industrias', 'Recursos'];
-
 export const steps = [
   ['01', 'La empresa propone una fecha.'],
   ['02', 'El cliente confirma o solicita otra.'],

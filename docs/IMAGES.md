@@ -20,3 +20,7 @@ Todas las imágenes son fotografías de Pexels (licencia libre) seleccionadas pa
 - Customer: "Cliente esperando una entrega en casa, mirando su teléfono, composición horizontal"
 - Operator: "Operadora revisando información de entregas en pantalla, ambiente de oficina, composición horizontal"
 - Delivery: "Cliente y repartidor coordinando la entrega de un paquete en la puerta, composición horizontal"
+
+## Cómo agregar nuevas imágenes
+
+Usar la herramienta `pexels_search` (MCP) con una query descriptiva del subject. Referenciar la URL directamente en `<img>`, sin descargarla. No adivinar URLs. Documentar cada imagen nueva en esta tabla.

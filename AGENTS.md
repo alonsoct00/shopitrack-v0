@@ -6,7 +6,7 @@
 
 ## 1. Qué es este proyecto
 
-Shopitrack es la Home de una plataforma que coordina empresas de entrega y clientes para reducir entregas fallidas en la última milla. La Home está construida con React + TypeScript + Tailwind CSS + DaisyUI, y está preparada para crecer con futuras páginas.
+Shopitrack es una plataforma que coordina empresas de entrega y clientes para reducir entregas fallidas en la última milla. El sitio está construido con React + TypeScript + Tailwind CSS + DaisyUI + React Router, y tiene 5 páginas: Home (completa), Empresas, Clientes, Industrias y Contacto (estas cuatro son placeholders pendientes de mockup en Figma).
 
 ## 2. Objetivo
 
@@ -42,11 +42,18 @@ Clases reutilizables: `.section`, `.wave-section`, `.split-grid`, `.info-card`, 
 
 ## 6. Cómo crear nuevas páginas
 
+El proyecto usa `react-router-dom`. Las rutas viven en `src/App.tsx` dentro de `<Route element={<MainLayout />}>`, y `MainLayout` (`src/components/layout/MainLayout.tsx`) ya provee `Header` y `Footer` compartidos.
+
 1. Crear `src/pages/<Page>.tsx`.
-2. Reutilizar `Brand`, `SectionHeading`, `InfoCard`, `.container`, `.section`, `.btn`.
+2. Reutilizar `Brand`, `SectionHeading`, `InfoCard`, `.container`, `.section`, `.btn`. No dupliques Header/Footer.
 3. Importar contenido desde `src/data/` (crear nuevo archivo si es necesario).
 4. No duplicar estilos: usar variables y clases existentes.
-5. Si la página necesita imágenes, usar `pexels_search` y documentar en `docs/IMAGES.md`.
+5. Registrar la ruta en `src/App.tsx` y, si va en el menú principal, en `siteNav` (`src/data/navigation.ts`).
+6. Mientras no exista el mockup de Figma de la página, usar `ComingSoonSection` (`src/components/ComingSoonSection.tsx`) como contenido temporal — no inventar diseño definitivo.
+7. Si la página necesita imágenes, usar `pexels_search` y documentar en `docs/IMAGES.md`.
+8. Agregar la URL a `public/sitemap.xml`.
+
+Páginas actuales: Home (`/`, completa), Empresas (`/empresas`), Clientes (`/clientes`), Industrias (`/industrias`) y Contacto (`/contacto`) — estas últimas cuatro son placeholders pendientes de mockup en Figma.
 
 ## 7. Reglas que deben respetarse
 
@@ -125,8 +132,9 @@ Si algún check falla, corregir los errores antes de considerar el trabajo termi
 
 ## 16. Documentación
 
-- **README.md** (raíz): documentación completa del proyecto.
-- **docs/**: documentación detallada por área (design system, componentes, responsive, imágenes, arquitectura).
+- **README.md** (raíz): lo básico — stack, instalación, comandos, estructura mínima.
+- **docs/README.md**: índice de la documentación técnica detallada.
+- **docs/ARCHITECTURE.md**, **docs/DESIGN-SYSTEM.md**, **docs/COMPONENTS.md**, **docs/RESPONSIVE.md**, **docs/IMAGES.md**, **docs/SEO.md**: documentación técnica por área.
 - **docs/AI-CONTEXT.md**: contexto adicional para agentes de IA.
 
 Antes de empezar a trabajar, leer el README.md y este archivo.

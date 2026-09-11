@@ -2,11 +2,13 @@
 
 ## 1. Qué es el proyecto
 
-Shopitrack es la Home de una plataforma que coordina empresas de entrega y clientes para reducir entregas fallidas en la última milla.
+Shopitrack es una plataforma que coordina empresas de entrega y clientes para reducir entregas fallidas en la última milla. El sitio tiene 5 páginas: Home (completa), Empresas, Clientes, Industrias y Contacto (estas cuatro son placeholders pendientes de mockup en Figma).
 
 ## 2. Objetivo
 
 Recrear la Home con fidelidad visual a la imagen de referencia, conservando el contenido original, con arquitectura preparada para futuras páginas.
+
+Prioridades, en este orden: fidelidad al diseño de referencia, conservación del contenido, responsive, reutilización de componentes, design system, mantenibilidad, accesibilidad, performance, SEO.
 
 ## 3. Fuente de verdad visual
 
@@ -21,10 +23,12 @@ Centralizado en `src/index.css` con variables CSS (`:root`). Colores, tipografí
 - `Brand` — logo + nombre
 - `SectionHeading` — encabezado de sección
 - `InfoCard` — tarjeta con icono, título y descripción
+- `ComingSoonSection` — placeholder para páginas pendientes de mockup
+- `Header` / `Footer` / `MainLayout` (`src/components/layout/`) — compartidos por todas las páginas, no se repiten
 
 ## 6. Cómo crear nuevas páginas
 
-Crear `src/pages/<Page>.tsx`, reutilizar componentes existentes, importar contenido desde `src/data/`, usar clases del design system (`.container`, `.section`, `.btn`, etc.).
+El proyecto usa `react-router-dom`. Crear `src/pages/<Page>.tsx`, reutilizar componentes existentes, importar contenido desde `src/data/`, usar clases del design system (`.container`, `.section`, `.btn`, etc.), registrar la ruta en `src/App.tsx` y en `siteNav` (`src/data/navigation.ts`) si va en el menú. Si no existe el mockup de Figma, usar `ComingSoonSection`.
 
 ## 7. Reglas a respetar
 
