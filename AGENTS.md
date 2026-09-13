@@ -33,7 +33,7 @@ Clases reutilizables: `.section`, `.wave-section`, `.split-grid`, `.info-card`, 
 ## 5. Componentes existentes
 
 | Componente | Archivo | Props |
-|-----------|---------|-------|
+| ----------- | --------- | ------- |
 | `Brand` | `src/components/Brand.tsx` | `light?: boolean` |
 | `SectionHeading` | `src/components/SectionHeading.tsx` | `eyebrow?: string`, `title: string`, `centered?: boolean` |
 | `InfoCard` | `src/components/InfoCard.tsx` | `icon: ReactNode`, `title: string`, `label: string`, `children: ReactNode` |
@@ -111,7 +111,7 @@ Todos los estilos responsive están en `index.css`. No usar utilities inline de 
 ## 14. Convenciones de nombres
 
 | Elemento | Convención | Ejemplo |
-|----------|-----------|---------|
+| ---------- | ----------- | --------- |
 | Componentes | PascalCase | `InfoCard.tsx` |
 | Archivos de datos | kebabCase | `home.ts` |
 | Clases CSS | kebabCase | `.info-card` |

@@ -1,6 +1,5 @@
 export const images = {
-  hero: 'https://images.pexels.com/photos/7363128/pexels-photo-7363128.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-  courier: 'https://images.pexels.com/photos/6699423/pexels-photo-6699423.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  courier: '/images/entrgando-delivery-shopi.jpeg',
   customer: 'https://images.pexels.com/photos/6869055/pexels-photo-6869055.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
   operator: 'https://images.pexels.com/photos/7706523/pexels-photo-7706523.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
   delivery: 'https://images.pexels.com/photos/8989470/pexels-photo-8989470.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',

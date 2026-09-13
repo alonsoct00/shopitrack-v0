@@ -6,7 +6,8 @@ Shopitrack es una plataforma que coordina a empresas de entrega y a sus clientes
 
 - React + TypeScript
 - React Router (`react-router-dom`)
-- Tailwind CSS + DaisyUI (tema `shopitrack`)
+- Tailwind CSS v4 + DaisyUI v5 (tema `shopitrack`)
+- SCSS para overrides personalizados (`src/styles/custom.scss`)
 - Vite
 - lucide-react para iconografía
 
@@ -33,18 +34,18 @@ El proyecto ya está preparado para Vercel (SPA con React Router + fallback a `i
 Archivos clave:
 
 - `vercel.json` con:
-	- `framework: vite`
-	- `buildCommand: npm run build`
-	- `outputDirectory: dist`
-	- `rewrites` para rutas sin extensión (soporte `/empresas`, `/clientes`, etc.)
+  - `framework: vite`
+  - `buildCommand: npm run build`
+  - `outputDirectory: dist`
+  - `rewrites` para rutas sin extensión (soporte `/empresas`, `/clientes`, etc.)
 
 ### Opción 1: Conectar repositorio (recomendada)
 
 1. Entra a Vercel y selecciona **Add New Project**.
 2. Importa este repositorio.
 3. Verifica configuración:
-	 - Build Command: `npm run build`
-	 - Output Directory: `dist`
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
 4. Haz clic en **Deploy**.
 
 Con esto, cada `git push` genera un **Preview Deployment** con URL única para compartir avances con el cliente.
@@ -62,7 +63,7 @@ Para revisión continua con cliente, conviene usar preview URLs por rama y dejar
 ## Páginas
 
 | Ruta | Estado |
-|------|--------|
+| ------ | -------- |
 | `/` (Home) | Completa |
 | `/empresas` | Placeholder — pendiente de mockup Figma |
 | `/clientes` | Placeholder — pendiente de mockup Figma |
@@ -71,15 +72,36 @@ Para revisión continua con cliente, conviene usar preview URLs por rama y dejar
 
 ## Estructura
 
-```
+```text
 src/
 ├── components/    Componentes reutilizables (incluye components/layout/ con Header, Footer, MainLayout)
 ├── pages/         Una página por ruta
 ├── data/          Contenido separado de la UI
+├── styles/        Overrides SCSS personalizados por página
 ├── App.tsx        Rutas (react-router-dom)
 ├── index.css      Design system + estilos globales
+├── styles/custom.scss  Estilos custom (capa final de overrides)
 └── main.tsx       Entry point
 docs/              Documentación técnica detallada
+```
+
+## Estilos personalizados por página
+
+Cada página renderiza un wrapper propio para evitar colisiones de estilos:
+
+- Home: `#page-home.page.page-home`
+- Empresas: `#page-empresas.page.page-empresas`
+- Clientes: `#page-clientes.page.page-clientes`
+- Industrias: `#page-industrias.page.page-industrias`
+- Contacto: `#page-contacto.page.page-contacto`
+- NotFound: `#page-not-found.page.page-not-found`
+
+Usa `src/styles/custom.scss` para personalizaciones y scopea reglas así:
+
+```scss
+.page-home .hero {
+  /* solo afecta al hero del Home */
+}
 ```
 
 ## Documentación
@@ -87,4 +109,3 @@ docs/              Documentación técnica detallada
 Este README cubre lo básico. La documentación técnica detallada (design system, componentes, responsive, imágenes, SEO, arquitectura) está en [docs/](./docs/README.md).
 
 Antes de modificar el proyecto, cualquier agente de IA debe leer [AGENTS.md](./AGENTS.md).
-

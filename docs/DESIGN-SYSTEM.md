@@ -3,7 +3,7 @@
 ## Colores (variables CSS en `:root`)
 
 | Token | Valor | Uso |
-|-------|-------|-----|
+| ------- | ------- | ----- |
 | `--color-blue` | `18 100 232` | Primario, CTAs, iconos, acentos |
 | `--color-coral` | `255 104 72` | Acento de contraste, CTAs secundarios |
 | `--color-ink` | `8 38 99` | Azul profundo para fondos oscuros |
@@ -54,6 +54,29 @@ El proyecto usa Tailwind CSS v4 + daisyUI v5. Ya no hay `tailwind.config.js` (de
 ## Animaciones on-scroll
 
 Agregar el atributo `data-reveal` a un elemento (normalmente el `<section>` o su `.container`) para que aparezca con un fade + slide-up al entrar en el viewport. `MainLayout` observa estos elementos con `IntersectionObserver` y agrega la clase `is-visible` una sola vez (no se repite al salir de vista). Usar `data-reveal-delay="1"` a `"4"` en elementos hijos (p. ej. los pasos de `.steps-list`) para escalonar la animación. Respeta `prefers-reduced-motion` automáticamente (la media query global ya reduce todas las duraciones de transición).
+
+## Capa de estilos custom (SCSS)
+
+- Archivo: `src/styles/custom.scss`
+- Carga: se importa en `src/main.tsx` después de `src/index.css`
+- Objetivo: overrides y personalizaciones sin modificar el design system base
+
+Convención de alcance recomendada:
+
+- `.page-home ...`
+- `.page-empresas ...`
+- `.page-clientes ...`
+- `.page-industrias ...`
+- `.page-contacto ...`
+- `.page-not-found ...`
+
+Ejemplo:
+
+```scss
+.page-home .hero {
+  /* Solo Home */
+}
+```
 
 ## Patrones reutilizables
 
