@@ -1,7 +1,5 @@
 # Shopitrack
 
-[![Open in Bolt](https://bolt.new/static/open-in-bolt.svg)](https://bolt.new/~/sb1-uojjfatb)
-
 Shopitrack es una plataforma que coordina a empresas de entrega y a sus clientes para que cada entrega a domicilio se realice en el momento acordado, reduciendo entregas fallidas y fortaleciendo la confianza en la última milla.
 
 ## Stack
@@ -27,6 +25,39 @@ npm run typecheck   # verificación de tipos
 npm run lint        # eslint
 npm run preview     # preview del build
 ```
+
+## Deploy en Vercel
+
+El proyecto ya está preparado para Vercel (SPA con React Router + fallback a `index.html`).
+
+Archivos clave:
+
+- `vercel.json` con:
+	- `framework: vite`
+	- `buildCommand: npm run build`
+	- `outputDirectory: dist`
+	- `rewrites` para rutas sin extensión (soporte `/empresas`, `/clientes`, etc.)
+
+### Opción 1: Conectar repositorio (recomendada)
+
+1. Entra a Vercel y selecciona **Add New Project**.
+2. Importa este repositorio.
+3. Verifica configuración:
+	 - Build Command: `npm run build`
+	 - Output Directory: `dist`
+4. Haz clic en **Deploy**.
+
+Con esto, cada `git push` genera un **Preview Deployment** con URL única para compartir avances con el cliente.
+
+### Opción 2: Deploy por CLI
+
+```bash
+npm i -g vercel
+vercel
+vercel --prod
+```
+
+Para revisión continua con cliente, conviene usar preview URLs por rama y dejar `--prod` solo para hitos aprobados.
 
 ## Páginas
 

@@ -16,7 +16,7 @@ La imagen JPG de referencia proporcionada. La imagen tiene prioridad sobre cualq
 
 ## 4. Design system
 
-Centralizado en `src/index.css` con variables CSS (`:root`). Colores, tipografía, spacing, radius, shadows y containers definidos como tokens. DaisyUI configurado con tema `shopitrack` en `tailwind.config.js`.
+Centralizado en `src/index.css` con variables CSS (`:root`). Colores, tipografía, spacing, radius, shadows y containers definidos como tokens. Tailwind CSS v4 + daisyUI v5 con tema `shopitrack` definido en `src/index.css` (`@plugin "daisyui/theme"`); ya no existe `tailwind.config.js`.
 
 ## 5. Componentes existentes
 
@@ -46,7 +46,7 @@ El proyecto usa `react-router-dom`. Crear `src/pages/<Page>.tsx`, reutilizar com
 ## 8. Qué no modificar sin justificación
 
 - Variables CSS en `:root` (colores, spacing, tipografía).
-- Tema DaisyUI en `tailwind.config.js`.
+- Tema DaisyUI (`@plugin "daisyui/theme"`) en `src/index.css`.
 - Contenido de `src/data/home.ts`.
 - Estructura de componentes existentes.
 
@@ -60,7 +60,7 @@ Usar `mcp__pexels__pexels_search` con una query descriptiva. Referenciar la URL 
 
 ## 11. DaisyUI
 
-Tema `shopitrack` configurado. Usar componentes DaisyUI cuando sea apropiado, pero no forzarlos si pierden fidelidad visual.
+Tailwind CSS v4 + daisyUI v5 (`@plugin "daisyui"` en `src/index.css`, plugin `@tailwindcss/vite` en `vite.config.ts`). Tema `shopitrack` configurado. Usar componentes DaisyUI cuando sea apropiado, pero no forzarlos si pierden fidelidad visual.
 
 ## 12. Responsive
 

@@ -14,4 +14,4 @@ export const steps = [
   ['05', 'La entrega se realiza, el cliente confirma la recepción y evalúa su experiencia.'],
 ];
 
-export const industries = ['Retail', 'Electrodomésticos', 'Muebles', 'Mejoramiento del hogar', 'Farmacias', 'Tecnología', 'Departamentales', 'Maquillaje', 'Materiales para construcción', 'Artículos deportivos'];
+export const industries = ['Retail', 'Electrodomésticos', 'Muebles', 'Mejoramiento del hogar', 'Farmacias', 'Tecnología', 'Departamentales', 'Marketplace', 'Materiales para construcción', 'Artículos deportivos'];

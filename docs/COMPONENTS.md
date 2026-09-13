@@ -74,3 +74,22 @@ import { ComingSoonSection } from '@/components/ComingSoonSection';
 | `eyebrow` | `string` | Etiqueta pequeña arriba del título |
 | `title` | `string` | Título centrado (h2) |
 | `description` | `string` | Texto explicativo, con CTA a `/contacto` |
+
+## Seo
+
+Actualiza `title`, `meta description`, `canonical`, `robots`, `og:*` y `twitter:*` en `index.html` al montar la página (la app es una SPA sin SSR, así que estos tags viven en el DOM y deben reescribirse por ruta). Debe ser el primer elemento renderizado en cada página. El contenido (`title`/`description`/`path`) se centraliza en `src/data/seo.ts` (`seoConfig`).
+
+```tsx
+import { Seo } from '@/components/Seo';
+import { seoConfig } from '@/data/seo';
+
+<Seo {...seoConfig.home} />
+```
+
+| Prop | Tipo | Descripción |
+|------|------|-------------|
+| `title` | `string` | `document.title` y `og:title`/`twitter:title` |
+| `description` | `string` | `meta[description]` y `og:description`/`twitter:description` |
+| `path` | `string` | Ruta usada para construir el `canonical` y `og:url` |
+| `noIndex` | `boolean?` | Si es `true`, setea `meta[robots]` a `noindex, follow` (usado en `NotFound`) |
+
