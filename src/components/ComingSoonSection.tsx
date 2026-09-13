@@ -5,7 +5,7 @@ import { SectionHeading } from '@/components/SectionHeading';
 export function ComingSoonSection({ eyebrow, title, description }: { eyebrow: string; title: string; description: string }) {
   return (
     <section className="hero wave-section">
-      <div className="container">
+      <div className="container" data-reveal>
         <SectionHeading eyebrow={eyebrow} title={title} centered />
         <p className="coming-soon-copy">{description}</p>
         <div className="coming-soon-actions">
