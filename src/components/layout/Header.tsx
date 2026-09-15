@@ -16,7 +16,7 @@ export function Header() {
             {item.label}
           </NavLink>
         ))}
-        <Link className="btn btn-primary btn-small" to="/contacto" onClick={() => setMenuOpen(false)}>
+        <Link className="hidden btn btn-primary btn-small" to="/contacto" onClick={() => setMenuOpen(false)}>
           Conoce más <ArrowRight size={15} />
         </Link>
       </nav>

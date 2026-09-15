@@ -29,7 +29,10 @@ export function Home() {
     <>
       <Seo {...seoConfig.home} />
       <div id="page-home" className="page page-home">
-        <section className="hero wave-section-bottom" aria-labelledby="hero-title">
+        <section
+          className="hero wave-section-bottom"
+          aria-labelledby="hero-title"
+        >
           <div className="container hero-grid">
             <div className="hero-copy">
               <h1 id="hero-title">
@@ -54,26 +57,28 @@ export function Home() {
           id="como-funciona"
           data-reveal
         >
-          <div className="container split-grid stretch">
-            <div className="photo-frame">
-              <img
-                src={images.courier}
-                alt="Repartidor caminando con una caja junto a un vehículo"
-                loading="lazy"
-              />
-            </div>
-            <div className="split-copy">
-              <h2>
-                La mayoría de las entregas fallidas no se deben a la logística.
-                Se deben a la falta de comunicación.
-              </h2>
-              <p>
-                Vehículos recorriendo kilómetros innecesarios. Clientes
-                esperando todo el día. Empresas reprogramando entregas.
-                Operadores perdiendo tiempo. Call centers saturados. Clientes
-                molestos. Y todo ocurre porque nadie confirmó algo muy sencillo.
-                ¿La fecha realmente funciona para ambas partes?
-              </p>
+          <div className="container">
+            <div className="split-grid stretch">
+              <div className="photo-frame photo-frame-blur-right">
+                <img
+                  src={images.courier}
+                  alt="Repartidor caminando con una caja junto a un vehículo"
+                  loading="lazy"
+                />
+              </div>
+              <div className="split-copy">
+                <h2>
+                  La mayoría de las entregas fallidas no se deben a la
+                  logística. Se deben a la falta de comunicación.
+                </h2>
+                <p>
+                  Vehículos recorriendo kilómetros innecesarios. Clientes
+                  esperando todo el día. Empresas reprogramando entregas.
+                  Operadores perdiendo tiempo. Call centers saturados. Clientes
+                  molestos. Y todo ocurre porque nadie confirmó algo muy
+                  sencillo. ¿La fecha realmente funciona para ambas partes?
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -82,20 +87,30 @@ export function Home() {
           <div className="container">
             <SectionHeading title="Dos historias. Un mismo problema." />
             <div className="story-grid">
-              <InfoCard
-                icon={<Building2 />}
-                title="Empresa"
-                label="Programó. Preparó. Asignó."
-              >
-                Despatch. Pero encontró una puerta cerrada.
-              </InfoCard>
               <article className="story-card">
                 <img
-                  src={images.customer}
+                  src={images.company}
+                  alt="Empresa recibiendo una entrega"
+                  loading="lazy"
+                />
+                <div className="story-text">
+                  <div className="round-icon">
+                    <Building2 />
+                  </div>
+                  <strong>Empresa</strong>
+                  <h3>
+                    Programó. Preparó. Asigno. Despachó. Pero encontró una
+                    puerta cerrada.
+                  </h3>
+                </div>
+              </article>
+              <article className="story-card story-reverse">
+                <img
+                  src={images.customerAngry}
                   alt="Cliente esperando una entrega en casa"
                   loading="lazy"
                 />
-                <div>
+                <div className="story-text">
                   <div className="round-icon">
                     <CircleUserRound />
                   </div>
@@ -115,9 +130,9 @@ export function Home() {
           </div>
         </section>
 
-        <section className="cost-section section wave-section-bottom" data-reveal>
+        <section className="cost-section wave-section-bottom" data-reveal>
           <div className="container cost-grid">
-            <div>
+            <div className="cost-text">
               <SectionHeading title="El costo invisible" />
               <p>
                 Hasta ahora hablamos de emociones. Ahora hablamos de negocios.
@@ -128,7 +143,7 @@ export function Home() {
                 terminó. No cómo empezó.
               </p>
             </div>
-            <div className="cost-art">
+            <div className="cost-art photo-frame photo-frame--wide">
               <img
                 src={images.operator}
                 alt="Operadora revisando información de entregas"
@@ -147,7 +162,7 @@ export function Home() {
           </div>
         </section>
 
-        <section className="new-way section wave-section-bottom" data-reveal>
+        <section className="new-way-section wave-section-bottom" data-reveal>
           <div className="container split-grid split-grid--reverse">
             <div className="split-copy">
               <h2>Una nueva forma de entender la última milla.</h2>
@@ -159,7 +174,7 @@ export function Home() {
                 completamente la conversación.
               </p>
             </div>
-            <div className="photo-frame photo-frame--wide">
+            <div className="lastmile-art photo-frame photo-frame--wide">
               <img
                 src={images.delivery}
                 alt="Cliente y repartidor coordinando la entrega de un paquete"
@@ -176,7 +191,10 @@ export function Home() {
           </div>
         </section>
 
-        <section className="steps-section section wave-section-bottom" data-reveal>
+        <section
+          className="steps-section section wave-section-bottom"
+          data-reveal
+        >
           <div className="container">
             <SectionHeading
               title="Cinco pasos. Una mejor experiencia de entrega."

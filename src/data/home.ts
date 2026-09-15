@@ -1,8 +1,10 @@
 export const images = {
-  courier: '/images/entrgando-delivery-shopi.jpeg',
-  customer: 'https://images.pexels.com/photos/6869055/pexels-photo-6869055.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-  operator: 'https://images.pexels.com/photos/7706523/pexels-photo-7706523.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-  delivery: 'https://images.pexels.com/photos/8989470/pexels-photo-8989470.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  courier: '/images/repartidor.jpeg',
+  company: '/images/logistics-issues.jpeg',
+  customer: '/images/entrega-feliz.png',
+  customerAngry: '/images/cliente-preocupado.jpg',
+  operator: '/images/kpis-shopitrack.jpeg',
+  delivery: '/images/shopi-atencion-cliente.jpeg',
 };
 
 export const steps = [
