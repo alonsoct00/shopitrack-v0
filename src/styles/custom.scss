@@ -100,12 +100,13 @@ $page-break-mobile: 960px;
 
             background: linear-gradient(120deg, rgb(1 57 131/ 99%) 30%, rgba(255, 255, 255, 0.05) 100%), url(/images/ultima-milla.jpeg) no-repeat right center !important;
             background-size: cover !important;
+
             p {
-                    font-size: 18px;
-                    width: 100%;
-                    max-width: 50%;
-                    line-height: 1.6;
-                }
+                font-size: 18px;
+                width: 100%;
+                max-width: 50%;
+                line-height: 1.6;
+            }
         }
 
         .industries {
@@ -133,6 +134,16 @@ $page-break-mobile: 960px;
         @media (max-width: $page-break-mobile) {
             .hero {
                 background-position: 62% center;
+            }
+
+            .trust-section {
+                background-size: cover !important;
+            }
+
+            .promise-section {
+                p  {
+                    max-width: 100%;
+                }
             }
         }
     }

@@ -174,7 +174,7 @@ a:focus-visible {
 }
 
 .section-heading {
-  max-width: auto;
+  max-width: 100%;
   margin-bottom: 42px;
 }
 
@@ -307,9 +307,10 @@ p.small {
   margin: 16px 0;
   border-radius: 6px;
   border: 1px solid transparent;
-  padding: 16px 14px;
-  font-size: 12px;
-  font-weight: 800;
+  padding: 0 14px;
+  height: 60px;
+  font-size: 16px;
+  font-weight: normal;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -1216,7 +1217,7 @@ p.small {
   }
 
   .section {
-    padding: 66px 0;
+    padding: 40px 0;
   }
 
   .hero {
@@ -1340,12 +1341,30 @@ p.small {
   }
 
   .section {
-    padding: 66px 0;
+    padding: 30px 0;
+  }
+
+  .section .btn {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .section-heading h2,
+  .split-copy h2 {
+    font-size: 2rem;
   }
 
   .hero {
     min-height: auto;
     padding: 110px 0 70px;
+  }
+
+  .hero-copy h1 {
+    font-size: 2rem;
+  }
+
+  .hero-copy .btn {
+    width: 100%;
   }
 
   .hero-grid,
@@ -1383,19 +1402,61 @@ p.small {
     order: initial;
   }
 
+
+  .photo-frame {
+    position: relative;
+    min-height: fit-content;
+  }
+
   .photo-frame img,
   .cost-art>img {
-    height: 290px;
+    height: auto
   }
 
   .dashboard-card,
   .calendar-card {
-    left: 12px;
+    position: relative;
+  }
+
+  .story-card {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse !important;
+  }
+
+  .story-card .story-text {
+    padding: 16px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .story-text strong {
+    text-align: center;
+    width: 100%;
+  }
+
+  .story-text h3 {
+    flex: 0 0 100%;
+  }
+
+  .story-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
   }
 
   .story-grid,
   .change-grid {
     grid-template-columns: 1fr;
+  }
+
+  .story-divider {
+    text-align: center;
+    gap: 10px;
   }
 
   .steps-list {
@@ -1421,6 +1482,7 @@ p.small {
     justify-content: center;
     margin: 10px 0;
     transform: rotate(90deg);
+    position: relative;
   }
 
   .step-line i svg {
@@ -1431,6 +1493,18 @@ p.small {
     margin: 5px 0 0;
     max-width: 260px;
   }
+
+  .over-img {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 0;
+    top: -40px;
+    margin-bottom: 16px;
+    height: 100%;
+  }
+
+
 
   .trust-grid {
     padding-block: 0;
@@ -1443,6 +1517,11 @@ p.small {
 
   .industry-list {
     gap: 9px 15px;
+    grid-template-columns: 1fr;
+  }
+
+  .promise-section p {
+    width: 100%;
   }
 
   .collage {
@@ -1463,6 +1542,11 @@ p.small {
     min-height: 255px;
   }
 
+  .new-way-section {
+    position: relative;
+    padding-top: 20px;
+  }
+
   .contact-section h2 {
     font-size: 2.1rem;
   }
@@ -1478,6 +1562,13 @@ p.small {
   .site-footer {
     min-height: 68px;
   }
+
+  .contact-actions .btn {
+    width: 100%;
+    height: 60px;
+    font-size: 16px;
+    font-weight: normal;
+  }
 }
 
 @media (max-width: 390px) {
@@ -1492,13 +1583,6 @@ p.small {
     font-size: 2.25rem;
   }
 
-  .story-card>div {
-    padding-right: 12px;
-  }
-
-  .story-card img {
-    width: 42%;
-  }
 }
 
 html.reveal-ready [data-reveal] {
