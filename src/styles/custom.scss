@@ -1,0 +1,203 @@
+/*
+  Espacio para overrides personalizados.
+  Se carga después de index.css para que tus reglas tengan prioridad.
+*/
+
+$page-break-mobile: 960px;
+
+.page {
+    &.page-home {
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(120deg, rgb(153 203 247 / 20%) 0%, rgba(255, 255, 255, 0.05) 100%), url(/images/hero-img.png) no-repeat center center !important;
+            background-size: cover !important;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            filter: blur(10px);
+            -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%);
+            mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%);
+            z-index: 1;
+            background: rgb(153 203 247 / 90%);
+        }
+
+        .hero>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            pointer-events: none;
+            z-index: 1;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' preserveAspectRatio='none'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-opacity='0.4' d='M0,192 C320,260 420,60 720,160 C1020,260 1120,60 1440,160'/%3E%3Cpath fill='none' stroke='%2399cbf7' stroke-width='1.5' stroke-opacity='0.6' d='M0,224 C320,290 420,90 720,190 C1020,290 1120,90 1440,190'/%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.3' d='M0,256 C320,320 420,120 720,220 C1020,320 1120,120 1440,220'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 100%);
+        }
+
+        #como-funciona {
+
+            position: relative;
+
+        }
+
+        .cost-section {
+            .cost-text {
+                padding: 20px;
+            }
+        }
+
+        .steps-section {
+            background: linear-gradient(120deg, rgb(230 241 250/ 90%) 30%, rgba(255, 255, 255, 0.05) 100%)
+        }
+
+        .changes {
+            .change-grid {
+                .info-card {
+                    .round-icon {
+                        width: 68px;
+                        height: 68px;
+                        margin: auto;
+                        background-color: #e5f2ff;
+                        flex: 0 1 auto;
+                        margin: 0;
+
+                        svg {
+                            font-size: 18px;
+                            width: 100%;
+                            height: 50%;
+                            color: rgb(var(--color-blue));
+                        }
+                    }
+                }
+            }
+        }
+
+        .trust-section {
+            background: linear-gradient(120deg, rgb(1 57 131/ 99%) 30%, rgba(255, 255, 255, 0.05) 100%), url(/images/entrega-feliz.png) no-repeat right center !important;
+            background-size: contain !important;
+
+            .trust-grid {
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .promise-section {
+
+            background: linear-gradient(120deg, rgb(1 57 131/ 99%) 30%, rgba(255, 255, 255, 0.05) 100%), url(/images/ultima-milla.jpeg) no-repeat right center !important;
+            background-size: cover !important;
+
+            p {
+                font-size: 18px;
+                width: 100%;
+                max-width: 50%;
+                line-height: 1.6;
+            }
+        }
+
+        .industries {
+            .industry-list {
+                li {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .contact-section {
+            h2 {
+                margin-bottom: 16px;
+            }
+        }
+
+
+
+        @media (max-width: 1024px) and (min-width: $page-break-mobile) {
+            .hero {
+                background-position: center 42%;
+            }
+        }
+
+        @media (max-width: $page-break-mobile) {
+
+            .hero {
+                overflow: hidden;
+                background: linear-gradient(350deg, rgb(24 89 147) 0%, rgb(255 255 255 / 9%) 100%), url(/images/hero-img.png) no-repeat center bottom !important;
+                background-size: 100% !important;
+                &:before {
+                    display: none;
+                }
+            }
+
+            .trust-section {
+                background-size: cover !important;
+            }
+
+            .promise-section {
+                p  {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    &.page-empresas {
+        /* Ejemplo: hero exclusivo de Empresas */
+        // .hero { }
+    }
+
+    &.page-clientes {
+        /* Ejemplo: hero exclusivo de Clientes */
+        // .hero { }
+    }
+
+    &.page-industrias {
+        /* Ejemplo: hero exclusivo de Industrias */
+        // .hero { }
+    }
+
+    &.page-contacto {
+        /* Ejemplo: hero exclusivo de Contacto */
+        // .hero { }
+    }
+
+    &.page-not-found {
+        /* Ejemplo: hero exclusivo de 404 */
+        // .hero { }
+    }
+}
+
+/* Utilidad opcional para desktop/mobile por página */
+@mixin mobile-only {
+    @media (max-width: $page-break-mobile) {
+        @content;
+    }
+}
+
+/*
+Uso sugerido:
+.page-home {
+  .hero {
+    background: linear-gradient(120deg, #eef7ff 0%, #ffffff 100%);
+  }
+
+  @include mobile-only {
+    .hero {
+      padding-top: 96px;
+    }
+  }
+}
+*/

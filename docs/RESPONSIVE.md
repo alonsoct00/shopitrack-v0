@@ -3,7 +3,7 @@
 ## Breakpoints
 
 | Nombre | Rango | Comportamiento |
-|--------|-------|---------------|
+| -------- | ------- | --------------- |
 | Mobile | ≤ 800px | Una columna, menú hamburguesa, steps verticales |
 | Tablet | 801–1024px | Dos columnas, espaciado reducido |
 | Desktop | 1025–1280px | Layout completo de la referencia |

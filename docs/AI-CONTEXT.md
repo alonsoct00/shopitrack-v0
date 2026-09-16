@@ -18,6 +18,8 @@ La imagen JPG de referencia proporcionada. La imagen tiene prioridad sobre cualq
 
 Centralizado en `src/index.css` con variables CSS (`:root`). Colores, tipografía, spacing, radius, shadows y containers definidos como tokens. Tailwind CSS v4 + daisyUI v5 con tema `shopitrack` definido en `src/index.css` (`@plugin "daisyui/theme"`); ya no existe `tailwind.config.js`.
 
+Los overrides personalizados van en `src/styles/custom.scss` (importado en `src/main.tsx` después de `index.css`).
+
 ## 5. Componentes existentes
 
 - `Brand` — logo + nombre
@@ -29,6 +31,8 @@ Centralizado en `src/index.css` con variables CSS (`:root`). Colores, tipografí
 ## 6. Cómo crear nuevas páginas
 
 El proyecto usa `react-router-dom`. Crear `src/pages/<Page>.tsx`, reutilizar componentes existentes, importar contenido desde `src/data/`, usar clases del design system (`.container`, `.section`, `.btn`, etc.), registrar la ruta en `src/App.tsx` y en `siteNav` (`src/data/navigation.ts`) si va en el menú. Si no existe el mockup de Figma, usar `ComingSoonSection`.
+
+Cada página debe tener wrapper propio (`id` + clase `page page-<ruta>`) para permitir estilos aislados. Ejemplos activos: `page-home`, `page-empresas`, `page-clientes`, `page-industrias`, `page-contacto`, `page-not-found`.
 
 ## 7. Reglas a respetar
 
@@ -53,6 +57,8 @@ El proyecto usa `react-router-dom`. Crear `src/pages/<Page>.tsx`, reutilizar com
 ## 9. Cómo mantener consistencia visual
 
 Usar las clases reutilizables (`.section`, `.wave-section`, `.split-grid`, `.info-card`, `.btn`) antes de crear estilos nuevos.
+
+Cuando necesites estilos específicos por ruta, aplicar scope en `src/styles/custom.scss` con `.page-<ruta> .hero` (u otro selector) para evitar impactos cruzados.
 
 ## 10. Cómo agregar nuevas imágenes
 

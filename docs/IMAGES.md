@@ -3,7 +3,7 @@
 Todas las imágenes son fotografías de Pexels (licencia libre) seleccionadas para reproducir el concepto visual de la referencia.
 
 | Ubicación | URL | Alt | Finalidad |
-|-----------|-----|-----|-----------|
+| ----------- | ----- | ----- | ----------- |
 | Hero | `pexels-photo-7363128` | Repartidora revisando su teléfono | Hero principal |
 | Split 1 | `pexels-photo-6699423` | Repartidor con caja | Sección "Cómo funciona" |
 | Story card | `pexels-photo-6869055` | Cliente esperando entrega | Tarjeta "Cliente" |

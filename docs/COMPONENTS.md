@@ -9,7 +9,7 @@ Logo de Shopitrack con icono de lucide-react.
 ```
 
 | Prop | Tipo | Descripción |
-|------|------|-------------|
+| ---- | ---- | ----------- |
 | `light` | `boolean` | Versión para fondos oscuros |
 
 ## SectionHeading
@@ -21,7 +21,7 @@ Encabezado de sección con eyebrow opcional.
 ```
 
 | Prop | Tipo | Descripción |
-|------|------|-------------|
+| ---- | ---- | ----------- |
 | `eyebrow` | `string?` | Etiqueta pequeña arriba del título |
 | `title` | `string` | Título de la sección |
 | `centered` | `boolean` | Centra el contenido |
@@ -37,7 +37,7 @@ Tarjeta con icono circular, título, label y descripción.
 ```
 
 | Prop | Tipo | Descripción |
-|------|------|-------------|
+| ---- | ---- | ----------- |
 | `icon` | `ReactNode` | Icono lucide-react |
 | `title` | `string` | Texto destacado en azul |
 | `label` | `string` | Subtítulo/h3 |
@@ -70,7 +70,7 @@ import { ComingSoonSection } from '@/components/ComingSoonSection';
 ```
 
 | Prop | Tipo | Descripción |
-|------|------|-------------|
+| ---- | ---- | ----------- |
 | `eyebrow` | `string` | Etiqueta pequeña arriba del título |
 | `title` | `string` | Título centrado (h2) |
 | `description` | `string` | Texto explicativo, con CTA a `/contacto` |
@@ -87,9 +87,21 @@ import { seoConfig } from '@/data/seo';
 ```
 
 | Prop | Tipo | Descripción |
-|------|------|-------------|
+| ---- | ---- | ----------- |
 | `title` | `string` | `document.title` y `og:title`/`twitter:title` |
 | `description` | `string` | `meta[description]` y `og:description`/`twitter:description` |
 | `path` | `string` | Ruta usada para construir el `canonical` y `og:url` |
 | `noIndex` | `boolean?` | Si es `true`, setea `meta[robots]` a `noindex, follow` (usado en `NotFound`) |
 
+## Wrappers de página (convención)
+
+No es un componente reutilizable, pero sí una convención activa del proyecto para aislar estilos:
+
+- Home: `#page-home.page.page-home`
+- Empresas: `#page-empresas.page.page-empresas`
+- Clientes: `#page-clientes.page.page-clientes`
+- Industrias: `#page-industrias.page.page-industrias`
+- Contacto: `#page-contacto.page.page-contacto`
+- NotFound: `#page-not-found.page.page-not-found`
+
+Estos wrappers permiten personalizar `hero` o secciones por ruta sin afectar otras páginas. Ejemplo: `.page-clientes .hero { ... }`.
