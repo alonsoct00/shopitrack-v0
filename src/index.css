@@ -117,7 +117,7 @@ a:focus-visible {
 }
 
 .section {
-  padding: 92px 0;
+  padding: 60px 0;
   position: relative;
 }
 
@@ -293,9 +293,10 @@ p.small {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  margin: 16px 0;
   border-radius: 6px;
   border: 1px solid transparent;
-  padding: 13px 19px;
+  padding: 16px 14px;
   font-size: 12px;
   font-weight: 800;
   transition:
@@ -317,11 +318,19 @@ p.small {
 .btn-coral {
   background: rgb(var(--color-coral));
   color: white;
+  box-shadow: none;
 }
 
 .btn-outline {
   border-color: rgb(255 255 255 / 65%);
   color: white;
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background: rgb(var(--color-blue));
+  color: white;
+  box-shadow: none;
 }
 
 .btn-small {
@@ -535,8 +544,8 @@ p.small {
   border: 1px solid #deebf8;
   border-radius: 9px;
   min-height: 280px;
-    gap: 0;
-    align-items: stretch;
+  gap: 0;
+  align-items: stretch;
 
 }
 
@@ -594,10 +603,10 @@ p.small {
 
 .story-card .story-text {
   padding: 16px;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: center;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
 }
 
 .story-divider {
@@ -745,11 +754,11 @@ p.small {
 
 .calendar-card {
   position: absolute;
-    left: auto;
-    right: 20px;
-    top: 0;
-    bottom: 0;
-    transform: translateY(50%);
+  left: auto;
+  right: 20px;
+  top: 0;
+  bottom: 0;
+  transform: translateY(50%);
   width: 180px;
   height: 155px;
   padding: 18px;
@@ -868,17 +877,46 @@ p.small {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.info-card {
+  .round-icon {
+    width: 68px;
+    height: 68px;
+    margin: auto;
+    background-color: #e5f2ff;
+
+    svg {
+      font-size: 18px;
+      width: 100%;
+      height: 50%;
+      color: rgb(var(--color-blue));
+    }
+  }
+}
+
 .change-grid .info-card {
-  min-height: 140px;
+  min-height: 160px;
   padding: 20px;
+  gap: 16px;
+  align-items: center;
+  justify-content: normal;
+}
+
+.change-grid .info-card h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(var(--color-blue));
+  margin-bottom: 8px;
 }
 
 .change-grid .info-card h3 {
-  font-size: 13px;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 0;
 }
 
 .change-grid .info-card p {
-  font-size: 11px;
+  font-size: 13px;
+  margin: 0;
 }
 
 .trust-section {
@@ -901,9 +939,8 @@ p.small {
 }
 
 .trust-grid p {
-  max-width: 440px;
-  font-size: 13px;
-  opacity: 0.95;
+  max-width: auto;
+  font-size: 16px;
 }
 
 .trust-grid img {

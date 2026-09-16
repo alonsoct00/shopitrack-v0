@@ -99,8 +99,8 @@ export function Home() {
                   </div>
                   <strong>Empresa</strong>
                   <h3>
-                    Programó. Preparó. Asigno. Despachó. Pero encontró una
-                    puerta cerrada.
+                    Programó. Preparó. Asigno. Despachó. <br />
+                    Pero encontró una puerta cerrada.
                   </h3>
                 </div>
               </article>
@@ -116,8 +116,8 @@ export function Home() {
                   </div>
                   <strong>Cliente</strong>
                   <h3>
-                    Compró. Canceló actividades. Nunca supo exactamente cuándo
-                    llegaría.
+                    Compró. Canceló actividades. <br />
+                    Nunca supo exactamente cuándo llegaría.
                   </h3>
                 </div>
               </article>
@@ -267,7 +267,7 @@ export function Home() {
 
         <section className="trust-section section" data-reveal>
           <div className="container trust-grid">
-            <div>
+            <div className="trust-text">
               <h2>Confianza</h2>
               <p>
                 Las empresas entregan productos. Pero realmente cumplen
@@ -276,11 +276,6 @@ export function Home() {
                 Vendemos confianza.
               </p>
             </div>
-            <img
-              src={images.customer}
-              alt="Cliente recibiendo un paquete de su repartidor"
-              loading="lazy"
-            />
           </div>
         </section>
 

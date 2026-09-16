@@ -59,6 +59,71 @@ $page-break-mobile: 800px;
             }
         }
 
+        .steps-section {
+            background: linear-gradient(120deg, rgb(230 241 250/ 90%) 30%, rgba(255, 255, 255, 0.05) 100%)
+        }
+
+        .changes {
+            .change-grid {
+                .info-card {
+                    .round-icon {
+                        width: 68px;
+                        height: 68px;
+                        margin: auto;
+                        background-color: #e5f2ff;
+                        flex: 0 1 auto;
+                        margin: 0;
+
+                        svg {
+                            font-size: 18px;
+                            width: 100%;
+                            height: 50%;
+                            color: rgb(var(--color-blue));
+                        }
+                    }
+                }
+            }
+        }
+
+        .trust-section {
+            background: linear-gradient(120deg, rgb(1 57 131/ 99%) 30%, rgba(255, 255, 255, 0.05) 100%), url(/images/entrega-feliz.png) no-repeat right center !important;
+            background-size: contain !important;
+
+            .trust-grid {
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .promise-section {
+
+            background: linear-gradient(120deg, rgb(1 57 131/ 99%) 30%, rgba(255, 255, 255, 0.05) 100%), url(/images/ultima-milla.jpeg) no-repeat right center !important;
+            background-size: cover !important;
+            p {
+                    font-size: 18px;
+                    width: 100%;
+                    max-width: 50%;
+                    line-height: 1.6;
+                }
+        }
+
+        .industries {
+            .industry-list {
+                li {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .contact-section {
+            h2 {
+                margin-bottom: 16px;
+            }
+        }
+
+
+
         @media (min-width: 1025px) {
             .hero {
                 background-position: center 42%;
