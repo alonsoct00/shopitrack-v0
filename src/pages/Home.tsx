@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
-  BarChart3,
   Building2,
   CalendarDays,
   Check,
@@ -149,14 +148,12 @@ export function Home() {
                 alt="Operadora revisando información de entregas"
                 loading="lazy"
               />
-              <div className="dashboard-card">
-                <div />
-                <div />
-                <div />
-                <div />
-                <b />
-                <b />
-                <b />
+              <div className="over-img dashboard-card-image">
+                <img
+                  src={images.dashboardCard}
+                  alt="Dashboard card"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
@@ -180,12 +177,12 @@ export function Home() {
                 alt="Cliente y repartidor coordinando la entrega de un paquete"
                 loading="lazy"
               />
-              <div className="calendar-card">
-                <CalendarDays size={23} />
-                <span />
-                <span />
-                <span />
-                <span />
+              <div className="over-img calendar-card">
+                <img
+                  src={images.calendarCard}
+                  alt="Calendar card"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
@@ -302,7 +299,10 @@ export function Home() {
                 Explorar industrias <ArrowRight size={16} />
               </Link>
             </div>
-            <div className="collage">
+            <div className="industries-collage">
+              <img src={images.industriesImg} alt="Industrias" loading="lazy" />
+            </div>
+            <div className="collage hidden">
               <img
                 src={images.delivery}
                 alt="Entrega en tienda"
@@ -359,23 +359,11 @@ export function Home() {
               </div>
             </div>
             <div className="device-mockup">
-              <div className="laptop-screen">
-                <div className="mock-chart">
-                  <BarChart3 />
-                </div>
-                <div className="mock-bars">
-                  <i />
-                  <i />
-                  <i />
-                  <i />
-                </div>
-              </div>
-              <div className="phone-screen">
-                <div />
-                <div />
-                <strong />
-                <span />
-              </div>
+              <img
+                src={images.deviceMockup}
+                alt="Device mockup"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>

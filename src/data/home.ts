@@ -5,6 +5,10 @@ export const images = {
   customerAngry: "/images/cliente-preocupado.jpg",
   operator: "/images/kpis-shopitrack.jpeg",
   delivery: "/images/shopi-atencion-cliente.jpeg",
+  deviceMockup: "/images/pc-shopi.png",
+  dashboardCard: "/images/graficas-shopi.png",
+  calendarCard: "/images/calendario-shopi.png",
+  industriesImg: "/images/industrias.png",
 };
 
 export const steps = [

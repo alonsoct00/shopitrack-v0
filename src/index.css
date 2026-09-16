@@ -123,6 +123,7 @@ a:focus-visible {
 
 .wave-section {
   position: relative;
+  overflow: hidden;
 }
 
 .wave-section-bottom::after {
@@ -140,7 +141,6 @@ a:focus-visible {
   transform: rotate(-4deg);
   bottom: -50px;
   top: auto;
-  left: 0;
   right: 0;
   margin: 0 auto;
 }
@@ -160,7 +160,6 @@ a:focus-visible {
   transform: rotate(-4deg);
   bottom: auto;
   top: 20px;
-  left: 0;
   right: 0;
   margin: 0 auto;
 }
@@ -232,7 +231,19 @@ p.small {
 
 .hidden {
   visibility: hidden;
-  display: none;
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .site-header {
@@ -513,7 +524,6 @@ p.small {
   object-fit: cover;
   border-radius: 0;
   display: block;
-  box-shadow: var(--shadow-soft);
 }
 
 .split-copy h2 {
@@ -667,42 +677,18 @@ p.small {
   transform: scaleX(-1);
 }
 
-.dashboard-card {
+.dashboard-card-image {
   position: absolute;
   left: -40px;
-  top: 52px;
-  width: 210px;
-  height: 170px;
-  padding: 18px;
+  top: 50px;
+  height: 220px;
+  padding: 0;
   border-radius: 10px;
-  background: white;
-  box-shadow: var(--shadow-soft);
   display: flex;
   align-items: end;
   gap: 7px;
 }
 
-.dashboard-card div {
-  width: 25px;
-  background: #d5e6fb;
-  height: 32%;
-  border-radius: 4px 4px 0 0;
-}
-
-.dashboard-card div:nth-child(2) {
-  height: 55%;
-  background: #8bbcf9;
-}
-
-.dashboard-card div:nth-child(3) {
-  height: 84%;
-  background: rgb(var(--color-blue));
-}
-
-.dashboard-card div:nth-child(4) {
-  height: 67%;
-  background: #4b91ee;
-}
 
 .dashboard-card b {
   position: absolute;
@@ -755,17 +741,21 @@ p.small {
 .calendar-card {
   position: absolute;
   left: auto;
-  right: 20px;
-  top: 0;
+  right: -50px;
   bottom: 0;
-  transform: translateY(50%);
-  width: 180px;
-  height: 155px;
-  padding: 18px;
-  background: white;
+  top: 50px;
+  height: 220px;
+  padding: 0;
   border-radius: 10px;
-  box-shadow: var(--shadow-soft);
-  color: rgb(var(--color-blue));
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    overflow: hidden;
+  }
 }
 
 .calendar-card span {

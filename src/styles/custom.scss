@@ -3,7 +3,7 @@
   Se carga después de index.css para que tus reglas tengan prioridad.
 */
 
-$page-break-mobile: 800px;
+$page-break-mobile: 960px;
 
 .page {
     &.page-home {
@@ -124,7 +124,7 @@ $page-break-mobile: 800px;
 
 
 
-        @media (min-width: 1025px) {
+        @media (max-width: 1024px) and (min-width: $page-break-mobile) {
             .hero {
                 background-position: center 42%;
             }
