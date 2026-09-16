@@ -132,8 +132,14 @@ $page-break-mobile: 960px;
         }
 
         @media (max-width: $page-break-mobile) {
+
             .hero {
-                background-position: 62% center;
+                overflow: hidden;
+                background: linear-gradient(350deg, rgb(24 89 147) 0%, rgb(255 255 255 / 9%) 100%), url(/images/hero-img.png) no-repeat center bottom !important;
+                background-size: 100% !important;
+                &:before {
+                    display: none;
+                }
             }
 
             .trust-section {
