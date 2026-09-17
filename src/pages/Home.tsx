@@ -63,9 +63,10 @@ export function Home() {
                   src={images.courier}
                   alt="Repartidor caminando con una caja junto a un vehículo"
                   loading="lazy"
+                  className="photo-frame-img visible md:invisible"
                 />
               </div>
-              <div className="split-copy">
+              <div className="split-copy md:flex md:items-center md:content-center flex-wrap">
                 <h2>
                   La mayoría de las entregas fallidas no se deben a la
                   logística. Se deben a la falta de comunicación.
@@ -86,7 +87,7 @@ export function Home() {
           <div className="container">
             <SectionHeading title="Dos historias. Un mismo problema." />
             <div className="story-grid">
-              <article className="story-card">
+              <article className="story-card blur-right">
                 <img
                   src={images.company}
                   alt="Empresa recibiendo una entrega"
@@ -103,7 +104,7 @@ export function Home() {
                   </h3>
                 </div>
               </article>
-              <article className="story-card story-reverse">
+              <article className="story-card blur-left story-reverse">
                 <img
                   src={images.customerAngry}
                   alt="Cliente esperando una entrega en casa"
@@ -130,8 +131,8 @@ export function Home() {
         </section>
 
         <section className="cost-section wave-section-bottom" data-reveal>
-          <div className="container cost-grid">
-            <div className="cost-text">
+          <div className="container cost-grid split-grid">
+            <div className="split-copy cost-text">
               <SectionHeading title="El costo invisible" />
               <p>
                 Hasta ahora hablamos de emociones. Ahora hablamos de negocios.
@@ -142,11 +143,12 @@ export function Home() {
                 terminó. No cómo empezó.
               </p>
             </div>
-            <div className="cost-art photo-frame photo-frame--wide">
+            <div className="cost-art photo-frame-blur photo-frame photo-frame--wide">
               <img
                 src={images.operator}
                 alt="Operadora revisando información de entregas"
                 loading="lazy"
+                className="photo-frame-img visible md:invisible"
               />
               <div className="over-img dashboard-card-image">
                 <img
@@ -159,9 +161,12 @@ export function Home() {
           </div>
         </section>
 
-        <section className="new-way-section wave-section-bottom" data-reveal>
-          <div className="container split-grid split-grid--reverse">
-            <div className="split-copy">
+        <section
+          className="new-way-section mt-0 wave-section-bottom"
+          data-reveal
+        >
+          <div className="container lastmile-grid split-grid split-grid--reverse">
+            <div className="split-copy lastmile-text">
               <h2>Una nueva forma de entender la última milla.</h2>
               <p>
                 Aquí ocurre el cambio real. La industria lleva años
@@ -171,11 +176,12 @@ export function Home() {
                 completamente la conversación.
               </p>
             </div>
-            <div className="lastmile-art photo-frame photo-frame--wide">
+            <div className="lastmile-art photo-frame-blur photo-frame photo-frame--wide">
               <img
                 src={images.delivery}
                 alt="Cliente y repartidor coordinando la entrega de un paquete"
                 loading="lazy"
+                className="photo-frame-img visible md:invisible"
               />
               <div className="over-img calendar-card">
                 <img
@@ -292,11 +298,11 @@ export function Home() {
                 ))}
               </ul>
               <p>
-                Cada industria comparte exactamente el mismo reto. Coordinar
+                Cada sector comparte exactamente el mismo reto. Coordinar
                 personas. No únicamente entregas.
               </p>
-              <Link className="btn btn-primary" to="/industrias">
-                Explorar industrias <ArrowRight size={16} />
+              <Link className="btn btn-primary" to="/sectores">
+                Explorar sectores <ArrowRight size={16} />
               </Link>
             </div>
             <div className="industries-collage">

@@ -35,18 +35,14 @@
 .photo-frame-blur-right::after {
   content: "";
   position: absolute;
-  top: 0;
+  top: 0px;
   right: 0;
   bottom: 0;
-  width: 40%;
+  width: 17%;
   height: 100%;
-  background-image: inherit;
-  background-size: cover;
-  background-position: right;
-  filter: blur(10px);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 100%);
+  filter: blur(14px);
   z-index: 1;
+  background: var(--surface);
 }
 
 .photo-frame img {
@@ -92,7 +88,7 @@
   width: 100%;
   object-fit: cover;
   border-radius: 0;
-  transform: scaleX(-1);
+  //transform: scaleX(-1);
 }
 
 .dashboard-card-image {

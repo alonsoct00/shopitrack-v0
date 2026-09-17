@@ -3,7 +3,7 @@ import { MainLayout } from '@/components/layout/MainLayout';
 import { Home } from '@/pages/Home';
 import { Empresas } from '@/pages/Empresas';
 import { Clientes } from '@/pages/Clientes';
-import { Industrias } from '@/pages/Industrias';
+import { Industrias } from '@/pages/Sectores';
 import { Contacto } from '@/pages/Contacto';
 import { NotFound } from '@/pages/NotFound';
 

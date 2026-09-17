@@ -3,7 +3,7 @@ export const images = {
   company: "/images/logistics-issues.jpeg",
   customer: "/images/entrega-feliz.png",
   customerAngry: "/images/cliente-preocupado.jpg",
-  operator: "/images/kpis-shopitrack.jpeg",
+  operator: "/images/atencion-confianza.jpeg",
   delivery: "/images/shopi-atencion-cliente.jpeg",
   deviceMockup: "/images/pc-shopi.png",
   dashboardCard: "/images/graficas-shopi.png",
