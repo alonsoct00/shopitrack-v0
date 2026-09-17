@@ -1,6 +1,8 @@
 # Design System — Shopitrack
 
-## Colores (variables CSS en `:root`)
+El design system vive en `src/styles/` como partials SCSS (`tokens`, `base`, `layout`, `typography`, `buttons`, `hero`, `cards`, `sections`, `responsive`, `animations`), agregados por `src/styles/design-system.scss` e importados en `src/main.tsx` después de `src/index.css` (Tailwind + tema DaisyUI) y antes de `src/styles/custom.scss` (overrides por página). Ver [docs/ARCHITECTURE.md](./ARCHITECTURE.md) para el detalle de cada archivo.
+
+## Colores (variables CSS en `:root`, definidas en `src/styles/tokens.scss`)
 
 | Token | Valor | Uso |
 | ------- | ------- | ----- |
@@ -49,7 +51,7 @@
 
 ## DaisyUI Theme (`shopitrack`)
 
-El proyecto usa Tailwind CSS v4 + daisyUI v5. Ya no hay `tailwind.config.js` (deprecado en v4); el plugin `@tailwindcss/vite` se configura en `vite.config.ts`, y el tema `shopitrack` se define directamente en `src/index.css` con `@plugin "daisyui/theme" { name: "shopitrack"; ... }`: `primary: #1264e8`, `accent: #ff6848`, `base-100: #ffffff`, `base-200: #eef7ff`, etc.
+El proyecto usa Tailwind CSS v4 + daisyUI v5. Ya no hay `tailwind.config.js` (deprecado en v4); el plugin `@tailwindcss/vite` se configura en `vite.config.ts`, y el tema `shopitrack` se define directamente en `src/index.css` con `@plugin "daisyui/theme" { name: "shopitrack"; ... }`: `primary: #1264e8`, `accent: #ff6848`, `base-100: #ffffff`, `base-200: #eef7ff`, etc. `src/index.css` solo contiene esta configuración de Tailwind/DaisyUI — el resto del design system vive en `src/styles/*.scss`.
 
 ## Animaciones on-scroll
 
@@ -58,8 +60,8 @@ Agregar el atributo `data-reveal` a un elemento (normalmente el `<section>` o su
 ## Capa de estilos custom (SCSS)
 
 - Archivo: `src/styles/custom.scss`
-- Carga: se importa en `src/main.tsx` después de `src/index.css`
-- Objetivo: overrides y personalizaciones sin modificar el design system base
+- Carga: se importa en `src/main.tsx` después de `src/index.css` y `src/styles/design-system.scss`
+- Objetivo: overrides y personalizaciones sin modificar el design system base (`src/styles/*.scss`)
 
 Convención de alcance recomendada:
 

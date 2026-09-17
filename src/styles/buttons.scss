@@ -1,0 +1,49 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  padding: 0 14px;
+  height: 60px;
+  font-size: 16px;
+  font-weight: normal;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgb(8 38 99 / 16%);
+}
+
+.btn-primary {
+  background: rgb(var(--color-blue));
+  color: var(--surface);
+}
+
+.btn-coral {
+  background: rgb(var(--color-coral));
+  color: var(--surface);
+  box-shadow: none;
+}
+
+.btn-outline {
+  border-color: rgb(255 255 255 / 65%);
+  color: var(--surface);
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background: rgb(var(--color-blue));
+  color: var(--surface);
+  box-shadow: none;
+}
+
+.btn-small {
+  padding: 10px 15px;
+}

@@ -18,7 +18,7 @@ La imagen JPG de referencia proporcionada. **La imagen tiene prioridad sobre cua
 
 ## 4. Cómo funciona el design system
 
-El design system está centralizado en `src/index.css` con variables CSS en `:root`:
+El design system vive en `src/styles/*.scss` (partials por dominio: `tokens`, `base`, `layout`, `typography`, `buttons`, `hero`, `cards`, `sections`, `responsive`, `animations`), agregados por `src/styles/design-system.scss` e importados en `src/main.tsx` después de `src/index.css` (que solo contiene la config de Tailwind v4 + tema DaisyUI) y antes de `src/styles/custom.scss`. Variables CSS en `:root` (`src/styles/tokens.scss`):
 
 - **Colores**: `--color-blue`, `--color-coral`, `--color-ink`, `--color-cloud`, `--text-primary`, `--text-secondary`, `--text-muted`, `--line`, `--surface`, `--surface-alt`
 - **Spacing**: `--space-xs` (8px) a `--space-2xl` (112px)
@@ -70,7 +70,7 @@ Páginas actuales: Home (`/`, completa), Empresas (`/empresas`), Clientes (`/cli
 
 ## 8. Qué no debe modificarse sin justificación
 
-- Variables CSS en `:root` (colores, spacing, tipografía) en `src/index.css`.
+- Variables CSS en `:root` (colores, spacing, tipografía) en `src/styles/tokens.scss`.
 - Tema DaisyUI en `tailwind.config.js`.
 - Contenido de `src/data/home.ts` (copys originales).
 - Estructura de componentes existentes.
