@@ -110,3 +110,32 @@
 .story-divider span:last-child::before {
   right: 0;
 }
+
+.story-card {
+  position: relative;
+  &.blur-right::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 40%;
+    bottom: 0;
+    width: 10%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    z-index: 1;
+    background: linear-gradient(to right, transparent, #f4f8fc);
+  }
+
+  &.blur-left::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 40%;
+    bottom: 0;
+    width: 10%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    z-index: 1;
+    background: linear-gradient(to left, transparent, #f4f8fc);
+  }
+}
