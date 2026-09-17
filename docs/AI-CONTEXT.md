@@ -16,9 +16,9 @@ La imagen JPG de referencia proporcionada. La imagen tiene prioridad sobre cualq
 
 ## 4. Design system
 
-Centralizado en `src/index.css` con variables CSS (`:root`). Colores, tipografía, spacing, radius, shadows y containers definidos como tokens. Tailwind CSS v4 + daisyUI v5 con tema `shopitrack` definido en `src/index.css` (`@plugin "daisyui/theme"`); ya no existe `tailwind.config.js`.
+Vive en `src/styles/*.scss` (partials: `tokens`, `base`, `layout`, `typography`, `buttons`, `hero`, `cards`, `sections`, `responsive`, `animations`), agregados por `src/styles/design-system.scss`. Variables CSS (`:root`) en `src/styles/tokens.scss`: colores, tipografía, spacing, radius, shadows y containers. Tailwind CSS v4 + daisyUI v5 con tema `shopitrack` definido en `src/index.css` (`@plugin "daisyui/theme"`) — `index.css` solo contiene esa config, no el resto del design system; ya no existe `tailwind.config.js`.
 
-Los overrides personalizados van en `src/styles/custom.scss` (importado en `src/main.tsx` después de `index.css`).
+Orden de carga en `src/main.tsx`: `index.css` (Tailwind + DaisyUI) → `design-system.scss` → `custom.scss` (overrides por página). No reordenar sin verificar la cascada (ver `docs/ARCHITECTURE.md`).
 
 ## 5. Componentes existentes
 

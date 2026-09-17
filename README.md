@@ -77,10 +77,9 @@ src/
 ├── components/    Componentes reutilizables (incluye components/layout/ con Header, Footer, MainLayout)
 ├── pages/         Una página por ruta
 ├── data/          Contenido separado de la UI
-├── styles/        Overrides SCSS personalizados por página
+├── styles/        Design system en partials CSS (tokens, base, layout, hero, cards, sections, responsive...) + custom.scss (overrides por página)
 ├── App.tsx        Rutas (react-router-dom)
-├── index.css      Design system + estilos globales
-├── styles/custom.scss  Estilos custom (capa final de overrides)
+├── index.css      Entry point: Tailwind CSS v4 + tema DaisyUI + @import de styles/*.css
 └── main.tsx       Entry point
 docs/              Documentación técnica detallada
 ```

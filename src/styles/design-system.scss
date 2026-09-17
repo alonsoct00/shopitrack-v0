@@ -1,0 +1,12 @@
+// Design system: agrega los partials SCSS en el mismo orden de cascada
+// que tenían originalmente. No reordenar sin verificar la cascada.
+@use "tokens";
+@use "base";
+@use "layout";
+@use "typography";
+@use "buttons";
+@use "hero";
+@use "cards";
+@use "sections";
+@use "responsive";
+@use "animations";

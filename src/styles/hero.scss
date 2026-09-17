@@ -1,0 +1,106 @@
+.hero {
+  min-height: 620px;
+  padding: 152px 0 100px;
+  background: linear-gradient(112deg, #eff8ff 0%, #f9fcff 46%, #dff0ff 100%);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-copy h1 {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.hero-copy p {
+  max-width: 390px;
+  margin-bottom: 26px;
+}
+
+.hero-art {
+  position: relative;
+  min-height: 390px;
+}
+
+.hero-art>img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  object-position: 55% center;
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+}
+
+.tracking-card {
+  position: absolute;
+  right: -35px;
+  top: 66px;
+  width: 244px;
+  padding: 17px 19px;
+  background: var(--surface);
+  border-radius: 10px;
+  box-shadow: 0 16px 38px rgb(8 38 99 / 25%);
+}
+
+.tracking-top,
+.tracking-route {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.tracking-top {
+  margin-bottom: 22px;
+}
+
+.tracking-top i {
+  display: block;
+  height: 6px;
+  border-radius: 8px;
+  background: #dbe7f5;
+  flex: 1;
+}
+
+.tracking-top i:last-child {
+  flex: 0.45;
+}
+
+.tracking-bubble {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  color: var(--surface);
+  border-radius: 50%;
+  background: rgb(var(--color-blue));
+}
+
+.tracking-route {
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.tracking-route span {
+  width: 14px;
+  height: 14px;
+  border: 3px solid rgb(var(--color-blue));
+  border-radius: 50%;
+}
+
+.tracking-route b {
+  flex: 1;
+  border-top: 2px dashed #a4c5f3;
+}
+
+.tracking-route svg {
+  color: rgb(var(--color-blue));
+}
+
+.tracking-bar {
+  height: 12px;
+  width: 70%;
+  border-radius: 4px;
+  background: rgb(var(--color-blue));
+}
