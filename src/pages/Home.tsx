@@ -336,12 +336,12 @@ export function Home() {
         </section>
 
         <section
-          className="contact-section section wave-section-bottom"
+          className="contact-section p-0 section wave-section-bottom"
           id="contacto"
           data-reveal
         >
           <div className="container contact-grid">
-            <div>
+            <div className="contact-info">
               <h2>
                 Transforma cada entrega en una mejor experiencia para tus
                 clientes.
@@ -360,10 +360,15 @@ export function Home() {
               </div>
             </div>
             <div className="device-mockup">
-              <img
-                src={images.deviceMockup}
-                alt="Panel de Shopitrack con el seguimiento de una entrega en curso"
-                loading="lazy"
+              <video autoPlay muted loop playsInline className="video-fondo">
+                <source src="/videos/happy-shipping.mp4" type="video/mp4" />
+                Tu navegador no soporta videos HTML5.
+              </video>
+              <div className="video-overlay"></div>
+              <LottiePlayer
+                src="/lottie/entrega-confianza.json"
+                className="device-mockup-lottie hidden"
+                ariaLabel="Un paquete viaja hasta el cliente y se convierte en una entrega confiable, con reseña positiva y sello de confianza"
               />
             </div>
           </div>

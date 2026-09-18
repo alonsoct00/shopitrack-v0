@@ -5,7 +5,6 @@ export const images = {
   customerAngry: "/images/cliente-preocupado.jpg",
   operator: "/images/atencion-confianza.webp",
   delivery: "/images/shopi-atencion-cliente.jpeg",
-  deviceMockup: "/images/pc-shopi.png",
   calendarCard: "/images/calendario-shopi.webp",
 };
 
