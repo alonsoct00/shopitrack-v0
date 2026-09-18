@@ -11,7 +11,7 @@
   background: rgb(242 248 255 / 86%);
   border: 1px solid #deebf8;
   border-radius: 9px;
-  min-height: 280px;
+  min-height: 320px;
   gap: 0;
   align-items: stretch;
 
@@ -21,9 +21,10 @@
 .story-card strong {
   display: block;
   color: rgb(var(--color-blue));
-  font-size: 14px;
+  font-size: 18px;
   margin-bottom: 6px;
-  line-height: 1.6;
+  margin-top: 4px;
+  line-height: 1.9;
 }
 
 .story-card.story-reverse {
@@ -33,6 +34,7 @@
 .info-card h3,
 .story-card h3 {
   margin: 0 0 11px;
+  line-height: 1.4;
 }
 
 .info-card p,
@@ -46,15 +48,16 @@
   flex: 0 0 auto;
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   color: var(--surface);
   background: rgb(var(--color-blue));
 }
 
 .round-icon svg {
-  width: 19px;
+  width: auto;
+  height: 38px;
 }
 
 .story-card {
@@ -65,7 +68,8 @@
 
 .story-card img {
   width: 60%;
-  height: 280px;
+  min-height: 320px;
+  height: 100%;
   object-fit: cover;
 }
 

@@ -228,7 +228,8 @@
 }
 
 .step-line svg {
-  width: 28px;
+  width: auto;
+  height: 30px;
 }
 
 .step-line i {
@@ -257,7 +258,7 @@
 .step p {
   max-width: 155px;
   margin: 7px auto 0;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .bell-icon {
@@ -265,16 +266,7 @@
   place-items: center;
   width: 20px;
   height: 20px;
-  border: 2px solid var(--surface);
-  border-radius: 50% 50% 45% 45%;
-}
-
-.bell-icon span {
-  width: 6px;
-  height: 3px;
-  margin-top: 17px;
-  background: var(--surface);
-  border-radius: 4px;
+  color: var(--surface);
 }
 
 .change-grid {
@@ -298,7 +290,7 @@
 }
 
 .change-grid .info-card {
-  min-height: 160px;
+  min-height: 220px;
   padding: 20px;
   gap: 16px;
   align-items: center;
@@ -306,20 +298,20 @@
 }
 
 .change-grid .info-card h2 {
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 600;
   color: rgb(var(--color-blue));
   margin-bottom: 8px;
 }
 
 .change-grid .info-card h3 {
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.4;
   margin-bottom: 0;
 }
 
 .change-grid .info-card p {
-  font-size: 13px;
+  font-size: 15px;
   margin: 0;
 }
 

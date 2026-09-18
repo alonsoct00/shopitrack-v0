@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
+  Bell,
   Building2,
   CalendarDays,
   Check,
@@ -18,7 +19,7 @@ import { seoConfig } from "@/data/seo";
 function BellIcon() {
   return (
     <span className="bell-icon">
-      <span />
+      <Bell size={14} strokeWidth={2.5} />
     </span>
   );
 }
@@ -47,18 +48,24 @@ export function Home() {
                 Descubre por qué <ArrowRight size={16} />
               </a>
             </div>
-            <div className="hero-art"></div>
+            <div className="hero-art">
+              <img
+                src="/images/hero-img.png"
+                alt="Repartidor entregando un paquete"
+                loading="lazy"
+              />
+            </div>
           </div>
         </section>
 
         <section
-          className="split-section wave-section wave-section-bottom"
+          className="split-section section wave-section wave-section-bottom"
           id="como-funciona"
           data-reveal
         >
           <div className="container">
             <div className="split-grid stretch">
-              <div className="photo-frame photo-frame-blur-right">
+              <div className="photo-frame photo-frame">
                 <img
                   src={images.courier}
                   alt="Repartidor caminando con una caja junto a un vehículo"

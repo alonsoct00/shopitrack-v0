@@ -10,8 +10,9 @@ $page-break-mobile: 960px;
         .hero {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(120deg, rgb(153 203 247 / 20%) 0%, rgba(255, 255, 255, 0.05) 100%), url(/images/hero-img.png) no-repeat center center !important;
-            background-size: cover !important;
+            background: linear-gradient(90deg, rgba(153, 203, 247, 0.8) 30%, rgba(255, 255, 255, 0.10) 40%),
+                url(/images/hero-img.png) no-repeat right center !important;
+            background-size: 100% !important;
         }
 
         .hero::before {
@@ -19,15 +20,11 @@ $page-break-mobile: 960px;
             position: absolute;
             inset: 0;
             filter: blur(10px);
-            -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%);
-            mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 60%);
+            mask-image: unset;
             z-index: 1;
-            background: rgb(153 203 247 / 90%);
-        }
-
-        .hero>* {
-            position: relative;
-            z-index: 2;
+            background: linear-gradient(315deg, rgba(255, 255, 255, 0.05) 60%, rgb(255 255 255 / 0%) 90%), rgb(230 241 250 / 0%);
+            width: 100%;
+            height: 100%;
         }
 
         .hero::after {
@@ -38,18 +35,23 @@ $page-break-mobile: 960px;
             width: 100%;
             height: 120px;
             pointer-events: none;
-            z-index: 1;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' preserveAspectRatio='none'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-opacity='0.4' d='M0,192 C320,260 420,60 720,160 C1020,260 1120,60 1440,160'/%3E%3Cpath fill='none' stroke='%2399cbf7' stroke-width='1.5' stroke-opacity='0.6' d='M0,224 C320,290 420,90 720,190 C1020,290 1120,90 1440,190'/%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.3' d='M0,256 C320,320 420,120 720,220 C1020,320 1120,120 1440,220'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-
-            mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
-            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 100%);
+            z-index: 2;
+            background: url(/images/ribbons/04_deep_s_curve.png) repeat center center transparent !important;
+            background-size: cover !important;
+            filter: brightness(0.8);
+            display: block !important;
         }
+
+        .hero>* {
+            position: relative;
+            z-index: 2;
+        }
+
+
 
         #como-funciona {
             position: relative;
-            background: linear-gradient(120deg, rgb(255 255 255/ 20%) 0%, rgba(255, 255, 255, 0.05) 100%), url(/images/repartidor.jpeg) no-repeat left center !important;
+            background: linear-gradient(270deg, rgb(255 255 255 / 100%) 60%, rgba(255, 255, 255, 0.05) 65%), url(/images/repartidor.jpeg) no-repeat left center !important;
             background-size: contain !important;
             padding-top: 0;
             margin-top: 20px;
@@ -69,7 +71,13 @@ $page-break-mobile: 960px;
         }
 
         .steps-section {
-            background: linear-gradient(120deg, rgb(230 241 250/ 90%) 30%, rgba(255, 255, 255, 0.05) 100%)
+            background: linear-gradient(
+                120deg, rgba(230, 241, 250, 0.5) 40%, rgba(255, 255, 255, 0.05) 60%);
+        }
+
+        .stories {
+            background: linear-gradient(
+                300deg, rgba(230, 241, 250, 0.9) 40%, rgba(255, 255, 255, 0.05) 50%);
         }
 
         .changes {
@@ -109,6 +117,9 @@ $page-break-mobile: 960px;
 
             background: linear-gradient(120deg, rgb(1 57 131/ 95%) 20%, rgba(255, 255, 255, 0.05) 100%), url(/images/carretera-lastmile.jpeg) no-repeat center center !important;
             background-size: cover !important;
+            height: 300px;
+            display: flex;
+            align-items: center;
 
             p {
                 font-size: 18px;
@@ -132,6 +143,40 @@ $page-break-mobile: 960px;
             }
         }
 
+        @media (min-width: 1500px) {
+
+            #como-funciona { 
+                background: linear-gradient(270deg, rgb(255, 255, 255) 50%, rgba(255, 255, 255, 0.1) 60%), url(/images/repartidor.jpeg) no-repeat left center !important;
+                background-size: contain !important
+
+            }
+            .cost-section {
+                background: linear-gradient(90deg, rgb(237, 245, 252) 68%, rgba(255, 255, 255, 0.01) 72%), url(/images/atencion-confianza.jpeg) no-repeat right center !important;            background-size: contain !important;
+                .cost-text {
+                    padding-inline: 0px;
+                    padding-block: 20px;
+                }
+            }
+    
+            .new-way-section {
+                background: linear-gradient(270deg, rgb(255, 255, 255) 70%, rgba(255, 255, 255, 0.1) 75%), url(/images/revisando-entregas-seguimiento.jpeg) no-repeat left center !important;
+                background-size: contain !important;
+            }
+
+            .promise-section {
+                background: linear-gradient(120deg, rgb(1 57 131/ 95%) 20%, rgba(255, 255, 255, 0.05) 100%), url(/images/carretera-lastmile.jpeg) no-repeat center center !important;
+                background-size: cover !important;
+                height: 300px;
+                display: flex;
+                align-items: center;
+
+                p {
+                    font-size: 18px;
+                }
+            }   
+
+        }
+
 
 
         @media (max-width: 1024px) and (min-width: $page-break-mobile) {
@@ -144,22 +189,45 @@ $page-break-mobile: 960px;
 
             .hero {
                 overflow: hidden;
-                background: linear-gradient(350deg, rgb(24 89 147) 0%, rgb(255 255 255 / 9%) 100%), url(/images/hero-img.png) no-repeat center bottom !important;
+                background: linear-gradient(360deg, rgb(255 255 255 / 0.01) 0%, rgb(255 255 255 / 0.9) 100%), url(/images/hero-img.png) no-repeat center bottom !important;
                 background-size: 100% !important;
+                background-image: none !important;
+                min-height: auto;
+                padding: 80px 0 0px;
+                height: 100vh;
+                align-items: normal;
+                place-items: normal;
+                height: 100vh;
                 &:before {
                     display: none;
+                }
+                
+                &.hero-grid {
+                    padding-top: 40px;
+                    gap: 20px;
                 }
             }
 
             #como-funciona {
                 background: linear-gradient(120deg, rgb(255 255 255/ 20%) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
                 background-image: none !important;
-                .photo-frame.photo-frame-blur-right {
+                .photo-frame {
+                    order: 2;
                     img.photo-frame-img {
                         width: 100%;
                         height: auto;
                     }
                 }
+            }
+
+            .cost-section {
+                background: linear-gradient(180deg, rgb(237, 245, 252) 65%, rgba(255, 255, 255, 0.010) 68%) !important;
+                background-image: none !important;
+            }
+
+            .new-way-section {
+                background: linear-gradient(180deg, rgb(237, 245, 252) 65%, rgba(255, 255, 255, 0.010) 68%) !important;
+                background-image: none !important;
             }
 
             .trust-section {
@@ -169,6 +237,18 @@ $page-break-mobile: 960px;
             .promise-section {
                 p  {
                     max-width: 100%;
+                }
+            }
+
+            .changes {
+                .change-grid .info-card {
+                    min-height: 220px;
+                    padding: 20px;
+                    gap: 16px;
+                    align-items: center;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    text-align: center;
                 }
             }
         }
