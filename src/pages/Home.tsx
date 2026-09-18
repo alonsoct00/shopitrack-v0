@@ -53,6 +53,7 @@ export function Home() {
                 src="/images/hero-img.png"
                 alt="Repartidor entregando un paquete"
                 loading="lazy"
+                className="photo-frame-img visible md:invisible"
               />
             </div>
           </div>
