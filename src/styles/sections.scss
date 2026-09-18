@@ -411,6 +411,88 @@
   height: 235px;
 }
 
+.industries-showcase {
+  position: relative;
+}
+
+.industries-showcase-viewport {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.industries-collage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 170px);
+  gap: 10px;
+  animation: industries-fade 0.5s ease;
+}
+
+@keyframes industries-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.industries-collage-grid img {
+  grid-column: span 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.industries-showcase-arrow {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: var(--surface);
+  color: rgb(var(--color-blue));
+  box-shadow: 0 8px 20px rgb(8 38 99 / 16%);
+  cursor: pointer;
+}
+
+.industries-showcase-arrow.prev {
+  left: -14px;
+}
+
+.industries-showcase-arrow.next {
+  right: -14px;
+}
+
+.industries-showcase-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.industries-showcase-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--border, #d7e2f2);
+  cursor: pointer;
+}
+
+.industries-showcase-dots button.is-active {
+  width: 22px;
+  border-radius: 4px;
+  background: rgb(var(--color-blue));
+}
+
 .promise-section {
   background: #062c78 url("https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&h=650&w=940") center/cover;
   background-blend-mode: multiply;

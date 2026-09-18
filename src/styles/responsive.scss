@@ -393,6 +393,23 @@
     height: 115px;
   }
 
+  .industries-collage-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 120px);
+  }
+
+  .industries-collage-grid img {
+    grid-column: span 1;
+  }
+
+  .industries-showcase-arrow.prev {
+    left: 4px;
+  }
+
+  .industries-showcase-arrow.next {
+    right: 4px;
+  }
+
   .promise-section {
     padding-block: 72px;
   }

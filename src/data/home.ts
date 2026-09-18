@@ -8,7 +8,6 @@ export const images = {
   deviceMockup: "/images/pc-shopi.png",
   dashboardCard: "/images/graficas-shopi.png",
   calendarCard: "/images/calendario-shopi.png",
-  industriesImg: "/images/industrias.jpeg",
 };
 
 export const steps = [

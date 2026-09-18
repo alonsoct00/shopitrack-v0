@@ -10,6 +10,7 @@ import {
   PackageCheck,
   UsersRound,
 } from "lucide-react";
+import { IndustriesShowcase } from "@/components/IndustriesShowcase";
 import { InfoCard } from "@/components/InfoCard";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Seo } from "@/components/Seo";
@@ -313,26 +314,7 @@ export function Home() {
                 Explorar sectores <ArrowRight size={16} />
               </Link>
             </div>
-            <div className="industries-collage">
-              <img src={images.industriesImg} alt="Industrias" loading="lazy" />
-            </div>
-            <div className="collage hidden">
-              <img
-                src={images.delivery}
-                alt="Entrega en tienda"
-                loading="lazy"
-              />
-              <img
-                src={images.courier}
-                alt="Repartidor llevando una caja"
-                loading="lazy"
-              />
-              <img
-                src={images.customer}
-                alt="Cliente recibiendo un pedido"
-                loading="lazy"
-              />
-            </div>
+            <IndustriesShowcase />
           </div>
         </section>
 
