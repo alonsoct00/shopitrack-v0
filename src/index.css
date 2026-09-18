@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@media (width >= 80rem) {
+  .container {
+    max-width: 90rem;
+  }
+}
+
 @plugin "daisyui/theme" {
   name: "shopitrack";
   default: true;

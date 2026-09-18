@@ -95,12 +95,17 @@
   position: absolute;
   left: -40px;
   top: 50px;
-  height: 220px;
-  padding: 0;
+  width: 200px;
+  height: 180px;
+  padding: 16px;
   border-radius: 10px;
-  display: flex;
-  align-items: end;
-  gap: 7px;
+  background: var(--surface);
+  box-shadow: 0 16px 38px rgb(8 38 99 / 25%);
+}
+
+.dashboard-card-lottie {
+  width: 100%;
+  height: 100%;
 }
 
 
@@ -261,13 +266,6 @@
   font-size: 15px;
 }
 
-.bell-icon {
-  display: grid;
-  place-items: center;
-  width: 20px;
-  height: 20px;
-  color: var(--surface);
-}
 
 .change-grid {
   grid-template-columns: repeat(3, 1fr);

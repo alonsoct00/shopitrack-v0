@@ -3,7 +3,7 @@ import { MainLayout } from '@/components/layout/MainLayout';
 import { Home } from '@/pages/Home';
 import { Empresas } from '@/pages/Empresas';
 import { Clientes } from '@/pages/Clientes';
-import { Industrias } from '@/pages/Sectores';
+import { Sectores } from '@/pages/Sectores';
 import { Contacto } from '@/pages/Contacto';
 import { NotFound } from '@/pages/NotFound';
 
@@ -15,7 +15,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="empresas" element={<Empresas />} />
           <Route path="clientes" element={<Clientes />} />
-          <Route path="industrias" element={<Industrias />} />
+          <Route path="sectores" element={<Sectores />} />
           <Route path="contacto" element={<Contacto />} />
           <Route path="*" element={<NotFound />} />
         </Route>

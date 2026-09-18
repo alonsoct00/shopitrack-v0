@@ -2,15 +2,15 @@ import { ComingSoonSection } from '@/components/ComingSoonSection';
 import { Seo } from '@/components/Seo';
 import { seoConfig } from '@/data/seo';
 
-export function Industrias() {
+export function Sectores() {
   return (
     <>
-      <Seo {...seoConfig.industrias} />
-      <div id="page-industrias" className="page page-industrias">
+      <Seo {...seoConfig.sectores} />
+      <div id="page-sectores" className="page page-sectores">
         <ComingSoonSection
-          eyebrow="Industrias"
-          title="La página de industrias está en construcción."
-          description="Retail, electrodomésticos, muebles, farmacias, tecnología y más: cada industria de e-commerce comparte el mismo reto de coordinar la última milla. Esta página detallará cómo Shopitrack se adapta a cada una."
+          eyebrow="Sectores"
+          title="La página de sectores está en construcción."
+          description="Retail, electrodomésticos, muebles, farmacias, tecnología y más: cada sector de e-commerce comparte el mismo reto de coordinar la última milla. Esta página detallará cómo Shopitrack se adapta a cada uno."
         />
       </div>
     </>

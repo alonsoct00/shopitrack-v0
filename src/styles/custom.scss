@@ -11,7 +11,7 @@ $page-break-mobile: 960px;
             position: relative;
             overflow: hidden;
             background: linear-gradient(90deg, rgba(153, 203, 247, 0.8) 30%, rgba(255, 255, 255, 0.10) 40%),
-                url(/images/hero-img.png) no-repeat right center !important;
+                url(/images/hero-img.webp) no-repeat right center !important;
             background-size: 100% !important;
         }
 
@@ -36,7 +36,7 @@ $page-break-mobile: 960px;
             height: 120px;
             pointer-events: none;
             z-index: 2;
-            background: url(/images/ribbons/04_deep_s_curve.png) repeat center center transparent !important;
+            background: url(/images/ribbons/04_deep_s_curve.webp) repeat center center transparent !important;
             background-size: cover !important;
             filter: brightness(0.8);
             display: block !important;
@@ -59,14 +59,14 @@ $page-break-mobile: 960px;
         }
 
         .cost-section {
-            background: linear-gradient(90deg, rgb(237, 245, 252) 65%, rgba(255, 255, 255, 0.010) 68%), url(/images/atencion-confianza.jpeg) no-repeat right center !important;            background-size: contain !important;
+            background: linear-gradient(90deg, rgb(237, 245, 252) 65%, rgba(255, 255, 255, 0.010) 68%), url(/images/atencion-confianza.webp) no-repeat right center !important;            background-size: contain !important;
             .cost-text {
                 padding: 20px;
             }
         }
 
         .new-way-section {
-            background: linear-gradient(270deg, rgb(255 255 255 / 100%) 60%, rgba(255, 255, 255, 0.05) 65%), url(/images/revisando-entregas-seguimiento.jpeg) no-repeat left center !important;
+            background: linear-gradient(270deg, rgb(255 255 255 / 100%) 60%, rgba(255, 255, 255, 0.05) 65%), url(/images/revisando-entregas-seguimiento.webp) no-repeat left center !important;
             background-size: contain !important;
         }
 
@@ -103,7 +103,7 @@ $page-break-mobile: 960px;
         }
 
         .trust-section {
-            background: linear-gradient(120deg, rgb(1 57 131/ 99%) 30%, rgba(255, 255, 255, 0.05) 100%), url(/images/entrega-feliz.png) no-repeat right center !important;
+            background: linear-gradient(120deg, rgb(1 57 131/ 99%) 30%, rgba(255, 255, 255, 0.05) 100%), url(/images/entrega-feliz.webp) no-repeat right center !important;
             background-size: contain !important;
 
             .trust-grid {
@@ -115,7 +115,7 @@ $page-break-mobile: 960px;
 
         .promise-section {
 
-            background: linear-gradient(120deg, rgb(1 57 131/ 95%) 20%, rgba(255, 255, 255, 0.05) 100%), url(/images/carretera-lastmile.jpeg) no-repeat center center !important;
+            background: linear-gradient(120deg, rgb(1 57 131/ 95%) 20%, rgba(255, 255, 255, 0.05) 100%), url(/images/carretera-lastmile.webp) no-repeat center center !important;
             background-size: cover !important;
             height: 300px;
             display: flex;
@@ -151,7 +151,7 @@ $page-break-mobile: 960px;
 
             }
             .cost-section {
-                background: linear-gradient(90deg, rgb(237, 245, 252) 68%, rgba(255, 255, 255, 0.01) 72%), url(/images/atencion-confianza.jpeg) no-repeat right center !important;            background-size: contain !important;
+                background: linear-gradient(90deg, rgb(237, 245, 252) 68%, rgba(255, 255, 255, 0.01) 72%), url(/images/atencion-confianza.webp) no-repeat right center !important;            background-size: contain !important;
                 .cost-text {
                     padding-inline: 0px;
                     padding-block: 20px;
@@ -159,12 +159,12 @@ $page-break-mobile: 960px;
             }
     
             .new-way-section {
-                background: linear-gradient(270deg, rgb(255, 255, 255) 70%, rgba(255, 255, 255, 0.1) 75%), url(/images/revisando-entregas-seguimiento.jpeg) no-repeat left center !important;
+                background: linear-gradient(270deg, rgb(255, 255, 255) 70%, rgba(255, 255, 255, 0.1) 75%), url(/images/revisando-entregas-seguimiento.webp) no-repeat left center !important;
                 background-size: contain !important;
             }
 
             .promise-section {
-                background: linear-gradient(120deg, rgb(1 57 131/ 95%) 20%, rgba(255, 255, 255, 0.05) 100%), url(/images/carretera-lastmile.jpeg) no-repeat center center !important;
+                background: linear-gradient(120deg, rgb(1 57 131/ 95%) 20%, rgba(255, 255, 255, 0.05) 100%), url(/images/carretera-lastmile.webp) no-repeat center center !important;
                 background-size: cover !important;
                 height: 300px;
                 display: flex;
@@ -189,7 +189,7 @@ $page-break-mobile: 960px;
 
             .hero {
                 overflow: hidden;
-                background: linear-gradient(360deg, rgb(255 255 255 / 0.01) 0%, rgb(255 255 255 / 0.9) 100%), url(/images/hero-img.png) no-repeat center bottom !important;
+                background: linear-gradient(360deg, rgb(255 255 255 / 0.01) 0%, rgb(255 255 255 / 0.9) 100%), url(/images/hero-img.webp) no-repeat center bottom !important;
                 background-size: 100% !important;
                 background-image: none !important;
                 min-height: auto;
@@ -264,8 +264,8 @@ $page-break-mobile: 960px;
         // .hero { }
     }
 
-    &.page-industrias {
-        /* Ejemplo: hero exclusivo de Industrias */
+    &.page-sectores {
+        /* Ejemplo: hero exclusivo de Sectores */
         // .hero { }
     }
 

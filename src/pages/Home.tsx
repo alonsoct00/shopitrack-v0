@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { IndustriesShowcase } from "@/components/IndustriesShowcase";
 import { InfoCard } from "@/components/InfoCard";
+import { LottiePlayer } from "@/components/LottiePlayer";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Seo } from "@/components/Seo";
 import { images, industries, steps } from "@/data/home";
@@ -51,9 +52,13 @@ export function Home() {
             </div>
             <div className="hero-art">
               <img
-                src="/images/hero-img.png"
+                src="/images/hero-img.webp"
                 alt="Repartidor entregando un paquete"
-                loading="lazy"
+                width={1400}
+                height={782}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="photo-frame-img visible md:invisible"
               />
             </div>
@@ -160,10 +165,10 @@ export function Home() {
                 className="photo-frame-img visible md:invisible"
               />
               <div className="over-img dashboard-card-image">
-                <img
-                  src={images.dashboardCard}
-                  alt="Dashboard card"
-                  loading="lazy"
+                <LottiePlayer
+                  src="/lottie/costo-invisible.json"
+                  className="dashboard-card-lottie"
+                  ariaLabel="Costos de una entrega fallida en aumento mientras la confianza del cliente cae"
                 />
               </div>
             </div>
@@ -195,7 +200,7 @@ export function Home() {
               <div className="over-img calendar-card">
                 <img
                   src={images.calendarCard}
-                  alt="Calendar card"
+                  alt="Calendario con la fecha de entrega confirmada"
                   loading="lazy"
                 />
               </div>
@@ -357,7 +362,7 @@ export function Home() {
             <div className="device-mockup">
               <img
                 src={images.deviceMockup}
-                alt="Device mockup"
+                alt="Panel de Shopitrack con el seguimiento de una entrega en curso"
                 loading="lazy"
               />
             </div>
