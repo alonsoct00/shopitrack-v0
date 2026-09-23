@@ -16,6 +16,8 @@ El design system vive en `src/styles/` como partials SCSS (`tokens`, `base`, `la
 | `--line` | `#dce9f7` | Bordes y separadores |
 | `--surface` | `#ffffff` | Fondos claros |
 | `--surface-alt` | `#eef7ff` | Fondos alternativos |
+| `--color-danger` | `#d92d20` | Texto/borde de error en formularios |
+| `--color-danger-bg` | `#fef3f2` | Fondo de campo con error |
 
 ## Typography
 

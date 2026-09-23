@@ -27,6 +27,16 @@ html.reveal-ready [data-reveal-delay="4"] {
   transition-delay: 0.48s;
 }
 
+html.reveal-ready .steps-list .step {
+  transform: translateX(-40px);
+}
+
+@media (max-width: 800px) {
+  html.reveal-ready .steps-list .step {
+    transform: translateY(-40px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

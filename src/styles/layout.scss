@@ -3,7 +3,7 @@
 }
 
 .container {
-  width: min(100% - 48px, 1200px);
+  width: min(100% - 48px, 1600px);
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -106,16 +106,22 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-weight: 850;
-  font-size: 15px;
-  letter-spacing: -0.06em;
-  color: var(--text-primary);
 }
 
-.brand svg {
-  color: rgb(var(--color-blue));
-  fill: rgb(var(--color-blue) / 10%);
+.brand-logo {
+  display: inline-block;
+  height: 40px;
+  width: 100%;
+  aspect-ratio: 1707 / 419;
+  background-color: rgb(var(--color-blue));
+  -webkit-mask: url(/images/logo/shopitrack-black.svg) no-repeat center / contain;
+  mask: url(/images/logo/shopitrack-black.svg) no-repeat center / contain;
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+}
+
+.brand--light .brand-logo {
+  background-color: #fff;
 }
 
 .site-nav {

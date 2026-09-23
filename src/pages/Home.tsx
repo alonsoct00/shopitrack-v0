@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
+  Bell,
   Building2,
   CalendarDays,
   Check,
@@ -9,7 +10,9 @@ import {
   PackageCheck,
   UsersRound,
 } from "lucide-react";
+import { IndustriesShowcase } from "@/components/IndustriesShowcase";
 import { InfoCard } from "@/components/InfoCard";
+import { LottiePlayer } from "@/components/LottiePlayer";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Seo } from "@/components/Seo";
 import { images, industries, steps } from "@/data/home";
@@ -18,7 +21,7 @@ import { seoConfig } from "@/data/seo";
 function BellIcon() {
   return (
     <span className="bell-icon">
-      <span />
+      <Bell size={14} strokeWidth={2.5} />
     </span>
   );
 }
@@ -47,18 +50,29 @@ export function Home() {
                 Descubre por qué <ArrowRight size={16} />
               </a>
             </div>
-            <div className="hero-art"></div>
+            <div className="hero-art">
+              <img
+                src="/images/hero-img.webp"
+                alt="Repartidor entregando un paquete"
+                width={1400}
+                height={782}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                className="photo-frame-img visible md:invisible"
+              />
+            </div>
           </div>
         </section>
 
         <section
-          className="split-section wave-section wave-section-bottom"
+          className="split-section section wave-section wave-section-bottom"
           id="como-funciona"
           data-reveal
         >
           <div className="container">
             <div className="split-grid stretch">
-              <div className="photo-frame photo-frame-blur-right">
+              <div className="photo-frame photo-frame">
                 <img
                   src={images.courier}
                   alt="Repartidor caminando con una caja junto a un vehículo"
@@ -151,10 +165,10 @@ export function Home() {
                 className="photo-frame-img visible md:invisible"
               />
               <div className="over-img dashboard-card-image">
-                <img
-                  src={images.dashboardCard}
-                  alt="Dashboard card"
-                  loading="lazy"
+                <LottiePlayer
+                  src="/lottie/costo-invisible.json"
+                  className="dashboard-card-lottie"
+                  ariaLabel="Costos de una entrega fallida en aumento mientras la confianza del cliente cae"
                 />
               </div>
             </div>
@@ -186,7 +200,7 @@ export function Home() {
               <div className="over-img calendar-card">
                 <img
                   src={images.calendarCard}
-                  alt="Calendar card"
+                  alt="Calendario con la fecha de entrega confirmada"
                   loading="lazy"
                 />
               </div>
@@ -305,26 +319,7 @@ export function Home() {
                 Explorar sectores <ArrowRight size={16} />
               </Link>
             </div>
-            <div className="industries-collage">
-              <img src={images.industriesImg} alt="Industrias" loading="lazy" />
-            </div>
-            <div className="collage hidden">
-              <img
-                src={images.delivery}
-                alt="Entrega en tienda"
-                loading="lazy"
-              />
-              <img
-                src={images.courier}
-                alt="Repartidor llevando una caja"
-                loading="lazy"
-              />
-              <img
-                src={images.customer}
-                alt="Cliente recibiendo un pedido"
-                loading="lazy"
-              />
-            </div>
+            <IndustriesShowcase />
           </div>
         </section>
 
@@ -367,7 +362,7 @@ export function Home() {
             <div className="device-mockup">
               <img
                 src={images.deviceMockup}
-                alt="Device mockup"
+                alt="Panel de Shopitrack con el seguimiento de una entrega en curso"
                 loading="lazy"
               />
             </div>
