@@ -33,6 +33,18 @@ Reutiliza imágenes ya existentes en `public/images` (sin descargar nuevas):
 
 **ASSET FALTANTE — sección "Casos de uso":** las 4 tarjetas (`Entregas que requieren presencia`, `Productos difíciles de reprogramar`, `Entregas de alto valor`, `Operaciones con alto volumen`) no tienen foto asignada; se dejó un placeholder visible ("ASSET FALTANTE") en `.usecase-card-media`. No hay ninguna imagen existente en `public/images` que represente estos 4 conceptos con fidelidad y no hay herramienta de búsqueda de imágenes disponible en esta sesión. Se requieren 4 fotos específicas (persona recibiendo en puerta, mueble/electrodoméstico grande, producto premium en caja, almacén con alto volumen de paquetes) — reemplazar `useCases` en `src/data/empresas.ts` con las URLs una vez elegidas.
 
+## Página Sectores
+
+Reutiliza imágenes ya existentes en `public/images`:
+
+| Ubicación | Archivo | Finalidad |
+| ----------- | ------- | ----------- |
+| Hero | `/images/hero-img.webp` | Repartidor entregando (genérico, reutilizada de Home) |
+| El problema común | `/images/logistics-issues.webp` | Empresa gestionando una entrega (reutilizada de Home) |
+| CTA final | `/images/entrega-feliz.webp` | Cliente recibiendo su pedido (reutilizada de Home) |
+
+**ASSET FALTANTE — 6 secciones de sector:** Retail, Muebles y decoración, Electrodomésticos y línea blanca, Hogar (construcción/mudanzas), Tecnología, Salud y bienestar no tienen foto específica; el proyecto no cuenta con fotos de mueble/electrodoméstico/obra/salud, y no hay herramienta de búsqueda de imágenes disponible en esta sesión. Se dejó un placeholder visible ("ASSET FALTANTE") en cada `.photo-frame` de sector, consistente con la decisión ya tomada para la página Empresa. Reemplazar en `src/data/sectores.ts` no aplica (las imágenes son placeholders fijos en `Sectores.tsx`, no datos) — sustituir directamente el `<div className="usecase-card-media">` por un `<img>` una vez elegidas las 7 fotos (una por sector, en el orden: Retail, Muebles, Electrodomésticos, Hogar, Tecnología, Salud).
+
 ## Cómo agregar nuevas imágenes
 
 Usar la herramienta `pexels_search` (MCP) con una query descriptiva del subject. Referenciar la URL directamente en `<img>`, sin descargarla. No adivinar URLs. Documentar cada imagen nueva en esta tabla.

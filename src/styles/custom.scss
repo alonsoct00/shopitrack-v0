@@ -5,6 +5,21 @@
 
 $page-break-mobile: 960px;
 
+/* Placeholder reutilizable para assets pendientes (imágenes sin foto asignada todavía). */
+.usecase-card-media {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 4 / 3;
+    border: 1px dashed var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+
 .page {
     &.page-home {
         .hero {
@@ -297,20 +312,6 @@ $page-break-mobile: 960px;
             color: var(--text-secondary);
         }
 
-        .usecase-card-media {
-            display: grid;
-            place-items: center;
-            aspect-ratio: 4 / 3;
-            border: 1px dashed var(--line);
-            border-radius: var(--radius-sm);
-            background: var(--surface);
-            color: var(--text-muted);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-align: center;
-        }
-
         .roi-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -343,13 +344,288 @@ $page-break-mobile: 960px;
     }
 
     &.page-sectores {
-        /* Ejemplo: hero exclusivo de Sectores */
-        // .hero { }
+        .sector-copy {
+            position: relative;
+        }
+
+        .sector-icon {
+            width: 52px;
+            height: 52px;
+            margin-bottom: 14px;
+        }
+
+        .sector-icon svg {
+            height: 28px;
+        }
+
+        .sector-blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .sector-block {
+            min-height: auto;
+            padding: 18px;
+        }
+
+        .sector-block h2 {
+            font-size: 16px;
+        }
+
+        .sector-block .industry-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .sector-block .industry-list li {
+            font-size: 12px;
+        }
+
+        .sector-section .photo-frame {
+            min-height: 100%;
+        }
+
+        .sector-section .photo-frame .usecase-card-media {
+            aspect-ratio: auto;
+            height: 100%;
+            min-height: 320px;
+        }
+
+        .changes .industry-list {
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 760px;
+            margin: 24px auto;
+        }
+
+        @media (max-width: $page-break-mobile) {
+            .sector-section .split-grid--reverse .split-copy,
+            .sector-section .split-grid--reverse .photo-frame {
+                order: initial;
+            }
+
+            .changes .industry-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
     }
 
     &.page-contacto {
-        /* Ejemplo: hero exclusivo de Contacto */
-        // .hero { }
+        .step-number {
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .contact-context-grid .info-card {
+            min-height: auto;
+            padding: 20px;
+            flex-direction: row;
+            align-items: center;
+            text-align: left;
+        }
+
+        .contact-context-grid .info-card .round-icon {
+            margin: 0;
+        }
+
+        .contact-form-intro {
+            max-width: 620px;
+            margin: 0 0 28px;
+            text-align: left;
+        }
+
+        .contact-form {
+            max-width: 880px;
+        }
+
+        .contact-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 8px;
+        }
+
+        .form-field--full {
+            grid-column: 1 / -1;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-field label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .required-mark {
+            color: rgb(var(--color-coral));
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            padding: 12px 14px;
+            font-family: inherit;
+            font-size: 14px;
+            color: var(--text-primary);
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-field textarea {
+            resize: vertical;
+        }
+
+        .form-field input:focus-visible,
+        .form-field select:focus-visible,
+        .form-field textarea:focus-visible {
+            outline: none;
+            border-color: rgb(var(--color-blue));
+            box-shadow: 0 0 0 3px rgb(var(--color-blue) / 15%);
+        }
+
+        .form-field input[aria-invalid="true"],
+        .form-field select[aria-invalid="true"],
+        .form-field textarea[aria-invalid="true"] {
+            border-color: var(--color-danger);
+            background: var(--color-danger-bg);
+        }
+
+        .field-hint {
+            margin: 0;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .field-error {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin: 0;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-danger);
+        }
+
+        .form-privacy {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0 6px;
+        }
+
+        .form-privacy input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: rgb(var(--color-blue));
+        }
+
+        .form-privacy label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .form-system-error {
+            margin: 14px 0 0;
+        }
+
+        .contact-form .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .form-success {
+            max-width: 560px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .form-success p {
+            margin: 0 auto 24px;
+            max-width: 460px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 760px;
+        }
+
+        .faq-item {
+            padding: 18px 20px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            background: rgb(242 248 255 / 60%);
+        }
+
+        .faq-item summary {
+            cursor: pointer;
+            font-weight: 700;
+            list-style: none;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            float: right;
+            font-weight: 400;
+            color: rgb(var(--color-blue));
+        }
+
+        .faq-item[open] summary::after {
+            content: "\2212";
+        }
+
+        .faq-item p {
+            margin: 12px 0 0;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .closing-section {
+            background: var(--surface-alt);
+        }
+
+        .closing-copy {
+            max-width: 620px;
+            text-align: center;
+        }
+
+        .closing-copy p {
+            margin: 0 0 16px;
+            font-size: 18px;
+        }
+
+        .closing-copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: $page-break-mobile) {
+            .contact-form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-context-grid .info-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
     }
 
     &.page-not-found {
