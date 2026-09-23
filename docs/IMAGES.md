@@ -21,6 +21,18 @@ Todas las imágenes son fotografías de Pexels (licencia libre) seleccionadas pa
 - Operator: "Operadora revisando información de entregas en pantalla, ambiente de oficina, composición horizontal"
 - Delivery: "Cliente y repartidor coordinando la entrega de un paquete en la puerta, composición horizontal"
 
+## Página Empresa
+
+Reutiliza imágenes ya existentes en `public/images` (sin descargar nuevas):
+
+| Ubicación | Archivo | Finalidad |
+| ----------- | ------- | ----------- |
+| Hero | `/images/shopi-atencion-cliente.jpeg` | Repartidor entregando a clienta (reutilizada de Home) |
+| La última impresión | `/images/entrega-feliz.webp` | Cliente recibiendo su pedido (reutilizada de Home) |
+| CTA final | `/images/shopi-atencion-cliente.jpeg` | Misma foto del hero, reutilizada para cerrar el ciclo |
+
+**ASSET FALTANTE — sección "Casos de uso":** las 4 tarjetas (`Entregas que requieren presencia`, `Productos difíciles de reprogramar`, `Entregas de alto valor`, `Operaciones con alto volumen`) no tienen foto asignada; se dejó un placeholder visible ("ASSET FALTANTE") en `.usecase-card-media`. No hay ninguna imagen existente en `public/images` que represente estos 4 conceptos con fidelidad y no hay herramienta de búsqueda de imágenes disponible en esta sesión. Se requieren 4 fotos específicas (persona recibiendo en puerta, mueble/electrodoméstico grande, producto premium en caja, almacén con alto volumen de paquetes) — reemplazar `useCases` en `src/data/empresas.ts` con las URLs una vez elegidas.
+
 ## Cómo agregar nuevas imágenes
 
 Usar la herramienta `pexels_search` (MCP) con una query descriptiva del subject. Referenciar la URL directamente en `<img>`, sin descargarla. No adivinar URLs. Documentar cada imagen nueva en esta tabla.
