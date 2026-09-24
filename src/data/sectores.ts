@@ -1,3 +1,6 @@
+import { Cpu, HeartPulse, Sofa, Store, WashingMachine, Wrench } from "lucide-react";
+import type { Icon } from "@/data/types";
+
 export const sectoresImages = {
   hero: "/images/hero-img.webp",
   heroSrcSet: "/images/hero-img-800.webp 800w, /images/hero-img.webp 1400w",
@@ -8,6 +11,7 @@ export const sectoresImages = {
 export interface SectorEntry {
   number: string;
   name: string;
+  icon: Icon;
   challenge: string[];
   today: string[];
   change: string[];
@@ -17,6 +21,7 @@ export const sectors: SectorEntry[] = [
   {
     number: "03",
     name: "Departamentales y Autoservicio",
+    icon: Store,
     challenge: [
       "Miles de entregas diarias.",
       "Clientes con horarios distintos.",
@@ -37,6 +42,7 @@ export const sectors: SectorEntry[] = [
   {
     number: "04",
     name: "Muebles y decoración",
+    icon: Sofa,
     challenge: [
       "Los productos ocupan espacio y requieren tiempo para descargarse.",
       "Muchas veces necesitan acceso al domicilio.",
@@ -56,6 +62,7 @@ export const sectors: SectorEntry[] = [
   {
     number: "05",
     name: "Electrodomésticos y línea blanca",
+    icon: WashingMachine,
     challenge: [
       "Una lavadora, un refrigerador, una secadora, un centro de lavado.",
       "No pueden dejarse en la recepción de un edificio.",
@@ -75,6 +82,7 @@ export const sectors: SectorEntry[] = [
   {
     number: "06",
     name: "Hogar (reparaciones, construcción, mudanzas)",
+    icon: Wrench,
     challenge: [
       "Materiales y equipos pesados, voluminosos y costosos de transportar.",
       "Vivienda con horario restringido.",
@@ -94,6 +102,7 @@ export const sectors: SectorEntry[] = [
   {
     number: "07",
     name: "Servicios de tecnología (Internet, telefonía)",
+    icon: Cpu,
     challenge: [
       "Productos de alto valor.",
       "Clientes con expectativas elevadas.",
@@ -113,6 +122,7 @@ export const sectors: SectorEntry[] = [
   {
     number: "08",
     name: "Salud y bienestar",
+    icon: HeartPulse,
     challenge: [
       "Medicamentos, equipos médicos, suplementos especializados y artículos para recuperación.",
       "Su valor no depende únicamente del precio, depende del momento en que llegan.",

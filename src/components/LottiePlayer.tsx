@@ -32,6 +32,8 @@ export function LottiePlayer({
             autoplay: true,
             path: src,
           });
+        }).catch((error: unknown) => {
+          console.error("[LottiePlayer] No se pudo cargar la animación", error);
         });
       },
       { rootMargin: "200px" }

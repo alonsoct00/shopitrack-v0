@@ -1,3 +1,31 @@
+import {
+  Building2,
+  CircleUserRound,
+  Clock3,
+  Frown,
+  Fuel,
+  Headphones,
+  Layers,
+  Megaphone,
+  MessageSquareWarning,
+  Package,
+  PackageX,
+  PhoneCall,
+  Puzzle,
+  Route,
+  ShieldAlert,
+  ShieldCheck,
+  ShoppingCart,
+  Smile,
+  ThumbsDown,
+  TrendingUp,
+  Truck,
+  UsersRound,
+  UserX,
+  Warehouse,
+} from "lucide-react";
+import type { Icon, IconItem, StepItem } from "@/data/types";
+
 export const empresasImages = {
   hero: "/images/shopi-atencion-cliente.webp",
   heroSrcSet:
@@ -6,48 +34,101 @@ export const empresasImages = {
   cta: "/images/shopi-atencion-cliente.webp",
 };
 
-export const costCards = [
+export const costCards: { title: string; items: IconItem[] }[] = [
   {
     title: "Una entrega fallida tiene costos monetarios.",
     items: [
-      "Combustible.",
-      "Kilómetros estériles.",
-      "Tiempo del operador.",
-      "Reingreso a almacén.",
-      "Maltrato.",
-      "Llamadas (Call Center).",
+      { text: "Combustible.", icon: Fuel },
+      { text: "Kilómetros estériles.", icon: Route },
+      { text: "Tiempo del operador.", icon: Clock3 },
+      { text: "Reingreso a almacén.", icon: Warehouse },
+      { text: "Maltrato.", icon: PackageX },
+      { text: "Llamadas (Call Center).", icon: PhoneCall },
     ],
   },
   {
     title: "Pero también tiene costos invisibles.",
     items: [
-      "Frustración.",
-      "Desconfianza.",
-      "Reseñas negativas.",
-      "Clientes que no recompran.",
-      "Clientes con comentarios negativos.",
+      { text: "Frustración.", icon: Frown },
+      { text: "Desconfianza.", icon: ShieldAlert },
+      { text: "Reseñas negativas.", icon: ThumbsDown },
+      { text: "Clientes que no recompran.", icon: UserX },
+      {
+        text: "Clientes con comentarios negativos.",
+        icon: MessageSquareWarning,
+      },
     ],
   },
 ];
 
-export const logisticItems = [
-  "Más vehículos.",
-  "Más operadores.",
-  "Mejores software de ruteo y volumetría.",
-  "Más centros de distribución.",
+export const logisticItems: IconItem[] = [
+  { text: "Más vehículos.", icon: Truck },
+  { text: "Más operadores.", icon: UsersRound },
+  { text: "Mejores software de ruteo y volumetría.", icon: Route },
+  { text: "Más centros de distribución.", icon: Warehouse },
 ];
 
-export const coordinationSteps = [
-  ["01", "La empresa propone."],
-  ["02", "El cliente confirma."],
-  ["03", "Shopitrack mantiene la coordinación."],
-  ["04", "El operador llega."],
-  ["05", "La entrega ocurre."],
+const stepPlaceholder = "/images/placeholder-asset.svg";
+
+export const coordinationSteps: StepItem[] = [
+  {
+    text: "Propuesta inicial de la fecha de entrega",
+    image: {
+      src: stepPlaceholder,
+      alt: "Imagen pendiente: Propuesta inicial de la fecha de entrega",
+    },
+  },
+  {
+    text: "Se logra un acuerdo",
+    image: {
+      src: stepPlaceholder,
+      alt: "Imagen pendiente: Se logra un acuerdo",
+    },
+  },
+  {
+    text: "Confirmación del día 0",
+    image: {
+      src: stepPlaceholder,
+      alt: "Imagen pendiente: Confirmación del día 0",
+    },
+  },
+  {
+    text: "Avisa proximidad y ETA",
+    image: {
+      src: stepPlaceholder,
+      alt: "Imagen pendiente: Avisa proximidad y ETA",
+    },
+  },
+  {
+    text: "Entrega exitosa",
+    image: { src: stepPlaceholder, alt: "Imagen pendiente: Entrega exitosa" },
+  },
+  {
+    text: "Evaluación del servicio",
+    image: {
+      src: stepPlaceholder,
+      alt: "Imagen pendiente: Evaluación del servicio",
+    },
+  },
 ];
 
-export const orgBenefits = [
+export const communicationActors: IconItem[] = [
+  { text: "Empresa", icon: Building2 },
+  { text: "Operador", icon: CircleUserRound },
+  { text: "Cliente", icon: UsersRound },
+];
+
+export const orgBenefits: {
+  title: string;
+  icon: Icon;
+  label: string;
+  description: string;
+  image?: { src: string; alt: string };
+  items?: string[];
+}[] = [
   {
     title: "Dirección",
+    icon: Building2,
     image: {
       src: "/images/pc-shopi.webp",
       alt: "Panel de Shopitrack en laptop y celular",
@@ -61,6 +142,7 @@ export const orgBenefits = [
   },
   {
     title: "Logística",
+    icon: Package,
     label: "Reduce fricciones operativas.",
     image: {
       src: "/images/logistics-issues.webp",
@@ -77,6 +159,7 @@ export const orgBenefits = [
   },
   {
     title: "Transporte",
+    icon: Truck,
     image: {
       src: "/images/carretera-lastmile.webp",
       alt: "Camiones de reparto circulando por una autopista",
@@ -92,6 +175,7 @@ export const orgBenefits = [
   },
   {
     title: "eCommerce",
+    icon: ShoppingCart,
     image: {
       src: "/images/entrega-feliz.webp",
       alt: "Repartidor entregando un paquete a una clienta sonriente",
@@ -106,6 +190,7 @@ export const orgBenefits = [
   },
   {
     title: "Servicio al Cliente",
+    icon: Headphones,
     image: {
       src: "/images/shopi-atencion-cliente-800.webp",
       alt: "Agente de Shopitrack atendiendo clientes con diadema",
@@ -120,6 +205,7 @@ export const orgBenefits = [
   },
   {
     title: "Marketing",
+    icon: Megaphone,
     image: {
       src: "/images/atencion-confianza.webp",
       alt: "Agente sonriendo durante una llamada con un cliente",
@@ -134,23 +220,25 @@ export const orgBenefits = [
   },
 ];
 
-export const integrationItems = [
+export const integrationItems: {
+  title: string;
+  icon: Icon;
+  label: string;
+  description: string;
+}[] = [
   {
-    title: "No reemplaza",
-    label: "Tus sistemas siguen siendo los mismos.",
-    description:
-      "Se integra a tu operación existente sin obligarte a cambiar lo que ya funciona.",
+    title: "No sustituye ",
+    icon: Layers,
+    label:
+      "el sistema del Operador logístico. Tus sistemas siguen siendo los mismos.",
+    description: "",
   },
   {
     title: "Se integra",
-    label: "Sin interrumpir tu operación.",
-    description:
-      "Comunica a empresa, operador y cliente sin duplicar procesos.",
-  },
-  {
-    title: "Potencia",
-    label: "Lo que ya funciona.",
-    description: "El objetivo es coordinar, no reemplazar.",
+    icon: Puzzle,
+    label:
+      "a la operación existente sin obligar a la empresa a cambiar lo que ya funciona eficientemente.",
+    description: "",
   },
 ];
 
@@ -174,18 +262,25 @@ export const useCases = [
   },
 ];
 
-export const roiCards = [
-  { title: "Menos fallas", items: ["Menos reintentos.", "Menos costo."] },
+export const roiCards: { title: string; icon: Icon; items: string[] }[] = [
+  {
+    title: "Menos fallas",
+    icon: Clock3,
+    items: ["Menos reintentos.", "Menos costo."],
+  },
   {
     title: "Clientes más satisfechos",
+    icon: Smile,
     items: ["Más lealtad.", "Más recompra."],
   },
   {
     title: "Más eficiencia",
+    icon: TrendingUp,
     items: ["Más visibilidad.", "Mejores decisiones."],
   },
   {
     title: "Una marca más confiable",
+    icon: ShieldCheck,
     items: ["Operación más sólida.", "Más rentable."],
   },
 ];

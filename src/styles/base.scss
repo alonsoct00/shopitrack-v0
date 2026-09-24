@@ -33,7 +33,7 @@ a:focus-visible {
   display: none !important;
 }
 
-.sr-only {
+.sr-only, .sr-only * {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -43,4 +43,6 @@ a:focus-visible {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }

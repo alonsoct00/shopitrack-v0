@@ -31,6 +31,30 @@ Reutiliza imágenes ya existentes en `public/images` (sin descargar nuevas):
 | La última impresión | `/images/entrega-feliz.webp` | Cliente recibiendo su pedido (reutilizada de Home) |
 | CTA final | `/images/shopi-atencion-cliente.webp` | Misma foto del hero, reutilizada para cerrar el ciclo |
 
+### Beneficios (`orgBenefits`)
+
+Imágenes demo reutilizadas de `public/images` (se repiten en otras secciones; reemplazar por definitivas en `src/data/empresas.ts`):
+
+| Card | Archivo | Alt |
+| ---- | ------- | --- |
+| Dirección | `/images/pc-shopi.webp` | Panel de Shopitrack en laptop y celular |
+| Logística | `/images/logistics-issues.webp` | Paquetes en un centro de distribución |
+| Transporte | `/images/carretera-lastmile.webp` | Camiones de reparto circulando por una autopista |
+| eCommerce | `/images/entrega-feliz.webp` | Repartidor entregando un paquete a una clienta sonriente |
+| Servicio al Cliente | `/images/shopi-atencion-cliente-800.webp` | Agente de Shopitrack atendiendo clientes con diadema |
+| Marketing | `/images/atencion-confianza.webp` | Agente sonriendo durante una llamada con un cliente |
+
+Se recomiendan imágenes horizontales: la card las recorta al 40% del ancho con `object-fit: cover`.
+
+### Placeholders de assets faltantes
+
+| Ubicación | Placeholder | Reemplazar en |
+| --------- | ----------- | ------------- |
+| "El verdadero costo de una entrega fallida" (derecha) | `div.usecase-card-media.cost-media` | `src/pages/Empresas.tsx` |
+| Pasos "Una nueva manera de coordinar" (6) | `/images/placeholder-asset.svg` | `coordinationSteps` en `src/data/empresas.ts` (`image.src` / `image.alt`); idealmente imágenes cuadradas, se recortan en círculo |
+
+`public/images/placeholder-asset.svg` es un SVG propio (fondo `--surface`, borde punteado `--line`, texto "ASSET FALTANTE" en `--text-muted`) para usar en cualquier `<img>` pendiente.
+
 **ASSET FALTANTE — sección "Casos de uso":** las 4 tarjetas (`Entregas que requieren presencia`, `Productos difíciles de reprogramar`, `Entregas de alto valor`, `Operaciones con alto volumen`) no tienen foto asignada; se dejó un placeholder visible ("ASSET FALTANTE") en `.usecase-card-media`. No hay ninguna imagen existente en `public/images` que represente estos 4 conceptos con fidelidad y no hay herramienta de búsqueda de imágenes disponible en esta sesión. Se requieren 4 fotos específicas (persona recibiendo en puerta, mueble/electrodoméstico grande, producto premium en caja, almacén con alto volumen de paquetes) — reemplazar `useCases` en `src/data/empresas.ts` con las URLs una vez elegidas.
 
 ## Página Sectores

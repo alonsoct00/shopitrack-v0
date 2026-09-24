@@ -24,7 +24,11 @@ Orden de carga en `src/main.tsx`: `index.css` (Tailwind + DaisyUI) → `design-s
 
 - `Brand` — logo + nombre
 - `SectionHeading` — encabezado de sección
-- `InfoCard` — tarjeta con icono, título y descripción
+- `InfoCard` — tarjeta con icono o imagen (`image`), título, descripción y lista (`items`)
+- `StepsList` — pasos numerados con ícono o imagen
+- `RichText` — etiquetas permitidas (`<q>`, `<em>`, `<i>`, `<strong>`, `<b>`) en strings del data
+- `ErrorBoundary` / `PageError` — aislamiento de errores de render
+- `BellIcon` — ícono de campana para usar en el data
 - `ComingSoonSection` — placeholder para páginas pendientes de mockup
 - `Header` / `Footer` / `MainLayout` (`src/components/layout/`) — compartidos por todas las páginas, no se repiten
 
@@ -46,6 +50,9 @@ Cada página debe tener wrapper propio (`id` + clase `page page-<ruta>`) para pe
 8. Mantener Desktop y Mobile como parte del mismo sistema visual.
 9. Las nuevas páginas deben reutilizar Header, Footer, Container, Buttons, Cards y demás componentes.
 10. La referencia visual original tiene prioridad sobre preferencias estéticas del agente.
+11. Cada `<section>` de una página va dentro de `<ErrorBoundary name="<Página>: <sección>">`.
+12. Los íconos (o imágenes) de una lista van en cada elemento del data, tipados con `src/data/types.ts`; no usar arreglos paralelos por índice.
+13. Para itálica/negrita/citas dentro de textos del data, usar las etiquetas que soporta `RichText`; no usar `dangerouslySetInnerHTML`.
 
 ## 8. Qué no modificar sin justificación
 

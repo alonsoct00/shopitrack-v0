@@ -89,3 +89,16 @@ Ejemplo:
 - `.split-grid` — grid de dos columnas (texto + imagen)
 - `.info-card` — tarjeta con icono, título y descripción
 - `.btn`, `.btn-primary`, `.btn-coral`, `.btn-outline` — variantes de botón
+- `.info-card--media` + `.info-card-media` (`cards.scss`) — card con `<img>` al 40% del ancho y todo el alto, `object-fit: cover`, desvanecido con `mask-image` y franja de blur (`::before`, `backdrop-filter: blur(6px)`, 64px) hacia el texto. El contenido va en `.info-card-body`
+- `.step-media` (`sections.scss`) — variante de `.step-line > span` con `<img>` circular en lugar de ícono
+- `.industry-list` — lista con palomita azul; `.industry-list q` se muestra en itálica
+- `.usecase-card-media` (`custom.scss`) — placeholder "ASSET FALTANTE" en `div`. Para `<img>` usar `/images/placeholder-asset.svg` (mismos colores: `--surface`, `--line`, `--text-muted`)
+
+## Variantes en Empresas (`custom.scss`, scope `.page-empresas`)
+
+- `.stat-card--icons` — columna de íconos (40px) a la izquierda y lista a la derecha; ambos se estiran al alto de la card y reparten su contenido (`justify-content` / `align-content: space-between`)
+- `.industry-list--cross` — tache blanco sobre `--color-coral` en lugar de palomita
+- `.cost-section` — degradado de todo el alto: `linear-gradient(180deg, var(--surface-alt), var(--surface))`
+- `.cost-section .cost-grid` — `grid-auto-rows: 1fr` para que las cards midan lo mismo; a la derecha `.cost-media` (placeholder que se estira al alto de la columna)
+- `.benefits-section` / `.benefits-grid` — sección de beneficios (antes `.changes` / `.change-grid` en esta página): fondo `--surface-alt`, grid de 3 columnas; con `.info-card--media` la card pierde el padding y lo pasa a `.info-card-body`
+- `.steps-list` — una columna por paso (`grid-auto-flow: column`), para soportar cualquier número de pasos

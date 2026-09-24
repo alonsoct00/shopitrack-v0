@@ -1,3 +1,6 @@
+import { BarChart3, Goal, MapPin, Package, Route, Target } from "lucide-react";
+import type { IconItem } from "@/data/types";
+
 export const contactoImages = {
   hero: "/images/shopi-atencion-cliente.webp",
   heroSrcSet: "/images/shopi-atencion-cliente-800.webp 800w, /images/shopi-atencion-cliente.webp 1024w",
@@ -15,14 +18,14 @@ export const contactSteps = [
   ["Paso 6", "Definimos integración a tu operación. Sin desarrollos. Sin cambios en otros sistemas o aplicaciones."],
 ] as const;
 
-export const operationContextItems = [
-  "Tipo de productos.",
-  "Número aproximado de entregas.",
-  "Modelo logístico.",
-  "Cobertura.",
-  "Retos principales.",
-  "Objetivos.",
-] as const;
+export const operationContextItems: IconItem[] = [
+  { text: "Tipo de productos.", icon: Package },
+  { text: "Número aproximado de entregas.", icon: BarChart3 },
+  { text: "Modelo logístico.", icon: Route },
+  { text: "Cobertura.", icon: MapPin },
+  { text: "Retos principales.", icon: Target },
+  { text: "Objetivos.", icon: Goal },
+];
 
 export const industryOptions = [
   "Retail",

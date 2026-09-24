@@ -1,14 +1,6 @@
 import { useId, useState, type ChangeEvent, type FormEvent, type ReactNode } from "react";
 import { Link } from "react-router-dom";
-import {
-  ArrowRight,
-  BarChart3,
-  Goal,
-  MapPin,
-  Package,
-  Route,
-  Target,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { InfoCard } from "@/components/InfoCard";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Seo } from "@/components/Seo";
@@ -24,8 +16,8 @@ import {
   volumeOptions,
 } from "@/data/contacto";
 import { seoConfig } from "@/data/seo";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
-const operationIcons = [Package, BarChart3, Route, MapPin, Target, Goal];
 
 interface ContactFormData {
   firstName: string;
@@ -180,303 +172,316 @@ export function Contacto() {
     <>
       <Seo {...seoConfig.contacto} />
       <div id="page-contacto" className="page page-contacto">
-        <section className="hero wave-section-bottom" aria-labelledby="contacto-hero-title">
-          <div className="container hero-grid">
-            <div className="hero-copy">
-              <span className="eyebrow">Contacto</span>
-              <h1 id="contacto-hero-title">
-                Hablemos sobre cómo hacer que cada entrega fortalezca tu marca.
-              </h1>
-              <p>
-                Cada empresa enfrenta desafíos distintos. Por eso preferimos comprender primero tu
-                operación antes de hablar de soluciones.
-              </p>
-              <a className="btn btn-primary" href="#formulario-contacto">
-                Agenda una conversación con nuestro equipo <ArrowRight size={16} />
-              </a>
-            </div>
-            <div className="hero-art">
-              <img
-                src={contactoImages.hero}
-                srcSet={contactoImages.heroSrcSet}
-                sizes="(max-width: 800px) 100vw, 50vw"
-                alt="Especialista de soporte de Shopitrack atendiendo una llamada"
-                width={1400}
-                height={782}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </section>
-
-        <section className="changes section" data-reveal>
-          <div className="container">
-            <SectionHeading
-              eyebrow="Qué ocurrirá cuando nos contactes"
-              title="¿Qué ocurrirá cuando nos contactes?"
-              centered
-            />
-            <div className="change-grid contact-steps-grid">
-              {contactSteps.map(([label, text], index) => (
-                <InfoCard key={label} icon={<span className="step-number">{index + 1}</span>} title={label}>
-                  {text}
-                </InfoCard>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="split-section section wave-section-bottom" data-reveal>
-          <div className="container">
-            <SectionHeading eyebrow="Hablemos de tu operación" title="Queremos conocer tu operación" centered />
-            <p className="coming-soon-copy">
-              Antes de vender una solución debemos comprender el problema. Por ello, durante la
-              conversación nos interesará conocer aspectos como:
-            </p>
-            <div className="change-grid contact-context-grid">
-              {operationContextItems.map((item, index) => {
-                const ItemIcon = operationIcons[index];
-                return <InfoCard key={item} icon={<ItemIcon />} title={item} />;
-              })}
-            </div>
-            <p className="coming-soon-copy">
-              <strong>No buscamos recopilar información. Buscamos comprender el contexto.</strong>
-            </p>
-          </div>
-        </section>
-
-        <section className="section contact-form-section" id="formulario-contacto" data-reveal>
-          <div className="container">
-            <SectionHeading eyebrow="Formulario" title="Solicita una demostración" />
-            <p className="coming-soon-copy contact-form-intro">
-              Cuéntanos un poco sobre tu operación. Uno de nuestros especialistas se pondrá en
-              contacto contigo.
-            </p>
-
-            <form className="contact-form" onSubmit={handleSubmit} noValidate>
-              <div className="contact-form-grid">
-                <FormField id={fieldId("firstName")} label="Nombre" required error={errors.firstName}>
-                  <input
-                    id={fieldId("firstName")}
-                    name="firstName"
-                    type="text"
-                    autoComplete="given-name"
-                    required
-                    value={formData.firstName}
-                    onChange={handleTextChange("firstName")}
-                    aria-invalid={!!errors.firstName}
-                    aria-describedby={describedBy("firstName")}
-                  />
-                </FormField>
-
-                <FormField id={fieldId("lastName")} label="Apellidos" required error={errors.lastName}>
-                  <input
-                    id={fieldId("lastName")}
-                    name="lastName"
-                    type="text"
-                    autoComplete="family-name"
-                    required
-                    value={formData.lastName}
-                    onChange={handleTextChange("lastName")}
-                    aria-invalid={!!errors.lastName}
-                    aria-describedby={describedBy("lastName")}
-                  />
-                </FormField>
-
-                <FormField id={fieldId("company")} label="Empresa" required error={errors.company}>
-                  <input
-                    id={fieldId("company")}
-                    name="company"
-                    type="text"
-                    autoComplete="organization"
-                    required
-                    value={formData.company}
-                    onChange={handleTextChange("company")}
-                    aria-invalid={!!errors.company}
-                    aria-describedby={describedBy("company")}
-                  />
-                </FormField>
-
-                <FormField id={fieldId("role")} label="Cargo" error={errors.role}>
-                  <input
-                    id={fieldId("role")}
-                    name="role"
-                    type="text"
-                    autoComplete="organization-title"
-                    value={formData.role}
-                    onChange={handleTextChange("role")}
-                    aria-invalid={!!errors.role}
-                    aria-describedby={describedBy("role")}
-                  />
-                </FormField>
-
-                <FormField
-                  id={fieldId("email")}
-                  label="Correo electrónico"
-                  required
-                  error={errors.email}
-                  hint={formCopy.helperEmail}
-                >
-                  <input
-                    id={fieldId("email")}
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    value={formData.email}
-                    onChange={handleTextChange("email")}
-                    aria-invalid={!!errors.email}
-                    aria-describedby={describedBy("email", true)}
-                  />
-                </FormField>
-
-                <FormField id={fieldId("phone")} label="Teléfono" error={errors.phone}>
-                  <input
-                    id={fieldId("phone")}
-                    name="phone"
-                    type="tel"
-                    autoComplete="tel"
-                    value={formData.phone}
-                    onChange={handleTextChange("phone")}
-                    aria-invalid={!!errors.phone}
-                    aria-describedby={describedBy("phone")}
-                  />
-                </FormField>
-
-                <FormField id={fieldId("industry")} label="Sector" error={errors.industry}>
-                  <select
-                    id={fieldId("industry")}
-                    name="industry"
-                    value={formData.industry}
-                    onChange={handleTextChange("industry")}
-                    aria-invalid={!!errors.industry}
-                    aria-describedby={describedBy("industry")}
-                  >
-                    <option value="">Selecciona una opción</option>
-                    {industryOptions.map((option) => (
-                      <option value={option} key={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
-                </FormField>
-
-                <FormField
-                  id={fieldId("volume")}
-                  label="Número aproximado de entregas mensuales"
-                  error={errors.volume}
-                >
-                  <select
-                    id={fieldId("volume")}
-                    name="volume"
-                    value={formData.volume}
-                    onChange={handleTextChange("volume")}
-                    aria-invalid={!!errors.volume}
-                    aria-describedby={describedBy("volume")}
-                  >
-                    <option value="">Selecciona una opción</option>
-                    {volumeOptions.map((option) => (
-                      <option value={option} key={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
-                </FormField>
-
-                <div className="form-field form-field--full">
-                  <label htmlFor={fieldId("message")}>Mensaje</label>
-                  <textarea
-                    id={fieldId("message")}
-                    name="message"
-                    rows={4}
-                    value={formData.message}
-                    onChange={handleTextChange("message")}
-                    aria-invalid={!!errors.message}
-                    aria-describedby={describedBy("message")}
-                  />
-                  {errors.message && (
-                    <p className="field-error" id={`${fieldId("message")}-error`} role="alert">
-                      {errors.message}
-                    </p>
-                  )}
-                </div>
+        <ErrorBoundary name="Contacto: hero">
+          <section className="hero wave-section-bottom" aria-labelledby="contacto-hero-title">
+            <div className="container hero-grid">
+              <div className="hero-copy">
+                <span className="eyebrow">Contacto</span>
+                <h1 id="contacto-hero-title">
+                  Hablemos sobre cómo hacer que cada entrega fortalezca tu marca.
+                </h1>
+                <p>
+                  Cada empresa enfrenta desafíos distintos. Por eso preferimos comprender primero tu
+                  operación antes de hablar de soluciones.
+                </p>
+                <a className="btn btn-primary" href="#formulario-contacto">
+                  Agenda una conversación con nuestro equipo <ArrowRight size={16} />
+                </a>
               </div>
-
-              <div className="form-privacy">
-                <input
-                  id={fieldId("privacyAccepted")}
-                  name="privacyAccepted"
-                  type="checkbox"
-                  required
-                  checked={formData.privacyAccepted}
-                  onChange={(e) => updateField("privacyAccepted", e.target.checked)}
-                  aria-invalid={!!errors.privacyAccepted}
-                  aria-describedby={describedBy("privacyAccepted")}
+              <div className="hero-art">
+                <img
+                  src={contactoImages.hero}
+                  srcSet={contactoImages.heroSrcSet}
+                  sizes="(max-width: 800px) 100vw, 50vw"
+                  alt="Especialista de soporte de Shopitrack atendiendo una llamada"
+                  width={1400}
+                  height={782}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
-                <label htmlFor={fieldId("privacyAccepted")}>{formCopy.privacyLabel}</label>
               </div>
-              {errors.privacyAccepted && (
-                <p className="field-error" id={`${fieldId("privacyAccepted")}-error`} role="alert">
-                  {errors.privacyAccepted}
+            </div>
+          </section>
+        </ErrorBoundary>
+
+        <ErrorBoundary name="Contacto: changes">
+          <section className="changes section" data-reveal>
+            <div className="container">
+              <SectionHeading
+                eyebrow="Qué ocurrirá cuando nos contactes"
+                title="¿Qué ocurrirá cuando nos contactes?"
+                centered
+              />
+              <div className="change-grid contact-steps-grid">
+                {contactSteps.map(([label, text], index) => (
+                  <InfoCard key={label} icon={<span className="step-number">{index + 1}</span>} title={label}>
+                    {text}
+                  </InfoCard>
+                ))}
+              </div>
+            </div>
+          </section>
+        </ErrorBoundary>
+
+        <ErrorBoundary name="Contacto: split-section">
+          <section className="split-section section wave-section-bottom" data-reveal>
+            <div className="container">
+              <SectionHeading eyebrow="Hablemos de tu operación" title="Queremos conocer tu operación" centered />
+              <p className="coming-soon-copy">
+                Antes de vender una solución debemos comprender el problema. Por ello, durante la
+                conversación nos interesará conocer aspectos como:
+              </p>
+              <div className="change-grid contact-context-grid">
+                {operationContextItems.map(({ text, icon: ItemIcon }) => (
+                  <InfoCard key={text} icon={<ItemIcon />} title={text} />
+                ))}
+              </div>
+              <p className="coming-soon-copy">
+                <strong>No buscamos recopilar información. Buscamos comprender el contexto.</strong>
+              </p>
+            </div>
+          </section>
+        </ErrorBoundary>
+
+        <ErrorBoundary name="Contacto: section">
+          <section className="section contact-form-section" id="formulario-contacto" data-reveal>
+            <div className="container">
+              <SectionHeading eyebrow="Formulario" title="Solicita una demostración" />
+              <p className="coming-soon-copy contact-form-intro">
+                Cuéntanos un poco sobre tu operación. Uno de nuestros especialistas se pondrá en
+                contacto contigo.
+              </p>
+
+              <form className="contact-form" onSubmit={handleSubmit} noValidate>
+                <div className="contact-form-grid">
+                  <FormField id={fieldId("firstName")} label="Nombre" required error={errors.firstName}>
+                    <input
+                      id={fieldId("firstName")}
+                      name="firstName"
+                      type="text"
+                      autoComplete="given-name"
+                      required
+                      value={formData.firstName}
+                      onChange={handleTextChange("firstName")}
+                      aria-invalid={!!errors.firstName}
+                      aria-describedby={describedBy("firstName")}
+                    />
+                  </FormField>
+
+                  <FormField id={fieldId("lastName")} label="Apellidos" required error={errors.lastName}>
+                    <input
+                      id={fieldId("lastName")}
+                      name="lastName"
+                      type="text"
+                      autoComplete="family-name"
+                      required
+                      value={formData.lastName}
+                      onChange={handleTextChange("lastName")}
+                      aria-invalid={!!errors.lastName}
+                      aria-describedby={describedBy("lastName")}
+                    />
+                  </FormField>
+
+                  <FormField id={fieldId("company")} label="Empresa" required error={errors.company}>
+                    <input
+                      id={fieldId("company")}
+                      name="company"
+                      type="text"
+                      autoComplete="organization"
+                      required
+                      value={formData.company}
+                      onChange={handleTextChange("company")}
+                      aria-invalid={!!errors.company}
+                      aria-describedby={describedBy("company")}
+                    />
+                  </FormField>
+
+                  <FormField id={fieldId("role")} label="Cargo" error={errors.role}>
+                    <input
+                      id={fieldId("role")}
+                      name="role"
+                      type="text"
+                      autoComplete="organization-title"
+                      value={formData.role}
+                      onChange={handleTextChange("role")}
+                      aria-invalid={!!errors.role}
+                      aria-describedby={describedBy("role")}
+                    />
+                  </FormField>
+
+                  <FormField
+                    id={fieldId("email")}
+                    label="Correo electrónico"
+                    required
+                    error={errors.email}
+                    hint={formCopy.helperEmail}
+                  >
+                    <input
+                      id={fieldId("email")}
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      required
+                      value={formData.email}
+                      onChange={handleTextChange("email")}
+                      aria-invalid={!!errors.email}
+                      aria-describedby={describedBy("email", true)}
+                    />
+                  </FormField>
+
+                  <FormField id={fieldId("phone")} label="Teléfono" error={errors.phone}>
+                    <input
+                      id={fieldId("phone")}
+                      name="phone"
+                      type="tel"
+                      autoComplete="tel"
+                      value={formData.phone}
+                      onChange={handleTextChange("phone")}
+                      aria-invalid={!!errors.phone}
+                      aria-describedby={describedBy("phone")}
+                    />
+                  </FormField>
+
+                  <FormField id={fieldId("industry")} label="Sector" error={errors.industry}>
+                    <select
+                      id={fieldId("industry")}
+                      name="industry"
+                      value={formData.industry}
+                      onChange={handleTextChange("industry")}
+                      aria-invalid={!!errors.industry}
+                      aria-describedby={describedBy("industry")}
+                    >
+                      <option value="">Selecciona una opción</option>
+                      {industryOptions.map((option) => (
+                        <option value={option} key={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                  </FormField>
+
+                  <FormField
+                    id={fieldId("volume")}
+                    label="Número aproximado de entregas mensuales"
+                    error={errors.volume}
+                  >
+                    <select
+                      id={fieldId("volume")}
+                      name="volume"
+                      value={formData.volume}
+                      onChange={handleTextChange("volume")}
+                      aria-invalid={!!errors.volume}
+                      aria-describedby={describedBy("volume")}
+                    >
+                      <option value="">Selecciona una opción</option>
+                      {volumeOptions.map((option) => (
+                        <option value={option} key={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                  </FormField>
+
+                  <div className="form-field form-field--full">
+                    <label htmlFor={fieldId("message")}>Mensaje</label>
+                    <textarea
+                      id={fieldId("message")}
+                      name="message"
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleTextChange("message")}
+                      aria-invalid={!!errors.message}
+                      aria-describedby={describedBy("message")}
+                    />
+                    {errors.message && (
+                      <p className="field-error" id={`${fieldId("message")}-error`} role="alert">
+                        {errors.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="form-privacy">
+                  <input
+                    id={fieldId("privacyAccepted")}
+                    name="privacyAccepted"
+                    type="checkbox"
+                    required
+                    checked={formData.privacyAccepted}
+                    onChange={(e) => updateField("privacyAccepted", e.target.checked)}
+                    aria-invalid={!!errors.privacyAccepted}
+                    aria-describedby={describedBy("privacyAccepted")}
+                  />
+                  <label htmlFor={fieldId("privacyAccepted")}>{formCopy.privacyLabel}</label>
+                </div>
+                {errors.privacyAccepted && (
+                  <p className="field-error" id={`${fieldId("privacyAccepted")}-error`} role="alert">
+                    {errors.privacyAccepted}
+                  </p>
+                )}
+
+                {status === "error" && (
+                  <p className="field-error form-system-error" role="alert">
+                    {formCopy.errorSystem}
+                  </p>
+                )}
+
+                <button className="btn btn-primary" type="submit" disabled={status === "submitting"}>
+                  {status === "submitting" ? formCopy.submitLoadingLabel : formCopy.submitLabel}
+                </button>
+              </form>
+            </div>
+          </section>
+        </ErrorBoundary>
+
+        <ErrorBoundary name="Contacto: section">
+          <section className="section faq-section" data-reveal>
+            <div className="container">
+              <SectionHeading eyebrow="Preguntas frecuentes" title="FAQ" />
+              <div className="faq-list">
+                {faqItems.map((item) => (
+                  <details className="faq-item" key={item.question}>
+                    <summary>{item.question}</summary>
+                    <p>{item.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        </ErrorBoundary>
+
+        <ErrorBoundary name="Contacto: section">
+          <section className="section closing-section" data-reveal>
+            <div className="container closing-copy">
+              {closingLines.map((line) => (
+                <p key={line}>
+                  <strong>{line}</strong>
                 </p>
-              )}
-
-              {status === "error" && (
-                <p className="field-error form-system-error" role="alert">
-                  {formCopy.errorSystem}
-                </p>
-              )}
-
-              <button className="btn btn-primary" type="submit" disabled={status === "submitting"}>
-                {status === "submitting" ? formCopy.submitLoadingLabel : formCopy.submitLabel}
-              </button>
-            </form>
-          </div>
-        </section>
-
-        <section className="section faq-section" data-reveal>
-          <div className="container">
-            <SectionHeading eyebrow="Preguntas frecuentes" title="FAQ" />
-            <div className="faq-list">
-              {faqItems.map((item) => (
-                <details className="faq-item" key={item.question}>
-                  <summary>{item.question}</summary>
-                  <p>{item.answer}</p>
-                </details>
               ))}
             </div>
-          </div>
-        </section>
+          </section>
+        </ErrorBoundary>
 
-        <section className="section closing-section" data-reveal>
-          <div className="container closing-copy">
-            {closingLines.map((line) => (
-              <p key={line}>
-                <strong>{line}</strong>
+        <ErrorBoundary name="Contacto: contact-section">
+          <section className="contact-section section wave-section-bottom" data-reveal>
+            <div className="container">
+              <SectionHeading eyebrow="CTA final" title="Comencemos la conversación." />
+              <p>
+                Descubre cómo una mejor comunicación puede transformar la forma en que tus clientes
+                viven la última etapa de una compra.
               </p>
-            ))}
-          </div>
-        </section>
-
-        <section className="contact-section section wave-section-bottom" data-reveal>
-          <div className="container">
-            <SectionHeading eyebrow="CTA final" title="Comencemos la conversación." />
-            <p>
-              Descubre cómo una mejor comunicación puede transformar la forma en que tus clientes
-              viven la última etapa de una compra.
-            </p>
-            <div className="contact-actions">
-              <a className="btn btn-coral" href="#formulario-contacto">
-                Agenda una demostración personalizada <ArrowRight size={15} />
-              </a>
-              <a className="btn btn-outline" href="#formulario-contacto">
-                Habla con un especialista
-              </a>
+              <div className="contact-actions">
+                <a className="btn btn-coral" href="#formulario-contacto">
+                  Agenda una demostración personalizada <ArrowRight size={15} />
+                </a>
+                <a className="btn btn-outline" href="#formulario-contacto">
+                  Habla con un especialista
+                </a>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </ErrorBoundary>
       </div>
     </>
   );

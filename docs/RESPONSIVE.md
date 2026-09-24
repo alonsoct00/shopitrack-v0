@@ -18,3 +18,10 @@
 - El collage de industrias mantiene 3 columnas pero reduce alturas.
 - Las tarjetas flotantes (tracking, dashboard, calendar) se repositionan para no salir del viewport.
 - No hay overflow horizontal: `.site-shell` tiene `overflow: hidden`.
+
+## Empresas
+
+- `.benefits-grid`: 3 columnas en desktop, 2 entre 801 y 1024px, 1 en mobile (`$page-break-mobile`, 960px; entre 801 y 960px gana la regla de tablet).
+- `.steps-list`: a partir de 801px crea una columna por paso (`grid-auto-flow: column`), así soporta más o menos de 5 pasos. En mobile sigue la regla global (lista vertical).
+- Sección de costos: en mobile `.split-grid` pasa a una columna y el placeholder de imagen queda debajo de las cards.
+- `.info-card--media` mantiene la imagen al lado del texto también en mobile.

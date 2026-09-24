@@ -1,10 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { PageError } from '@/components/PageError';
 
 export function MainLayout() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
+
+  useLayoutEffect(() => {
+    if (hash) return;
+    // 'instant' evita la animación de scroll-behavior: smooth del html.
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [pathname, hash]);
 
   useEffect(() => {
     document.documentElement.classList.add('reveal-ready');
@@ -30,11 +38,17 @@ export function MainLayout() {
 
   return (
     <div data-theme="shopitrack" className="site-shell">
-      <Header />
+      <ErrorBoundary name="Header">
+        <Header />
+      </ErrorBoundary>
       <main>
-        <Outlet />
+        <ErrorBoundary key={pathname} name={`Página ${pathname}`} fallback={<PageError />}>
+          <Outlet />
+        </ErrorBoundary>
       </main>
-      <Footer />
+      <ErrorBoundary name="Footer">
+        <Footer />
+      </ErrorBoundary>
     </div>
   );
 }
