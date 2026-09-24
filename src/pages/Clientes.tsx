@@ -14,6 +14,7 @@ import {
 import { seoConfig } from "@/data/seo";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { RichText } from "@/components/RichText";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 export function Clientes() {
   return (
@@ -39,7 +40,7 @@ export function Clientes() {
                 </p>
               </div>
               <div className="hero-art">
-                <img
+                <ImageWithFallback
                   src={clientesImages.hero}
                   srcSet={clientesImages.heroSrcSet}
                   sizes="(max-width: 800px) 100vw, 50vw"

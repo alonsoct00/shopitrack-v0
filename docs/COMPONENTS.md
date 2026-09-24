@@ -91,6 +91,21 @@ Variante `variant="flow"` (`.steps-list--flow`): sin numeración y con el texto 
 
 El texto de cada paso pasa por `RichText`. `data-reveal-delay` se limita a `4`, el máximo definido en `animations.scss`.
 
+## ImageWithFallback
+
+Reemplazo directo de `<img>` (`src/components/ImageWithFallback.tsx`). Acepta las mismas props y agrega `fallbackSrc?: string` (por defecto `/images/image-fallback.svg`). **Usarlo en lugar de `<img>` en todo el sitio.**
+
+Muestra la imagen genérica cuando:
+
+- `src` viene vacío o `undefined`.
+- La imagen falla al cargar (`onError`): 404, dominio caído, archivo corrupto. También cuando el servidor responde 200 con HTML (fallback SPA de Vite/Vercel), porque el navegador no puede decodificarlo.
+
+Al caer al fallback descarta `srcSet`/`sizes` (si no, el navegador seguiría pidiendo las variantes rotas) y conserva `alt`, `className`, `loading`, etc. Si el `src` cambia (p. ej. el carrusel de sectores), se reintenta. Si el fallback también falla, no entra en bucle.
+
+```tsx
+<ImageWithFallback src={empresasImages.hero} srcSet={empresasImages.heroSrcSet} alt="..." />
+```
+
 ## RichText
 
 Convierte un grupo cerrado de etiquetas dentro de strings del data en elementos React (`src/components/RichText.tsx`). Cualquier otro HTML se muestra como texto; no usa `dangerouslySetInnerHTML`.

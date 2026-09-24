@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import type { StepItem } from "@/data/types";
 import { RichText } from "@/components/RichText";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 export function StepsList({
   steps,
@@ -24,7 +25,7 @@ export function StepsList({
             <div className="step-line">
               {step.image ? (
                 <span className="step-media">
-                  <img
+                  <ImageWithFallback
                     src={step.image.src}
                     alt={step.image.alt}
                     loading="lazy"

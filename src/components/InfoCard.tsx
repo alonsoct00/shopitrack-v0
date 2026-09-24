@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { RichText } from "@/components/RichText";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 export function InfoCard({
   icon,
@@ -19,7 +20,7 @@ export function InfoCard({
   return (
     <article className={`info-card${image ? " info-card--media" : ""}`}>
       {image ? (
-        <img
+        <ImageWithFallback
           className="info-card-media"
           src={image.src}
           alt={image.alt}

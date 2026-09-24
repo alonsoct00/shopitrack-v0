@@ -14,6 +14,7 @@ import { Seo } from "@/components/Seo";
 import { images, industries, steps } from "@/data/home";
 import { seoConfig } from "@/data/seo";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 export function Home() {
   return (
@@ -41,7 +42,7 @@ export function Home() {
                 </a>
               </div>
               <div className="hero-art">
-                <img
+                <ImageWithFallback
                   src="/images/hero-img.webp"
                   srcSet="/images/hero-img-800.webp 800w, /images/hero-img.webp 1400w"
                   sizes="(max-width: 800px) 100vw, 50vw"
@@ -67,7 +68,7 @@ export function Home() {
             <div className="container">
               <div className="split-grid stretch">
                 <div className="photo-frame photo-frame">
-                  <img
+                  <ImageWithFallback
                     src={images.courier}
                     width={1024}
                     height={506}
@@ -100,7 +101,7 @@ export function Home() {
               <SectionHeading title="Dos historias. Un mismo problema." />
               <div className="story-grid">
                 <article className="story-card blur-right">
-                  <img
+                  <ImageWithFallback
                     src={images.company}
                     width={1200}
                     height={655}
@@ -119,7 +120,7 @@ export function Home() {
                   </div>
                 </article>
                 <article className="story-card blur-left story-reverse">
-                  <img
+                  <ImageWithFallback
                     src={images.customerAngry}
                     width={1050}
                     height={592}
@@ -162,7 +163,7 @@ export function Home() {
                 </p>
               </div>
               <div className="cost-art photo-frame-blur photo-frame photo-frame--wide">
-                <img
+                <ImageWithFallback
                   src={images.operator}
                   width={1200}
                   height={655}
@@ -199,7 +200,7 @@ export function Home() {
                 </p>
               </div>
               <div className="lastmile-art photo-frame-blur photo-frame photo-frame--wide">
-                <img
+                <ImageWithFallback
                   src={images.delivery}
                   width={1024}
                   height={559}
@@ -208,7 +209,7 @@ export function Home() {
                   className="photo-frame-img visible md:invisible"
                 />
                 <div className="over-img calendar-card">
-                  <img
+                  <ImageWithFallback
                     src={images.calendarCard}
                     width={600}
                     height={529}
@@ -352,7 +353,7 @@ export function Home() {
                 </div>
               </div>
               <div className="device-mockup">
-                <img
+                <ImageWithFallback
                   src={images.deviceMockup}
                   width={712}
                   height={351}

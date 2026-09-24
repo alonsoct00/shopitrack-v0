@@ -21,6 +21,7 @@ import { seoConfig } from "@/data/seo";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import type { Icon, IconItem } from "@/data/types";
 import { RichText } from "@/components/RichText";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 function StatCard({
   icon,
@@ -101,7 +102,7 @@ export function Empresas() {
                 </Link>
               </div>
               <div className="hero-art">
-                <img
+                <ImageWithFallback
                   src={empresasImages.hero}
                   srcSet={empresasImages.heroSrcSet}
                   sizes="(max-width: 800px) 100vw, 50vw"
@@ -478,7 +479,7 @@ export function Empresas() {
                 </div>
               </div>
               <div className="photo-frame">
-                <img
+                <ImageWithFallback
                   src={empresasImages.cta}
                   width={1024}
                   height={559}

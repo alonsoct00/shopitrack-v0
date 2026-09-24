@@ -81,6 +81,10 @@ Reutiliza imagen ya existente en `public/images`:
 
 **RUTA FALTANTE:** el PDF define un CTA "Consultar Aviso de Privacidad" (sección 09) y una mención en el FAQ de "Aviso de Privacidad" — no existe ruta `/aviso-de-privacidad` en el proyecto. La sección 09 completa se omitió por decisión explícita (el PDF la marca con una X roja, indicando descarte del revisor); la mención en el FAQ se dejó como texto plano sin enlace, sin inventar la ruta.
 
+## Imagen genérica de respaldo
+
+`public/images/image-fallback.svg`: fondo `--surface-alt` con un ícono de imagen en `--text-muted`, sin texto. La usa `ImageWithFallback` cuando una imagen no existe o falla. Es distinta de `placeholder-asset.svg` ("ASSET FALTANTE"), que marca a propósito assets pendientes de diseño.
+
 ## Cómo agregar nuevas imágenes
 
 Usar la herramienta `pexels_search` (MCP) con una query descriptiva del subject. Referenciar la URL directamente en `<img>`, sin descargarla. No adivinar URLs. Documentar cada imagen nueva en esta tabla.

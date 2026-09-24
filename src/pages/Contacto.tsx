@@ -17,6 +17,7 @@ import {
 } from "@/data/contacto";
 import { seoConfig } from "@/data/seo";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 
 interface ContactFormData {
@@ -189,7 +190,7 @@ export function Contacto() {
                 </a>
               </div>
               <div className="hero-art">
-                <img
+                <ImageWithFallback
                   src={contactoImages.hero}
                   srcSet={contactoImages.heroSrcSet}
                   sizes="(max-width: 800px) 100vw, 50vw"

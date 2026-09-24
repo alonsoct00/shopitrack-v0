@@ -12,6 +12,7 @@ import { otherSectors, sectoresImages, sectors } from "@/data/sectores";
 import { seoConfig } from "@/data/seo";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { RichText } from "@/components/RichText";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 
 function SectorBlock({ icon, title, items }: { icon: ReactNode; title: string; items: string[] }) {
@@ -54,7 +55,7 @@ export function Sectores() {
                 </Link>
               </div>
               <div className="hero-art">
-                <img
+                <ImageWithFallback
                   src={sectoresImages.hero}
                   srcSet={sectoresImages.heroSrcSet}
                   sizes="(max-width: 800px) 100vw, 50vw"
@@ -75,7 +76,7 @@ export function Sectores() {
             <div className="container">
               <div className="split-grid stretch">
                 <div className="photo-frame">
-                  <img
+                  <ImageWithFallback
                     src={sectoresImages.commonProblem}
                     width={1200}
                     height={655}
@@ -176,7 +177,7 @@ export function Sectores() {
                 </div>
               </div>
               <div className="photo-frame">
-                <img
+                <ImageWithFallback
                   src={sectoresImages.cta}
                   width={900}
                   height={508}

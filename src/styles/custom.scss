@@ -420,12 +420,13 @@
 
             .step-line {
                 span {
-                    background-color: white;
+                    background-color: var(--surface);
                     color: rgb(var(--color-blue));
                 }
                 
+                // Blanco como el texto de la sección: el azul sobre el fondo navy no alcanzaba 3:1.
                 i {
-                    color: rgb(var(--color-blue));
+                    color: var(--surface);
                     display: inline-flex;
                     flex: 1;
                     text-align: center;
@@ -768,16 +769,165 @@
         }
 
         @include mobile-only {
-            .benefits-grid,
+            // .benefits-section .benefits-grid: misma especificidad que la regla de 3 columnas,
+            // si no, esta nunca aplicaba.
+            .benefits-section .benefits-grid,
             .usecases-grid,
             .roi-grid {
                 grid-template-columns: 1fr;
             }
 
+            // Sin el listón decorativo de Home, el padding inferior global del hero queda vacío.
+            .hero {
+                padding-bottom: var(--space-lg);
+            }
+
+            // Columnas vacías del split-grid (reservadas en desktop) solo suman gap al apilarse.
+            .split-grid > :empty {
+                display: none;
+            }
+
             .last-impression {
                 background-size: cover !important;
                 background-attachment: scroll !important;
-                height: 300px !important;
+                height: auto !important;
+                min-height: 300px;
+                padding-block: 48px;
+            }
+
+            // En mobile la entrada de los pasos es vertical; sin esto el translateY(-40px)
+            // de animations.scss persiste tras hacerse visibles y monta los pasos sobre el título.
+            html.reveal-ready & .steps-list .step.is-visible {
+                transform: none;
+            }
+
+            // Pasos: la flecha vuelve al flujo en lugar de quedar absoluta en la esquina derecha,
+            // y va después de la etiqueta para señalar el siguiente paso (no su propio texto).
+            .steps-section .step-line i {
+                display: flex;
+                flex: none;
+                position: relative;
+                right: auto;
+                margin: 10px 0;
+            }
+
+            .steps-section .steps-list:not(.steps-list--flow) {
+                .step-line {
+                    display: contents;
+                }
+
+                .step-line i {
+                    order: 1;
+                    margin: 12px 0 0;
+                }
+
+                .step p {
+                    margin-top: 12px;
+                }
+            }
+
+            // El fondo se desvanece a blanco en el último ~5% de la sección; sin este margen las
+            // etiquetas blancas del flujo quedan sobre el desvanecido y pierden contraste.
+            .steps-section {
+                padding-bottom: 96px;
+            }
+
+            // Flujo Empresa → Operador → Cliente: son 3 etiquetas cortas, se mantiene en fila.
+            .steps-list.steps-list--flow {
+                grid-template-columns: none;
+                grid-auto-flow: column;
+                grid-auto-columns: 1fr;
+                gap: 8px;
+
+                .step-line {
+                    position: relative;
+                    width: 100%;
+                    margin: 0 0 8px;
+                }
+
+                .step-line > span {
+                    width: 56px;
+                    height: 56px;
+                    border-width: 6px;
+                }
+
+                .step-line svg {
+                    height: 22px;
+                }
+
+                .step-line i {
+                    position: absolute;
+                    top: 50%;
+                    right: -13px;
+                    margin: 0;
+                    transform: translateY(-50%);
+                }
+
+                .step-line i svg {
+                    width: 18px;
+                }
+            }
+
+            .tech-integration .communication-flow {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+
+                .steps-list {
+                    width: 100%;
+                }
+            }
+
+            // Card con imagen: lado a lado dejaba ~18 caracteres por línea en 320–430px.
+            // La imagen pasa arriba y el mismo desvanecido se orienta hacia el texto (abajo).
+            .benefits-section .info-card.info-card--media {
+                flex-direction: column;
+
+                &::before {
+                    display: none;
+                }
+
+                .info-card-media {
+                    flex: none;
+                    width: 100%;
+                    height: 180px;
+                    mask-image: linear-gradient(to bottom, #000 55%, transparent);
+                }
+
+                .info-card-body {
+                    padding: 0 20px 20px;
+                }
+            }
+
+            .benefits-section .benefits-grid .info-card-body .industry-list li {
+                font-size: 16px;
+                // anywhere (no break-word) reduce el min-content: grid y flex pueden encogerse.
+                overflow-wrap: anywhere;
+            }
+
+            // Sin min-width: 0 el cuerpo (flex item) no se encoge junto a la imagen y
+            // palabras largas como "proveedor/almacenaje/merma" desbordan la card.
+            .benefits-section .info-card--media .info-card-body {
+                min-width: 0;
+            }
+
+            // 801–960px: la regla global de tablet deja las etiquetas de paso en 10px,
+            // ilegibles en la fila de 6 pasos de Empresas.
+            @include tablet {
+                .steps-section .step p {
+                    font-size: 14px;
+                    max-width: none;
+                }
+            }
+
+            // En columnas angostas evita palabras huérfanas en títulos y bullets.
+            h1, h2, h3, h4 {
+                text-wrap: balance;
+            }
+
+            .industry-list li,
+            .step p {
+                text-wrap: pretty;
             }
         }
 
