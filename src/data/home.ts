@@ -1,11 +1,11 @@
 export const images = {
-  courier: "/images/repartidor.jpeg",
+  courier: "/images/repartidor.webp",
   company: "/images/logistics-issues.webp",
   customer: "/images/entrega-feliz.webp",
-  customerAngry: "/images/cliente-preocupado.jpg",
+  customerAngry: "/images/cliente-preocupado.webp",
   operator: "/images/atencion-confianza.webp",
-  delivery: "/images/shopi-atencion-cliente.jpeg",
-  deviceMockup: "/images/pc-shopi.png",
+  delivery: "/images/shopi-atencion-cliente.webp",
+  deviceMockup: "/images/pc-shopi.webp",
   calendarCard: "/images/calendario-shopi.webp",
 };
 

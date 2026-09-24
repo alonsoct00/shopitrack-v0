@@ -1,5 +1,6 @@
 export const contactoImages = {
-  hero: "/images/shopi-atencion-cliente.jpeg",
+  hero: "/images/shopi-atencion-cliente.webp",
+  heroSrcSet: "/images/shopi-atencion-cliente-800.webp 800w, /images/shopi-atencion-cliente.webp 1024w",
 };
 
 export const contactSteps = [

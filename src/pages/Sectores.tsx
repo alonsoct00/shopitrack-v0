@@ -60,6 +60,8 @@ export function Sectores() {
             <div className="hero-art">
               <img
                 src={sectoresImages.hero}
+                srcSet={sectoresImages.heroSrcSet}
+                sizes="(max-width: 800px) 100vw, 50vw"
                 alt="Repartidor entregando un paquete"
                 width={1400}
                 height={782}
@@ -77,6 +79,8 @@ export function Sectores() {
               <div className="photo-frame">
                 <img
                   src={sectoresImages.commonProblem}
+                  width={1200}
+                  height={655}
                   alt="Empresa gestionando el contexto de una entrega"
                   loading="lazy"
                   className="photo-frame-img"
@@ -171,6 +175,8 @@ export function Sectores() {
             <div className="photo-frame">
               <img
                 src={sectoresImages.cta}
+                width={900}
+                height={508}
                 alt="Cliente recibiendo su pedido con una sonrisa"
                 loading="lazy"
                 className="photo-frame-img"

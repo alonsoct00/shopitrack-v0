@@ -27,9 +27,9 @@ Reutiliza imágenes ya existentes en `public/images` (sin descargar nuevas):
 
 | Ubicación | Archivo | Finalidad |
 | ----------- | ------- | ----------- |
-| Hero | `/images/shopi-atencion-cliente.jpeg` | Repartidor entregando a clienta (reutilizada de Home) |
+| Hero | `/images/shopi-atencion-cliente.webp` | Repartidor entregando a clienta (reutilizada de Home) |
 | La última impresión | `/images/entrega-feliz.webp` | Cliente recibiendo su pedido (reutilizada de Home) |
-| CTA final | `/images/shopi-atencion-cliente.jpeg` | Misma foto del hero, reutilizada para cerrar el ciclo |
+| CTA final | `/images/shopi-atencion-cliente.webp` | Misma foto del hero, reutilizada para cerrar el ciclo |
 
 **ASSET FALTANTE — sección "Casos de uso":** las 4 tarjetas (`Entregas que requieren presencia`, `Productos difíciles de reprogramar`, `Entregas de alto valor`, `Operaciones con alto volumen`) no tienen foto asignada; se dejó un placeholder visible ("ASSET FALTANTE") en `.usecase-card-media`. No hay ninguna imagen existente en `public/images` que represente estos 4 conceptos con fidelidad y no hay herramienta de búsqueda de imágenes disponible en esta sesión. Se requieren 4 fotos específicas (persona recibiendo en puerta, mueble/electrodoméstico grande, producto premium en caja, almacén con alto volumen de paquetes) — reemplazar `useCases` en `src/data/empresas.ts` con las URLs una vez elegidas.
 
@@ -51,7 +51,7 @@ Reutiliza imagen ya existente en `public/images`:
 
 | Ubicación | Archivo | Finalidad |
 | ----------- | ------- | ----------- |
-| Hero | `/images/cliente-preocupado.jpg` | Persona esperando una entrega en casa (reutilizada de Home) |
+| Hero | `/images/cliente-preocupado.webp` | Persona esperando una entrega en casa (reutilizada de Home) |
 
 **ASSET FALTANTE — 3 secciones:** "Lo que implica esperar" (persona utilizando su tiempo mientras espera), "La aplicación" (pantallas reales de la app) y el CTA final "Descarga la aplicación" (mockup real de la app) no tienen foto/mockup específico; el proyecto no cuenta con capturas de la app (aún no existe) ni con una foto de "persona productiva esperando en casa" distinta a la ya usada en el hero. Se dejaron placeholders visibles ("ASSET FALTANTE") en cada `.photo-frame`, mismo patrón usado en Empresa y Sectores.
 

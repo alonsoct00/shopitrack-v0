@@ -53,6 +53,8 @@ export function Home() {
             <div className="hero-art">
               <img
                 src="/images/hero-img.webp"
+                srcSet="/images/hero-img-800.webp 800w, /images/hero-img.webp 1400w"
+                sizes="(max-width: 800px) 100vw, 50vw"
                 alt="Repartidor entregando un paquete"
                 width={1400}
                 height={782}
@@ -75,6 +77,8 @@ export function Home() {
               <div className="photo-frame photo-frame">
                 <img
                   src={images.courier}
+                  width={1024}
+                  height={506}
                   alt="Repartidor caminando con una caja junto a un vehículo"
                   loading="lazy"
                   className="photo-frame-img visible md:invisible"
@@ -104,6 +108,8 @@ export function Home() {
               <article className="story-card blur-right">
                 <img
                   src={images.company}
+                  width={1200}
+                  height={655}
                   alt="Empresa recibiendo una entrega"
                   loading="lazy"
                 />
@@ -121,6 +127,8 @@ export function Home() {
               <article className="story-card blur-left story-reverse">
                 <img
                   src={images.customerAngry}
+                  width={1050}
+                  height={592}
                   alt="Cliente esperando una entrega en casa"
                   loading="lazy"
                 />
@@ -160,6 +168,8 @@ export function Home() {
             <div className="cost-art photo-frame-blur photo-frame photo-frame--wide">
               <img
                 src={images.operator}
+                width={1200}
+                height={655}
                 alt="Operadora revisando información de entregas"
                 loading="lazy"
                 className="photo-frame-img visible md:invisible"
@@ -193,6 +203,8 @@ export function Home() {
             <div className="lastmile-art photo-frame-blur photo-frame photo-frame--wide">
               <img
                 src={images.delivery}
+                width={1024}
+                height={559}
                 alt="Cliente y repartidor coordinando la entrega de un paquete"
                 loading="lazy"
                 className="photo-frame-img visible md:invisible"
@@ -200,6 +212,8 @@ export function Home() {
               <div className="over-img calendar-card">
                 <img
                   src={images.calendarCard}
+                  width={600}
+                  height={529}
                   alt="Calendario con la fecha de entrega confirmada"
                   loading="lazy"
                 />
@@ -362,6 +376,8 @@ export function Home() {
             <div className="device-mockup">
               <img
                 src={images.deviceMockup}
+                width={712}
+                height={351}
                 alt="Panel de Shopitrack con el seguimiento de una entrega en curso"
                 loading="lazy"
               />

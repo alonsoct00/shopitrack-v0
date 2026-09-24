@@ -1,5 +1,6 @@
 export const clientesImages = {
-  hero: "/images/cliente-preocupado.jpg",
+  hero: "/images/cliente-preocupado.webp",
+  heroSrcSet: "/images/cliente-preocupado-800.webp 800w, /images/cliente-preocupado.webp 1050w",
 };
 
 export const heroQuotes = [

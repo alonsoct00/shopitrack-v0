@@ -1,5 +1,6 @@
 export const sectoresImages = {
   hero: "/images/hero-img.webp",
+  heroSrcSet: "/images/hero-img-800.webp 800w, /images/hero-img.webp 1400w",
   commonProblem: "/images/logistics-issues.webp",
   cta: "/images/entrega-feliz.webp",
 };

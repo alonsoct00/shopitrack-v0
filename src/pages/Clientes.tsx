@@ -38,6 +38,8 @@ export function Clientes() {
             <div className="hero-art">
               <img
                 src={clientesImages.hero}
+                srcSet={clientesImages.heroSrcSet}
+                sizes="(max-width: 800px) 100vw, 50vw"
                 alt="Persona asomándose a la ventana mientras espera una entrega"
                 width={1400}
                 height={782}

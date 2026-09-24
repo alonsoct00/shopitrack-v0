@@ -1,26 +1,30 @@
 export const empresasImages = {
-  hero: "/images/shopi-atencion-cliente.jpeg",
+  hero: "/images/shopi-atencion-cliente.webp",
+  heroSrcSet: "/images/shopi-atencion-cliente-800.webp 800w, /images/shopi-atencion-cliente.webp 1024w",
   lastImpression: "/images/entrega-feliz.webp",
-  cta: "/images/shopi-atencion-cliente.jpeg",
+  cta: "/images/shopi-atencion-cliente.webp",
 };
 
 export const costCards = [
   {
-    title: "Costo operativo",
+    title: "Una entrega fallida tiene costos monetarios.",
     items: [
-      "Reintentos que consumen tiempo y recursos.",
-      "Rutas ineficientes.",
-      "Equipos y vehículos subutilizados.",
-      "Costos administrativos y de gestión.",
+      "Combustible.",
+      "Kilómetros estériles.",
+      "Tiempo del operador.",
+      "Reingreso a almacén.",
+      "Maltrato.",
+      "Llamadas (Call Center).",
     ],
   },
   {
-    title: "Costo relacional",
+    title: "Pero también tiene costos invisibles.",
     items: [
-      "Clientes molestos o decepcionados.",
-      "Pérdida de confianza.",
-      "Reclamos y devoluciones.",
-      "Comentarios negativos que dañan la reputación.",
+      "Frustración.",
+      "Desconfianza.",
+      "Reseñas negativas.",
+      "Clientes que no recompran.",
+      "Clientes con comentarios negativos.",
     ],
   },
 ];

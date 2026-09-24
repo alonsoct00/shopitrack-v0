@@ -8,19 +8,27 @@ import {
   Check,
   CheckCircle2,
   Clock3,
+  Frown,
   Fuel,
   Headphones,
   Layers,
   Megaphone,
+  MessageSquareWarning,
   Package,
   PackageCheck,
+  PackageX,
+  PhoneCall,
   Puzzle,
+  Route,
+  ShieldAlert,
   ShieldCheck,
   ShoppingCart,
   Smile,
+  ThumbsDown,
   TrendingUp,
   Truck,
-  UsersRound,
+  UserX,
+  Warehouse,
 } from "lucide-react";
 import { InfoCard } from "@/components/InfoCard";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -45,13 +53,39 @@ function BellIcon() {
   );
 }
 
-function StatCard({ icon, title, items }: { icon: ReactNode; title: string; items: string[] }) {
+function StatCard({
+  icon,
+  icons,
+  title,
+  items,
+  bullet = "check",
+}: {
+  icon?: ReactNode;
+  icons?: ReactNode[];
+  title: string;
+  items: string[];
+  bullet?: "check" | "cross";
+}) {
   return (
-    <article className="info-card stat-card">
-      <div className="round-icon">{icon}</div>
+    <article
+      className={`info-card stat-card${icons ? " stat-card--icons" : ""}`}
+    >
+      {icons ? (
+        <div className="stat-card-icons" aria-hidden="true">
+          {icons.map((itemIcon, index) => (
+            <span className="round-icon" key={index}>
+              {itemIcon}
+            </span>
+          ))}
+        </div>
+      ) : (
+        <div className="round-icon">{icon}</div>
+      )}
       <div>
         <h2>{title}</h2>
-        <ul className="industry-list">
+        <ul
+          className={`industry-list${bullet === "cross" ? " industry-list--cross" : ""}`}
+        >
           {items.map((item) => (
             <li key={item}>{item}</li>
           ))}
@@ -61,8 +95,20 @@ function StatCard({ icon, title, items }: { icon: ReactNode; title: string; item
   );
 }
 
+const costIcons = [
+  [Fuel, Route, Clock3, Warehouse, PackageX, PhoneCall],
+  [Frown, ShieldAlert, ThumbsDown, UserX, MessageSquareWarning],
+];
 const coordinationIcons = [CalendarDays, Check, BellIcon, Truck, PackageCheck];
-const benefitIcons = [Building2, Package, Truck, ShoppingCart, Headphones, Megaphone];
+const benefitIcons = [
+  Building2,
+  Package,
+  Truck,
+  ShoppingCart,
+  Headphones,
+  Megaphone,
+  MessageSquareWarning,
+];
 const integrationIcons = [Puzzle, Layers, CheckCircle2];
 const roiIcons = [Clock3, Smile, TrendingUp, ShieldCheck];
 
@@ -71,21 +117,29 @@ export function Empresas() {
     <>
       <Seo {...seoConfig.empresas} />
       <div id="page-empresas" className="page page-empresas">
-        <section className="hero wave-section-bottom" aria-labelledby="empresas-hero-title">
+        <section
+          className="hero wave-section-bottom"
+          aria-labelledby="empresas-hero-title"
+        >
           <div className="container hero-grid">
             <div className="hero-copy">
-              <h1 id="empresas-hero-title">La reputación de tu marca también se entrega.</h1>
+              <h1 id="empresas-hero-title">
+                Cada entrega enaltece o sepulta la lealtad a tu marca
+              </h1>
               <p>
-                Tus clientes no separan el producto de la experiencia de recibirlo. Para ellos,
-                todo forma parte de la misma compra.
+                Los clientes no separan quién vendió, la calidad del producto ni
+                la experiencia en recibirlo. Para ellos, todo forma la misma
+                experiencia de compra.
               </p>
               <Link className="btn btn-primary" to="/contacto">
-                Agenda una demostración <ArrowRight size={16} />
+                Quiero una demostración <ArrowRight size={16} />
               </Link>
             </div>
             <div className="hero-art">
               <img
                 src={empresasImages.hero}
+                srcSet={empresasImages.heroSrcSet}
+                sizes="(max-width: 800px) 100vw, 50vw"
                 alt="Repartidor entregando un paquete a una clienta sonriente"
                 width={1400}
                 height={782}
@@ -103,50 +157,75 @@ export function Empresas() {
               <div className="split-copy">
                 <SectionHeading
                   eyebrow="La promesa invisible"
-                  title="Toda compra comienza con una promesa: puedes confiar en nosotros."
+                  title="Toda empresa hace una promesa cuando acepta una compra. No importa si vende muebles, electrodomésticos, instalaciones tecnológicas o moda."
                 />
+                <div className="text-content">
+                  <h4>
+                    La promesa siempre es la misma. <q>Confía en nosotros.</q>
+                  </h4>
+                  <p>
+                    Esa promesa no termina cuando se aprueba el pago. <br />
+                    Termina cuando el cliente <b>recibe exactamente</b> lo que
+                    esperaba.
+                  </p>
+                  <h3>
+                    Cada entrega es momento donde esa promesa se fortalece o se
+                    rompe.
+                  </h3>
+                </div>
               </div>
-              <div className="split-copy">
-                <p>
-                  Esa promesa no termina cuando se aprueba el pago. Termina cuando el cliente
-                  recibe exactamente lo que esperaba.
-                </p>
-                <p>Cada entrega puede fortalecer esa confianza... o debilitarla.</p>
-              </div>
+              <div className="split-copy"></div>
             </div>
           </div>
         </section>
 
         <section className="cost-section section" data-reveal>
           <div className="container">
-            <SectionHeading eyebrow="El costo de una entrega fallida" title="Una entrega fallida cuesta dos veces." />
-            <div className="split-grid">
-              <StatCard icon={<Fuel />} title={costCards[0].title} items={costCards[0].items} />
-              <StatCard icon={<UsersRound />} title={costCards[1].title} items={costCards[1].items} />
+            <SectionHeading
+              eyebrow="El verdadero costo de una entrega fallida"
+              title="Una entrega fallida cuesta dos veces."
+            />
+            <div className="split-grid stretch mt-4">
+              <div className="cost-grid">
+                {costCards.map((card, index) => (
+                  <StatCard
+                    key={card.title}
+                    icons={costIcons[index].map((CostIcon, iconIndex) => (
+                      <CostIcon key={iconIndex} />
+                    ))}
+                    title={card.title}
+                    items={card.items}
+                    bullet="cross"
+                  />
+                ))}
+              </div>
+              <div
+                className="usecase-card-media cost-media"
+                role="img"
+                aria-label="Imagen pendiente: costo de una entrega fallida"
+              >
+                <span>ASSET FALTANTE</span>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="split-section section wave-section-bottom" data-reveal>
+        <section
+          className="last-impression split-section section wave-section-bottom"
+          data-reveal
+        >
           <div className="container">
             <div className="split-grid stretch">
-              <div className="photo-frame">
-                <img
-                  src={empresasImages.lastImpression}
-                  alt="Cliente recibiendo su pedido con una sonrisa"
-                  loading="lazy"
-                  className="photo-frame-img"
-                />
-              </div>
               <div className="split-copy">
                 <SectionHeading
                   eyebrow="La última impresión"
                   title="La compra termina en la entrega. El recuerdo empieza ahí."
                 />
                 <p>
-                  Puedes tener el mejor producto, el mejor precio y la mejor atención. Pero si la
-                  entrega falla, todo lo anterior pierde valor en la mente del cliente. La última
-                  experiencia define la próxima decisión.
+                  Puedes tener el mejor producto, el mejor precio y la mejor
+                  atención. Pero si la entrega falla, todo lo anterior pierde
+                  valor en la mente del cliente. La última experiencia define la
+                  próxima decisión.
                 </p>
               </div>
             </div>
@@ -164,18 +243,23 @@ export function Empresas() {
               </div>
               <div className="split-copy">
                 <p>
-                  Más vehículos. Mejores rutas. Más capacidad. Mayor eficiencia. Todo esto es
-                  necesario, pero no suficiente.
+                  Más vehículos. Mejores rutas. Más capacidad. Mayor eficiencia.
+                  Todo esto es necesario, pero no suficiente.
                 </p>
                 <p>
-                  <strong>¿La persona estará disponible cuando llegue la entrega?</strong>
+                  <strong>
+                    ¿La persona estará disponible cuando llegue la entrega?
+                  </strong>
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="steps-section section wave-section-bottom" data-reveal>
+        <section
+          className="steps-section section wave-section-bottom"
+          data-reveal
+        >
           <div className="container">
             <SectionHeading
               eyebrow="Una nueva manera de coordinar"
@@ -238,16 +322,25 @@ export function Empresas() {
 
         <section className="changes section wave-section-bottom" data-reveal>
           <div className="container">
-            <SectionHeading eyebrow="Integración natural" title="Shopitrack se adapta a tu operación." centered />
+            <SectionHeading
+              eyebrow="Integración natural"
+              title="Shopitrack se adapta a tu operación."
+              centered
+            />
             <p className="coming-soon-copy">
-              No sustituye tu ERP, WMS, TMS ni tu sistema de ruteo. Se integra a lo que ya
-              funciona sin obligarte a cambiarlo.
+              No sustituye tu ERP, WMS, TMS ni tu sistema de ruteo. Se integra a
+              lo que ya funciona sin obligarte a cambiarlo.
             </p>
             <div className="change-grid">
               {integrationItems.map((item, index) => {
                 const ItemIcon = integrationIcons[index];
                 return (
-                  <InfoCard key={item.title} icon={<ItemIcon />} title={item.title} label={item.label}>
+                  <InfoCard
+                    key={item.title}
+                    icon={<ItemIcon />}
+                    title={item.title}
+                    label={item.label}
+                  >
                     {item.description}
                   </InfoCard>
                 );
@@ -258,11 +351,19 @@ export function Empresas() {
 
         <section className="usecases-section section" data-reveal>
           <div className="container">
-            <SectionHeading eyebrow="Casos de uso" title="Dónde Shopitrack marca más la diferencia." centered />
+            <SectionHeading
+              eyebrow="Casos de uso"
+              title="Dónde Shopitrack marca más la diferencia."
+              centered
+            />
             <div className="usecases-grid">
               {useCases.map((useCase) => (
                 <article className="usecase-card" key={useCase.title}>
-                  <div className="usecase-card-media" role="img" aria-label={`Imagen pendiente: ${useCase.title}`}>
+                  <div
+                    className="usecase-card-media"
+                    role="img"
+                    aria-label={`Imagen pendiente: ${useCase.title}`}
+                  >
                     <span>ASSET FALTANTE</span>
                   </div>
                   <h3>{useCase.title}</h3>
@@ -273,7 +374,10 @@ export function Empresas() {
           </div>
         </section>
 
-        <section className="roi-section section wave-section-bottom" data-reveal>
+        <section
+          className="roi-section section wave-section-bottom"
+          data-reveal
+        >
           <div className="container">
             <SectionHeading
               eyebrow="ROI"
@@ -283,7 +387,14 @@ export function Empresas() {
             <div className="roi-grid">
               {roiCards.map((card, index) => {
                 const RoiIcon = roiIcons[index];
-                return <StatCard key={card.title} icon={<RoiIcon />} title={card.title} items={card.items} />;
+                return (
+                  <StatCard
+                    key={card.title}
+                    icon={<RoiIcon />}
+                    title={card.title}
+                    items={card.items}
+                  />
+                );
               })}
             </div>
           </div>
@@ -309,11 +420,21 @@ export function Empresas() {
           </div>
         </section>
 
-        <section className="contact-section section wave-section-bottom" id="contacto" data-reveal>
+        <section
+          className="contact-section section wave-section-bottom"
+          id="contacto"
+          data-reveal
+        >
           <div className="container contact-grid">
             <div>
-              <h2>Convierte cada entrega en una oportunidad para fortalecer tu marca.</h2>
-              <p>Shopitrack te ayuda a cumplir tu promesa donde más importa: en la puerta de tu cliente.</p>
+              <h2>
+                Convierte cada entrega en una oportunidad para fortalecer tu
+                marca.
+              </h2>
+              <p>
+                Shopitrack te ayuda a cumplir tu promesa donde más importa: en
+                la puerta de tu cliente.
+              </p>
               <div className="contact-actions">
                 <Link className="btn btn-coral" to="/contacto">
                   Agenda una demostración personalizada <ArrowRight size={15} />
@@ -326,6 +447,8 @@ export function Empresas() {
             <div className="photo-frame">
               <img
                 src={empresasImages.cta}
+                width={1024}
+                height={559}
                 alt="Cliente y repartidor coordinando la entrega de un paquete"
                 loading="lazy"
                 className="photo-frame-img"

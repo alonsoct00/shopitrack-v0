@@ -198,6 +198,8 @@ export function Contacto() {
             <div className="hero-art">
               <img
                 src={contactoImages.hero}
+                srcSet={contactoImages.heroSrcSet}
+                sizes="(max-width: 800px) 100vw, 50vw"
                 alt="Especialista de soporte de Shopitrack atendiendo una llamada"
                 width={1400}
                 height={782}

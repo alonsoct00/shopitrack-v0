@@ -51,7 +51,7 @@ export function IndustriesShowcase() {
       <div className="industries-showcase-viewport">
         <div className="industries-collage-grid" key={page}>
           {SLIDES[page].map((slide) => (
-            <img key={slide.src} src={slide.src} alt={slide.alt} loading="lazy" />
+            <img key={slide.src} src={slide.src} alt={slide.alt} width={800} height={533} loading="lazy" />
           ))}
         </div>
       </div>
