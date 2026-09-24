@@ -17,6 +17,31 @@
 
 }
 
+.info-card--media {
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card--media::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(40% - 64px);
+  width: 64px;
+  backdrop-filter: blur(6px);
+  mask-image: linear-gradient(to right, transparent, #000 60%, transparent);
+  pointer-events: none;
+}
+
+.info-card-media {
+  flex: 0 0 40%;
+  width: 40%;
+  align-self: stretch;
+  object-fit: cover;
+  mask-image: linear-gradient(to right, #000 55%, transparent);
+}
+
 .info-card strong,
 .story-card strong {
   display: block;

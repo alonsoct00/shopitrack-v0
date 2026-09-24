@@ -38,7 +38,8 @@ Tarjeta con icono circular, título, label y descripción.
 
 | Prop | Tipo | Descripción |
 | ---- | ---- | ----------- |
-| `icon` | `ReactNode` | Icono lucide-react |
+| `icon` | `ReactNode` | Icono lucide-react (se ignora si hay `image`) |
+| `image` | `{ src: string; alt: string }` | Variante `.info-card--media`: `<img>` con `object-fit: cover` en lugar del icono, ocupa todo el alto de la card |
 | `title` | `string` | Texto destacado en azul |
 | `label` | `string` | Subtítulo/h3 |
 | `items` | `string[]` | Lista opcional con checks azules (`.industry-list`) |

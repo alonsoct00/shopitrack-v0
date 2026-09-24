@@ -326,6 +326,7 @@ export function Empresas() {
                     icon={<BenefitIcon />}
                     title={benefit.title}
                     label={benefit.label}
+                    image={benefit.image}
                     items={benefit.items}
                   >
                     {benefit.description}

@@ -457,6 +457,21 @@ $page-break-mobile: 960px;
         .benefits-section {
             .benefits-grid {
                 margin-top: 20px;
+
+                .info-card-body {
+                    align-self: normal !important;
+                    h3 {
+                        font-size: 16px;
+                    }
+                    .industry-list {
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                        li {
+                            font-size: 12px;
+                            align-items: normal;
+                        }
+                    }
+                }
             }
         }
         .stat-card h2 {
@@ -572,6 +587,16 @@ $page-break-mobile: 960px;
                 gap: 16px;
                 align-items: center;
                 justify-content: normal;
+
+                &.info-card--media {
+                    padding: 0;
+                    align-items: stretch;
+
+                    .info-card-body {
+                        padding: 20px 20px 20px 0;
+                        align-self: center;
+                    }
+                }
 
                 h2 {
                     font-size: 19px;

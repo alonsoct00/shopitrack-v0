@@ -48,64 +48,88 @@ export const coordinationSteps = [
 export const orgBenefits = [
   {
     title: "Dirección",
+    image: {
+      src: "/images/pc-shopi.webp",
+      alt: "Panel de Shopitrack en laptop y celular",
+    },
     label: "Blinda la marca",
-    description: "Menos entregas fallidas, más confianza y más recompra.",
+    description: "",
     items: [
-      "Menos entregas fallidas.",
-      "Más confianza.",
-      "Más recompra.",
+      "Crea reputación de servicio y empatía.",
+      "Incrementa la fidelización y la recompra.",
     ],
   },
   {
     title: "Logística",
     label: "Reduce fricciones operativas.",
-    description:
-      "Menos logística inversa, menos devoluciones y mayor capacidad de los recursos.",
+    image: {
+      src: "/images/logistics-issues.webp",
+      alt: "Paquetes en un centro de distribución",
+    },
+    description: "",
     items: [
-      "Menos logística inversa.",
-      "Menos devoluciones.",
-      "Mayor capacidad de los recursos.",
+      "Reduce costo logístico.",
+      "Anula operaciones de logística inversa.",
+      "Menos devoluciones a proveedor/almacenaje/merma",
+      "Incrementa la capacidad operativa de los recursos",
+      "Menor área de 'Staging'.",
     ],
   },
   {
     title: "Transporte",
+    image: {
+      src: "/images/carretera-lastmile.webp",
+      alt: "Camiones de reparto circulando por una autopista",
+    },
     label: "Rutas más eficientes.",
-    description:
-      "Menos kilómetros improductivos y más entregas con los mismos recursos.",
+    description: "",
     items: [
-      "Menos kilómetros improductivos.",
-      "Más entregas con los mismos recursos.",
+      "Disminución de costo por entrega",
+      "Menos km improductivos (2o y 3er intento).",
+      "Hacer más con lo mismo",
+      "Más entregas en mismo tiempo, con mismos recursos",
     ],
   },
   {
     title: "eCommerce",
+    image: {
+      src: "/images/entrega-feliz.webp",
+      alt: "Repartidor entregando un paquete a una clienta sonriente",
+    },
     label: "Una mejor experiencia end-to-end.",
-    description:
-      "Mayor satisfacción del cliente y más probabilidad de recompra.",
+    description: "",
     items: [
-      "Mayor satisfacción del cliente.",
+      "Mayor satisfacción del cliente final.",
+      "Mejor evaluación en plataformas.",
       "Más probabilidad de recompra.",
     ],
   },
   {
     title: "Servicio al Cliente",
+    image: {
+      src: "/images/shopi-atencion-cliente-800.webp",
+      alt: "Agente de Shopitrack atendiendo clientes con diadema",
+    },
     label: "Menos contacto reactivo.",
-    description:
-      "Menos llamadas, menos reclamaciones y menos cancelaciones de compra.",
+    description: "",
     items: [
-      "Menos llamadas.",
+      "Menos llamadas a call center; <q>¿Dónde está mi pedido?</q>",
       "Menos reclamaciones.",
       "Menos cancelaciones de compra.",
     ],
   },
   {
     title: "Marketing",
+    image: {
+      src: "/images/atencion-confianza.webp",
+      alt: "Agente sonriendo durante una llamada con un cliente",
+    },
     label: "Una promesa de marca que se cumple.",
-    description:
-      "Más clientes dispuestos a recomendar y mejor percepción de la compra.",
+    description: "",
     items: [
+      "Una experiencia que fortalece la promesa de marca.",
       "Más clientes dispuestos a recomendar.",
-      "Mejor percepción de la compra.",
+      "Mejor percepción en la experiencia de compra.",
     ],
   },
 ];
