@@ -28,7 +28,6 @@ Orden de carga en `src/main.tsx`: `index.css` (Tailwind + DaisyUI) → `design-s
 - `StepsList` — pasos numerados con ícono o imagen
 - `RichText` — etiquetas permitidas (`<q>`, `<em>`, `<i>`, `<strong>`, `<b>`) en strings del data
 - `ErrorBoundary` / `PageError` — aislamiento de errores de render
-- `BellIcon` — ícono de campana para usar en el data
 - `ComingSoonSection` — placeholder para páginas pendientes de mockup
 - `Header` / `Footer` / `MainLayout` (`src/components/layout/`) — compartidos por todas las páginas, no se repiten
 

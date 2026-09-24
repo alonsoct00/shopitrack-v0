@@ -41,7 +41,6 @@ Clases reutilizables: `.section`, `.wave-section`, `.split-grid`, `.info-card`, 
 | `RichText` | `src/components/RichText.tsx` | `text: string` (soporta `<q>`, `<em>`, `<i>`, `<strong>`, `<b>`) |
 | `ErrorBoundary` | `src/components/ErrorBoundary.tsx` | `children`, `fallback?: ReactNode`, `name?: string` |
 | `PageError` | `src/components/PageError.tsx` | — |
-| `BellIcon` | `src/components/BellIcon.tsx` | — |
 
 Detalle, variantes y ejemplos en `docs/COMPONENTS.md`.
 

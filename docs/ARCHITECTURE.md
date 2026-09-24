@@ -9,7 +9,6 @@ src/
 │   │   ├── Header.tsx        Header + navegación (react-router-dom)
 │   │   ├── Footer.tsx        Footer del sitio
 │   │   └── MainLayout.tsx    Layout compartido (Header + Outlet + Footer)
-│   ├── BellIcon.tsx           Ícono de campana (.bell-icon) para usar en el data
 │   ├── Brand.tsx              Logo + nombre
 │   ├── ComingSoonSection.tsx  Placeholder para páginas sin mockup
 │   ├── ErrorBoundary.tsx      Aísla errores de render (raíz, página, sección)

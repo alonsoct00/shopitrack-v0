@@ -107,10 +107,6 @@ items: ["Menos llamadas a call center; <q>¿Dónde está mi pedido?</q>"]
 
 Se aplica en: listas de `InfoCard`, `StatCard`, Sectores y Clientes; texto de `StepsList`; `title`/`label` de `InfoCard` y título de `StatCard`. No soporta etiquetas anidadas ni atributos.
 
-## BellIcon
-
-Ícono de campana con estilo `.bell-icon` (`src/components/BellIcon.tsx`). Se usa como `icon` en el data (por ejemplo `steps` de Home).
-
 ## PageError
 
 Fallback de página del `ErrorBoundary` raíz y de página (`src/components/PageError.tsx`). Muestra mensaje y botón "Volver al inicio" (recarga completa con `<a href="/">` para limpiar el estado).

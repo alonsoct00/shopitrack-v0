@@ -1,5 +1,4 @@
-import { CalendarDays, Check, Clock3, PackageCheck } from "lucide-react";
-import { BellIcon } from "@/components/BellIcon";
+import { Bell, CalendarDays, Check, Clock3, PackageCheck } from "lucide-react";
 import type { StepItem } from "@/data/types";
 
 export const images = {
@@ -18,7 +17,7 @@ export const steps: StepItem[] = [
   { text: "El cliente confirma o solicita otra.", icon: Check },
   {
     text: "Shopitrack recuerda y confirma la entrega el día acordado.",
-    icon: BellIcon,
+    icon: Bell,
   },
   {
     text: "El cliente recibe una notificación dos horas antes con la llegada estimada.",
