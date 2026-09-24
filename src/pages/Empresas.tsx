@@ -310,14 +310,14 @@ export function Empresas() {
           </div>
         </section>
 
-        <section className="changes section" data-reveal>
+        <section className="benefits-section section" data-reveal>
           <div className="container">
             <SectionHeading
               eyebrow="Beneficios para toda la organización"
               title="Protege la reputación de la marca y fortalece la lealtad del cliente con cada entrega cumplida."
               centered
             />
-            <div className="change-grid">
+            <div className="benefits-grid">
               {orgBenefits.map((benefit, index) => {
                 const BenefitIcon = benefitIcons[index];
                 return (
@@ -326,6 +326,7 @@ export function Empresas() {
                     icon={<BenefitIcon />}
                     title={benefit.title}
                     label={benefit.label}
+                    items={benefit.items}
                   >
                     {benefit.description}
                   </InfoCard>

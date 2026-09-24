@@ -1,6 +1,7 @@
 export const empresasImages = {
   hero: "/images/shopi-atencion-cliente.webp",
-  heroSrcSet: "/images/shopi-atencion-cliente-800.webp 800w, /images/shopi-atencion-cliente.webp 1024w",
+  heroSrcSet:
+    "/images/shopi-atencion-cliente-800.webp 800w, /images/shopi-atencion-cliente.webp 1024w",
   lastImpression: "/images/entrega-feliz.webp",
   cta: "/images/shopi-atencion-cliente.webp",
 };
@@ -46,34 +47,66 @@ export const coordinationSteps = [
 
 export const orgBenefits = [
   {
-    title: "Dirección General",
-    label: "Protege la reputación de la marca.",
+    title: "Dirección",
+    label: "Blinda la marca",
     description: "Menos entregas fallidas, más confianza y más recompra.",
+    items: [
+      "Menos entregas fallidas.",
+      "Más confianza.",
+      "Más recompra.",
+    ],
   },
   {
     title: "Logística",
     label: "Reduce fricciones operativas.",
-    description: "Menos logística inversa, menos devoluciones y mayor capacidad de los recursos.",
+    description:
+      "Menos logística inversa, menos devoluciones y mayor capacidad de los recursos.",
+    items: [
+      "Menos logística inversa.",
+      "Menos devoluciones.",
+      "Mayor capacidad de los recursos.",
+    ],
   },
   {
     title: "Transporte",
     label: "Rutas más eficientes.",
-    description: "Menos kilómetros improductivos y más entregas con los mismos recursos.",
+    description:
+      "Menos kilómetros improductivos y más entregas con los mismos recursos.",
+    items: [
+      "Menos kilómetros improductivos.",
+      "Más entregas con los mismos recursos.",
+    ],
   },
   {
     title: "eCommerce",
     label: "Una mejor experiencia end-to-end.",
-    description: "Mayor satisfacción del cliente y más probabilidad de recompra.",
+    description:
+      "Mayor satisfacción del cliente y más probabilidad de recompra.",
+    items: [
+      "Mayor satisfacción del cliente.",
+      "Más probabilidad de recompra.",
+    ],
   },
   {
     title: "Servicio al Cliente",
     label: "Menos contacto reactivo.",
-    description: "Menos llamadas, menos reclamaciones y menos cancelaciones de compra.",
+    description:
+      "Menos llamadas, menos reclamaciones y menos cancelaciones de compra.",
+    items: [
+      "Menos llamadas.",
+      "Menos reclamaciones.",
+      "Menos cancelaciones de compra.",
+    ],
   },
   {
     title: "Marketing",
     label: "Una promesa de marca que se cumple.",
-    description: "Más clientes dispuestos a recomendar y mejor percepción de la compra.",
+    description:
+      "Más clientes dispuestos a recomendar y mejor percepción de la compra.",
+    items: [
+      "Más clientes dispuestos a recomendar.",
+      "Mejor percepción de la compra.",
+    ],
   },
 ];
 
@@ -81,12 +114,14 @@ export const integrationItems = [
   {
     title: "No reemplaza",
     label: "Tus sistemas siguen siendo los mismos.",
-    description: "Se integra a tu operación existente sin obligarte a cambiar lo que ya funciona.",
+    description:
+      "Se integra a tu operación existente sin obligarte a cambiar lo que ya funciona.",
   },
   {
     title: "Se integra",
     label: "Sin interrumpir tu operación.",
-    description: "Comunica a empresa, operador y cliente sin duplicar procesos.",
+    description:
+      "Comunica a empresa, operador y cliente sin duplicar procesos.",
   },
   {
     title: "Potencia",
@@ -98,7 +133,8 @@ export const integrationItems = [
 export const useCases = [
   {
     title: "Entregas que requieren presencia",
-    description: "Cuando alguien debe estar en casa o en la oficina para recibir el pedido.",
+    description:
+      "Cuando alguien debe estar en casa o en la oficina para recibir el pedido.",
   },
   {
     title: "Productos difíciles de reprogramar",
@@ -116,9 +152,18 @@ export const useCases = [
 
 export const roiCards = [
   { title: "Menos fallas", items: ["Menos reintentos.", "Menos costo."] },
-  { title: "Clientes más satisfechos", items: ["Más lealtad.", "Más recompra."] },
-  { title: "Más eficiencia", items: ["Más visibilidad.", "Mejores decisiones."] },
-  { title: "Una marca más confiable", items: ["Operación más sólida.", "Más rentable."] },
+  {
+    title: "Clientes más satisfechos",
+    items: ["Más lealtad.", "Más recompra."],
+  },
+  {
+    title: "Más eficiencia",
+    items: ["Más visibilidad.", "Mejores decisiones."],
+  },
+  {
+    title: "Una marca más confiable",
+    items: ["Operación más sólida.", "Más rentable."],
+  },
 ];
 
 export const trustItems = [

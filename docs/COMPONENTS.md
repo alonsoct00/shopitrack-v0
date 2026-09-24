@@ -41,6 +41,7 @@ Tarjeta con icono circular, título, label y descripción.
 | `icon` | `ReactNode` | Icono lucide-react |
 | `title` | `string` | Texto destacado en azul |
 | `label` | `string` | Subtítulo/h3 |
+| `items` | `string[]` | Lista opcional con checks azules (`.industry-list`) |
 | `children` | `ReactNode` | Descripción |
 
 ## Header / Footer / MainLayout
