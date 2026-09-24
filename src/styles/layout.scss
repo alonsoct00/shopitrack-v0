@@ -20,26 +20,7 @@
   overflow: hidden;
 }
 
-.wave-section-bottom::after {
-  width: 100%;
-  content: "";
-  position: absolute;
-  inset: auto -7% -20px;
-  height: 130px;
-  opacity: 0.55;
-  pointer-events: none;
-  background: repeating-radial-gradient(ellipse at 10% 105%,
-      transparent 0 18px,
-      rgb(var(--color-blue) / 19%) 19px 20px,
-      transparent 21px 28px);
-  transform: rotate(-4deg);
-  bottom: -50px;
-  top: auto;
-  right: 0;
-  margin: 0 auto;
-  display: none; //hide waves
-}
-
+.wave-section-bottom::after,
 .wave-section-top::after {
   width: 100%;
   content: "";
@@ -53,11 +34,19 @@
       rgb(var(--color-blue) / 19%) 19px 20px,
       transparent 21px 28px);
   transform: rotate(-4deg);
-  bottom: auto;
-  top: 20px;
   right: 0;
   margin: 0 auto;
   display: none; //hide waves
+}
+
+.wave-section-bottom::after {
+  bottom: -50px;
+  top: auto;
+}
+
+.wave-section-top::after {
+  bottom: auto;
+  top: 20px;
 }
 
 .hero-grid,
@@ -96,9 +85,9 @@
 }
 
 .site-header--scrolled {
-  background: rgb(255 255 255 / 65%);
+  background: rgb(var(--color-white) / 65%);
   border-bottom: 1px solid rgb(var(--color-ink) / 8%);
-  box-shadow: 0 8px 32px rgb(8 38 99 / 8%);
+  box-shadow: 0 8px 32px rgb(var(--color-ink) / 8%);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
@@ -121,7 +110,7 @@
 }
 
 .brand--light .brand-logo {
-  background-color: #fff;
+  background-color: var(--surface);
 }
 
 .site-nav {
@@ -130,7 +119,7 @@
   gap: 2px;
   font-size: 12px;
   font-weight: 750;
-  color: #45618a;
+  color: var(--nav-link);
 }
 
 .site-nav a:not(.btn) {

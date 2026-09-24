@@ -1,9 +1,29 @@
+@use "breakpoints" as *;
+
+// Bloque de copy (h3/h4 destacados + párrafos) usado en varias secciones de Empresas.
+@mixin text-content-copy {
+    h4, h3 {
+        font-size: 20px;
+        line-height: 1.4;
+        font-weight: 600;
+        margin-bottom: 16px;
+
+        b, q {
+            color: rgb(var(--color-blue));
+        }
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 16px;
+    }
+}
+
 /*
   Espacio para overrides personalizados.
   Se carga después de index.css para que tus reglas tengan prioridad.
 */
-
-$page-break-mobile: 960px;
 
 /* Placeholder reutilizable para assets pendientes (imágenes sin foto asignada todavía). */
 .usecase-card-media {
@@ -39,7 +59,7 @@ $page-break-mobile: 960px;
     padding: 18px 20px;
     border: 1px solid var(--line);
     border-radius: var(--radius-sm);
-    background: rgb(242 248 255 / 60%);
+    background: var(--surface-panel);
 }
 
 .faq-item summary {
@@ -93,7 +113,7 @@ $page-break-mobile: 960px;
         .hero {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(90deg, rgba(153, 203, 247, 0.8) 30%, rgba(255, 255, 255, 0.10) 40%),
+            background: linear-gradient(90deg, rgb(var(--color-sky) / 0.8) 30%, rgb(var(--color-white) / 0.10) 40%),
                 url(/images/hero-img.webp) no-repeat right center !important;
             background-size: 100% !important;
         }
@@ -105,7 +125,7 @@ $page-break-mobile: 960px;
             filter: blur(10px);
             mask-image: unset;
             z-index: 1;
-            background: linear-gradient(315deg, rgba(255, 255, 255, 0.05) 60%, rgb(255 255 255 / 0%) 90%), rgb(230 241 250 / 0%);
+            background: linear-gradient(315deg, rgb(var(--color-white) / 0.05) 60%, rgb(var(--color-white) / 0%) 90%), rgb(var(--color-mist) / 0%);
             width: 100%;
             height: 100%;
         }
@@ -134,7 +154,7 @@ $page-break-mobile: 960px;
 
         #como-funciona {
             position: relative;
-            background: linear-gradient(270deg, rgb(255 255 255 / 100%) 60%, rgba(255, 255, 255, 0.05) 65%), url(/images/repartidor.webp) no-repeat left center !important;
+            background: linear-gradient(270deg, rgb(var(--color-white) / 100%) 60%, rgb(var(--color-white) / 0.05) 65%), url(/images/repartidor.webp) no-repeat left center !important;
             background-size: contain !important;
             padding-top: 0;
             margin-top: 20px;
@@ -142,51 +162,40 @@ $page-break-mobile: 960px;
         }
 
         .cost-section {
-            background: linear-gradient(90deg, rgb(237, 245, 252) 65%, rgba(255, 255, 255, 0.010) 68%), url(/images/atencion-confianza.webp) no-repeat right center !important;            background-size: contain !important;
+            background: linear-gradient(90deg, var(--surface-fade) 65%, rgb(var(--color-white) / 0.010) 68%), url(/images/atencion-confianza.webp) no-repeat right center !important;            background-size: contain !important;
             .cost-text {
                 padding: 20px;
             }
         }
 
         .new-way-section {
-            background: linear-gradient(270deg, rgb(255 255 255 / 100%) 60%, rgba(255, 255, 255, 0.05) 65%), url(/images/revisando-entregas-seguimiento.webp) no-repeat left center !important;
+            background: linear-gradient(270deg, rgb(var(--color-white) / 100%) 60%, rgb(var(--color-white) / 0.05) 65%), url(/images/revisando-entregas-seguimiento.webp) no-repeat left center !important;
             background-size: contain !important;
         }
 
         .steps-section {
             background: linear-gradient(
-                120deg, rgba(230, 241, 250, 0.5) 40%, rgba(255, 255, 255, 0.05) 60%);
+                120deg, rgb(var(--color-mist) / 0.5) 40%, rgb(var(--color-white) / 0.05) 60%);
         }
 
         .stories {
             background: linear-gradient(
-                300deg, rgba(230, 241, 250, 0.9) 40%, rgba(255, 255, 255, 0.05) 50%);
+                300deg, rgb(var(--color-mist) / 0.9) 40%, rgb(var(--color-white) / 0.05) 50%);
         }
 
         .changes {
             .change-grid {
                 .info-card {
                     .round-icon {
-                        width: 68px;
-                        height: 68px;
-                        margin: auto;
-                        background-color: var(--icon-bg);
                         flex: 0 1 auto;
                         margin: 0;
-
-                        svg {
-                            font-size: 18px;
-                            width: 100%;
-                            height: 50%;
-                            color: rgb(var(--color-blue));
-                        }
                     }
                 }
             }
         }
 
         .trust-section {
-            background: linear-gradient(120deg, rgb(1 57 131/ 99%) 30%, rgba(255, 255, 255, 0.05) 100%), url(/images/entrega-feliz.webp) no-repeat right center !important;
+            background: linear-gradient(120deg, rgb(var(--color-navy) / 99%) 30%, rgb(var(--color-white) / 0.05) 100%), url(/images/entrega-feliz.webp) no-repeat right center !important;
             background-size: contain !important;
 
             .trust-grid {
@@ -198,7 +207,7 @@ $page-break-mobile: 960px;
 
         .promise-section {
 
-            background: linear-gradient(120deg, rgb(1 57 131/ 95%) 20%, rgba(255, 255, 255, 0.05) 100%), url(/images/carretera-lastmile.webp) no-repeat center center !important;
+            background: linear-gradient(120deg, rgb(var(--color-navy) / 95%) 20%, rgb(var(--color-white) / 0.05) 100%), url(/images/carretera-lastmile.webp) no-repeat center center !important;
             background-size: cover !important;
             height: 300px;
             display: flex;
@@ -226,15 +235,15 @@ $page-break-mobile: 960px;
             }
         }
 
-        @media (min-width: 1500px) {
+        @media (min-width: $bp-wide-min) {
 
             #como-funciona { 
-                background: linear-gradient(270deg, rgb(255, 255, 255) 50%, rgba(255, 255, 255, 0.1) 60%), url(/images/repartidor.webp) no-repeat left center !important;
+                background: linear-gradient(270deg, var(--surface) 50%, rgb(var(--color-white) / 0.1) 60%), url(/images/repartidor.webp) no-repeat left center !important;
                 background-size: contain !important
 
             }
             .cost-section {
-                background: linear-gradient(90deg, rgb(237, 245, 252) 68%, rgba(255, 255, 255, 0.01) 72%), url(/images/atencion-confianza.webp) no-repeat right center !important;            background-size: contain !important;
+                background: linear-gradient(90deg, var(--surface-fade) 68%, rgb(var(--color-white) / 0.01) 72%), url(/images/atencion-confianza.webp) no-repeat right center !important;            background-size: contain !important;
                 .cost-text {
                     padding-inline: 0px;
                     padding-block: 20px;
@@ -242,37 +251,25 @@ $page-break-mobile: 960px;
             }
     
             .new-way-section {
-                background: linear-gradient(270deg, rgb(255, 255, 255) 70%, rgba(255, 255, 255, 0.1) 75%), url(/images/revisando-entregas-seguimiento.webp) no-repeat left center !important;
+                background: linear-gradient(270deg, var(--surface) 70%, rgb(var(--color-white) / 0.1) 75%), url(/images/revisando-entregas-seguimiento.webp) no-repeat left center !important;
                 background-size: contain !important;
             }
-
-            .promise-section {
-                background: linear-gradient(120deg, rgb(1 57 131/ 95%) 20%, rgba(255, 255, 255, 0.05) 100%), url(/images/carretera-lastmile.webp) no-repeat center center !important;
-                background-size: cover !important;
-                height: 300px;
-                display: flex;
-                align-items: center;
-
-                p {
-                    font-size: 18px;
-                }
-            }   
 
         }
 
 
 
-        @media (max-width: 1024px) and (min-width: $page-break-mobile) {
+        @media (max-width: $bp-tablet-max) and (min-width: $page-break-mobile) {
             .hero {
                 background-position: center 42%;
             }
         }
 
-        @media (max-width: $page-break-mobile) {
+        @include mobile-only {
 
             .hero {
                 overflow: hidden;
-                background: linear-gradient(360deg, rgb(255 255 255 / 0.01) 0%, rgb(255 255 255 / 0.9) 100%), url(/images/hero-img.webp) no-repeat center bottom !important;
+                background: linear-gradient(360deg, rgb(var(--color-white) / 0.01) 0%, rgb(var(--color-white) / 0.9) 100%), url(/images/hero-img.webp) no-repeat center bottom !important;
                 background-size: 100% !important;
                 background-image: none !important;
                 min-height: auto;
@@ -280,7 +277,6 @@ $page-break-mobile: 960px;
                 height: 100vh;
                 align-items: normal;
                 place-items: normal;
-                height: 100vh;
                 &:before {
                     display: none;
                 }
@@ -292,7 +288,7 @@ $page-break-mobile: 960px;
             }
 
             #como-funciona {
-                background: linear-gradient(120deg, rgb(255 255 255/ 20%) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+                background: linear-gradient(120deg, rgb(var(--color-white) / 20%) 0%, rgb(var(--color-white) / 0.05) 100%) !important;
                 background-image: none !important;
                 .photo-frame {
                     order: 2;
@@ -303,13 +299,9 @@ $page-break-mobile: 960px;
                 }
             }
 
-            .cost-section {
-                background: linear-gradient(180deg, rgb(237, 245, 252) 65%, rgba(255, 255, 255, 0.010) 68%) !important;
-                background-image: none !important;
-            }
-
+            .cost-section,
             .new-way-section {
-                background: linear-gradient(180deg, rgb(237, 245, 252) 65%, rgba(255, 255, 255, 0.010) 68%) !important;
+                background: linear-gradient(180deg, var(--surface-fade) 65%, rgb(var(--color-white) / 0.010) 68%) !important;
                 background-image: none !important;
             }
 
@@ -349,22 +341,7 @@ $page-break-mobile: 960px;
 
             + .text-content {
                 margin-top: 8px;
-
-                h4, h3{
-                    font-size: 20px;
-                    line-height: 1.4;
-                    font-weight: 600;
-                    margin-bottom: 16px;
-
-                    b, q {
-                        color: rgb(var(--color-blue));
-                    }
-                }
-                p{
-                    font-size: 16px;
-                    line-height: 1.4;
-                    margin-bottom: 16px;
-                }
+                @include text-content-copy;
             }
         }
 
@@ -386,7 +363,7 @@ $page-break-mobile: 960px;
         }
 
         .last-impression {
-            background: linear-gradient(120deg, rgb(1 57 131/ 99%) 30%, rgba(255, 255, 255, 0.05) 100%), url(/images/entrega-feliz.webp) no-repeat right center !important;
+            background: linear-gradient(120deg, rgb(var(--color-navy) / 99%) 30%, rgb(var(--color-white) / 0.05) 100%), url(/images/entrega-feliz.webp) no-repeat right center !important;
             background-attachment: fixed !important;
             height: 400px;
             display: flex;
@@ -428,27 +405,12 @@ $page-break-mobile: 960px;
                 font-size: 16px;
                 line-height: 1.4;
                 margin-bottom: 16px;
-
-                h4, h3{
-                    font-size: 20px;
-                    line-height: 1.4;
-                    font-weight: 600;
-                    margin-bottom: 16px;
-
-                    b, q {
-                        color: rgb(var(--color-blue));
-                    }
-                }
-                p{
-                    font-size: 16px;
-                    line-height: 1.4;
-                    margin-bottom: 16px;
-                }
+                @include text-content-copy;
             }
         }
 
         .steps-section {
-            background: linear-gradient(180deg, rgb(1 57 131/ 95%) 95%, rgba(255, 255, 255, 0.05) 99%);
+            background: linear-gradient(180deg, rgb(var(--color-navy) / 95%) 95%, rgb(var(--color-white) / 0.05) 99%);
             h1, h2, h3, h4, p, span, small {
                 color: var(--surface);
             }
@@ -456,16 +418,6 @@ $page-break-mobile: 960px;
                 margin-bottom: 40px;
             }
 
-            .step-list{
-                .step {
-                    text-align: center;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    position: relative;
-                }
-            }
             .step-line {
                 span {
                     background-color: white;
@@ -485,41 +437,9 @@ $page-break-mobile: 960px;
                     margin: 0 auto;
                 }
 
-                &.step-media {
-                    position: relative;
-                }
                 &:has(.step-media) {
                 ~ small {
                         display: none;
-                    }
-                }
-            }
-        }
-
-        .communication-flow {
-            margin-top: 40px;
-
-            h3 {
-                font-size: 1.8rem;
-            }
-        }
-
-        .benefits-section {
-            .benefits-grid {
-                margin-top: 20px;
-
-                .info-card-body {
-                    align-self: normal !important;
-                    h3 {
-                        font-size: 16px;
-                    }
-                    .industry-list {
-                        align-items: flex-start;
-                        justify-content: flex-start;
-                        li {
-                            font-size: 12px;
-                            align-items: normal;
-                        }
                     }
                 }
             }
@@ -732,7 +652,10 @@ $page-break-mobile: 960px;
         }
 
         .communication-flow {
+            margin-top: 40px;
+
             h3 {
+                font-size: 1.8rem;
                 text-align: center;
                 margin-bottom: 24px;
             }
@@ -803,9 +726,28 @@ $page-break-mobile: 960px;
                     font-size: 14px;
                 }
             }
+
+            .benefits-grid {
+                margin-top: 20px;
+
+                .info-card-body {
+                    align-self: normal !important;
+                    h3 {
+                        font-size: 16px;
+                    }
+                    .industry-list {
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                        li {
+                            font-size: 12px;
+                            align-items: normal;
+                        }
+                    }
+                }
+            }
         }
 
-        @media (min-width: 1600px) {
+        @media (min-width: $bp-xl-min) {
             .benefits-section .info-card {
                 h2 {
                     font-size: 20px;
@@ -817,7 +759,7 @@ $page-break-mobile: 960px;
             }
         }
 
-        @media (min-width: 801px) {
+        @media (min-width: $bp-tablet-min) {
             .steps-list {
                 grid-template-columns: none;
                 grid-auto-flow: column;
@@ -825,7 +767,7 @@ $page-break-mobile: 960px;
             }
         }
 
-        @media (max-width: $page-break-mobile) {
+        @include mobile-only {
             .benefits-grid,
             .usecases-grid,
             .roi-grid {
@@ -839,7 +781,7 @@ $page-break-mobile: 960px;
             }
         }
 
-        @media (min-width: 801px) and (max-width: 1024px) {
+        @include tablet {
             .benefits-grid,
             .usecases-grid,
             .roi-grid {
@@ -901,7 +843,7 @@ $page-break-mobile: 960px;
             padding: 18px 22px;
             border: 1px solid var(--line);
             border-radius: var(--radius-sm);
-            background: rgb(242 248 255 / 60%);
+            background: var(--surface-panel);
         }
 
         .before-after-item p {
@@ -921,7 +863,7 @@ $page-break-mobile: 960px;
             margin-top: 10px;
         }
 
-        @media (max-width: $page-break-mobile) {
+        @include mobile-only {
             .before-after-row {
                 grid-template-columns: 1fr;
                 gap: 10px;
@@ -986,7 +928,7 @@ $page-break-mobile: 960px;
             margin: 24px auto;
         }
 
-        @media (max-width: $page-break-mobile) {
+        @include mobile-only {
             .sector-section .split-grid--reverse .split-copy,
             .sector-section .split-grid--reverse .photo-frame {
                 order: initial;
@@ -1137,7 +1079,7 @@ $page-break-mobile: 960px;
             max-width: 460px;
         }
 
-        @media (max-width: $page-break-mobile) {
+        @include mobile-only {
             .contact-form-grid {
                 grid-template-columns: 1fr;
             }
@@ -1152,12 +1094,5 @@ $page-break-mobile: 960px;
     &.page-not-found {
         /* Ejemplo: hero exclusivo de 404 */
         // .hero { }
-    }
-}
-
-/* Utilidad opcional para desktop/mobile por página */
-@mixin mobile-only {
-    @media (max-width: $page-break-mobile) {
-        @content;
     }
 }

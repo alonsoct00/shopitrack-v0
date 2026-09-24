@@ -8,8 +8,8 @@
 .info-card,
 .story-card {
   display: flex;
-  background: rgb(242 248 255 / 86%);
-  border: 1px solid #deebf8;
+  background: rgb(var(--color-panel) / 86%);
+  border: 1px solid var(--card-border);
   border-radius: 9px;
   min-height: 320px;
   gap: 0;
@@ -88,7 +88,7 @@
 .story-card {
   padding: 0;
   overflow: hidden;
-  background: #f4f8fc;
+  background: var(--story-card-bg);
 }
 
 .story-card img {
@@ -118,7 +118,7 @@
 
 .story-divider span {
   width: 45px;
-  border-top: 2px solid #f8c9be;
+  border-top: 2px solid var(--divider-accent);
   position: relative;
 }
 
@@ -142,29 +142,25 @@
 
 .story-card {
   position: relative;
-  &.blur-right::after {
-    content: "";
-    position: absolute;
-    top: 0px;
-    right: 40%;
-    bottom: 0;
-    width: 10%;
-    height: 100%;
-    backdrop-filter: blur(2px);
-    z-index: 1;
-    background: linear-gradient(to right, transparent, #f4f8fc);
-  }
-
+  &.blur-right::after,
   &.blur-left::after {
     content: "";
     position: absolute;
     top: 0px;
-    left: 40%;
     bottom: 0;
     width: 10%;
     height: 100%;
     backdrop-filter: blur(2px);
     z-index: 1;
-    background: linear-gradient(to left, transparent, #f4f8fc);
+  }
+
+  &.blur-right::after {
+    right: 40%;
+    background: linear-gradient(to right, transparent, var(--story-card-bg));
+  }
+
+  &.blur-left::after {
+    left: 40%;
+    background: linear-gradient(to left, transparent, var(--story-card-bg));
   }
 }

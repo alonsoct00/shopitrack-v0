@@ -1,0 +1,24 @@
+// Breakpoints del sitio. Solo variables y mixins: no genera CSS.
+// Consumir con `@use "breakpoints" as *;`.
+
+$bp-xs-max: 390px;
+$bp-mobile-max: 800px;
+$bp-tablet-min: 801px;
+$bp-tablet-max: 1024px;
+$bp-wide-min: 1500px;
+$bp-xl-min: 1600px;
+
+// Corte mobile de las capas por página (custom.scss); distinto de $bp-mobile-max.
+$page-break-mobile: 960px;
+
+@mixin mobile-only {
+  @media (max-width: $page-break-mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $bp-tablet-min) and (max-width: $bp-tablet-max) {
+    @content;
+  }
+}

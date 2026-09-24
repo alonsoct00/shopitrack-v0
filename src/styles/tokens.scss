@@ -3,6 +3,7 @@
   --color-blue: 18 100 232;
   --color-coral: 255 104 72;
   --color-cloud: 238 247 255;
+  --color-panel: 242 248 255;
   --text-primary: #082663;
   --text-secondary: #2e4d79;
   --text-muted: #6b82a6;
@@ -11,6 +12,10 @@
   --surface-alt: #eef7ff;
   --surface-soft: #e3effa;
   --icon-bg: #e5f2ff;
+  --surface-panel: rgb(var(--color-panel) / 60%);
+  --card-border: #deebf8;
+  --divider-accent: #f8c9be;
+  --surface-fade: rgb(237 245 252);
   --color-danger: #d92d20;
   --color-danger-bg: #fef3f2;
   --space-xs: 8px;
@@ -23,6 +28,42 @@
   --radius-md: 14px;
   --radius-lg: 24px;
   --shadow-soft: 0 16px 48px rgb(31 85 148 / 12%);
+
+  /* Canales para usar con alfa: rgb(var(--color-x) / 50%) */
+  --color-white: 255 255 255;
+  --color-navy: 1 57 131;
+  --color-mist: 230 241 250;
+  --color-sky: 153 203 247;
+
+  /* Fondos de sección */
+  --hero-gradient: linear-gradient(112deg, #eff8ff 0%, #f9fcff 46%, #dff0ff 100%);
+  --section-cost-bg: #f2f8ff;
+  --section-trust-bg: #0a438f;
+  --section-promise-bg: #062c78;
+  --section-contact-bg: #06409a;
+  --story-card-bg: #f4f8fc;
+
+  /* Navegación */
+  --nav-link: #45618a;
+
+  /* Sombras adicionales */
+  --shadow-float: 0 16px 38px rgb(var(--color-ink) / 25%);
+  --shadow-device: 0 17px 40px rgb(0 26 92 / 30%);
+
+  /* Decorativos de ilustraciones y mockups */
+  --deco-tracking-line: #dbe7f5;
+  --deco-tracking-route: #a4c5f3;
+  --deco-dashboard-ring: #d9e8f8;
+  --deco-calendar-bar: #dceafa;
+  --deco-laptop-base: #d9e5f2;
+  --deco-chart-track: #d4e5fb;
+  --deco-bar-light: #a8cdf8;
+  --deco-bar-mid: #5294eb;
+  --deco-bar-soft: #7db6f8;
+  --deco-phone-bg: #f9fdff;
+  --deco-phone-frame: #d4dfeb;
+  --deco-phone-line: #dceaf8;
+  --deco-phone-card: #ddebfa;
   font-family:
     Inter,
     ui-sans-serif,

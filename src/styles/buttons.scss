@@ -18,7 +18,7 @@
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgb(8 38 99 / 16%);
+  box-shadow: 0 10px 22px rgb(var(--color-ink) / 16%);
 }
 
 .btn-primary {
@@ -33,7 +33,7 @@
 }
 
 .btn-outline {
-  border-color: rgb(255 255 255 / 65%);
+  border-color: rgb(var(--color-white) / 65%);
   color: var(--surface);
   box-shadow: none;
 }

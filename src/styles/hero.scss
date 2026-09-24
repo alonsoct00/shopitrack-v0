@@ -1,7 +1,7 @@
 .hero {
   min-height: 620px;
   padding: 152px 0 100px;
-  background: linear-gradient(112deg, #eff8ff 0%, #f9fcff 46%, #dff0ff 100%);
+  background: var(--hero-gradient);
 }
 
 .hero-copy {
@@ -41,7 +41,7 @@
   padding: 17px 19px;
   background: var(--surface);
   border-radius: 10px;
-  box-shadow: 0 16px 38px rgb(8 38 99 / 25%);
+  box-shadow: var(--shadow-float);
 }
 
 .tracking-top,
@@ -59,7 +59,7 @@
   display: block;
   height: 6px;
   border-radius: 8px;
-  background: #dbe7f5;
+  background: var(--deco-tracking-line);
   flex: 1;
 }
 
@@ -91,7 +91,7 @@
 
 .tracking-route b {
   flex: 1;
-  border-top: 2px dashed #a4c5f3;
+  border-top: 2px dashed var(--deco-tracking-route);
 }
 
 .tracking-route svg {
