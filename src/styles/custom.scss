@@ -379,6 +379,8 @@ $page-break-mobile: 960px;
                 .info-card {
                     min-height: auto;
                     padding: 20px;
+                    justify-content: flex-start;
+                    align-items: stretch;
                 }
             }
         }
@@ -393,6 +395,55 @@ $page-break-mobile: 960px;
             align-items: center;
             h1, h2, h3, h4, p, span {
                 color: var(--surface);
+            }
+
+
+            h2, p {
+                font-size: 18px;
+                line-height: 1.4;
+                margin-bottom: 16px;
+            }
+
+
+            h3 {
+                font-size: 22px;
+                line-height: 1.4;
+                font-weight: 600;
+                margin-bottom: 16px;
+            }
+        }
+
+        .logistic-problem {
+
+            .info-card {
+                min-height: auto;
+                padding: 20px;
+                width: auto;
+                display: inline-flex;
+                justify-content: flex-start;
+                align-items: stretch;
+            }
+
+            .text-content {
+                font-size: 16px;
+                line-height: 1.4;
+                margin-bottom: 16px;
+
+                h4, h3{
+                    font-size: 20px;
+                    line-height: 1.4;
+                    font-weight: 600;
+                    margin-bottom: 16px;
+
+                    b, q {
+                        color: rgb(var(--color-blue));
+                    }
+                }
+                p{
+                    font-size: 16px;
+                    line-height: 1.4;
+                    margin-bottom: 16px;
+                }
             }
         }
         .stat-card h2 {
@@ -413,11 +464,11 @@ $page-break-mobile: 960px;
 
         .stat-card--icons {
             gap: 24px;
-            align-items: center;
 
             .stat-card-icons {
                 display: flex;
                 flex-direction: column;
+                justify-content: space-between;
                 gap: 10px;
                 flex: 0 0 auto;
 
@@ -428,13 +479,21 @@ $page-break-mobile: 960px;
                 }
             }
 
+            .info-card-content {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+
             .industry-list {
+                flex: 1;
                 grid-template-columns: 1fr;
+                align-content: space-between;
                 gap: 12px;
             }
 
             .industry-list li {
-                font-size: 14px;
+                font-size: 16px;
             }
         }
 

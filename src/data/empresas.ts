@@ -29,6 +29,13 @@ export const costCards = [
   },
 ];
 
+export const logisticItems = [
+  "Más vehículos.",
+  "Más operadores.",
+  "Mejores software de ruteo y volumetría.",
+  "Más centros de distribución.",
+];
+
 export const coordinationSteps = [
   ["01", "La empresa propone."],
   ["02", "El cliente confirma."],

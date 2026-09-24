@@ -28,6 +28,7 @@ import {
   TrendingUp,
   Truck,
   UserX,
+  UsersRound,
   Warehouse,
 } from "lucide-react";
 import { InfoCard } from "@/components/InfoCard";
@@ -38,6 +39,7 @@ import {
   coordinationSteps,
   empresasImages,
   integrationItems,
+  logisticItems,
   orgBenefits,
   roiCards,
   trustItems,
@@ -62,7 +64,7 @@ function StatCard({
 }: {
   icon?: ReactNode;
   icons?: ReactNode[];
-  title: string;
+  title?: string;
   items: string[];
   bullet?: "check" | "cross";
 }) {
@@ -81,8 +83,8 @@ function StatCard({
       ) : (
         <div className="round-icon">{icon}</div>
       )}
-      <div>
-        <h2>{title}</h2>
+      <div className="info-card-content">
+        {title && <h2>{title}</h2>}
         <ul
           className={`industry-list${bullet === "cross" ? " industry-list--cross" : ""}`}
         >
@@ -99,6 +101,7 @@ const costIcons = [
   [Fuel, Route, Clock3, Warehouse, PackageX, PhoneCall],
   [Frown, ShieldAlert, ThumbsDown, UserX, MessageSquareWarning],
 ];
+const logisticIcons = [Truck, UsersRound, Route, Warehouse];
 const coordinationIcons = [CalendarDays, Check, BellIcon, Truck, PackageCheck];
 const benefitIcons = [
   Building2,
@@ -219,38 +222,50 @@ export function Empresas() {
               <div className="split-copy">
                 <SectionHeading
                   eyebrow="La última impresión"
-                  title="La compra termina en la entrega. El recuerdo empieza ahí."
+                  title="Las personas recuerdan especialmente cómo terminan las experiencias."
                 />
+                <h3>
+                  La última milla no es el final de la operación. <br />
+                  Es el principio del recuerdo.
+                </h3>
                 <p>
-                  Puedes tener el mejor producto, el mejor precio y la mejor
-                  atención. Pero si la entrega falla, todo lo anterior pierde
-                  valor en la mente del cliente. La última experiencia define la
-                  próxima decisión.
+                  Cada entrega es momento donde esa promesa se fortalece o se
+                  rompe.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="split-section section" data-reveal>
+        <section className="logistic-problem split-section section" data-reveal>
           <div className="container">
             <div className="split-grid">
               <div className="split-copy">
                 <SectionHeading
-                  eyebrow="Lo que la logística no resuelve sola"
-                  title="Puedes optimizar toda la operación y seguir sin saber si alguien podrá recibir."
+                  eyebrow="El problema nunca fue la logística"
+                  title=""
                 />
+                <div className="logistic-grid">
+                  <StatCard
+                    icons={logisticIcons.map((LogisticIcon, index) => (
+                      <LogisticIcon key={index} />
+                    ))}
+                    items={logisticItems}
+                  />
+                </div>
               </div>
-              <div className="split-copy">
+              <div className="text-content">
+                <h4>Todo ello, sin duda, mejora la operación.</h4>
+                <p>Pero ninguno responde la pregunta más importante:</p>
+                <h3>
+                  ¿La persona que va a recibir, puede recibir cuándo llegue la
+                  unidad?
+                </h3>
                 <p>
-                  Más vehículos. Mejores rutas. Más capacidad. Mayor eficiencia.
-                  Todo esto es necesario, pero no suficiente.
+                  Mientras esas respuestas sigan siendo una suposición, la
+                  suerte seguirá decidiendo.
                 </p>
-                <p>
-                  <strong>
-                    ¿La persona estará disponible cuando llegue la entrega?
-                  </strong>
-                </p>
+                <h3>Shopitrack renueva la suposición por certeza.</h3>
               </div>
             </div>
           </div>
