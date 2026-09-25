@@ -1,0 +1,17 @@
+// Mixins compartidos. Solo mixins: no genera CSS.
+// Consumir con `@use "mixins" as *;`.
+
+// Oculta visualmente un elemento pero lo mantiene disponible para lectores de pantalla.
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+}

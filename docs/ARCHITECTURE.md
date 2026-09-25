@@ -40,6 +40,7 @@ src/
 │   └── types.ts               Tipos compartidos del data (Icon, IconItem, StepItem, ImageSource)
 ├── styles/
 │   ├── breakpoints.scss         Variables y mixins de breakpoints (no genera CSS; se consume con @use)
+│   ├── mixins.scss              Mixins compartidos, p. ej. sr-only (no genera CSS; se consume con @use)
 │   ├── tokens.scss              Variables CSS (:root): colores, spacing, radius, shadows
 │   ├── base.scss                Reset, box-sizing, html/body, focus-visible, .hidden, .sr-only
 │   ├── layout.scss              .container, .section, .wave-section, header/footer/nav

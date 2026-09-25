@@ -134,6 +134,7 @@ Ejemplo:
 
 ## Mixins
 
+- `sr-only` (`mixins.scss`): oculta visualmente y mantiene el contenido para lectores de pantalla. La clase `.sr-only` de `base.scss` lo usa; en otros archivos: `@use "mixins" as *;` + `@include sr-only;`.
 - `mobile-only`, `tablet` (`breakpoints.scss`): envuelven el contenido en el media query correspondiente.
 - `text-content-copy` (`custom.scss`): h3/h4 destacados + párrafos del bloque `.text-content` en Empresas.
 

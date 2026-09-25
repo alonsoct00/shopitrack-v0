@@ -121,13 +121,16 @@ export function Empresas() {
         <ErrorBoundary name="Empresas: split-section">
           <section className="split-section section" data-reveal>
             <div className="container">
-              <div className="split-grid">
-                <div className="split-copy">
-                  <SectionHeading
-                    eyebrow="La promesa invisible"
-                    title="Toda empresa hace una promesa cuando acepta una compra. No importa si vende muebles, electrodomésticos, instalaciones tecnológicas o moda."
-                  />
+              <div className="full-grid">
+                <div className="text-content text-center">
+                  <SectionHeading eyebrow="La promesa invisible" title="" />
                   <div className="text-content">
+                    <p>
+                      Toda empresa hace una promesa cuando acepta una compra.{" "}
+                      <br />
+                      No importa si vende muebles, electrodomésticos,
+                      instalaciones tecnológicas o moda.
+                    </p>
                     <h4>
                       La promesa siempre es la misma. <q>Confía en nosotros.</q>
                     </h4>
@@ -142,7 +145,6 @@ export function Empresas() {
                     </h3>
                   </div>
                 </div>
-                <div className="split-copy"></div>
               </div>
             </div>
           </section>
