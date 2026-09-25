@@ -115,6 +115,14 @@
     margin-bottom: 0;
 }
 
+// Clientes (desktop): el header vive fuera de .page, así que se acota con :has().
+// Antes de hacer scroll va en blanco; al hacer scroll aplica el estilo global de --scrolled.
+@media (min-width: #{$page-break-mobile + 1px}) {
+    .site-shell:has(.page-clientes) .site-header:not(.site-header--scrolled) {
+        background: var(--surface);
+    }
+}
+
 .page {
     &.page-home {
         .hero {
