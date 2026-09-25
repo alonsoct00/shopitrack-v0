@@ -147,7 +147,7 @@
             background: url(/images/ribbons/04_deep_s_curve.webp) repeat center center transparent !important;
             background-size: cover !important;
             filter: brightness(0.8);
-            display: block !important;
+            display: none;
         }
 
         .hero>* {
@@ -300,18 +300,21 @@
                 background-size: 100% !important;
                 background-image: none !important;
                 min-height: auto;
-                padding: 80px 0 0px;
-                height: 100vh;
+                padding: 104px 0 20px;
+                height: auto;
                 align-items: normal;
                 place-items: normal;
                 &:before {
                     display: none;
                 }
-                
                 &.hero-grid {
                     padding-top: 40px;
                     gap: 20px;
                 }
+            }
+
+            .photo-frame-img {
+                visibility: visible;
             }
 
             .stories {
@@ -319,8 +322,8 @@
                     300deg, rgb(var(--color-mist) / 0.9) 40%, rgb(var(--color-white) / 0.05) 50%);
     
                     .story-text {
-                        min-height: 100%
-    
+                        min-height: initial;
+
                         h3 {
                             min-height: initial;
                         }
@@ -337,6 +340,10 @@
                         height: auto;
                     }
                 }
+            }
+
+            .cost-section .cost-text {
+                padding-inline: 0;
             }
 
             .cost-section,
@@ -363,7 +370,42 @@
                     align-items: center;
                     justify-content: center;
                     flex-wrap: wrap;
+                    flex-direction: column;
                     text-align: center;
+                }
+            }
+
+            // El translateY/translateX(-40px) de animations.scss persiste tras hacerse visibles
+            // (misma especificidad, declarado después) y desplaza los pasos.
+            html.reveal-ready & .steps-list .step.is-visible {
+                transform: none;
+            }
+
+            // Lista vertical: la flecha después de la etiqueta, apuntando al siguiente paso.
+            @media (max-width: $bp-mobile-max) {
+                .steps-list {
+                    // La regla global .steps-list .step termina en align-items: stretch y
+                    // pega las etiquetas (max-width 260px) al borde izquierdo.
+                    .step {
+                        align-items: center;
+                    }
+
+                    .step-line {
+                        display: contents;
+                    }
+
+                    .step-line i {
+                        order: 1;
+                        margin: 12px 0 0;
+                    }
+                }
+            }
+
+            // 801–960px: la regla global de tablet deja las etiquetas en 10px.
+            @include tablet {
+                .steps-section .step p {
+                    font-size: 14px;
+                    max-width: none;
                 }
             }
         }
