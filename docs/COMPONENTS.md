@@ -169,6 +169,8 @@ Componentes de layout compartidos por todas las páginas (`src/components/layout
 </Route>
 ```
 
+`Footer` tiene dos bloques: la fila original `.site-footer` (Brand + redes) y `.footer-legal` (links a `/aviso-de-privacidad` y `/terminos-y-condiciones` + copyright con `new Date().getFullYear()` y `COMPANY_NAME` de `src/data/legal.ts`). En mobile (≤800px) la sección legal se apila y los links tienen área táctil de 45px.
+
 `Header` usa `siteNav` (`src/data/navigation.ts`) para generar el menú con `NavLink`.
 
 `MainLayout` además:

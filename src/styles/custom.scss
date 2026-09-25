@@ -9,7 +9,7 @@
         margin-bottom: 16px;
 
         b, q {
-            color: rgb(var(--color-blue));
+            color: var(--color-blue);
         }
     }
 
@@ -47,6 +47,11 @@
     box-shadow: none;
 }
 
+.highlight{
+    font-weight: 600;
+    color: var(--color-coral) !important;
+  }
+
 /* Acordeón de preguntas frecuentes, reutilizado en Contacto y Cliente. */
 .faq-list {
     display: flex;
@@ -76,7 +81,7 @@
     content: "+";
     float: right;
     font-weight: 400;
-    color: rgb(var(--color-blue));
+    color: var(--color-blue);
 }
 
 .faq-item[open] summary::after {
@@ -181,6 +186,14 @@
         .stories {
             background: linear-gradient(
                 300deg, rgb(var(--color-mist) / 0.9) 40%, rgb(var(--color-white) / 0.05) 50%);
+
+                .story-text {
+                    min-height: 320px;
+
+                    h3 {
+                        min-height: 120px;
+                    }
+                }
         }
 
         .changes {
@@ -200,7 +213,8 @@
 
             .trust-grid {
                 p {
-                    font-size: 16px;
+                    font-size: 18px;
+                    line-height: 1.6;
                 }
             }
         }
@@ -232,6 +246,19 @@
         .contact-section {
             h2 {
                 margin-bottom: 16px;
+            }
+
+            .text-container {
+                max-width: 800px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0 auto;
+
+                p {
+                    font-size: 18px;
+                    line-height: 1.6;
+                }
             }
         }
 
@@ -285,6 +312,19 @@
                     padding-top: 40px;
                     gap: 20px;
                 }
+            }
+
+            .stories {
+                background: linear-gradient(
+                    300deg, rgb(var(--color-mist) / 0.9) 40%, rgb(var(--color-white) / 0.05) 50%);
+    
+                    .story-text {
+                        min-height: 100%
+    
+                        h3 {
+                            min-height: initial;
+                        }
+                    }
             }
 
             #como-funciona {
@@ -421,7 +461,7 @@
             .step-line {
                 span {
                     background-color: var(--surface);
-                    color: rgb(var(--color-blue));
+                    color: var(--color-blue);
                 }
                 
                 // Blanco como el texto de la sección: el azul sobre el fondo navy no alcanzaba 3:1.
@@ -557,7 +597,7 @@
         .stat-card h2 {
             font-size: 19px;
             font-weight: 600;
-            color: rgb(var(--color-blue));
+            color: var(--color-blue);
             margin-bottom: 10px;
         }
 
@@ -607,7 +647,7 @@
 
         .industry-list--cross li::before {
             content: "✕";
-            background: rgb(var(--color-coral));
+            background: var(--color-coral);
         }
 
         .industry-list--stack {
@@ -703,7 +743,7 @@
                 h2 {
                     font-size: 19px;
                     font-weight: 600;
-                    color: rgb(var(--color-blue));
+                    color: var(--color-blue);
                     margin-bottom: 8px;
                 }
 
@@ -962,7 +1002,7 @@
             content: "\2013";
             position: absolute;
             left: 0;
-            color: rgb(var(--color-blue));
+            color: var(--color-blue);
             font-weight: 700;
         }
 
@@ -1003,7 +1043,7 @@
         }
 
         .before-after-item--after .eyebrow {
-            color: rgb(var(--color-coral));
+            color: var(--color-coral);
         }
 
         .store-buttons {
@@ -1142,7 +1182,7 @@
         }
 
         .required-mark {
-            color: rgb(var(--color-coral));
+            color: var(--color-coral);
         }
 
         .form-field input,
@@ -1167,8 +1207,8 @@
         .form-field select:focus-visible,
         .form-field textarea:focus-visible {
             outline: none;
-            border-color: rgb(var(--color-blue));
-            box-shadow: 0 0 0 3px rgb(var(--color-blue) / 15%);
+            border-color: var(--color-blue);
+            box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-blue) 15%, transparent);
         }
 
         .form-field input[aria-invalid="true"],
@@ -1205,7 +1245,7 @@
             width: 18px;
             height: 18px;
             margin-top: 2px;
-            accent-color: rgb(var(--color-blue));
+            accent-color: var(--color-blue);
         }
 
         .form-privacy label {
@@ -1238,6 +1278,48 @@
                 flex-direction: column;
                 text-align: center;
             }
+        }
+    }
+
+    &.page-legal {
+        .legal-hero {
+            min-height: auto;
+            padding-bottom: var(--space-lg);
+
+            h1 {
+                margin-bottom: 12px;
+            }
+        }
+
+        .legal-meta {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        // ~70 caracteres por línea para lectura de texto largo.
+        .legal-body {
+            max-width: 720px;
+
+            h2 {
+                margin: var(--space-lg) 0 var(--space-xs);
+                font-size: 1.4rem;
+                font-weight: 600;
+                line-height: 1.3;
+                letter-spacing: -0.02em;
+            }
+
+            p {
+                margin-bottom: var(--space-sm);
+                font-size: 16px;
+                line-height: 1.6;
+            }
+        }
+
+        .legal-note {
+            padding: 12px 16px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            background: var(--surface-panel);
         }
     }
 

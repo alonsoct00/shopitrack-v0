@@ -17,6 +17,7 @@
 .hero-copy p {
   max-width: 390px;
   margin-bottom: 26px;
+  font-size: 18px;
 }
 
 .hero-art {
@@ -74,7 +75,7 @@
   height: 26px;
   color: var(--surface);
   border-radius: 50%;
-  background: rgb(var(--color-blue));
+  background: var(--color-blue);
 }
 
 .tracking-route {
@@ -85,7 +86,7 @@
 .tracking-route span {
   width: 14px;
   height: 14px;
-  border: 3px solid rgb(var(--color-blue));
+  border: 3px solid var(--color-blue);
   border-radius: 50%;
 }
 
@@ -95,12 +96,12 @@
 }
 
 .tracking-route svg {
-  color: rgb(var(--color-blue));
+  color: var(--color-blue);
 }
 
 .tracking-bar {
   height: 12px;
   width: 70%;
   border-radius: 4px;
-  background: rgb(var(--color-blue));
+  background: var(--color-blue);
 }

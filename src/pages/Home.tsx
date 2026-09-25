@@ -29,14 +29,17 @@ export function Home() {
             <div className="container hero-grid">
               <div className="hero-copy">
                 <h1 id="hero-title">
-                  La entrega no falla cuando un repartidor llega tarde. Falla
-                  mucho antes.
+                  La entrega no falla cuando el repartidor llega tarde. <br />
+                  <b className="highlight">Falla mucho antes.</b>
                 </h1>
-                <p>
-                  Cada día miles de entregas dependen de una suposición. Que habrá
-                  alguien para recibir. Cuando esa suposición falla... Todo lo
-                  demás también.
+                <p style={{ marginBottom: 4 }}>
+                  Cada día miles de entregas dependen <br />
+                  de una suposición: Que habrá alguien para recibir.
                 </p>
+                <p>
+                  <b>Cuando esa suposición falla... Todo lo demás también.</b>
+                </p>
+
                 <a className="btn btn-primary" href="#como-funciona">
                   Descubre por qué <ArrowRight size={16} />
                 </a>
@@ -80,14 +83,18 @@ export function Home() {
                 <div className="split-copy md:flex md:items-center md:content-center flex-wrap">
                   <h2>
                     La mayoría de las entregas fallidas no se deben a la
-                    logística. Se deben a la falta de comunicación.
+                    logística. <br />
+                    Se deben a la falta de comunicación.
                   </h2>
-                  <p>
+                  <p style={{ marginBottom: 4 }}>
                     Vehículos recorriendo kilómetros innecesarios. Clientes
                     esperando todo el día. Empresas reprogramando entregas.
-                    Operadores perdiendo tiempo. Call centers saturados. Clientes
-                    molestos. Y todo ocurre porque nadie confirmó algo muy
-                    sencillo. ¿La fecha realmente funciona para ambas partes?
+                    Operadores perdiendo tiempo. Call centers saturados.
+                    Clientes molestos.
+                  </p>
+                  <p>Y esto ocurre porque nadie confirmó algo muy sencillo:</p>
+                  <p className="highlight">
+                    ¿La fecha realmente funciona para ambas partes?
                   </p>
                 </div>
               </div>
@@ -115,6 +122,7 @@ export function Home() {
                     <strong>Empresa</strong>
                     <h3>
                       Programó. Preparó. Asigno. Despachó. <br />
+                      Cargó la unidad y salió a ruta <br />
                       Pero encontró una puerta cerrada.
                     </h3>
                   </div>
@@ -139,7 +147,7 @@ export function Home() {
                   </div>
                 </article>
               </div>
-              <div className="story-divider">
+              <div className="hidden story-divider">
                 <span />
                 <b>Dos historias. Una misma causa. La incertidumbre.</b>
                 <span />
@@ -153,13 +161,18 @@ export function Home() {
             <div className="container cost-grid split-grid">
               <div className="split-copy cost-text">
                 <SectionHeading title="El costo invisible" />
-                <p>
-                  Hasta ahora hablamos de emociones. Ahora hablamos de negocios.
-                  Una entrega fallida cuesta combustible. Tiempo. Reprogramación.
-                  Llamadas. Horas de trabajo. Pero también cuesta algo normalmente
-                  nadie mide. Confianza. Una mala entrega puede borrar una
-                  excelente experiencia de compra. Porque el cliente recuerda como
-                  terminó. No cómo empezó.
+                <p style={{ marginBottom: 6 }}>
+                  Una entrega fallida cuesta combustible, horas hombre, desgaste
+                  de unidad, y costo de re-proceso. Pero lo más costoso es
+                  aquello que no aparece en el P&L.
+                </p>
+                <p style={{ marginBottom: 6 }}>
+                  <b>Confianza.</b> Una mala entrega puede borrar una excelente
+                  experiencia de compra.
+                </p>
+                <p className="highlight">
+                  Porque el cliente no recordará como empezó. su compra, sino
+                  como terminó.
                 </p>
               </div>
               <div className="cost-art photo-frame-blur photo-frame photo-frame--wide">
@@ -171,7 +184,7 @@ export function Home() {
                   loading="lazy"
                   className="photo-frame-img visible md:invisible"
                 />
-                <div className="over-img dashboard-card-image">
+                <div className="hidden over-img dashboard-card-image">
                   <LottiePlayer
                     src="/lottie/costo-invisible.json"
                     className="dashboard-card-lottie"
@@ -190,13 +203,16 @@ export function Home() {
           >
             <div className="container lastmile-grid split-grid split-grid--reverse">
               <div className="split-copy lastmile-text">
-                <h2>Una nueva forma de entender la última milla.</h2>
-                <p>
-                  Aquí ocurre el cambio real. La industria lleva años
-                  preguntándose: ¿Cómo entrego más rápido? Shopitrack propone otra
-                  pregunta. ¿Cómo logramos que empresa y cliente estén listos al
-                  mismo tiempo? La diferencia parece pequeña. En realidad cambia
-                  completamente la conversación.
+                <h2>La nueva forma de entender la última milla.</h2>
+                <p style={{ marginBottom: 6 }}>
+                  La carrera por la velocidad de entrega llegó a su límite pero
+                  empresa y cliente siguen atrapados por la incertidumbre.
+                </p>
+                <p style={{ marginBottom: 6 }} className="strong">
+                  En Shopitrack dimos el siguiente paso: La sincronía.
+                </p>
+                <p className="highlight">
+                  Logramos que empresa y cliente estén listos al mismo tiempo.
                 </p>
               </div>
               <div className="lastmile-art photo-frame-blur photo-frame photo-frame--wide">
@@ -208,7 +224,7 @@ export function Home() {
                   loading="lazy"
                   className="photo-frame-img visible md:invisible"
                 />
-                <div className="over-img calendar-card">
+                <div className="hidden over-img calendar-card">
                   <ImageWithFallback
                     src={images.calendarCard}
                     width={600}
@@ -242,26 +258,36 @@ export function Home() {
             <div className="container">
               <SectionHeading title="Lo que cambia" centered />
               <div className="change-grid">
-                <InfoCard
-                  icon={<Building2 />}
-                  title="Para la empresa"
-                  label="Menos entregas fallidas."
-                >
-                  Menos costos. Más confianza. Más recompra.
+                <InfoCard icon={<Building2 />} title="Para la empresa" label="">
+                  <ul className="card-list">
+                    <li>Menos entregas fallidas</li>
+                    <li>Menos costos operativos</li>
+                    <li>Más lealtad de los cliente</li>
+                    <li>Más recompra.</li>
+                  </ul>
                 </InfoCard>
                 <InfoCard
                   icon={<CircleUserRound />}
                   title="Para el operador"
-                  label="Menos recorridos innecesarios."
+                  label=""
                 >
-                  Mayor productividad. Menos frustración.
+                  <ul className="card-list">
+                    <li>Menos recorridos inncesarios</li>
+                    <li>Menos tiempo ocioso</li>
+                    <li>Más entregas en el mismo tiempo</li>
+                  </ul>
                 </InfoCard>
                 <InfoCard
                   icon={<UsersRound />}
                   title="Para el cliente"
-                  label="Más libertad. Más información."
+                  label=""
                 >
-                  Más tranquilidad. Más control.
+                  <ul className="card-list">
+                    <li>Mayor certeza</li>
+                    <li>Más tranquilidad</li>
+                    <li>Más libertad</li>
+                    <li>Mejor experiencia de compra</li>
+                  </ul>
                 </InfoCard>
               </div>
             </div>
@@ -273,11 +299,13 @@ export function Home() {
             <div className="container trust-grid">
               <div className="trust-text">
                 <h2>Confianza</h2>
-                <p>
-                  Las empresas entregan productos. Pero realmente cumplen
-                  promesas. Shopitrack ayuda a que esas promesas lleguen completas
-                  hasta la puerta del cliente. No vendemos notificaciones.
-                  Vendemos confianza.
+                <p style={{ marginBottom: 6 }}>
+                  Las empresas entregan productos.
+                  <br />
+                  Pero realmente cumplen promesas.
+                </p>
+                <p className="strong">
+                  Shopitrack hace que las promesas se cumplan.
                 </p>
               </div>
             </div>
@@ -293,7 +321,7 @@ export function Home() {
             <div className="container industry-grid">
               <div>
                 <h2>
-                  Una plataforma para cualquier empresa que entregue a domicilio.
+                  Una plataforma para cualquier empresa que acuda a domicilio.
                 </h2>
                 <ul className="industry-list">
                   {industries.map((industry) => (
@@ -319,9 +347,9 @@ export function Home() {
               <p>
                 No importa qué tan bueno sea un producto. No importa qué tan
                 eficiente sea una operación. No importa qué tan atractivo sea un
-                precio. Si la entrega termina mal... La compra también. Por eso la
-                última milla no es el final de la logística. Es el final de la
-                promesa.
+                precio. Si la entrega termina mal... La compra también. Por eso
+                la última milla no es el final de la logística. Es el final de
+                la promesa.
               </p>
             </div>
           </section>
@@ -333,14 +361,15 @@ export function Home() {
             id="contacto"
             data-reveal
           >
-            <div className="container contact-grid">
-              <div>
+            <div className="container text-center">
+              <div className="text-container">
                 <h2>
                   Transforma cada entrega en una mejor experiencia para tus
                   clientes.
                 </h2>
                 <p>
                   Conoce cómo transformar la entrega en una experiencia que
+                  <br />
                   fortalezca la confianza de tus clientes.
                 </p>
                 <div className="contact-actions">
@@ -351,15 +380,6 @@ export function Home() {
                     Explora cómo funciona Shopitrack
                   </a>
                 </div>
-              </div>
-              <div className="device-mockup">
-                <ImageWithFallback
-                  src={images.deviceMockup}
-                  width={712}
-                  height={351}
-                  alt="Panel de Shopitrack con el seguimiento de una entrega en curso"
-                  loading="lazy"
-                />
               </div>
             </div>
           </section>

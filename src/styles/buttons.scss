@@ -18,16 +18,16 @@
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgb(var(--color-ink) / 16%);
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--color-ink) 16%, transparent);
 }
 
 .btn-primary {
-  background: rgb(var(--color-blue));
+  background: var(--color-blue);
   color: var(--surface);
 }
 
 .btn-coral {
-  background: rgb(var(--color-coral));
+  background: var(--color-coral);
   color: var(--surface);
   box-shadow: none;
 }
@@ -39,7 +39,7 @@
 }
 
 .btn-outline:hover {
-  background: rgb(var(--color-blue));
+  background: var(--color-blue);
   color: var(--surface);
   box-shadow: none;
 }

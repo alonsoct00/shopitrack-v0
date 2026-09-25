@@ -6,18 +6,18 @@ El design system vive en `src/styles/` como partials SCSS (`tokens`, `base`, `la
 
 | Token | Valor | Uso |
 | ------- | ------- | ----- |
-| `--color-blue` | `18 100 232` | Primario, CTAs, iconos, acentos |
-| `--color-coral` | `255 104 72` | Acento de contraste, CTAs secundarios |
-| `--color-ink` | `8 38 99` | Azul profundo para fondos oscuros |
-| `--color-cloud` | `238 247 255` | Fondos pálidos |
-| `--color-panel` | `242 248 255` | Canales del fondo de paneles y cards (usar con alfa: `rgb(var(--color-panel) / 86%)`) |
+| `--color-blue` | `#1264e8` | Primario, CTAs, iconos, acentos |
+| `--color-coral` | `#ff6848` | Acento de contraste, CTAs secundarios |
+| `--color-ink` | `#082663` | Azul profundo para fondos oscuros |
+| `--color-cloud` | `#eef7ff` | Fondos pálidos |
+| `--color-panel` | `#f2f8ff` | Fondo de paneles y cards |
 | `--text-primary` | `#082663` | Texto principal |
 | `--text-secondary` | `#2e4d79` | Texto secundario |
 | `--text-muted` | `#6b82a6` | Texto terciario |
 | `--line` | `#dce9f7` | Bordes y separadores |
 | `--surface` | `#ffffff` | Fondos claros |
 | `--surface-alt` | `#eef7ff` | Fondos alternativos |
-| `--surface-panel` | `rgb(var(--color-panel) / 60%)` | Paneles suaves (FAQ, filas antes/después) |
+| `--surface-panel` | `color-mix(in srgb, var(--color-panel) 60%, transparent)` | Paneles suaves (FAQ, filas antes/después) |
 | `--card-border` | `#deebf8` | Borde de `.info-card` y `.story-card` |
 | `--divider-accent` | `#f8c9be` | Línea coral clara de `.story-divider` |
 | `--color-white` / `--color-navy` / `--color-mist` / `--color-sky` | canales RGB | Usar con alfa: `rgb(var(--color-navy) / 95%)` (overlays y degradados) |
@@ -31,6 +31,16 @@ Regla: fuera de `tokens.scss` no se escriben colores literales (hex, `rgb()` o `
 | `--surface-fade` | `rgb(237 245 252)` | Color de desvanecido en fondos con imagen (Home) |
 | `--color-danger` | `#d92d20` | Texto/borde de error en formularios |
 | `--color-danger-bg` | `#fef3f2` | Fondo de campo con error |
+
+### Colores con transparencia
+
+`--color-ink`, `--color-blue`, `--color-coral`, `--color-cloud` y `--color-panel` son HEX: se usan directo (`color: var(--color-blue)`) y, con alfa, con `color-mix`:
+
+```scss
+background: color-mix(in srgb, var(--color-blue) 19%, transparent);
+```
+
+`--color-white`, `--color-navy`, `--color-mist` y `--color-sky` siguen en canales RGB (`rgb(var(--color-navy) / 95%)`); no usarlos con `var()` directo.
 
 ## Typography
 

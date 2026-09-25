@@ -79,7 +79,7 @@ Reutiliza imagen ya existente en `public/images`:
 
 **ASSET FALTANTE — 3 secciones:** "Lo que implica esperar" (persona utilizando su tiempo mientras espera), "La aplicación" (pantallas reales de la app) y el CTA final "Descarga la aplicación" (mockup real de la app) no tienen foto/mockup específico; el proyecto no cuenta con capturas de la app (aún no existe) ni con una foto de "persona productiva esperando en casa" distinta a la ya usada en el hero. Se dejaron placeholders visibles ("ASSET FALTANTE") en cada `.photo-frame`, mismo patrón usado en Empresa y Sectores.
 
-**RUTA FALTANTE:** el PDF define un CTA "Consultar Aviso de Privacidad" (sección 09) y una mención en el FAQ de "Aviso de Privacidad" — no existe ruta `/aviso-de-privacidad` en el proyecto. La sección 09 completa se omitió por decisión explícita (el PDF la marca con una X roja, indicando descarte del revisor); la mención en el FAQ se dejó como texto plano sin enlace, sin inventar la ruta.
+**Aviso de Privacidad:** la ruta `/aviso-de-privacidad` ya existe (enlazada desde el Footer). La mención en el FAQ de Clientes y el checkbox de Contacto siguen como texto sin enlace. La sección 09 completa se omitió por decisión explícita (el PDF la marca con una X roja, indicando descarte del revisor); la mención en el FAQ se dejó como texto plano sin enlace, sin inventar la ruta.
 
 ## Imagen genérica de respaldo
 

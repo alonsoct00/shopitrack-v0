@@ -7,7 +7,14 @@ export interface SeoEntry {
 //Ajustes de titulos en pestañas
 
 export const seoConfig: Record<
-  "home" | "empresas" | "clientes" | "sectores" | "contacto" | "notFound",
+  | "home"
+  | "empresas"
+  | "clientes"
+  | "sectores"
+  | "contacto"
+  | "privacidad"
+  | "terminos"
+  | "notFound",
   SeoEntry
 > = {
   home: {
@@ -40,6 +47,18 @@ export const seoConfig: Record<
     title: "Contacto | Shopitrack",
     description:
       "Habla con el equipo de Shopitrack y descubre cómo nuestro software para entregas reduce las entregas fallidas y mejora el seguimiento de entregas de tu empresa.",
+  },
+  privacidad: {
+    path: "/aviso-de-privacidad",
+    title: "Aviso de privacidad | Shopitrack",
+    description:
+      "Conoce cómo Shopitrack trata y protege la información personal que recibe a través de su sitio y sus servicios de coordinación de entregas.",
+  },
+  terminos: {
+    path: "/terminos-y-condiciones",
+    title: "Términos y condiciones | Shopitrack",
+    description:
+      "Consulta los términos y condiciones de uso del sitio web de Shopitrack, la plataforma que coordina empresas y clientes para reducir entregas fallidas.",
   },
   notFound: {
     path: "",

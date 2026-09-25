@@ -31,7 +31,7 @@
   pointer-events: none;
   background: repeating-radial-gradient(ellipse at 10% 105%,
       transparent 0 18px,
-      rgb(var(--color-blue) / 19%) 19px 20px,
+      color-mix(in srgb, var(--color-blue) 19%, transparent) 19px 20px,
       transparent 21px 28px);
   transform: rotate(-4deg);
   right: 0;
@@ -74,7 +74,7 @@
   width: 100%;
   margin: auto;
   padding: 0 20px;
-  background: rgb(var(--color-ink) / 0%);
+  background: transparent;
   border-bottom: 1px solid transparent;
   box-shadow: none;
   transition:
@@ -86,8 +86,8 @@
 
 .site-header--scrolled {
   background: rgb(var(--color-white) / 65%);
-  border-bottom: 1px solid rgb(var(--color-ink) / 8%);
-  box-shadow: 0 8px 32px rgb(var(--color-ink) / 8%);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 8%, transparent);
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--color-ink) 8%, transparent);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
@@ -102,7 +102,7 @@
   height: 40px;
   width: 100%;
   aspect-ratio: 1707 / 419;
-  background-color: rgb(var(--color-blue));
+  background-color: var(--color-blue);
   -webkit-mask: url(/images/logo/shopitrack-black.svg) no-repeat center / contain;
   mask: url(/images/logo/shopitrack-black.svg) no-repeat center / contain;
   -webkit-mask-mode: alpha;
@@ -117,7 +117,7 @@
   display: flex;
   align-items: center;
   gap: 2px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 750;
   color: var(--nav-link);
 }
@@ -125,21 +125,21 @@
 .site-nav a:not(.btn) {
   position: relative;
   padding: 9px 16px;
-  border-radius: 999px;
+  border-radius: 16px;
   transition: color 0.2s ease, background-color 0.2s ease;
   font-weight: 500;
   font-size: 14px;
 }
 
 .site-nav a:not(.btn):hover {
-  color: rgb(var(--color-blue));
-  background: rgb(var(--color-blue) / 8%);
+  color: var(--color-blue);
+  background: color-mix(in srgb, var(--color-blue) 20%, transparent);
 }
 
 .site-nav a.active:not(.btn) {
-  color: rgb(var(--color-blue));
-  background: rgb(var(--color-blue) / 12%);
-  font-weight: 800;
+  color: white;
+  background: color-mix(in srgb, var(--color-blue) 100%, transparent);
+  font-weight: 500;
 }
 
 .menu-toggle {
@@ -156,6 +156,40 @@
   justify-content: space-between;
   width: min(100% - 48px, 1280px);
   margin: auto;
+}
+
+.footer-legal {
+  width: min(100% - 48px, 1280px);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-md);
+  padding: var(--space-sm) 0 var(--space-md);
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.footer-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-md);
+}
+
+.footer-legal-links a {
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+  color: var(--color-blue);
+}
+
+.footer-copyright {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-secondary);
 }
 
 .socials {

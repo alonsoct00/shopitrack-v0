@@ -1,9 +1,9 @@
 :root {
-  --color-ink: 8 38 99;
-  --color-blue: 18 100 232;
-  --color-coral: 255 104 72;
-  --color-cloud: 238 247 255;
-  --color-panel: 242 248 255;
+  --color-ink: #082663;
+  --color-blue: #1264e8;
+  --color-coral: #ff6848;
+  --color-cloud: #eef7ff;
+  --color-panel: #f2f8ff;
   --text-primary: #082663;
   --text-secondary: #2e4d79;
   --text-muted: #6b82a6;
@@ -12,7 +12,7 @@
   --surface-alt: #eef7ff;
   --surface-soft: #e3effa;
   --icon-bg: #e5f2ff;
-  --surface-panel: rgb(var(--color-panel) / 60%);
+  --surface-panel: color-mix(in srgb, var(--color-panel) 60%, transparent);
   --card-border: #deebf8;
   --divider-accent: #f8c9be;
   --surface-fade: rgb(237 245 252);
@@ -47,7 +47,7 @@
   --nav-link: #45618a;
 
   /* Sombras adicionales */
-  --shadow-float: 0 16px 38px rgb(var(--color-ink) / 25%);
+  --shadow-float: 0 16px 38px color-mix(in srgb, var(--color-ink) 25%, transparent);
   --shadow-device: 0 17px 40px rgb(0 26 92 / 30%);
 
   /* Decorativos de ilustraciones y mockups */

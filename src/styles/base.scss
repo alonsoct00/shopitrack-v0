@@ -24,7 +24,7 @@ a {
 
 button:focus-visible,
 a:focus-visible {
-  outline: 3px solid rgb(var(--color-coral) / 45%);
+  outline: 3px solid color-mix(in srgb, var(--color-coral) 45%, transparent);
   outline-offset: 4px;
 }
 
@@ -45,4 +45,13 @@ a:focus-visible {
   border: 0;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+.highlight{
+  font-weight: 600;
+  color: var(--color-coral) !important;
+}
+
+.strong {
+  font-weight: 600;
 }

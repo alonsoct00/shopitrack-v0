@@ -6,6 +6,9 @@ import { Clientes } from '@/pages/Clientes';
 import { Sectores } from '@/pages/Sectores';
 import { Contacto } from '@/pages/Contacto';
 import { NotFound } from '@/pages/NotFound';
+import { LegalPage } from '@/pages/LegalPage';
+import { privacyNotice, termsAndConditions } from '@/data/legal';
+import { seoConfig } from '@/data/seo';
 
 function App() {
   return (
@@ -17,6 +20,14 @@ function App() {
           <Route path="clientes" element={<Clientes />} />
           <Route path="sectores" element={<Sectores />} />
           <Route path="contacto" element={<Contacto />} />
+          <Route
+            path="aviso-de-privacidad"
+            element={<LegalPage content={privacyNotice} seo={seoConfig.privacidad} />}
+          />
+          <Route
+            path="terminos-y-condiciones"
+            element={<LegalPage content={termsAndConditions} seo={seoConfig.terminos} />}
+          />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

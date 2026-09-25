@@ -26,6 +26,7 @@ src/
 │   ├── Clientes.tsx           Página para clientes
 │   ├── Sectores.tsx           Página de sectores
 │   ├── Contacto.tsx           Contacto con formulario
+│   ├── LegalPage.tsx          Plantilla para Aviso de privacidad y Términos y condiciones
 │   └── NotFound.tsx           Página 404
 ├── data/
 │   ├── home.ts                Contenido de la Home
@@ -33,6 +34,7 @@ src/
 │   ├── clientes.ts            Contenido de Clientes
 │   ├── sectores.ts            Contenido de Sectores
 │   ├── contacto.ts            Contenido de Contacto
+│   ├── legal.ts               Aviso de privacidad y Términos (texto preliminar, datos [POR DEFINIR])
 │   ├── navigation.ts          Rutas del menú (siteNav)
 │   ├── seo.ts                 Titles/descriptions por ruta
 │   └── types.ts               Tipos compartidos del data (Icon, IconItem, StepItem, ImageSource)
