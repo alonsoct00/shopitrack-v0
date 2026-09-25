@@ -456,7 +456,8 @@
   border-radius: 8px;
 }
 
-.industries-showcase-arrow {
+.industries-showcase-arrow,
+.image-slider-arrow {
   position: absolute;
   top: 50%;
   translate: 0 -50%;
@@ -480,14 +481,16 @@
   right: -14px;
 }
 
-.industries-showcase-dots {
+.industries-showcase-dots,
+.image-slider-dots {
   display: flex;
   justify-content: center;
   gap: 8px;
   margin-top: 14px;
 }
 
-.industries-showcase-dots button {
+.industries-showcase-dots button,
+.image-slider-dots button {
   width: 8px;
   height: 8px;
   padding: 0;
@@ -497,10 +500,70 @@
   cursor: pointer;
 }
 
-.industries-showcase-dots button.is-active {
+.industries-showcase-dots button.is-active,
+.image-slider-dots button.is-active {
   width: 22px;
   border-radius: 4px;
   background: var(--color-blue);
+}
+
+// ImageSlider: una imagen a la vez; flechas y dots comparten estilo con .industries-showcase.
+.image-slider {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.image-slider-viewport {
+  position: relative;
+  flex: 1;
+  min-height: 320px;
+}
+
+.image-slider-track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  border-radius: 10px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-slider-track {
+    scroll-behavior: auto;
+  }
+}
+
+.image-slider-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.image-slider-arrow.prev {
+  left: 12px;
+}
+
+.image-slider-arrow.next {
+  right: 12px;
+}
+
+// --border lo define DaisyUI como grosor (1px), así que el fallback compartido no aplica.
+.image-slider-dots button {
+  background: color-mix(in srgb, var(--color-blue) 25%, transparent);
 }
 
 .promise-section {

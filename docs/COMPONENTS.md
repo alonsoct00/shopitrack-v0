@@ -106,6 +106,26 @@ Al caer al fallback descarta `srcSet`/`sizes` (si no, el navegador seguiría pid
 <ImageWithFallback src={empresasImages.hero} srcSet={empresasImages.heroSrcSet} alt="..." />
 ```
 
+## ImageSlider
+
+Slider de una imagen a tamaño completo a la vez (`src/components/ImageSlider.tsx`). Usa scroll nativo con `scroll-snap`, así que el swipe táctil funciona sin JS; las flechas y los dots solo desplazan el track. Las flechas y los dots comparten estilo con `.industries-showcase` (`sections.scss`).
+
+| Prop | Tipo | Default | Descripción |
+|---|---|---|---|
+| `slides` | `ImageSource[]` | — | Imágenes (`{ src, alt }`), renderizadas con `ImageWithFallback`. |
+| `label` | `string` | — | Nombre accesible del carrusel (`aria-label`). |
+| `arrows` | `boolean` | `true` | Muestra flechas anterior/siguiente (circulares: del último vuelve al primero). |
+| `dots` | `boolean` | `true` | Muestra los dots de posición. |
+| `className` | `string` | — | Clase extra en el contenedor. |
+
+Con una sola imagen no se muestran flechas ni dots. Llena la altura de su contenedor (mínimo 320px) y la imagen usa `object-fit: cover`.
+
+```tsx
+<ImageSlider slides={appScreens} label="Características de la aplicación" arrows dots />
+```
+
+Uso actual: Clientes, sección "La aplicación" (`appScreens` en `src/data/clientes.ts`, con placeholders pendientes de capturas reales).
+
 ## RichText
 
 Convierte un grupo cerrado de etiquetas dentro de strings del data en elementos React (`src/components/RichText.tsx`). Cualquier otro HTML se muestra como texto; no usa `dangerouslySetInnerHTML`.

@@ -1,8 +1,12 @@
+import { ArrowRight, Check, X } from "lucide-react";
 import { InfoCard } from "@/components/InfoCard";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Seo } from "@/components/Seo";
 import {
   appFeatureItems,
+  appScreens,
+  appStoreLinks,
+  ctaStoreLinks,
   beforeAfterItems,
   clientSteps,
   clientesImages,
@@ -15,6 +19,23 @@ import { seoConfig } from "@/data/seo";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { RichText } from "@/components/RichText";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
+import { ImageSlider } from "@/components/ImageSlider";
+
+function StoreLinks({ links }: { links: typeof appStoreLinks }) {
+  return links.map(({ text, icon: StoreIcon, href }) => (
+    <a
+      key={text}
+      className="btn btn-outline"
+      href={href || undefined}
+      aria-disabled={!href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <StoreIcon />
+      {text}
+    </a>
+  ));
+}
 
 export function Clientes() {
   return (
@@ -58,6 +79,7 @@ export function Clientes() {
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
+                  className="photo-frame-img visible md:invisible"
                 />
               </div>
             </div>
@@ -139,7 +161,11 @@ export function Clientes() {
               />
               <div className="change-grid experience-steps-grid">
                 {clientSteps.map((step) => (
-                  <InfoCard key={step.label} image={step.image} title={step.label}>
+                  <InfoCard
+                    key={step.label}
+                    image={step.image}
+                    title={step.label}
+                  >
                     {step.text}
                   </InfoCard>
                 ))}
@@ -153,16 +179,33 @@ export function Clientes() {
           <section className="section" data-reveal>
             <div className="container">
               <SectionHeading title="Lo que cambia para ti" centered />
+              <div className="before-after-legend" aria-hidden="true">
+                <span className="before-after-legend-item">
+                  <X className="before-after-mark" /> Antes
+                </span>
+                <span className="before-after-legend-item before-after-legend-item--after">
+                  <Check className="before-after-mark" /> Ahora
+                </span>
+              </div>
               <div className="before-after-list">
                 {beforeAfterItems.map((item) => (
                   <div className="before-after-row" key={item.before}>
                     <div className="before-after-item">
-                      <span className="eyebrow">Antes</span>
-                      <p>{item.before}</p>
+                      <X className="before-after-mark" aria-hidden="true" />
+                      <p>
+                        <span className="before-after-label">Antes: </span>
+                        {item.before}
+                      </p>
                     </div>
+                    <span className="before-after-arrow" aria-hidden="true">
+                      <ArrowRight />
+                    </span>
                     <div className="before-after-item before-after-item--after">
-                      <span className="eyebrow">Ahora</span>
-                      <p>{item.after}</p>
+                      <Check className="before-after-mark" aria-hidden="true" />
+                      <p>
+                        <span className="before-after-label">Ahora: </span>
+                        {item.after}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -184,7 +227,7 @@ export function Clientes() {
                     Desde el momento en que aceptas una fecha hasta el instante
                     en que recibes tu compra:
                   </p>
-                  <ul className="pain-list">
+                  <ul className="app-features-list industry-list">
                     {appFeatureItems.map((item) => (
                       <li key={item}>
                         <RichText text={item} />
@@ -197,22 +240,16 @@ export function Clientes() {
                     </strong>
                   </p>
                   <div className="store-buttons">
-                    <button type="button" className="btn btn-outline" disabled>
-                      Descargar en App Store.
-                    </button>
-                    <button type="button" className="btn btn-outline" disabled>
-                      Disponible en Google Play.
-                    </button>
+                    <StoreLinks links={appStoreLinks} />
                   </div>
                 </div>
-                <div className="photo-frame">
-                  <div
-                    className="usecase-card-media"
-                    role="img"
-                    aria-label="Imagen pendiente: pantallas reales de la aplicación"
-                  >
-                    <span>ASSET FALTANTE</span>
-                  </div>
+                <div className="app-demo-slider photo-frame">
+                  <ImageSlider
+                    slides={appScreens}
+                    label="Características de la aplicación"
+                    arrows
+                    dots
+                  />
                 </div>
               </div>
             </div>
@@ -222,7 +259,7 @@ export function Clientes() {
         <ErrorBoundary name="Clientes: section">
           <section className="section faq-section" data-reveal>
             <div className="container">
-              <SectionHeading title="Preguntas frecuentes" />
+              <SectionHeading centered title="Preguntas frecuentes" />
               <div className="faq-list">
                 {faqItems.map((item) => (
                   <details className="faq-item" key={item.question}>
@@ -241,25 +278,19 @@ export function Clientes() {
             data-reveal
           >
             <div className="container contact-grid">
-              <div>
-                <h2>Recupera el control de tu día a día.</h2>
+              <div className="text-content">
+                <h2 style={{ fontSize: "2.4rem" }}>
+                  Recupera el control de tu día a día.
+                </h2>
                 <p>
                   La próxima vez que una tienda utilice Shopitrack, tendrás una
                   forma mucho más sencilla de coordinar el momento de recibir tu
                   compra.
                 </p>
-                <p>
-                  La incertidumbre,
-                  <br />
-                  <strong>YA NO ES parte de la experiencia de compra.</strong>
-                </p>
-                <div className="contact-actions">
-                  <button type="button" className="btn btn-coral" disabled>
-                    Descargar en App Store.
-                  </button>
-                  <button type="button" className="btn btn-outline" disabled>
-                    Descargar en Google Play.
-                  </button>
+                <h3>La incertidumbre,</h3>
+                <h3>YA NO ES parte de la experiencia de compra.</h3>
+                <div className="contact-actions store-buttons">
+                  <StoreLinks links={ctaStoreLinks} />
                 </div>
               </div>
               <div className="photo-frame">

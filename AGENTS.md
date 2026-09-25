@@ -39,6 +39,7 @@ Clases reutilizables: `.section`, `.wave-section`, `.split-grid`, `.info-card`, 
 | `InfoCard` | `src/components/InfoCard.tsx` | `icon?: ReactNode`, `image?: { src, alt }`, `title: string`, `label?: string`, `items?: string[]`, `children?: ReactNode` |
 | `StepsList` | `src/components/StepsList.tsx` | `steps: StepItem[]` (cada paso con `icon` o `image`) |
 | `ImageWithFallback` | `src/components/ImageWithFallback.tsx` | Props de `<img>` + `fallbackSrc?: string`. Usar en lugar de `<img>` |
+| `ImageSlider` | `src/components/ImageSlider.tsx` | `slides: ImageSource[]`, `label: string`, `arrows?: boolean`, `dots?: boolean`, `className?: string` |
 | `RichText` | `src/components/RichText.tsx` | `text: string` (soporta `<q>`, `<em>`, `<i>`, `<strong>`, `<b>`) |
 | `ErrorBoundary` | `src/components/ErrorBoundary.tsx` | `children`, `fallback?: ReactNode`, `name?: string` |
 | `PageError` | `src/components/PageError.tsx` | — |
