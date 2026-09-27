@@ -189,6 +189,12 @@ p.statement {
                         flex: 0 1 auto;
                         margin: 0;
                     }
+
+                    .card-list {
+                        color: var(--text-secondary);
+                        font-size: 16px;
+                        line-height: 1.8;
+                    }
                 }
             }
         }

@@ -12,6 +12,7 @@ export function ImageWithFallback({
   sizes,
   fallbackSrc = DEFAULT_FALLBACK_SRC,
   onError,
+  fetchPriority,
   ...props
 }: ImageWithFallbackProps) {
   // Se guarda qué src falló (no un booleano) para reintentar si el src cambia.
@@ -21,6 +22,8 @@ export function ImageWithFallback({
   return (
     <img
       {...props}
+      // react-dom 18 no reconoce fetchPriority en camelCase y avisa en consola; en minúsculas llega igual al DOM.
+      {...(fetchPriority && { fetchpriority: fetchPriority })}
       src={showFallback ? fallbackSrc : src}
       srcSet={showFallback ? undefined : srcSet}
       sizes={showFallback ? undefined : sizes}

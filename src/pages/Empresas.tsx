@@ -206,15 +206,13 @@ export function Empresas() {
             <div className="container">
               <div className="split-grid">
                 <div className="split-copy">
-                  <SectionHeading
-                    title="El problema nunca fue la logística"
-                  />
+                  <SectionHeading title="El problema nunca fue la logística" />
                   <div className="logistic-grid">
                     <StatCard items={logisticItems} />
                   </div>
                 </div>
                 <div className="text-content">
-                  <h4>Todo ello, sin duda, mejora la operación.</h4>
+                  <h3>Todo ello, sin duda, mejora la operación.</h3>
                   <p>Pero ninguno responde la pregunta más importante:</p>
                   <h3>
                     ¿La persona que va a recibir, puede recibir cuándo llegue la
@@ -289,7 +287,7 @@ export function Empresas() {
             <div className="container split-grid stretch mt-4">
               <div>
                 <SectionHeading title="Integración natural" />
-                <div className="text-copy">
+                <div className="text-copy mt-4">
                   <ul className="integration-list industry-list industry-list--stack">
                     <li>
                       <span>
@@ -426,7 +424,13 @@ export function Empresas() {
                       con sus clientes.
                     </p>
                     <h3>
-                      <b>Shopitrack</b> construye consistencia
+                      <b
+                        className="highlight-blue"
+                        style={{ color: "var(--color-blue)", fontWeight: 600 }}
+                      >
+                        Shopitrack
+                      </b>{" "}
+                      construye consistencia
                     </h3>
                     <h3>Y la consistencia se convierte en reputación</h3>
 
