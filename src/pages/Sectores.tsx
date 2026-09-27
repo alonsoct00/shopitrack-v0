@@ -1,11 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import {
-  ArrowRight,
-  CheckCircle2,
-  Clock3,
-  Target,
-} from "lucide-react";
+import { ArrowRight, Clock3, Shuffle, Target } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Seo } from "@/components/Seo";
 import { otherSectors, sectoresImages, sectors } from "@/data/sectores";
@@ -14,21 +9,36 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { RichText } from "@/components/RichText";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 
+type SectorTone = "challenge" | "today" | "change";
 
-function SectorBlock({ icon, title, items }: { icon: ReactNode; title: string; items: string[] }) {
+function SectorBlock({
+  icon,
+  title,
+  items,
+  tone,
+}: {
+  icon: ReactNode;
+  title: string;
+  items: string[];
+  tone: SectorTone;
+}) {
   if (items.length === 0) return null;
   return (
-    <article className="info-card stat-card sector-block">
-      <div className="round-icon">{icon}</div>
-      <div>
-        <h2>{title}</h2>
-        <ul className="industry-list">
-          {items.map((item) => (
-            <li key={item}><RichText text={item} /></li>
-          ))}
-        </ul>
-      </div>
-    </article>
+    <div className={`sector-block sector-block--${tone}`}>
+      <h3>
+        <span className="sector-block-icon" aria-hidden="true">
+          {icon}
+        </span>
+        {title}
+      </h3>
+      <ul className="industry-list">
+        {items.map((item) => (
+          <li key={item}>
+            <RichText text={item} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -38,17 +48,26 @@ export function Sectores() {
       <Seo {...seoConfig.sectores} />
       <div id="page-sectores" className="page page-sectores">
         <ErrorBoundary name="Sectores: hero">
-          <section className="hero wave-section-bottom" aria-labelledby="sectores-hero-title">
+          <section
+            className="hero wave-section-bottom"
+            aria-labelledby="sectores-hero-title"
+          >
             <div className="container hero-grid">
               <div className="hero-copy">
-                <span className="eyebrow">Sectores</span>
-                <h1 id="sectores-hero-title">No importa qué vendas. Importa cómo termina la experiencia de compra.</h1>
+                <span className="sr-only eyebrow">Sectores</span>
+                <h1 id="sectores-hero-title">
+                  No importa qué vendas. Importa cómo termina la experiencia de
+                  compra.
+                </h1>
                 <p>
-                  Cada sector tiene desafíos distintos. Pero todas dependen de que una entrega
-                  ocurra en el momento correcto y con la información adecuada.
+                  Cada sector tiene desafíos distintos. Pero todas dependen de
+                  que una entrega ocurra en el momento correcto y con la
+                  información adecuada.
                 </p>
-                <p>
-                  <strong>Coordinación en la entrega; es lo que los clientes exigen.</strong>
+                <p className="statement">
+                  <strong>
+                    Coordinación en la entrega; es lo que los clientes exigen.
+                  </strong>
                 </p>
                 <Link className="btn btn-primary" to="/contacto">
                   Agenda una demostración <ArrowRight size={16} />
@@ -75,6 +94,36 @@ export function Sectores() {
           <section className="split-section section" data-reveal>
             <div className="container">
               <div className="split-grid stretch">
+                <div className="split-copy">
+                  <SectionHeading eyebrow="" title="El problema común" />
+                  <h2 className="sr-only">
+                    Todas dependen de que alguien esté disponible para recibir.
+                  </h2>
+
+                  <p>
+                    Las empresas creen que su operación es demasiado particular:
+                    <br />
+                    Que su logística es diferente. <br />
+                    Que sus procesos son únicos. <br />
+                    Y, en efecto, lo son.
+                  </p>
+                  <p>
+                    Pero existe un punto donde todas coinciden. <br />
+                    Todas dependen de que alguien esté disponible para recibir.
+                    <br />
+                    <strong>Ese momento es universal.</strong>
+                  </p>
+                  <p>
+                    No importa el producto. <br />
+                    No importa el tamaño. <br />
+                    No importa el sector.
+                  </p>
+                  <p>
+                    La incertidumbre siempre tiene el mismo efecto: <br />
+                    Entregas fallidas, tiempo perdido, clientes frustrados y
+                    costos que suben.
+                  </p>
+                </div>
                 <div className="photo-frame">
                   <ImageWithFallback
                     src={sectoresImages.commonProblem}
@@ -85,90 +134,120 @@ export function Sectores() {
                     className="photo-frame-img"
                   />
                 </div>
-                <div className="split-copy">
-                  <SectionHeading eyebrow="El problema común" title="Todas dependen de que alguien esté disponible para recibir." />
-                  <p>
-                    Las empresas creen que su operación es demasiado particular: que su logística es
-                    diferente, que sus procesos son únicos. Y, en efecto, lo son.
-                  </p>
-                  <p>
-                    Pero existe un punto donde todas coinciden: todas dependen de que alguien esté
-                    disponible para recibir. <strong>Ese momento es universal.</strong>
-                  </p>
-                  <p>No importa el producto. No importa el tamaño. No importa el sector.</p>
-                  <p>
-                    La incertidumbre siempre tiene el mismo efecto: entregas fallidas, tiempo
-                    perdido, clientes frustrados y costos que suben.
-                  </p>
-                </div>
               </div>
             </div>
           </section>
         </ErrorBoundary>
 
-        {sectors.map((sector, index) => {
-          const SectorIcon = sector.icon;
-          const reverse = index % 2 === 1;
-          return (
-            <ErrorBoundary key={sector.number} name={`Sectores: ${sector.name}`}>
-              <section
-                className={`split-section section sector-section${reverse ? "" : " wave-section-bottom"}`}
-                  data-reveal
-              >
-                <div className="container">
-                  <div className={`split-grid stretch${reverse ? " split-grid--reverse" : ""}`}>
-                    <div className="photo-frame">
+        <ErrorBoundary name="Sectores: sectores">
+          <section className="sectors-section section" aria-label="Sectores">
+            <div className="container sectors-list">
+              {sectors.map((sector) => {
+                const SectorIcon = sector.icon;
+                const titleId = `sector-${sector.number}-title`;
+                return (
+                  <ErrorBoundary
+                    key={sector.number}
+                    name={`Sectores: ${sector.name}`}
+                  >
+                    <article
+                      className="sector-card"
+                      aria-labelledby={titleId}
+                      data-reveal
+                    >
                       <div
-                        className="usecase-card-media"
+                        className="usecase-card-media sector-card-media"
                         role="img"
                         aria-label={`Imagen pendiente: ${sector.name}`}
                       >
                         <span>ASSET FALTANTE</span>
                       </div>
-                    </div>
-                    <div className="split-copy sector-copy">
-                      <div className="round-icon sector-icon">
-                        <SectorIcon />
+                      <div className="sector-card-body">
+                        <header className="sector-card-header">
+                          <div
+                            className="round-icon sector-icon"
+                            aria-hidden="true"
+                          >
+                            <SectorIcon />
+                          </div>
+                          <div>
+                            <span className="sector-number">
+                              Sector {sector.number}
+                            </span>
+                            <h2 id={titleId}>{sector.name}</h2>
+                          </div>
+                        </header>
+                        <div className="sector-blocks">
+                          <SectorBlock
+                            tone="challenge"
+                            icon={<Target />}
+                            title="El desafío"
+                            items={sector.challenge}
+                          />
+                          <SectorBlock
+                            tone="today"
+                            icon={<Clock3 />}
+                            title="Lo que ocurre hoy"
+                            items={sector.today}
+                          />
+                          <SectorBlock
+                            tone="change"
+                            icon={<Shuffle />}
+                            title="Cómo cambia con Shopitrack"
+                            items={sector.change}
+                          />
+                        </div>
                       </div>
-                      <SectionHeading eyebrow={`Sector ${sector.number}`} title={sector.name} />
-                      <div className="sector-blocks">
-                        <SectorBlock icon={<Target />} title="El desafío" items={sector.challenge} />
-                        <SectorBlock icon={<Clock3 />} title="Lo que ocurre hoy" items={sector.today} />
-                        <SectorBlock icon={<CheckCircle2 />} title="Cómo cambia con Shopitrack" items={sector.change} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </ErrorBoundary>
-          );
-        })}
+                    </article>
+                  </ErrorBoundary>
+                );
+              })}
+            </div>
+          </section>
+        </ErrorBoundary>
 
         <ErrorBoundary name="Sectores: changes">
           <section className="changes section wave-section-bottom" data-reveal>
             <div className="container">
-              <SectionHeading eyebrow="Otros sectores" title="La naturaleza del producto puede cambiar. El principio permanece." centered />
-              <ul className="industry-list">
-                {otherSectors.map((item) => (
-                  <li key={item}><RichText text={item} /></li>
-                ))}
-              </ul>
-              <p className="coming-soon-copy">
-                <strong>La compra termina cuando alguien recibe aquello que esperaba.</strong>
-              </p>
+              <SectionHeading eyebrow="" title="Otros sectores" centered />
+              <div className="text-content-copy">
+                <h3 className="text-center mb-6">
+                  La naturaleza del producto puede cambiar. <br />
+                  El principio permanece.
+                </h3>
+                <ul className="industry-list other-sectors-list">
+                  {otherSectors.map((item) => (
+                    <li key={item}>
+                      <RichText text={item} />
+                    </li>
+                  ))}
+                </ul>
+                <h3>
+                  La compra termina cuando alguien recibe aquello que esperaba.
+                </h3>
+              </div>
             </div>
           </section>
         </ErrorBoundary>
 
         <ErrorBoundary name="Sectores: contact-section">
-          <section className="contact-section section wave-section-bottom" id="contacto" data-reveal>
+          <section
+            className="contact-section section wave-section-bottom"
+            id="contacto"
+            data-reveal
+          >
             <div className="container contact-grid">
               <div>
-                <h2>Cada sector tiene productos distintos. Todos necesitan generar confianza.</h2>
-                <p>
-                  Conversemos sobre la forma en que Shopitrack puede adaptarse a la operación de tu
-                  empresa y ayudarte a convertir cada entrega en una mejor experiencia para tus
-                  clientes.
+                <h2 style={{ marginBottom: "1rem" }}>
+                  Cada sector tiene productos distintos. <br />
+                </h2>
+                <h2 style={{ marginBottom: "1rem" }}>
+                  Todos necesitan generar confianza.
+                </h2>
+                <p className="lead">
+                  Conversemos sobre la forma en que Shopitrack puede adaptarse a
+                  la operación de tu empresa y ayudarte a convertir cada entrega
+                  en una mejor experiencia para tus clientes.
                 </p>
                 <div className="contact-actions">
                   <Link className="btn btn-coral" to="/contacto">

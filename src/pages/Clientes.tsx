@@ -64,7 +64,7 @@ export function Clientes() {
                 <p>
                   <strong>Y eso no debiera ser lo normal.</strong>
                 </p>
-                <p style={{ fontSize: "1.5rem" }}>
+                <p className="statement">
                   <strong>Esto debe cambiar.</strong>
                 </p>
               </div>
@@ -122,7 +122,7 @@ export function Clientes() {
         </ErrorBoundary>
 
         <ErrorBoundary name="Clientes: section">
-          <section className="section" data-reveal>
+          <section className="adapted-section section" data-reveal>
             <div className="container">
               <div className="clientes-intro-copy split-copy">
                 <SectionHeading
@@ -170,7 +170,7 @@ export function Clientes() {
                   </InfoCard>
                 ))}
               </div>
-              <p className="coming-soon-copy steps-footnote">{stepsFootnote}</p>
+              <p className="text-copy steps-footnote">{stepsFootnote}</p>
             </div>
           </section>
         </ErrorBoundary>
@@ -216,31 +216,31 @@ export function Clientes() {
 
         <ErrorBoundary name="Clientes: split-section">
           <section
-            className="split-section section wave-section-bottom"
+            className="app-demo-section split-section section wave-section-bottom"
             data-reveal
           >
             <div className="container">
               <div className="split-grid stretch">
                 <div className="split-copy">
                   <SectionHeading title="La aplicación" />
-                  <p>
-                    Desde el momento en que aceptas una fecha hasta el instante
-                    en que recibes tu compra:
-                  </p>
-                  <ul className="app-features-list industry-list">
-                    {appFeatureItems.map((item) => (
-                      <li key={item}>
-                        <RichText text={item} />
-                      </li>
-                    ))}
-                  </ul>
-                  <p>
-                    <strong>
+                  <div className="section-intro">
+                    <p className="lead">
+                      Desde el momento en que aceptas una fecha hasta el
+                      instante en que recibes tu compra:
+                    </p>
+                    <ul className="app-features-list industry-list">
+                      {appFeatureItems.map((item) => (
+                        <li key={item}>
+                          <RichText text={item} />
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="lead">
                       La mejor tecnología es aquella que trabaja para mí.
-                    </strong>
-                  </p>
-                  <div className="store-buttons">
-                    <StoreLinks links={appStoreLinks} />
+                    </p>
+                    <div className="store-buttons">
+                      <StoreLinks links={appStoreLinks} />
+                    </div>
                   </div>
                 </div>
                 <div className="app-demo-slider photo-frame">
@@ -279,7 +279,7 @@ export function Clientes() {
           >
             <div className="container contact-grid">
               <div className="text-content">
-                <h2 style={{ fontSize: "2.4rem" }}>
+                <h2>
                   Recupera el control de tu día a día.
                 </h2>
                 <p>

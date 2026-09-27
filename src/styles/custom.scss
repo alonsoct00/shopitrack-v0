@@ -14,6 +14,10 @@
         }
     }
 
+    h3 {
+        font-size: 22px;
+    }
+
     p {
         font-size: 16px;
         line-height: 1.4;
@@ -25,6 +29,22 @@
   Espacio para overrides personalizados.
   Se carga después de index.css para que tus reglas tengan prioridad.
 */
+
+/*
+  Roles de texto compartidos entre páginas (aquí para ganar a `.hero-copy p` por orden de carga).
+  lead: párrafo introductorio, un escalón sobre el body. statement: frase destacada de hero o cierre.
+*/
+p.lead {
+    font-size: 1.125rem;
+    line-height: 1.5;
+}
+
+p.statement {
+    max-width: none;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
 
 /* Placeholder reutilizable para assets pendientes (imágenes sin foto asignada todavía). */
 .usecase-card-media {
@@ -464,11 +484,6 @@
 
         .section-heading {
             margin-bottom: 0;
-            h2 {
-                font-size: 18px;
-                line-height: 1.4;
-                font-weight: 400;
-            }
 
             + .text-content {
                 margin-top: 8px;
@@ -481,7 +496,7 @@
             .cost-grid {
                 display: grid;
                 grid-template-columns: 1fr;
-                grid-auto-rows: 1fr;
+                align-content: space-between;
                 gap: 18px;
 
                 .info-card {
@@ -506,7 +521,7 @@
             }
 
 
-            h2, p {
+            p {
                 font-size: 18px;
                 line-height: 1.4;
                 margin-bottom: 16px;
@@ -526,8 +541,6 @@
             .info-card {
                 min-height: auto;
                 padding: 20px;
-                width: auto;
-                display: inline-flex;
                 justify-content: flex-start;
                 align-items: stretch;
             }
@@ -540,6 +553,12 @@
             }
         }
 
+        // El translateX/translateY(-40px) de animations.scss persiste tras hacerse visibles
+        // (misma especificidad, declarado después) y desplaza los pasos fuera del container.
+        html.reveal-ready & .steps-list .step.is-visible {
+            transform: none;
+        }
+
         .steps-section {
             background: linear-gradient(180deg, rgb(var(--color-navy) / 95%) 95%, rgb(var(--color-white) / 0.05) 99%);
             h1, h2, h3, h4, p, span, small {
@@ -547,6 +566,10 @@
             }
             .section-heading {
                 margin-bottom: 40px;
+            }
+
+            .step p {
+                text-wrap: balance;
             }
 
             .step-line {
@@ -579,7 +602,7 @@
 
         .tech-integration {
 
-            h2 {
+            .info-card h2 {
                 font-size: 24px;
                 font-weight: 600;
                 margin-bottom: 8px;
@@ -600,6 +623,7 @@
 
                 h3 {
                     font-size: 22px;
+                    line-height: 1.4;
                     font-weight: 600;
                     margin-block: 16px;
                 }
@@ -657,9 +681,25 @@
 
         }
 
+        // Texto tipo manifiesto sin imagen: una columna centrada en lugar de media fila vacía.
         .confidence-section {
 
             background: var(--surface-alt);
+
+            .split-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .split-copy {
+                max-width: 720px;
+                margin-inline: auto;
+                text-align: center;
+            }
+
+            .confidence-list {
+                padding: 0;
+                list-style: none;
+            }
 
             .text-copy {
                 p {
@@ -670,8 +710,9 @@
                 }
 
                 h3 {
-                    font-size: 20px;
-                    font-weight: 500;
+                    font-size: 22px;
+                    line-height: 1.4;
+                    font-weight: 600;
                     color: var(--text-primary);
                     margin-block: 8px;
                 }
@@ -685,6 +726,17 @@
                 }
             }
         }
+        // CTA final: separa el título del texto y alinea los botones al eje del texto.
+        .contact-section {
+            h2 {
+                margin-bottom: var(--space-sm);
+            }
+
+            .contact-actions {
+                align-items: flex-start;
+            }
+        }
+
         .stat-card h2 {
             font-size: 19px;
             font-weight: 600;
@@ -701,38 +753,30 @@
             min-height: 320px;
         }
 
+        // Cada icono vive en su fila: queda alineado con su texto y el título con la columna de texto.
         .stat-card--icons {
-            gap: 24px;
-
-            .stat-card-icons {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                gap: 10px;
-                flex: 0 0 auto;
-
-                .round-icon {
-                    width: 40px;
-                    height: 40px;
-                    margin: 0;
-                }
+            .info-card-content {
+                flex: 1;
             }
 
-            .info-card-content {
-                display: flex;
-                flex-direction: column;
-                flex: 1;
+            h2 {
+                padding-left: 64px;
             }
 
             .industry-list {
-                flex: 1;
                 grid-template-columns: 1fr;
-                align-content: space-between;
-                gap: 12px;
+                gap: 8px;
             }
 
             .industry-list li {
                 font-size: 16px;
+            }
+
+            .industry-list li .round-icon {
+                order: -1;
+                width: 40px;
+                height: 40px;
+                margin: 0 24px 0 0;
             }
         }
 
@@ -924,12 +968,6 @@
                 height: auto !important;
                 min-height: 300px;
                 padding-block: 48px;
-            }
-
-            // En mobile la entrada de los pasos es vertical; sin esto el translateY(-40px)
-            // de animations.scss persiste tras hacerse visibles y monta los pasos sobre el título.
-            html.reveal-ready & .steps-list .step.is-visible {
-                transform: none;
             }
 
             // Pasos: la flecha vuelve al flujo en lugar de quedar absoluta en la esquina derecha,
@@ -1136,13 +1174,17 @@
             }
         }
 
+        // El h2 conserva la escala de sección; solo los párrafos van a 18px.
         .text-content {
-            h2, p {
+            h2 {
+                margin-bottom: 16px;
+            }
+
+            p {
                 font-size: 18px;
                 line-height: 1.4;
                 margin-bottom: 16px;
             }
-
 
             h3 {
                 font-size: 22px;
@@ -1180,6 +1222,39 @@
         .clientes-intro-copy {
             max-width: 640px;
             margin: 0 auto;
+        }
+
+        // Mismo tratamiento que el formulario de Contacto.
+        .adapted-section,
+        .app-demo-section {
+            background: linear-gradient(160deg, var(--color-ink) 0%, var(--section-contact-bg) 100%);
+
+            h2,
+            h3,
+            strong {
+                color: var(--surface);
+            }
+
+            p,
+            li {
+                color: rgb(var(--color-white) / 80%);
+            }
+        }
+
+        .app-demo-section {
+            padding-top: 60px;
+            .industry-list li::before {
+                color: var(--color-blue);
+                background: var(--surface);
+            }
+
+            .image-slider-dots button {
+                background: rgb(var(--color-white) / 35%);
+            }
+
+            .image-slider-dots button.is-active {
+                background: var(--surface);
+            }
         }
 
         .steps-footnote {
@@ -1311,12 +1386,6 @@
         .app-features-list {
             grid-template-columns: 1fr;
             gap: 12px;
-        }
-
-        // .btn-outline es blanco (pensado para fondos oscuros); en "La aplicación" el fondo es claro.
-        .split-section .store-buttons .btn {
-            border-color: var(--color-blue);
-            color: var(--color-blue);
         }
 
         // Las apps solo existen para móvil: en desktop no se muestran.
@@ -1458,70 +1527,270 @@
     }
 
     &.page-sectores {
-        .sector-copy {
-            position: relative;
+        .split-copy p {
+            margin-bottom: var(--space-sm);
+            text-wrap: pretty;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        // Sectores: una card por sector (media + cabecera + desafío / hoy / cambio).
+        .sectors-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+
+        .sector-card {
+            display: grid;
+            grid-template-columns: minmax(220px, 30%) minmax(0, 1fr);
+            gap: var(--space-lg);
+            padding: var(--space-md);
+            background: color-mix(in srgb, var(--color-panel) 86%, transparent);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+        }
+
+        .sector-card-media {
+            aspect-ratio: auto;
+            height: 100%;
+            min-height: 240px;
+        }
+
+        .sector-card-body {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            padding-block: var(--space-xs);
+        }
+
+        .sector-card-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+
+            h2 {
+                margin: 0;
+                font-size: clamp(1.5rem, 2.2vw, 2rem);
+                line-height: 1.15;
+                text-wrap: balance;
+            }
         }
 
         .sector-icon {
             width: 52px;
             height: 52px;
-            margin-bottom: 14px;
+
+            svg {
+                height: 26px;
+            }
         }
 
-        .sector-icon svg {
-            height: 28px;
+        .sector-number {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--color-blue);
+            font-size: 14px;
+            font-weight: 600;
+            @include sr-only;
         }
 
         .sector-blocks {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-top: 10px;
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: minmax(0, 1fr);
+            gap: var(--space-md);
         }
 
         .sector-block {
-            min-height: auto;
-            padding: 18px;
+            padding: var(--space-sm);
+            border-top: 1px solid var(--line);
+
+            h3 {
+                display: flex;
+                align-items: center;
+                gap: var(--space-xs);
+                margin-bottom: 14px;
+                font-size: 16px;
+                font-weight: 600;
+                letter-spacing: -0.01em;
+                line-height: 1.3;
+            }
+
+            .industry-list {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin: 0;
+            }
+
+            .industry-list li {
+                align-items: flex-start;
+                font-size: 14px;
+                line-height: 1.45;
+                text-wrap: pretty;
+            }
+
+            .industry-list li::before {
+                margin-top: 1px;
+            }
         }
 
-        .sector-block h2 {
-            font-size: 16px;
+        .sector-block-icon {
+            display: inline-flex;
+            color: var(--color-blue);
+
+            svg {
+                width: 18px;
+                height: 18px;
+            }
         }
 
-        .sector-block .industry-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+        .sector-block--challenge .industry-list li::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            margin: 7px 14px 0 6px;
+            background: var(--text-muted);
         }
 
-        .sector-block .industry-list li {
-            font-size: 12px;
+        .sector-block--today {
+            .sector-block-icon {
+                color: var(--color-coral);
+            }
+
+            .industry-list li::before {
+                content: "✕";
+                background: var(--color-coral);
+            }
         }
 
-        .sector-section .photo-frame {
-            min-height: 100%;
+        .sector-block--change {
+            border-top-color: var(--color-blue);
+            background-color: aliceblue;
+
+            h3 {
+                color: var(--color-blue);
+            }
         }
 
-        .sector-section .photo-frame .usecase-card-media {
-            aspect-ratio: auto;
-            height: 100%;
-            min-height: 320px;
+        // Hasta 2 columnas balanceadas (lectura vertical); pasa a 1 cuando no caben 260px por columna.
+        .other-sectors-list {
+            display: block;
+            columns: 2 260px;
+            column-gap: var(--space-2xl);
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 auto var(--space-lg);
+
+            li {
+                align-items: flex-start;
+                margin-bottom: 14px;
+                line-height: 1.5;
+                break-inside: avoid;
+            }
+
+            li::before {
+                margin-top: 3px;
+            }
         }
 
-        .changes .industry-list {
-            grid-template-columns: repeat(4, 1fr);
-            max-width: 760px;
-            margin: 24px auto;
+        .changes {
+            h3 {font-size: 20px; line-height: 1.6;}
+            .text-content-copy {
+                text-align: center;
+                p {
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .changes .text-copy {
+            margin-bottom: 0;
+            font-size: 18px;
+            text-wrap: balance;
+        }
+
+        @media (max-width: $bp-tablet-max) {
+            .sector-card {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+
+            .sector-card-media {
+                height: auto;
+                width: 100%;
+                min-height: 0;
+                max-height: 240px;
+                aspect-ratio: 21 / 9;
+            }
+
+            .sector-card-body {
+                padding-block: 0;
+            }
         }
 
         @include mobile-only {
-            .sector-section .split-grid--reverse .split-copy,
-            .sector-section .split-grid--reverse .photo-frame {
-                order: initial;
+            .sectors-list {
+                gap: var(--space-md);
             }
 
-            .changes .industry-list {
-                grid-template-columns: 1fr 1fr;
+            .sector-card {
+                padding: var(--space-sm);
+                gap: var(--space-sm);
+            }
+
+            .sector-card-media {
+                aspect-ratio: 16 / 9;
+            }
+
+            .sector-card-body {
+                gap: var(--space-sm);
+                padding: 0 var(--space-xs) var(--space-xs);
+            }
+
+            .sector-card-header {
+                align-items: flex-start;
+
+                h2 {
+                    font-size: 1.4rem;
+                }
+            }
+
+            .sector-icon {
+                width: 44px;
+                height: 44px;
+
+                svg {
+                    height: 22px;
+                }
+            }
+
+            .sector-blocks {
+                grid-auto-flow: row;
+                gap: var(--space-sm);
+            }
+
+            .sector-block h3 {
+                margin-bottom: 12px;
+            }
+
+            .other-sectors-list {
+                column-gap: var(--space-md);
+                margin-bottom: var(--space-md);
+
+                li {
+                    margin-bottom: 12px;
+                    font-size: 15px;
+                }
+            }
+
+            .changes .text-copy {
+                font-size: 16px;
             }
         }
     }
@@ -1530,6 +1799,14 @@
         .step-number {
             font-size: 20px;
             font-weight: 800;
+        }
+
+        .text-copy {
+            font-size: 1rem;
+        }
+
+        .eyebrow {
+            @include sr-only;
         }
 
         .contact-context-grid .info-card {
@@ -1544,14 +1821,53 @@
             margin: 0;
         }
 
-        .contact-form-intro {
-            max-width: 620px;
-            margin: 0 0 28px;
-            text-align: left;
+        // Pasos: número visible y alineado arriba con su título en todas las cards.
+        .contact-steps-grid .info-card {
+            min-height: auto;
+            padding: var(--space-md);
+            align-items: flex-start;
+
+            .round-icon {
+                width: 52px;
+                height: 52px;
+                margin: 0;
+            }
         }
 
+        .step-number {
+            color: var(--color-blue);
+        }
+
+        .contact-form-section {
+            background: linear-gradient(160deg, var(--color-ink) 0%, var(--section-contact-bg) 100%);
+
+            .section-heading {
+                margin-bottom: var(--space-sm);
+            }
+
+            .section-heading h2 {
+                color: var(--surface);
+            }
+        }
+
+        .contact-form-intro {
+            max-width: 620px;
+            margin: 0 auto var(--space-lg);
+            color: rgb(var(--color-white) / 80%);
+        }
+
+        // Panel blanco sobre el fondo oscuro para que los campos conserven su contraste.
         .contact-form {
             max-width: 880px;
+            margin-inline: auto;
+            padding: var(--space-lg);
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-float);
+
+            .btn {
+                margin-bottom: 0;
+            }
         }
 
         .contact-form-grid {
@@ -1665,14 +1981,60 @@
             max-width: 460px;
         }
 
+        .contact-section .section-heading {
+            margin-bottom: var(--space-sm);
+        }
+
+        .contact-cta-copy {
+            max-width: 620px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-actions {
+            flex-direction: row;
+            gap: 0 var(--space-sm);
+        }
+
         @include mobile-only {
+            .contact-form {
+                padding: var(--space-md);
+            }
+
             .contact-form-grid {
                 grid-template-columns: 1fr;
+                gap: var(--space-sm);
+            }
+
+            // 16px evita el zoom automático de iOS al enfocar un campo.
+            .form-field input,
+            .form-field select,
+            .form-field textarea {
+                font-size: 16px;
+            }
+
+            .contact-form-intro {
+                margin-bottom: var(--space-md);
+            }
+
+            .contact-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .contact-actions .btn {
+                margin-block: var(--space-xs) 0;
             }
 
             .contact-context-grid .info-card {
                 flex-direction: column;
                 text-align: center;
+            }
+        }
+
+        @media (max-width: $bp-xs-max) {
+            .contact-form {
+                padding: var(--space-sm);
             }
         }
     }

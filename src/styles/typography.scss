@@ -42,8 +42,10 @@ h2 {
   font-size: clamp(2rem, 3.4vw, 3.2rem);
 }
 
+// El tracking de display (-0.045em) junta las letras en tamaños de subtítulo.
 h3 {
   font-size: 1.1rem;
+  letter-spacing: -0.01em;
 }
 
 p {
@@ -61,4 +63,13 @@ p.small {
 .section-heading h2 {
   margin-bottom: 0;
   font-size: 2.4rem;
+}
+
+.section-heading-lead {
+  max-width: 60ch;
+  margin: 12px 0 0;
+}
+
+.section-heading--centered .section-heading-lead {
+  margin-inline: auto;
 }

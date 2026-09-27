@@ -43,20 +43,7 @@ function StatCard({
     <article
       className={`info-card stat-card${hasItemIcons ? " stat-card--icons" : ""}`}
     >
-      {hasItemIcons ? (
-        <div className="stat-card-icons" aria-hidden="true">
-          {entries.map(
-            ({ text, icon: ItemIcon }) =>
-              ItemIcon && (
-                <span className="round-icon" key={text}>
-                  <ItemIcon />
-                </span>
-              ),
-          )}
-        </div>
-      ) : (
-        <div className="round-icon">{icon}</div>
-      )}
+      {!hasItemIcons && <div className="round-icon">{icon}</div>}
       <div className="info-card-content">
         {title && (
           <h2>
@@ -66,9 +53,14 @@ function StatCard({
         <ul
           className={`industry-list${bullet === "cross" ? " industry-list--cross" : ""}`}
         >
-          {entries.map((entry) => (
-            <li key={entry.text}>
-              <RichText text={entry.text} />
+          {entries.map(({ text, icon: ItemIcon }) => (
+            <li key={text}>
+              {ItemIcon && (
+                <span className="round-icon" aria-hidden="true">
+                  <ItemIcon />
+                </span>
+              )}
+              <RichText text={text} />
             </li>
           ))}
         </ul>
@@ -123,7 +115,7 @@ export function Empresas() {
             <div className="container">
               <div className="full-grid">
                 <div className="text-content text-center">
-                  <SectionHeading eyebrow="La promesa invisible" title="" />
+                  <SectionHeading title="La promesa invisible" />
                   <div className="text-content">
                     <p>
                       Toda empresa hace una promesa cuando acepta una compra.{" "}
@@ -154,8 +146,8 @@ export function Empresas() {
           <section className="cost-section section" data-reveal>
             <div className="container">
               <SectionHeading
-                eyebrow="El verdadero costo de una entrega fallida"
-                title="Una entrega fallida cuesta dos veces."
+                title="El verdadero costo de una entrega fallida"
+                lead="Una entrega fallida cuesta dos veces."
               />
               <div className="split-grid stretch mt-4">
                 <div className="cost-grid">
@@ -189,8 +181,8 @@ export function Empresas() {
               <div className="split-grid stretch">
                 <div className="split-copy">
                   <SectionHeading
-                    eyebrow="La última impresión"
-                    title="Las personas recuerdan especialmente cómo terminan las experiencias."
+                    title="La última impresión"
+                    lead="Las personas recuerdan especialmente cómo terminan las experiencias."
                   />
                   <h3>
                     La última milla no es el final de la operación. <br />
@@ -215,8 +207,7 @@ export function Empresas() {
               <div className="split-grid">
                 <div className="split-copy">
                   <SectionHeading
-                    eyebrow="El problema nunca fue la logística"
-                    title=""
+                    title="El problema nunca fue la logística"
                   />
                   <div className="logistic-grid">
                     <StatCard items={logisticItems} />
@@ -247,8 +238,8 @@ export function Empresas() {
           >
             <div className="container">
               <SectionHeading
-                eyebrow="Una nueva manera de coordinar"
-                title="Programar una entrega no es lo mismo que coordinarla."
+                title="Una nueva manera de coordinar"
+                lead="Programar una entrega no es lo mismo que coordinarla."
                 centered
               />
               <StepsList steps={coordinationSteps} />
@@ -265,8 +256,8 @@ export function Empresas() {
           <section className="benefits-section section" data-reveal>
             <div className="container">
               <SectionHeading
-                eyebrow="Beneficios para toda la organización"
-                title="Protege la reputación de la marca y fortalece la lealtad del cliente con cada entrega cumplida."
+                title="Beneficios para toda la organización"
+                lead="Protege la reputación de la marca y fortalece la lealtad del cliente con cada entrega cumplida."
                 centered
               />
               <div className="benefits-grid">
@@ -295,9 +286,9 @@ export function Empresas() {
             className="tech-integration section wave-section-bottom"
             data-reveal
           >
-            <div className="split-grid stretch mt-4">
-              <div className="container">
-                <SectionHeading eyebrow="Integración natural" title="" />
+            <div className="container split-grid stretch mt-4">
+              <div>
+                <SectionHeading title="Integración natural" />
                 <div className="text-copy">
                   <ul className="integration-list industry-list industry-list--stack">
                     <li>
@@ -358,8 +349,8 @@ export function Empresas() {
           <section className="sr-only usecases-section section" data-reveal>
             <div className="container">
               <SectionHeading
-                eyebrow="Casos de uso"
-                title="Dónde Shopitrack marca más la diferencia."
+                title="Casos de uso"
+                lead="Dónde Shopitrack marca más la diferencia."
                 centered
               />
               <div className="usecases-grid">
@@ -388,8 +379,8 @@ export function Empresas() {
           >
             <div className="container">
               <SectionHeading
-                eyebrow="ROI"
-                title="La pregunta no es sólo cuánto cuesta Shopitrack. También cuánto cuesta seguir trabajando igual."
+                title="ROI"
+                lead="La pregunta no es sólo cuánto cuesta Shopitrack. También cuánto cuesta seguir trabajando igual."
                 centered
               />
               <div className="roi-grid">
@@ -418,8 +409,8 @@ export function Empresas() {
               <div className="split-grid">
                 <div className="split-copy">
                   <SectionHeading
-                    eyebrow="La confianza como ventaja competitiva"
-                    title="La confianza no se construye en una sola entrega. Se construye en la consistencia."
+                    title="La confianza como ventaja competitiva"
+                    lead="La confianza no se construye en una sola entrega. Se construye en la consistencia."
                   />
                   <div className="text-copy">
                     <ul className="confidence-list">
@@ -448,7 +439,6 @@ export function Empresas() {
                     </ul>
                   </div>
                 </div>
-                <div className="split-copy"></div>
               </div>
             </div>
           </section>

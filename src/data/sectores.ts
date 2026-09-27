@@ -1,4 +1,11 @@
-import { Cpu, HeartPulse, Sofa, Store, WashingMachine, Wrench } from "lucide-react";
+import {
+  Cpu,
+  HeartPulse,
+  Sofa,
+  Store,
+  WashingMachine,
+  Wrench,
+} from "lucide-react";
 import type { Icon } from "@/data/types";
 
 export const sectoresImages = {
@@ -37,6 +44,7 @@ export const sectors: SectorEntry[] = [
       "Las entregas dejan de depender de suposiciones.",
       "Los clientes conocen el proceso.",
       "La empresa fortalece la experiencia de compra.",
+      "Cada entrega se convierte en una oportunidad de generar confianza.",
     ],
   },
   {
@@ -44,17 +52,20 @@ export const sectors: SectorEntry[] = [
     name: "Muebles y decoración",
     icon: Sofa,
     challenge: [
-      "Los productos ocupan espacio y requieren tiempo para descargarse.",
+      "Los productos ocupan espacio",
+      "Requieren tiempo para descargarse.",
       "Muchas veces necesitan acceso al domicilio.",
       "Mover un sofá o un comedor no es comparable con entregar una caja pequeña.",
     ],
     today: [
       "El cliente no siempre está preparado.",
       "El vehículo regresa.",
-      "La instalación se pospone y toda la agenda cambia.",
+      "La instalación se pospone",
+      "Toda la agenda cambia.",
     ],
     change: [
-      "La fecha se confirma y el cliente se organiza.",
+      "La fecha se confirma.",
+      "El cliente se organiza.",
       "La entrega ocurre con mucha mayor probabilidad de éxito.",
       "La instalación comienza cuando estaba prevista.",
     ],
@@ -128,22 +139,34 @@ export const sectors: SectorEntry[] = [
       "Su valor no depende únicamente del precio, depende del momento en que llegan.",
       "La comunicación adquiere todavía mayor importancia.",
     ],
-    today: [],
+    today: [
+      "La persona no sabe cuándo llegará un medicamento que necesita.",
+      "Un intento fallido retrasa un tratamiento o una recuperación.",
+      "La incertidumbre se convierte en llamadas y preocupación.",
+    ],
     change: [
       "La persona permanece informada y reduce su incertidumbre.",
-      "La empresa demuestra cercanía.",
+      "La empresa demuestra cercanía y empatía.",
       "Fortalece la confianza en uno de los momentos más sensibles de la experiencia.",
     ],
   },
 ];
 
 export const otherSectors = [
-  "Equipos de electrónica de alto valor",
   "Artículos deportivos",
-  "Mascotas",
-  "Juguetes",
-  "Moda",
-  "Papelería",
+  "Artículos para bebé",
+  "Colchones y blancos",
   "Cosméticos",
+  "Equipos de electrónica de alto valor",
+  "Flores y regalos",
+  "Jardinería y exteriores",
+  "Joyería y relojería",
+  "Juguetes",
+  "Libros y entretenimiento",
+  "Mascotas",
+  "Moda",
   "Muebles y artículos para oficina",
+  "Papelería",
+  "Refacciones automotrices",
+  "Vinos y licores",
 ];

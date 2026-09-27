@@ -6,7 +6,7 @@ export function PageError() {
       <section className="hero wave-section">
         <div className="container text-center">
           <h1>Algo salió mal</h1>
-          <p className="coming-soon-copy">
+          <p className="text-copy">
             No pudimos cargar esta página. Intenta recargarla o vuelve al
             inicio.
           </p>
