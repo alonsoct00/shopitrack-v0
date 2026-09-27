@@ -11,5 +11,6 @@
 | [IMAGES.md](./IMAGES.md) | Imágenes utilizadas, prompts y cómo agregar nuevas |
 | [SEO.md](./SEO.md) | Meta tags, Open Graph, JSON-LD y sitemap |
 | [AI-CONTEXT.md](./AI-CONTEXT.md) | Contexto y reglas para agentes de IA |
+| [SHOPITRACK_PROJECT_CONTEXT.md](./SHOPITRACK_PROJECT_CONTEXT.md) | Contexto general del proyecto y estado de la primera versión, para compartir con otros agentes |
 
 Para las reglas completas que debe seguir cualquier agente de IA antes de modificar el proyecto, ver [AGENTS.md](../AGENTS.md) en la raíz.
