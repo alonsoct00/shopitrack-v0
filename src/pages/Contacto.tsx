@@ -534,7 +534,7 @@ export function Contacto() {
         <ErrorBoundary name="Contacto: section">
           <section className="section faq-section" data-reveal>
             <div className="container">
-              <SectionHeading eyebrow="Preguntas frecuentes" title="FAQ" centered />
+              <SectionHeading title="Preguntas frecuentes" centered />
               <div className="faq-list">
                 {faqItems.map((item) => (
                   <details className="faq-item" key={item.question}>
