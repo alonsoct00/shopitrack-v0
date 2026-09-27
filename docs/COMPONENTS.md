@@ -81,7 +81,7 @@ Cada paso (`StepItem` en `src/data/types.ts`) lleva `icon` **o** `image`, nunca 
 { text: "Entrega exitosa", image: { src: "/images/entrega.webp", alt: "Repartidor entregando" } }
 ```
 
-Con `image` se renderiza un `<img>` circular (`.step-media`, `object-fit: cover`) en lugar del ícono. Mientras no exista la imagen final, usar `/images/placeholder-asset.svg` (ver `coordinationSteps` en `src/data/empresas.ts`).
+Con `image` se renderiza un `<img>` circular (`.step-media`, `object-fit: cover`) en lugar del ícono. Mientras no exista la imagen final, usar `/images/placeholder-asset.svg`.
 
 Variante `variant="flow"` (`.steps-list--flow`): sin numeración y con el texto en `<h4>`. Se usa en Empresas para "Constante comunicación" (`communicationActors`: Empresa → Operador → Cliente), limitada a 720px de ancho.
 

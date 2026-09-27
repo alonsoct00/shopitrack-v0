@@ -104,6 +104,7 @@ export function Empresas() {
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
+                  className="photo-frame-img visible md:invisible"
                 />
               </div>
             </div>
@@ -149,24 +150,22 @@ export function Empresas() {
                 title="El verdadero costo de una entrega fallida"
                 lead="Una entrega fallida cuesta dos veces."
               />
-              <div className="split-grid stretch mt-4">
-                <div className="cost-grid">
-                  {costCards.map((card) => (
+              <div className="cost-grid mt-4">
+                {costCards.map((card) => (
+                  <div className="cost-row" key={card.title}>
                     <StatCard
-                      key={card.title}
                       title={card.title}
                       items={card.items}
                       bullet="cross"
                     />
-                  ))}
-                </div>
-                <div
-                  className="usecase-card-media cost-media"
-                  role="img"
-                  aria-label="Imagen pendiente: costo de una entrega fallida"
-                >
-                  <span>ASSET FALTANTE</span>
-                </div>
+                    <ImageWithFallback
+                      className="cost-row-media"
+                      src={card.image.src}
+                      alt={card.image.alt}
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -243,7 +242,7 @@ export function Empresas() {
               <StepsList steps={coordinationSteps} />
             </div>
 
-            <div className="container mt-6 communication-flow">
+            <div className="sr-only container mt-6 communication-flow">
               <h3>Constante comunicación</h3>
               <StepsList steps={communicationActors} variant="flow" />
             </div>
@@ -333,11 +332,31 @@ export function Empresas() {
                 </div>
               </div>
               <div
-                className="usecase-card-media cost-media"
+                className="cost-media"
                 role="img"
                 aria-label="Imagen pendiente: costo de una entrega fallida"
               >
-                <span>ASSET FALTANTE</span>
+                <div className="photo-frame my-2">
+                  <ImageWithFallback
+                    src={empresasImages.integration}
+                    width={1024}
+                    height={559}
+                    alt="Cliente y repartidor coordinando la entrega de un paquete"
+                    loading="lazy"
+                    className="photo-frame-img"
+                  />
+                </div>
+
+                <div className="photo-frame my-2">
+                  <ImageWithFallback
+                    src={empresasImages.integration2}
+                    width={1024}
+                    height={559}
+                    alt="Cliente y repartidor coordinando la entrega de un paquete"
+                    loading="lazy"
+                    className="photo-frame-img"
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -457,20 +476,18 @@ export function Empresas() {
             <div className="container contact-grid">
               <div>
                 <h2>
-                  Convierte cada entrega en una oportunidad para fortalecer tu
-                  marca.
+                  Descubre cómo convertir cada entrega en la oportunidad para
+                  fortalecer tu marca.
                 </h2>
-                <p>
-                  Shopitrack te ayuda a cumplir tu promesa donde más importa: en
-                  la puerta de tu cliente.
+                <p className="sr-only contact-description">
+                  Conversemos sobre tu operación, tus retos y la forma en que
+                  Shopitrack coordinará la comunicación entre tu empresa, tus
+                  operadores y tus clientes.
                 </p>
                 <div className="contact-actions">
                   <Link className="btn btn-coral" to="/contacto">
                     Agenda una demostración personalizada{" "}
                     <ArrowRight size={15} />
-                  </Link>
-                  <Link className="btn btn-outline" to="/contacto">
-                    Habla con un especialista
                   </Link>
                 </div>
               </div>

@@ -30,6 +30,8 @@ Reutiliza imágenes ya existentes en `public/images` (sin descargar nuevas):
 | Hero | `/images/shopi-atencion-cliente.webp` | Repartidor entregando a clienta (reutilizada de Home) |
 | La última impresión | `/images/entrega-feliz.webp` | Cliente recibiendo su pedido (reutilizada de Home) |
 | CTA final | `/images/shopi-atencion-cliente.webp` | Misma foto del hero, reutilizada para cerrar el ciclo |
+| Costo de una entrega fallida (monetario) | `/images/entrega-fallida-a.jpg` | Repartidor revisando en su tablet una entrega fallida |
+| Costo de una entrega fallida (invisible) | `/images/entrega-fallida-b.jpg` | Clienta frustrada esperando su pedido |
 
 ### Beneficios (`orgBenefits`)
 
@@ -50,8 +52,7 @@ Se recomiendan imágenes horizontales: la card las recorta al 40% del ancho con 
 
 | Ubicación | Placeholder | Reemplazar en |
 | --------- | ----------- | ------------- |
-| "El verdadero costo de una entrega fallida" (derecha) | `div.usecase-card-media.cost-media` | `src/pages/Empresas.tsx` |
-| Pasos "Una nueva manera de coordinar" (6) | `/images/placeholder-asset.svg` | `coordinationSteps` en `src/data/empresas.ts` (`image.src` / `image.alt`); idealmente imágenes cuadradas, se recortan en círculo |
+| "Integración natural" (abajo) | `div.usecase-card-media.cost-media` | `src/pages/Empresas.tsx` |
 
 `public/images/placeholder-asset.svg` es un SVG propio (fondo `--surface`, borde punteado `--line`, texto "ASSET FALTANTE" en `--text-muted`) para usar en cualquier `<img>` pendiente.
 

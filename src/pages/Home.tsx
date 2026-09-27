@@ -297,7 +297,17 @@ export function Home() {
         <ErrorBoundary name="Home: trust-section">
           <section className="trust-section section" data-reveal>
             <div className="container trust-grid">
-              <div className="trust-text">
+              <div className="photo-frame">
+                <ImageWithFallback
+                  src={images.trust1}
+                  width={1024}
+                  height={559}
+                  alt=""
+                  loading="lazy"
+                  className="photo-frame-img"
+                />
+              </div>
+              <div className="trust-text text-center">
                 <h2>Confianza</h2>
                 <p style={{ marginBottom: 6 }}>
                   Las empresas entregan productos.
@@ -307,6 +317,16 @@ export function Home() {
                 <p className="strong">
                   Shopitrack hace que las promesas se cumplan.
                 </p>
+              </div>
+              <div className="photo-frame">
+                <ImageWithFallback
+                  src={images.trust2}
+                  width={1024}
+                  height={559}
+                  alt=""
+                  loading="lazy"
+                  className="photo-frame-img"
+                />
               </div>
             </div>
           </section>
@@ -342,7 +362,11 @@ export function Home() {
         </ErrorBoundary>
 
         <ErrorBoundary name="Home: promise-section">
-          <section className="promise-section section" data-reveal>
+          <section
+            style={{ height: "0" }}
+            className="sr-only p-0 m-0 h-0 promise-section section"
+            data-reveal
+          >
             <div className="container">
               <p>
                 No importa qué tan bueno sea un producto. No importa qué tan

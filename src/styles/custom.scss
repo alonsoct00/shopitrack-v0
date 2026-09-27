@@ -122,12 +122,6 @@ p.statement {
     margin-bottom: 0;
 }
 
-@media (min-width: #{$page-break-mobile + 1px}) {
-    .site-shell:has(.page-clientes) .site-header:not(.site-header--scrolled) {
-        background: var(--surface);
-    }
-}
-
 .page {
     &.page-home {
         .hero {
@@ -145,22 +139,22 @@ p.statement {
 
         #como-funciona {
             position: relative;
-            background: linear-gradient(270deg, rgb(var(--color-white) / 100%) 60%, rgb(var(--color-white) / 0.05) 65%), url(/images/repartidor.webp) no-repeat left center !important;
+            background: linear-gradient(270deg, rgb(var(--color-white) / 90%) 50%, rgb(var(--color-white) / 0.05) 65%), url(/images/home-fallas.png) no-repeat -30px center !important;
             background-size: contain !important;
             padding-top: 0;
-            margin-top: 20px;
+            margin-top: 10px;
 
         }
 
         .cost-section {
-            background: linear-gradient(90deg, var(--surface-fade) 65%, rgb(var(--color-white) / 0.010) 68%), url(/images/atencion-confianza.webp) no-repeat right center !important;            background-size: contain !important;
+            background: linear-gradient(90deg, var(--surface-fade) 65%, rgb(var(--color-white) / 0.010) 68%), url(/images/costo-invisible.jpg) no-repeat right center !important;            background-size: contain !important;
             .cost-text {
                 padding: 20px;
             }
         }
 
         .new-way-section {
-            background: linear-gradient(270deg, rgb(var(--color-white) / 100%) 60%, rgb(var(--color-white) / 0.05) 65%), url(/images/revisando-entregas-seguimiento.webp) no-repeat left center !important;
+            background: linear-gradient(270deg, rgb(var(--color-white) / 100%) 60%, rgb(var(--color-white) / 0.05) 65%), url(/images/nueva-forma-ultima-milla.png) no-repeat left center !important;
             background-size: contain !important;
         }
 
@@ -200,7 +194,7 @@ p.statement {
         }
 
         .trust-section {
-            background: linear-gradient(120deg, rgb(var(--color-navy) / 99%) 30%, rgb(var(--color-white) / 0.05) 100%), url(/images/entrega-feliz.webp) no-repeat right center !important;
+            background: linear-gradient(120deg, rgb(var(--color-navy) / 99%) 50%, rgb(var(--color-white) / 0.05) 100%);
             background-size: contain !important;
 
             .trust-grid {
@@ -261,19 +255,19 @@ p.statement {
         @media (min-width: $bp-wide-min) {
 
             #como-funciona { 
-                background: linear-gradient(270deg, var(--surface) 50%, rgb(var(--color-white) / 0.1) 60%), url(/images/repartidor.webp) no-repeat left center !important;
+                background: linear-gradient(270deg, var(--surface) 50%, rgb(var(--color-white) / 0.1) 60%), url(/images/home-fallas.png) no-repeat left center !important;
                 background-size: contain !important
 
             }
             .cost-section {
-                background: linear-gradient(90deg, var(--surface-fade) 68%, rgb(var(--color-white) / 0.01) 72%), url(/images/atencion-confianza.webp) no-repeat right center !important;            background-size: contain !important;
+                background: linear-gradient(90deg, var(--surface-fade) 68%, rgb(var(--color-white) / 0.01) 72%), url(/images/costo-invisible.jpg) no-repeat right center !important;            background-size: contain !important;
                 .cost-text {
                     padding-inline: 0px;
                     padding-block: 20px;
                 }
             }
             .new-way-section {
-                background: linear-gradient(270deg, var(--surface) 70%, rgb(var(--color-white) / 0.1) 75%), url(/images/revisando-entregas-seguimiento.webp) no-repeat left center !important;
+                background: linear-gradient(270deg, var(--surface) 70%, rgb(var(--color-white) / 0.1) 75%), url(/images/nueva-forma-ultima-milla.png) no-repeat left center !important;
                 background-size: contain !important;
             }
 
@@ -405,7 +399,8 @@ p.statement {
         .hero {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(90deg, rgb(var(--color-sky) / 0.8) 30%, rgb(var(--color-white) / 0.10) 40%) !important;
+            background: linear-gradient(90deg, rgb(var(--color-sky) / 0.8) 30%, rgb(var(--color-white) / 0.10) 40%),
+                url(/images/hero-empresa-reverse.png) no-repeat right center !important;
             background-size: 100% !important;
         }
 
@@ -434,13 +429,57 @@ p.statement {
                     padding: 20px;
                     justify-content: flex-start;
                     align-items: stretch;
+                    border-radius: 0;
+
+                    .industry-list {
+                        li {
+                            &::before {
+                                display: none;
+                            }
+                        }
+
+                        .round-icon {
+                            margin-right: 8px;
+                            
+                        }
+
+                    }
+                }
+            }
+
+            .cost-row {
+                display: grid;
+                grid-template-columns: 1.15fr 0.85fr;
+                align-items: stretch;
+                gap: 18px;
+
+                @include mobile-only {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .cost-row-media {
+                width: 100%;
+                height: 100%;
+                min-height: 260px;
+                object-fit: cover;
+                object-position: center top;
+                border-radius: 0;
+                mask-image: linear-gradient(to left, transparent 0%, #ffffff 10%, #ffffff 95%, transparent 100%);
+                contain: size;
+
+                @include mobile-only {
+                    contain: none;
+                    height: auto;
+                    min-height: 0;
+                    aspect-ratio: 16 / 9;
                 }
             }
         }
 
         .last-impression {
-            background: linear-gradient(120deg, rgb(var(--color-navy) / 99%) 30%, rgb(var(--color-white) / 0.05) 100%), url(/images/entrega-feliz.webp) no-repeat right center !important;
-            background-attachment: fixed !important;
+            background: linear-gradient(120deg, rgb(var(--color-navy) / 95%) 35%, rgb(var(--color-white) / 0) 70%, transparent 100%), url(/images/ultima-impresion.jpg) no-repeat right center !important;
+            background-size: contain !important;
             height: 400px;
             display: flex;
             flex-direction: column;
@@ -473,6 +512,17 @@ p.statement {
                 padding: 20px;
                 justify-content: flex-start;
                 align-items: stretch;
+
+                .info-card-content {
+                    li {
+                        &::before {
+                            display: none;
+                        }
+                    }
+                    .industry-list .round-icon {
+                        margin-right: 8px;
+                    }
+                }
             }
 
             .text-content {
@@ -606,6 +656,14 @@ p.statement {
                 }
             }
 
+            .cost-media {
+                img {
+                    width: 100%;
+                    height: auto;
+                    mask-image: linear-gradient(to left, transparent 0%, #ffffff 0.9%, #ffffff 95%, transparent 100%);
+                }
+            }
+
         }
 
         .confidence-section {
@@ -655,6 +713,14 @@ p.statement {
                 margin-bottom: var(--space-sm);
             }
 
+            .contact-grid {
+                .photo-frame {
+                    img {
+                        mask-image: linear-gradient(to left, transparent 0%, #ffffff 10%, #ffffff 95%, transparent 100%);
+                    }
+                }
+            }
+
             .contact-actions {
                 @include contact-actions-row(flex-start);
                 flex-wrap: nowrap;
@@ -686,7 +752,7 @@ p.statement {
             }
 
             h2 {
-                padding-left: 64px;
+                padding-left: 8px;
             }
 
             .industry-list {
@@ -892,26 +958,28 @@ p.statement {
                 padding-block: 48px;
             }
 
-            .steps-section .step-line i {
-                display: flex;
-                flex: none;
-                position: relative;
-                right: auto;
-                margin: 10px 0;
-            }
-
-            .steps-section .steps-list:not(.steps-list--flow) {
-                .step-line {
-                    display: contents;
+            @media (max-width: $bp-mobile-max) {
+                .steps-section .step-line i {
+                    display: flex;
+                    flex: none;
+                    position: relative;
+                    right: auto;
+                    margin: 10px 0;
                 }
 
-                .step-line i {
-                    order: 1;
-                    margin: 12px 0 0;
-                }
+                .steps-section .steps-list:not(.steps-list--flow) {
+                    .step-line {
+                        display: contents;
+                    }
 
-                .step p {
-                    margin-top: 12px;
+                    .step-line i {
+                        order: 1;
+                        margin: 12px 0 0;
+                    }
+
+                    .step p {
+                        margin-top: 12px;
+                    }
                 }
             }
 
@@ -975,7 +1043,7 @@ p.statement {
                     flex: none;
                     width: 100%;
                     height: 180px;
-                    mask-image: linear-gradient(to bottom, #000 55%, transparent);
+                    mask-image: linear-gradient(to bottom, #000 90%, transparent);
                 }
 
                 .info-card-body {

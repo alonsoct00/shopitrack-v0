@@ -17,6 +17,7 @@ import {
   ShieldCheck,
   ShoppingCart,
   Smile,
+  Star,
   ThumbsDown,
   TrendingUp,
   Truck,
@@ -24,19 +25,30 @@ import {
   UserX,
   Warehouse,
 } from "lucide-react";
-import type { Icon, IconItem, StepItem } from "@/data/types";
+import type { Icon, IconItem, ImageSource, StepItem } from "@/data/types";
+import { steps } from "@/data/home";
 
 export const empresasImages = {
-  hero: "/images/shopi-atencion-cliente.webp",
+  hero: "/images/hero-empresa-reverse.png",
   heroSrcSet:
-    "/images/shopi-atencion-cliente-800.webp 800w, /images/shopi-atencion-cliente.webp 1024w",
-  lastImpression: "/images/entrega-feliz.webp",
-  cta: "/images/shopi-atencion-cliente.webp",
+    "/images/hero-empresa-reverse.png 800w, /images/hero-empresa-reverse.png 1024w",
+  lastImpression: "/images/ultima-impresion.jpg",
+  cta: "/images/evaluacion-100.png",
+  integration: "/images/shopitrack-demo-false.png",
+  integration2: "/images/comunicacion-shopi-pasos.png",
 };
 
-export const costCards: { title: string; items: IconItem[] }[] = [
+export const costCards: {
+  title: string;
+  items: IconItem[];
+  image: ImageSource;
+}[] = [
   {
     title: "Una entrega fallida tiene costos monetarios.",
+    image: {
+      src: "/images/entrega-fallida-operadores.png",
+      alt: "Repartidor revisando en su tablet una entrega que no pudo completar",
+    },
     items: [
       { text: "Combustible.", icon: Fuel },
       { text: "Kilómetros estériles.", icon: Route },
@@ -48,6 +60,10 @@ export const costCards: { title: string; items: IconItem[] }[] = [
   },
   {
     title: "Pero también tiene costos invisibles.",
+    image: {
+      src: "/images/entrega-fallida-cliente.png",
+      alt: "Clienta frustrada mirando el reloj mientras espera su pedido",
+    },
     items: [
       { text: "Frustración.", icon: Frown },
       { text: "Desconfianza.", icon: ShieldAlert },
@@ -68,48 +84,9 @@ export const logisticItems: IconItem[] = [
   { text: "Más centros de distribución.", icon: Warehouse },
 ];
 
-const stepPlaceholder = "/images/placeholder-asset.svg";
-
 export const coordinationSteps: StepItem[] = [
-  {
-    text: "Propuesta inicial de la fecha de entrega",
-    image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: Propuesta inicial de la fecha de entrega",
-    },
-  },
-  {
-    text: "Se logra un acuerdo",
-    image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: Se logra un acuerdo",
-    },
-  },
-  {
-    text: "Confirmación del día 0",
-    image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: Confirmación del día 0",
-    },
-  },
-  {
-    text: "Avisa proximidad y ETA",
-    image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: Avisa proximidad y ETA",
-    },
-  },
-  {
-    text: "Entrega exitosa",
-    image: { src: stepPlaceholder, alt: "Imagen pendiente: Entrega exitosa" },
-  },
-  {
-    text: "Evaluación del servicio",
-    image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: Evaluación del servicio",
-    },
-  },
+  ...steps,
+  { text: "Evaluación del servicio", icon: Star },
 ];
 
 export const communicationActors: IconItem[] = [
@@ -130,7 +107,7 @@ export const orgBenefits: {
     title: "Dirección",
     icon: Building2,
     image: {
-      src: "/images/pc-shopi.webp",
+      src: "/images/empresa-direccion.png",
       alt: "Panel de Shopitrack en laptop y celular",
     },
     label: "Blinda la marca",
@@ -145,7 +122,7 @@ export const orgBenefits: {
     icon: Package,
     label: "Reduce fricciones operativas.",
     image: {
-      src: "/images/logistics-issues.webp",
+      src: "/images/empresa-logistics.png",
       alt: "Paquetes en un centro de distribución",
     },
     description: "",
@@ -161,7 +138,7 @@ export const orgBenefits: {
     title: "Transporte",
     icon: Truck,
     image: {
-      src: "/images/carretera-lastmile.webp",
+      src: "/images/empresa-transporte.png",
       alt: "Camiones de reparto circulando por una autopista",
     },
     label: "Rutas más eficientes.",
@@ -177,7 +154,7 @@ export const orgBenefits: {
     title: "eCommerce",
     icon: ShoppingCart,
     image: {
-      src: "/images/entrega-feliz.webp",
+      src: "/images/empresa-ecommerce.png",
       alt: "Repartidor entregando un paquete a una clienta sonriente",
     },
     label: "Una mejor experiencia end-to-end.",
@@ -192,7 +169,7 @@ export const orgBenefits: {
     title: "Servicio al Cliente",
     icon: Headphones,
     image: {
-      src: "/images/shopi-atencion-cliente-800.webp",
+      src: "/images/empresa-atencion-cliente.png",
       alt: "Agente de Shopitrack atendiendo clientes con diadema",
     },
     label: "Menos contacto reactivo.",
@@ -207,7 +184,7 @@ export const orgBenefits: {
     title: "Marketing",
     icon: Megaphone,
     image: {
-      src: "/images/atencion-confianza.webp",
+      src: "/images/empresa-marketing.png",
       alt: "Agente sonriendo durante una llamada con un cliente",
     },
     label: "Una promesa de marca que se cumple.",
