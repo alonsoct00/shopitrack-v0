@@ -153,38 +153,9 @@ p.statement {
             background-size: 100% !important;
         }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            filter: blur(10px);
-            mask-image: unset;
-            z-index: 1;
-            background: linear-gradient(315deg, rgb(var(--color-white) / 0.05) 60%, rgb(var(--color-white) / 0%) 90%), rgb(var(--color-mist) / 0%);
-            width: 100%;
-            height: 100%;
+        .hero {
+            @include hero-decor-layers;
         }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 120px;
-            pointer-events: none;
-            z-index: 2;
-            background: url(/images/ribbons/04_deep_s_curve.webp) repeat center center transparent !important;
-            background-size: cover !important;
-            filter: brightness(0.8);
-            display: none;
-        }
-
-        .hero>* {
-            position: relative;
-            z-index: 2;
-        }
-
 
 
         #como-funciona {
@@ -276,6 +247,10 @@ p.statement {
         .contact-section {
             h2 {
                 margin-bottom: 16px;
+            }
+
+            .contact-actions {
+                @include contact-actions-row;
             }
 
             .text-container {
@@ -450,38 +425,9 @@ p.statement {
             background-size: 100% !important;
         }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            filter: blur(10px);
-            mask-image: unset;
-            z-index: 1;
-            background: linear-gradient(315deg, rgb(var(--color-white) / 0.05) 60%, rgb(var(--color-white) / 0%) 90%), rgb(var(--color-mist) / 0%);
-            width: 100%;
-            height: 100%;
+        .hero {
+            @include hero-decor-layers;
         }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 120px;
-            pointer-events: none;
-            z-index: 2;
-            background: url(/images/ribbons/04_deep_s_curve.webp) repeat center center transparent !important;
-            background-size: cover !important;
-            filter: brightness(0.8);
-            display: none;
-        }
-
-        .hero>* {
-            position: relative;
-            z-index: 2;
-        }
-
         .section-heading {
             margin-bottom: 0;
 
@@ -696,11 +642,6 @@ p.statement {
                 text-align: center;
             }
 
-            .confidence-list {
-                padding: 0;
-                list-style: none;
-            }
-
             .text-copy {
                 p {
                     font-size: 18px;
@@ -720,6 +661,9 @@ p.statement {
 
             .confidence-list {
                 margin-block: 20px;
+                padding: 0;
+                list-style: none;
+
                 li {
                     font-size: 18px;
                     color: var(--text-primary);
@@ -733,7 +677,11 @@ p.statement {
             }
 
             .contact-actions {
-                align-items: flex-start;
+                @include contact-actions-row(flex-start);
+                flex-wrap: nowrap;
+                .btn {
+                    flex: 0 0 auto;
+                }
             }
         }
 
@@ -1119,38 +1067,9 @@ p.statement {
             background-size: 100% !important;
         }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            filter: blur(10px);
-            mask-image: unset;
-            z-index: 1;
-            background: linear-gradient(315deg, rgb(var(--color-white) / 0.05) 60%, rgb(var(--color-white) / 0%) 90%), rgb(var(--color-mist) / 0%);
-            width: 100%;
-            height: 100%;
+        .hero {
+            @include hero-decor-layers;
         }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 120px;
-            pointer-events: none;
-            z-index: 2;
-            background: url(/images/ribbons/04_deep_s_curve.webp) repeat center center transparent !important;
-            background-size: cover !important;
-            filter: brightness(0.8);
-            display: none;
-        }
-
-        .hero>* {
-            position: relative;
-            z-index: 2;
-        }
-
         .hero-grid {
             .pain-list {
                 max-width: 500px;
@@ -1677,6 +1596,10 @@ p.statement {
         }
 
         // Hasta 2 columnas balanceadas (lectura vertical); pasa a 1 cuando no caben 260px por columna.
+        .contact-section .contact-actions {
+            @include contact-actions-row(flex-start);
+        }
+
         .other-sectors-list {
             display: block;
             columns: 2 260px;
@@ -1707,12 +1630,6 @@ p.statement {
                     font-weight: 500;
                 }
             }
-        }
-
-        .changes .text-copy {
-            margin-bottom: 0;
-            font-size: 18px;
-            text-wrap: balance;
         }
 
         @media (max-width: $bp-tablet-max) {
@@ -1788,10 +1705,6 @@ p.statement {
                     font-size: 15px;
                 }
             }
-
-            .changes .text-copy {
-                font-size: 16px;
-            }
         }
     }
 
@@ -1799,6 +1712,7 @@ p.statement {
         .step-number {
             font-size: 20px;
             font-weight: 800;
+            color: var(--color-blue);
         }
 
         .text-copy {
@@ -1832,10 +1746,6 @@ p.statement {
                 height: 52px;
                 margin: 0;
             }
-        }
-
-        .step-number {
-            color: var(--color-blue);
         }
 
         .contact-form-section {
@@ -1992,8 +1902,7 @@ p.statement {
         }
 
         .contact-actions {
-            flex-direction: row;
-            gap: 0 var(--space-sm);
+            @include contact-actions-row;
         }
 
         @include mobile-only {
@@ -2015,15 +1924,6 @@ p.statement {
 
             .contact-form-intro {
                 margin-bottom: var(--space-md);
-            }
-
-            .contact-actions {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .contact-actions .btn {
-                margin-block: var(--space-xs) 0;
             }
 
             .contact-context-grid .info-card {

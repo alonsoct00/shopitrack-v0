@@ -1,6 +1,5 @@
 @use "breakpoints" as *;
 
-
 @media (min-width: $bp-xl-min) {
   p {
     font-size: 1.2rem;
@@ -72,11 +71,6 @@
     height: 340px;
   }
 
-  .tracking-card {
-    right: -14px;
-    width: 210px;
-  }
-
   .steps-list {
     gap: 10px;
   }
@@ -97,42 +91,16 @@
     max-width: 120px;
   }
 
-  .dashboard-card {
-    left: -10px;
-    width: 180px;
-    height: 150px;
-  }
-
   .calendar-card {
     left: -14px;
     width: 155px;
     height: 140px;
   }
 
-  .collage img,
-  .collage img:first-child,
-  .collage img:last-child {
-    height: 175px;
-  }
-
   .industry-list {
     gap: 8px 16px;
   }
 
-  .device-mockup {
-    min-height: 220px;
-  }
-
-  .laptop-screen {
-    width: 78%;
-    height: 185px;
-  }
-
-  .phone-screen {
-    width: 112px;
-    height: 205px;
-    right: 0;
-  }
 }
 
 @media (max-width: $bp-mobile-max) {
@@ -233,19 +201,10 @@
     height: 300px;
   }
 
-  .tracking-card {
-    right: -8px;
-    top: 46px;
-    width: 190px;
-    transform: scale(0.8);
-    transform-origin: top right;
-  }
-
   .split-grid--reverse .split-copy,
   .split-grid--reverse .photo-frame {
     order: initial;
   }
-
 
   .photo-frame {
     position: relative;
@@ -257,7 +216,6 @@
     height: auto
   }
 
-  .dashboard-card,
   .calendar-card {
     position: relative;
   }
@@ -353,8 +311,6 @@
     height: 100%;
   }
 
-
-
   .trust-grid {
     padding-block: 0;
   }
@@ -371,16 +327,6 @@
 
   .promise-section p {
     width: 100%;
-  }
-
-  .collage {
-    margin-top: 6px;
-  }
-
-  .collage img,
-  .collage img:first-child,
-  .collage img:last-child {
-    height: 115px;
   }
 
   .industries-collage-grid {
@@ -404,10 +350,6 @@
     padding-block: 72px;
   }
 
-  .device-mockup {
-    min-height: 255px;
-  }
-
   .new-way-section {
     position: relative;
     padding-top: 20px;
@@ -415,14 +357,6 @@
 
   .contact-section h2 {
     font-size: 2.1rem;
-  }
-
-  .laptop-screen {
-    width: 83%;
-  }
-
-  .phone-screen {
-    right: 0;
   }
 
   .site-footer {
@@ -467,5 +401,4 @@
   }
 
 }
-
 

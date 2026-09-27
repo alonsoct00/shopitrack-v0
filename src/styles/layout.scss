@@ -20,8 +20,7 @@
   overflow: hidden;
 }
 
-.wave-section-bottom::after,
-.wave-section-top::after {
+.wave-section-bottom::after {
   width: 100%;
   content: "";
   position: absolute;
@@ -37,16 +36,8 @@
   right: 0;
   margin: 0 auto;
   display: none; //hide waves
-}
-
-.wave-section-bottom::after {
   bottom: -50px;
   top: auto;
-}
-
-.wave-section-top::after {
-  bottom: auto;
-  top: 20px;
 }
 
 .hero-grid,
