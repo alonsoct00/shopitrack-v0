@@ -1,7 +1,6 @@
 @use "breakpoints" as *;
 @use "mixins" as *;
 
-// Bloque de copy (h3/h4 destacados + párrafos) usado en varias secciones de Empresas.
 @mixin text-content-copy {
     h4, h3 {
         font-size: 20px;
@@ -25,15 +24,6 @@
     }
 }
 
-/*
-  Espacio para overrides personalizados.
-  Se carga después de index.css para que tus reglas tengan prioridad.
-*/
-
-/*
-  Roles de texto compartidos entre páginas (aquí para ganar a `.hero-copy p` por orden de carga).
-  lead: párrafo introductorio, un escalón sobre el body. statement: frase destacada de hero o cierre.
-*/
 p.lead {
     font-size: 1.125rem;
     line-height: 1.5;
@@ -46,7 +36,6 @@ p.statement {
     letter-spacing: -0.01em;
 }
 
-/* Placeholder reutilizable para assets pendientes (imágenes sin foto asignada todavía). */
 .usecase-card-media {
     display: grid;
     place-items: center;
@@ -73,7 +62,6 @@ p.statement {
     color: var(--color-coral) !important;
   }
 
-/* Acordeón de preguntas frecuentes, reutilizado en Contacto y Cliente. */
 .faq-list {
     display: flex;
     flex-direction: column;
@@ -116,7 +104,6 @@ p.statement {
     color: var(--text-secondary);
 }
 
-/* Bloque de texto centrado de cierre, reutilizado en Contacto y Cliente. */
 .closing-section {
     background: var(--surface-alt);
 }
@@ -135,8 +122,6 @@ p.statement {
     margin-bottom: 0;
 }
 
-// Clientes (desktop): el header vive fuera de .page, así que se acota con :has().
-// Antes de hacer scroll va en blanco; al hacer scroll aplica el estilo global de --scrolled.
 @media (min-width: #{$page-break-mobile + 1px}) {
     .site-shell:has(.page-clientes) .site-header:not(.site-header--scrolled) {
         background: var(--surface);
@@ -379,17 +364,12 @@ p.statement {
                 }
             }
 
-            // El translateY/translateX(-40px) de animations.scss persiste tras hacerse visibles
-            // (misma especificidad, declarado después) y desplaza los pasos.
             html.reveal-ready & .steps-list .step.is-visible {
                 transform: none;
             }
 
-            // Lista vertical: la flecha después de la etiqueta, apuntando al siguiente paso.
             @media (max-width: $bp-mobile-max) {
                 .steps-list {
-                    // La regla global .steps-list .step termina en align-items: stretch y
-                    // pega las etiquetas (max-width 260px) al borde izquierdo.
                     .step {
                         align-items: center;
                     }
@@ -405,7 +385,6 @@ p.statement {
                 }
             }
 
-            // 801–960px: la regla global de tablet deja las etiquetas en 10px.
             @include tablet {
                 .steps-section .step p {
                     font-size: 14px;
@@ -499,8 +478,6 @@ p.statement {
             }
         }
 
-        // El translateX/translateY(-40px) de animations.scss persiste tras hacerse visibles
-        // (misma especificidad, declarado después) y desplaza los pasos fuera del container.
         html.reveal-ready & .steps-list .step.is-visible {
             transform: none;
         }
@@ -524,7 +501,6 @@ p.statement {
                     color: var(--color-blue);
                 }
                 
-                // Blanco como el texto de la sección: el azul sobre el fondo navy no alcanzaba 3:1.
                 i {
                     color: var(--surface);
                     display: inline-flex;
@@ -627,7 +603,6 @@ p.statement {
 
         }
 
-        // Texto tipo manifiesto sin imagen: una columna centrada en lugar de media fila vacía.
         .confidence-section {
 
             background: var(--surface-alt);
@@ -670,7 +645,6 @@ p.statement {
                 }
             }
         }
-        // CTA final: separa el título del texto y alinea los botones al eje del texto.
         .contact-section {
             h2 {
                 margin-bottom: var(--space-sm);
@@ -701,7 +675,6 @@ p.statement {
             min-height: 320px;
         }
 
-        // Cada icono vive en su fila: queda alineado con su texto y el título con la columna de texto.
         .stat-card--icons {
             .info-card-content {
                 flex: 1;
@@ -892,20 +865,16 @@ p.statement {
         }
 
         @include mobile-only {
-            // .benefits-section .benefits-grid: misma especificidad que la regla de 3 columnas,
-            // si no, esta nunca aplicaba.
             .benefits-section .benefits-grid,
             .usecases-grid,
             .roi-grid {
                 grid-template-columns: 1fr;
             }
 
-            // Sin el listón decorativo de Home, el padding inferior global del hero queda vacío.
             .hero {
                 padding-bottom: var(--space-lg);
             }
 
-            // Columnas vacías del split-grid (reservadas en desktop) solo suman gap al apilarse.
             .split-grid > :empty {
                 display: none;
             }
@@ -918,8 +887,6 @@ p.statement {
                 padding-block: 48px;
             }
 
-            // Pasos: la flecha vuelve al flujo en lugar de quedar absoluta en la esquina derecha,
-            // y va después de la etiqueta para señalar el siguiente paso (no su propio texto).
             .steps-section .step-line i {
                 display: flex;
                 flex: none;
@@ -943,13 +910,10 @@ p.statement {
                 }
             }
 
-            // El fondo se desvanece a blanco en el último ~5% de la sección; sin este margen las
-            // etiquetas blancas del flujo quedan sobre el desvanecido y pierden contraste.
             .steps-section {
                 padding-bottom: 96px;
             }
 
-            // Flujo Empresa → Operador → Cliente: son 3 etiquetas cortas, se mantiene en fila.
             .steps-list.steps-list--flow {
                 grid-template-columns: none;
                 grid-auto-flow: column;
@@ -995,8 +959,6 @@ p.statement {
                 }
             }
 
-            // Card con imagen: lado a lado dejaba ~18 caracteres por línea en 320–430px.
-            // La imagen pasa arriba y el mismo desvanecido se orienta hacia el texto (abajo).
             .benefits-section .info-card.info-card--media {
                 flex-direction: column;
 
@@ -1018,18 +980,13 @@ p.statement {
 
             .benefits-section .benefits-grid .info-card-body .industry-list li {
                 font-size: 16px;
-                // anywhere (no break-word) reduce el min-content: grid y flex pueden encogerse.
                 overflow-wrap: anywhere;
             }
 
-            // Sin min-width: 0 el cuerpo (flex item) no se encoge junto a la imagen y
-            // palabras largas como "proveedor/almacenaje/merma" desbordan la card.
             .benefits-section .info-card--media .info-card-body {
                 min-width: 0;
             }
 
-            // 801–960px: la regla global de tablet deja las etiquetas de paso en 10px,
-            // ilegibles en la fila de 6 pasos de Empresas.
             @include tablet {
                 .steps-section .step p {
                     font-size: 14px;
@@ -1037,7 +994,6 @@ p.statement {
                 }
             }
 
-            // En columnas angostas evita palabras huérfanas en títulos y bullets.
             h1, h2, h3, h4 {
                 text-wrap: balance;
             }
@@ -1093,7 +1049,6 @@ p.statement {
             }
         }
 
-        // El h2 conserva la escala de sección; solo los párrafos van a 18px.
         .text-content {
             h2 {
                 margin-bottom: 16px;
@@ -1143,7 +1098,6 @@ p.statement {
             margin: 0 auto;
         }
 
-        // Mismo tratamiento que el formulario de Contacto.
         .adapted-section,
         .app-demo-section {
             background: linear-gradient(160deg, var(--color-ink) 0%, var(--section-contact-bg) 100%);
@@ -1183,7 +1137,6 @@ p.statement {
             color: var(--text-muted);
         }
 
-        // Par Antes → Ahora: el pasado es un chip plano y apagado; el presente, una card elevada.
         .before-after-legend,
         .before-after-row {
             display: grid;
@@ -1258,8 +1211,6 @@ p.statement {
             }
         }
 
-        // Visible en mobile (una columna, sin encabezados de columna); en desktop la leyenda
-        // superior ya lo dice y la etiqueta queda solo para lectores de pantalla.
         .before-after-label {
             font-weight: 600;
         }
@@ -1301,13 +1252,11 @@ p.statement {
             }
         }
 
-        // Reutiliza los checks de .industry-list; los textos son de largo desigual, una columna.
         .app-features-list {
             grid-template-columns: 1fr;
             gap: 12px;
         }
 
-        // Las apps solo existen para móvil: en desktop no se muestran.
         .store-buttons {
             display: none;
             flex-wrap: wrap;
@@ -1340,33 +1289,27 @@ p.statement {
                 @include sr-only;
             }
 
-            // Como en Empresas: sin listón decorativo, el padding inferior global del hero queda vacío.
-            // La franja azul de desktop (30–40%) es más angosta que la columna de texto en 801–960px.
             .hero {
                 padding-bottom: var(--space-lg);
                 background: linear-gradient(90deg, rgb(var(--color-sky) / 0.8) 45%, rgb(var(--color-white) / 0.10) 55%) !important;
             }
 
-            // Al apilarse, la franja vertical partía el texto: el degradado pasa a ir de arriba abajo.
             @media (max-width: $bp-mobile-max) {
                 .hero {
                     background: linear-gradient(180deg, rgb(var(--color-sky) / 0.8) 0%, rgb(var(--color-white) / 0.10) 70%) !important;
                 }
             }
 
-            // El <br> de desktop deja "incierta" huérfana en columnas angostas.
             .split-copy h3 br {
                 display: none;
             }
 
-            // Mayor área táctil sin cambiar el tamaño visible de las flechas.
             .image-slider-arrow::before {
                 content: "";
                 position: absolute;
                 inset: -5px;
             }
 
-            // Toda la fila es táctil (el padding pasa del <details> al <summary>) y el ícono no baja de línea.
             .faq-item {
                 padding: 0;
 
@@ -1388,7 +1331,6 @@ p.statement {
                 }
             }
 
-            // En columna la lectura es vertical: Antes, flecha hacia abajo, Ahora.
             .before-after-legend {
                 display: flex;
                 justify-content: center;
@@ -1421,7 +1363,6 @@ p.statement {
                 }
             }
 
-            // Igual que en Empresas: la imagen pasa arriba y el desvanecido apunta al texto.
             .experience-steps-grid .info-card--media {
                 flex-direction: column;
 
@@ -1436,7 +1377,6 @@ p.statement {
                     mask-image: linear-gradient(to bottom, #000 55%, transparent);
                 }
 
-                // En columna, el align-self: center de desktop centraba horizontalmente los textos cortos.
                 .info-card-body {
                     align-self: stretch;
                     padding: 0 20px 20px;
@@ -1455,7 +1395,6 @@ p.statement {
             }
         }
 
-        // Sectores: una card por sector (media + cabecera + desafío / hoy / cambio).
         .sectors-list {
             display: flex;
             flex-direction: column;
@@ -1595,7 +1534,6 @@ p.statement {
             }
         }
 
-        // Hasta 2 columnas balanceadas (lectura vertical); pasa a 1 cuando no caben 260px por columna.
         .contact-section .contact-actions {
             @include contact-actions-row(flex-start);
         }
@@ -1735,7 +1673,6 @@ p.statement {
             margin: 0;
         }
 
-        // Pasos: número visible y alineado arriba con su título en todas las cards.
         .contact-steps-grid .info-card {
             min-height: auto;
             padding: var(--space-md);
@@ -1766,7 +1703,6 @@ p.statement {
             color: rgb(var(--color-white) / 80%);
         }
 
-        // Panel blanco sobre el fondo oscuro para que los campos conserven su contraste.
         .contact-form {
             max-width: 880px;
             margin-inline: auto;
@@ -1915,7 +1851,6 @@ p.statement {
                 gap: var(--space-sm);
             }
 
-            // 16px evita el zoom automático de iOS al enfocar un campo.
             .form-field input,
             .form-field select,
             .form-field textarea {
@@ -1954,7 +1889,6 @@ p.statement {
             color: var(--text-secondary);
         }
 
-        // ~70 caracteres por línea para lectura de texto largo.
         .legal-body {
             max-width: 720px;
 
@@ -1982,7 +1916,83 @@ p.statement {
     }
 
     &.page-not-found {
-        /* Ejemplo: hero exclusivo de 404 */
-        // .hero { }
+        .hero {
+            display: grid;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .not-found {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            h1 {
+                max-width: 14ch;
+                margin: 0 0 var(--space-sm);
+                font-size: clamp(2rem, 4.2vw, 3.2rem);
+                text-wrap: balance;
+            }
+
+            .lead {
+                max-width: 42ch;
+                margin: 0 0 var(--space-md);
+                text-wrap: balance;
+            }
+
+            .btn {
+                margin: 0;
+            }
+        }
+
+        .not-found-code {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.06em;
+            margin: 0 0 var(--space-md);
+            font-size: clamp(6rem, 15vw, 10rem);
+            font-weight: 600;
+            line-height: 1;
+            letter-spacing: -0.045em;
+            color: var(--text-primary);
+        }
+
+        .not-found-icon {
+            width: 0.9em;
+            height: 0.9em;
+            color: var(--color-blue);
+            transform: rotate(-6deg);
+            animation: not-found-drop 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .not-found-crack {
+            color: var(--color-coral);
+        }
+
+        @keyframes not-found-drop {
+            from {
+                opacity: 0;
+                transform: translateY(-0.25em) rotate(-16deg);
+            }
+
+            to {
+                opacity: 1;
+                transform: rotate(-6deg);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .not-found-icon {
+                animation: none;
+            }
+        }
+
+        @media (max-width: $bp-mobile-max) {
+            .not-found .btn {
+                width: 100%;
+            }
+        }
     }
 }

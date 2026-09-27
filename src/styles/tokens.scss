@@ -29,13 +29,11 @@
   --radius-lg: 24px;
   --shadow-soft: 0 16px 48px rgb(31 85 148 / 12%);
 
-  /* Canales para usar con alfa: rgb(var(--color-x) / 50%) */
   --color-white: 255 255 255;
   --color-navy: 1 57 131;
   --color-mist: 230 241 250;
   --color-sky: 153 203 247;
 
-  /* Fondos de sección */
   --hero-gradient: linear-gradient(112deg, #eff8ff 0%, #f9fcff 46%, #dff0ff 100%);
   --section-cost-bg: #f2f8ff;
   --section-trust-bg: #0a438f;
@@ -43,14 +41,11 @@
   --section-contact-bg: #06409a;
   --story-card-bg: #f4f8fc;
 
-  /* Navegación */
   --nav-link: #45618a;
 
-  /* Sombras adicionales */
   --shadow-float: 0 16px 38px color-mix(in srgb, var(--color-ink) 25%, transparent);
   --shadow-device: 0 17px 40px rgb(0 26 92 / 30%);
 
-  /* Decorativos de ilustraciones y mockups */
   --deco-tracking-line: #dbe7f5;
   --deco-tracking-route: #a4c5f3;
   --deco-dashboard-ring: #d9e8f8;

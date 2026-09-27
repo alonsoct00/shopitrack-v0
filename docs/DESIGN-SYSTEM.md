@@ -50,6 +50,8 @@ background: color-mix(in srgb, var(--color-blue) 19%, transparent);
 - H3: `1.1rem`
 - Body: `14px` / line-height 1.55
 - Small: `11px–12px`
+- Tracking: `-0.045em` es solo para tamaños de display (H1/H2). `h3` y los títulos de card (`.info-card h2`) usan `-0.01em`: con el tracking de display las letras se juntan en tamaños de subtítulo.
+- Roles de párrafo `p.lead` (18px) y `p.statement` (24px): se definen al inicio de `custom.scss`, no en `typography.scss`, porque deben ganarle a `.hero-copy p` (misma especificidad) por orden de carga.
 
 ## Spacing
 
@@ -120,10 +122,14 @@ Ejemplo:
 }
 ```
 
+Orden dentro del design system: `design-system.scss` agrega los partials con `@use` en el orden de cascada original (tokens → base → layout → typography → buttons → hero → cards → sections → responsive → animations). No reordenar sin comparar el CSS compilado. `breakpoints.scss` y `mixins.scss` solo contienen variables y mixins: no generan CSS y se consumen con `@use "breakpoints" as *;` / `@use "mixins" as *;`.
+
+Clientes (desktop): el header vive fuera de `.page`, así que su fondo blanco antes de hacer scroll se acota con `.site-shell:has(.page-clientes)`; al hacer scroll aplica el estilo global de `.site-header--scrolled`.
+
 ## Patrones reutilizables
 
 - `.section` — padding vertical de sección
-- `.wave-section` — añade ondas lineales azules al pie
+- `.wave-section` — añade ondas lineales azules al pie. Hoy están desactivadas a propósito: `.wave-section-bottom::after` tiene `display: none`
 - `.split-grid` — grid de dos columnas (texto + imagen)
 - `.info-card` — tarjeta con icono, título y descripción
 - `.btn`, `.btn-primary`, `.btn-coral`, `.btn-outline` — variantes de botón
@@ -137,18 +143,32 @@ Ejemplo:
 - `sr-only` (`mixins.scss`): oculta visualmente y mantiene el contenido para lectores de pantalla. La clase `.sr-only` de `base.scss` lo usa; en otros archivos: `@use "mixins" as *;` + `@include sr-only;`.
 - `mobile-only`, `tablet` (`breakpoints.scss`): envuelven el contenido en el media query correspondiente.
 - `text-content-copy` (`custom.scss`): h3/h4 destacados + párrafos del bloque `.text-content` en Empresas.
+- `hero-decor-layers` (`mixins.scss`): capas del hero compartidas por Home, Empresas y Clientes — velo (`::before`), listón inferior hoy oculto (`::after`) y contenido por encima de ambas. Se incluye dentro de `.hero` (`.hero { @include hero-decor-layers; }`), porque usa `&::before`.
+- `contact-actions-row($justify)` (`mixins.scss`): botones del CTA final (`.contact-actions`) en fila en desktop y apilados a todo el ancho en mobile (`mobile-only`). Sin argumento conserva el centrado de `.contact-actions` (Home, Contacto); `flex-start` alinea la fila con el texto en CTAs de dos columnas (Empresas, Sectores). En mobile incluye `align-self: stretch` para ocupar el ancho aunque el padre sea flex y centre a sus hijos (Home).
 
 `.story-card` define `--story-card-bg`, que comparten su fondo y los desvanecidos `.blur-right` / `.blur-left`.
 
 ## Variantes en Empresas (`custom.scss`, scope `.page-empresas`)
 
-- `.stat-card--icons` — columna de íconos (40px) a la izquierda y lista a la derecha; ambos se estiran al alto de la card y reparten su contenido (`justify-content` / `align-content: space-between`)
+- `.stat-card--icons` — cada ícono (40px) vive dentro de su `<li>` (orden `-1`, antes de la palomita/tache), así queda alineado con su texto; el título se indenta 64px para alinearse con la columna de texto
 - `.industry-list--cross` — tache blanco sobre `--color-coral` en lugar de palomita
 - `.cost-section` — degradado de todo el alto: `linear-gradient(180deg, var(--surface-alt), var(--surface))`
-- `.cost-section .cost-grid` — `grid-auto-rows: 1fr` para que las cards midan lo mismo; a la derecha `.cost-media` (placeholder que se estira al alto de la columna)
+- `.cost-section .cost-grid` — cards con su alto natural (`align-content: space-between`); a la derecha `.cost-media` (placeholder que se estira al alto de la columna)
 - `.benefits-section` / `.benefits-grid` — sección de beneficios (antes `.changes` / `.change-grid` en esta página): fondo `--surface-alt`, grid de 3 columnas; con `.info-card--media` la card pierde el padding y lo pasa a `.info-card-body`
 - `.steps-list` — una columna por paso (`grid-auto-flow: column`), para soportar cualquier número de pasos
+- `.confidence-section` — texto tipo manifiesto sin imagen: una sola columna centrada (720px)
+- `.benefits-section .benefits-grid` (mobile): el selector repite la especificidad de la regla de 3 columnas; con un selector más corto la regla de mobile nunca aplicaba
 
 ## Pendientes
 
+- `animations.scss` declara `html.reveal-ready .steps-list .step { transform: translateX(-40px) }` (`translateY` en mobile) después de la regla `.is-visible`, con la misma especificidad, así que el desplazamiento persiste tras la animación. Home y Empresas lo anulan en su bloque de `custom.scss` (`.steps-list .step.is-visible { transform: none }`); cualquier página nueva con `StepsList` necesita lo mismo hasta corregir la regla global.
+
 - `.industries-showcase-dots button` usa `background: var(--border, #d7e2f2)`, pero DaisyUI define `--border: 1px`, así que el fallback nunca aplica y el fondo resuelve a un valor inválido. Se dejó intacto para no alterar el diseño actual; corregirlo (p. ej. un token propio) hará visibles los puntos inactivos.
+
+## Accesibilidad (decisiones que no deben revertirse)
+
+- Flechas de los pasos en secciones navy (Empresas): blancas como el texto; el azul sobre el fondo navy no alcanzaba contraste 3:1.
+- Áreas táctiles: los links legales del pie de página (mobile) tienen `padding-block: 12px` para llegar a 44px; las flechas del slider amplían su área táctil sin cambiar el tamaño visible.
+- Formulario de Contacto: en mobile los campos usan `font-size: 16px`; con menos, iOS hace zoom automático al enfocar.
+- Antes → Ahora (Clientes): la etiqueta "Antes:/Ahora:" es visible en mobile (una columna, sin encabezados); en desktop la leyenda superior ya lo indica y la etiqueta queda solo para lectores de pantalla.
+- Página legal: el texto largo se limita a ~70 caracteres por línea.

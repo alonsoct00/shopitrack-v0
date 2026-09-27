@@ -65,7 +65,6 @@
   width: 100%;
   object-fit: cover;
   border-radius: 0;
-  //transform: scaleX(-1);
 }
 
 .dashboard-card-image {
@@ -435,7 +434,6 @@
   background: var(--color-blue);
 }
 
-// ImageSlider: una imagen a la vez; flechas y dots comparten estilo con .industries-showcase.
 .image-slider {
   display: flex;
   flex-direction: column;
@@ -490,7 +488,6 @@
   right: 12px;
 }
 
-// --border lo define DaisyUI como grosor (1px), así que el fallback compartido no aplica.
 .image-slider-dots button {
   background: color-mix(in srgb, var(--color-blue) 25%, transparent);
 }

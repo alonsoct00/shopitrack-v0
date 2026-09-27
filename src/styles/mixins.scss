@@ -1,9 +1,5 @@
-// Mixins compartidos. Solo mixins: no genera CSS.
-// Consumir con `@use "mixins" as *;`.
-
 @use "breakpoints" as *;
 
-// Oculta visualmente un elemento pero lo mantiene disponible para lectores de pantalla.
 @mixin sr-only {
   position: absolute;
   width: 1px;
@@ -16,8 +12,6 @@
   padding: 0 !important;
 }
 
-// Capas decorativas del hero compartidas por Home, Empresas y Clientes: velo (::before),
-// listón inferior hoy oculto (::after) y contenido por encima de ambas. Incluir dentro de `.hero`.
 @mixin hero-decor-layers {
   &::before {
     content: "";
@@ -52,8 +46,6 @@
   }
 }
 
-// Botones del CTA final (.contact-actions): en fila en desktop y apilados a todo el ancho en mobile.
-// $justify alinea la fila con el texto; sin valor conserva el centrado de .contact-actions.
 @mixin contact-actions-row($justify: null) {
     flex-direction: row;
     justify-content: $justify;
@@ -62,7 +54,6 @@
     @include mobile-only {
         flex-direction: column;
         align-items: stretch;
-        // Ocupa el ancho aunque el padre sea flex y centre a sus hijos (Home).
         align-self: stretch;
 
         .btn {
