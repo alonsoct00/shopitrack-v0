@@ -1,5 +1,25 @@
 @use "mixins" as *;
 
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT");
+  font-weight: 100 500;
+  ascent-override: 91.39%;
+  descent-override: 22.85%;
+  line-gap-override: 0%;
+  size-adjust: 106%;
+}
+
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT");
+  font-weight: 600 900;
+  ascent-override: 95.92%;
+  descent-override: 23.98%;
+  line-gap-override: 0%;
+  size-adjust: 101%;
+}
+
 * {
   box-sizing: border-box;
 }

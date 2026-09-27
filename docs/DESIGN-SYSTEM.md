@@ -44,7 +44,8 @@ background: color-mix(in srgb, var(--color-blue) 19%, transparent);
 
 ## Typography
 
-- Familia: Inter, ui-sans-serif, system-ui
+- Familia: Inter, "Inter Fallback", ui-sans-serif, system-ui
+- `Inter Fallback` (`base.scss`) es Arial / Arial Bold local ajustada a las métricas de Inter (`size-adjust`, `ascent/descent-override`), calibrada por peso midiendo el ancho de texto en español: 106% para 100–500 y 101% para 600–900. Solo se ve mientras carga Inter y evita el salto de layout (CLS) al cambiar de fuente; no altera el render final.
 - H1: `clamp(2.35rem, 4vw, 4.05rem)` — peso 850, letter-spacing -0.045em
 - H2: `clamp(2rem, 3.4vw, 3.2rem)`
 - H3: `1.1rem`

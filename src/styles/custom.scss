@@ -399,8 +399,7 @@ p.statement {
         .hero {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(90deg, rgb(var(--color-sky) / 0.8) 30%, rgb(var(--color-white) / 0.10) 40%),
-                url(/images/) no-repeat right center !important;
+            background: linear-gradient(90deg, rgb(var(--color-sky) / 0.8) 30%, rgb(var(--color-white) / 0.10) 40%) !important;
             background-size: 100% !important;
         }
 
