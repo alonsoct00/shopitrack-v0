@@ -1,0 +1,63 @@
+@use "breakpoints" as *;
+
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+@mixin hero-decor-layers {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    filter: blur(10px);
+    mask-image: unset;
+    z-index: 1;
+    background: linear-gradient(315deg, rgb(var(--color-white) / 0.05) 60%, rgb(var(--color-white) / 0%) 90%), rgb(var(--color-mist) / 0%);
+    width: 100%;
+    height: 100%;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    pointer-events: none;
+    z-index: 2;
+    background: url(/images/ribbons/04_deep_s_curve.webp) repeat center center transparent !important;
+    background-size: cover !important;
+    filter: brightness(0.8);
+    display: none;
+  }
+
+  &>* {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@mixin contact-actions-row($justify: null) {
+    flex-direction: row;
+    justify-content: $justify;
+    gap: 0 var(--space-sm);
+
+    @include mobile-only {
+        flex-direction: column;
+        align-items: stretch;
+        align-self: stretch;
+
+        .btn {
+            margin-block: var(--space-xs) 0;
+        }
+    }
+}

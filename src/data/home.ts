@@ -1,26 +1,32 @@
+import { Bell, CalendarDays, Check, Clock3, PackageCheck } from "lucide-react";
+import type { StepItem } from "@/data/types";
+
 export const images = {
-  courier: "/images/repartidor.jpeg",
+  courier: "/images/repartidor.webp",
   company: "/images/logistics-issues.webp",
   customer: "/images/entrega-feliz.webp",
-  customerAngry: "/images/cliente-preocupado.jpg",
+  customerAngry: "/images/cliente-preocupado.webp",
   operator: "/images/atencion-confianza.webp",
-  delivery: "/images/shopi-atencion-cliente.jpeg",
-  deviceMockup: "/images/pc-shopi.png",
+  delivery: "/images/shopi-atencion-cliente.webp",
+  deviceMockup: "/images/pc-shopi.webp",
   calendarCard: "/images/calendario-shopi.webp",
 };
 
-export const steps = [
-  ["01", "La empresa propone una fecha."],
-  ["02", "El cliente confirma o solicita otra."],
-  ["03", "Shopitrack recuerda y confirma la entrega el día acordado."],
-  [
-    "04",
-    "El cliente recibe una notificación dos horas antes con la llegada estimada.",
-  ],
-  [
-    "05",
-    "La entrega se realiza, el cliente confirma la recepción y evalúa su experiencia.",
-  ],
+export const steps: StepItem[] = [
+  { text: "La empresa propone una fecha.", icon: CalendarDays },
+  { text: "El cliente confirma o solicita otra.", icon: Check },
+  {
+    text: "Shopitrack recuerda y confirma la entrega el día acordado.",
+    icon: Bell,
+  },
+  {
+    text: "El cliente recibe una notificación dos horas antes con la llegada estimada.",
+    icon: Clock3,
+  },
+  {
+    text: "La entrega se realiza, el cliente confirma la recepción y evalúa su experiencia.",
+    icon: PackageCheck,
+  },
 ];
 
 export const industries = [

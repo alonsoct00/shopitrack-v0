@@ -11,21 +11,36 @@ src/
 │   │   └── MainLayout.tsx    Layout compartido (Header + Outlet + Footer)
 │   ├── Brand.tsx              Logo + nombre
 │   ├── ComingSoonSection.tsx  Placeholder para páginas sin mockup
-│   ├── InfoCard.tsx           Tarjeta con icono
+│   ├── ErrorBoundary.tsx      Aísla errores de render (raíz, página, sección)
+│   ├── IndustriesShowcase.tsx Carrusel de sectores (Home)
+│   ├── InfoCard.tsx           Tarjeta con icono o imagen (variante .info-card--media)
+│   ├── LottiePlayer.tsx       Animaciones Lottie con carga diferida
+│   ├── PageError.tsx          Fallback de página cuando falla el render
+│   ├── RichText.tsx           Etiquetas permitidas (<q>, <em>, <b>...) en strings del data
 │   ├── Seo.tsx                Meta tags SEO por ruta (SPA)
-│   └── SectionHeading.tsx     Encabezado de sección
+│   ├── SectionHeading.tsx     Encabezado de sección
+│   └── StepsList.tsx          Pasos numerados con ícono o imagen
 ├── pages/
 │   ├── Home.tsx               Página de inicio
-│   ├── Empresas.tsx           Placeholder — pendiente de mockup
-│   ├── Clientes.tsx           Placeholder — pendiente de mockup
-│   ├── Industrias.tsx         Placeholder — pendiente de mockup
-│   ├── Contacto.tsx           Placeholder — pendiente de mockup
+│   ├── Empresas.tsx           Página para empresas (incluye StatCard local)
+│   ├── Clientes.tsx           Página para clientes
+│   ├── Sectores.tsx           Página de sectores
+│   ├── Contacto.tsx           Contacto con formulario
+│   ├── LegalPage.tsx          Plantilla para Aviso de privacidad y Términos y condiciones
 │   └── NotFound.tsx           Página 404
 ├── data/
 │   ├── home.ts                Contenido de la Home
+│   ├── empresas.ts            Contenido de Empresas
+│   ├── clientes.ts            Contenido de Clientes
+│   ├── sectores.ts            Contenido de Sectores
+│   ├── contacto.ts            Contenido de Contacto
+│   ├── legal.ts               Aviso de privacidad y Términos (texto preliminar, datos [POR DEFINIR])
 │   ├── navigation.ts          Rutas del menú (siteNav)
-│   └── seo.ts                 Titles/descriptions por ruta
+│   ├── seo.ts                 Titles/descriptions por ruta
+│   └── types.ts               Tipos compartidos del data (Icon, IconItem, StepItem, ImageSource)
 ├── styles/
+│   ├── breakpoints.scss         Variables y mixins de breakpoints (no genera CSS; se consume con @use)
+│   ├── mixins.scss              Mixins compartidos, p. ej. sr-only (no genera CSS; se consume con @use)
 │   ├── tokens.scss              Variables CSS (:root): colores, spacing, radius, shadows
 │   ├── base.scss                Reset, box-sizing, html/body, focus-visible, .hidden, .sr-only
 │   ├── layout.scss              .container, .section, .wave-section, header/footer/nav
@@ -60,6 +75,25 @@ Antes, `index.css` concentraba ~1600 líneas de design system y estilos de secci
 `index.css` usa `@import "tailwindcss"` y se procesa con el bundler propio de Tailwind v4 (Lightning CSS), que **no** ejecuta Sass — por eso los partials no se importan desde ahí con `@import` de CSS. En cambio, `design-system.scss` los agrega con `@use` de Sass y se importa como módulo JS en `main.tsx` (igual que ya se hacía con `custom.scss`), para que Vite lo compile con el compilador de Sass real.
 
 Orden de carga en `main.tsx`: `index.css` (Tailwind + DaisyUI) → `design-system.scss` (design system propio) → `custom.scss` (overrides por página). Este orden importa para la cascada: nuestras clases (`.container`, `.btn`, etc.) deben cargar después de las utilidades/componentes de Tailwind y DaisyUI para ganarles por orden en selectores de igual especificidad. No reordenar sin verificar (se comparó el CSS compilado antes/después del split y es equivalente — mismas reglas, mismo comportamiento de cascada).
+
+## Manejo de errores de render
+
+`ErrorBoundary` (`src/components/ErrorBoundary.tsx`) se aplica en tres niveles para que un error no deje la pantalla en blanco:
+
+| Nivel | Dónde | Fallback |
+| ----- | ----- | -------- |
+| App | `main.tsx` | `PageError` |
+| Página | `MainLayout`, alrededor de `<Outlet />` con `key={pathname}` | `PageError` (se reinicia al cambiar de ruta) |
+| Header / Footer | `MainLayout` | Nada: solo esa parte no se muestra |
+| Sección | Cada `<section>` de Home, Empresas, Clientes, Sectores y Contacto | Nada: solo esa sección no se muestra |
+
+Cada error se registra en consola con el nombre de su zona (`[ErrorBoundary: Empresas: benefits-section]`).
+
+No cubre: errores en event handlers, código asíncrono (promesas, timers; `LottiePlayer` tiene su `.catch`), ni errores al evaluar módulos (por ejemplo un archivo de `data/` que truene al importarse). El código que corre directo en el cuerpo de la página falla a nivel página, no sección.
+
+## Datos tipados con íconos
+
+Cada elemento de una lista lleva su ícono (o imagen) en el propio data, tipado con `src/data/types.ts`. No se usan arreglos de íconos paralelos por índice: si se agrega un elemento sin `icon`, falla `npm run typecheck` en lugar del render. La numeración de pasos se calcula por índice.
 
 ## Convenciones
 
@@ -96,3 +130,5 @@ Para agregar una nueva página:
 6. No duplicar estilos: usar variables existentes.
 7. Registrar la ruta en `src/App.tsx` y, si aplica, en `siteNav` (`src/data/navigation.ts`).
 8. Si el mockup de Figma aún no existe, usar `ComingSoonSection` como contenido temporal.
+9. Envolver cada `<section>` en `<ErrorBoundary name="<Página>: <sección>">`.
+10. Si una lista del data lleva íconos, ponerlos en cada elemento (`IconItem`, `StepItem`) con su tipo explícito, no en un arreglo aparte.

@@ -1,3 +1,5 @@
+@use "breakpoints" as *;
+
 html.reveal-ready [data-reveal] {
   opacity: 0;
   transform: translateY(32px);
@@ -31,7 +33,7 @@ html.reveal-ready .steps-list .step {
   transform: translateX(-40px);
 }
 
-@media (max-width: 800px) {
+@media (max-width: $bp-mobile-max) {
   html.reveal-ready .steps-list .step {
     transform: translateY(-40px);
   }

@@ -1,10 +1,6 @@
+@use "breakpoints" as *;
 
-
-@media (min-width: 1600px) {
-  .container {
-    width: min(100% - 48px, 1600px);
-  }
-
+@media (min-width: $bp-xl-min) {
   p {
     font-size: 1.2rem;
   }
@@ -17,15 +13,10 @@
   }
 
   .steps-list .step {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
     align-items: stretch;
-    justify-content: center;
-    position: relative;
     flex-wrap: wrap;
     align-content: center;
-}
+  }
 
 .change-grid .info-card h2 {
   font-size: 20px;
@@ -41,11 +32,12 @@
 
 }
 
-@media (min-width: 801px) and (max-width: 1024px) {
+@include tablet {
 
   .container,
   .site-header,
-  .site-footer {
+  .site-footer,
+  .footer-legal {
     width: min(100% - 32px, 980px);
   }
 
@@ -79,11 +71,6 @@
     height: 340px;
   }
 
-  .tracking-card {
-    right: -14px;
-    width: 210px;
-  }
-
   .steps-list {
     gap: 10px;
   }
@@ -104,49 +91,24 @@
     max-width: 120px;
   }
 
-  .dashboard-card {
-    left: -10px;
-    width: 180px;
-    height: 150px;
-  }
-
   .calendar-card {
     left: -14px;
     width: 155px;
     height: 140px;
   }
 
-  .collage img,
-  .collage img:first-child,
-  .collage img:last-child {
-    height: 175px;
-  }
-
   .industry-list {
     gap: 8px 16px;
   }
 
-  .device-mockup {
-    min-height: 220px;
-  }
-
-  .laptop-screen {
-    width: 78%;
-    height: 185px;
-  }
-
-  .phone-screen {
-    width: 112px;
-    height: 205px;
-    right: 0;
-  }
 }
 
-@media (max-width: 800px) {
+@media (max-width: $bp-mobile-max) {
 
   .container,
   .site-header,
-  .site-footer {
+  .site-footer,
+  .footer-legal {
     width: min(100% - 32px, 620px);
   }
 
@@ -171,10 +133,10 @@
     align-items: stretch;
     gap: 2px;
     padding: 10px;
-    border: 1px solid rgb(255 255 255 / 50%);
+    border: 1px solid rgb(var(--color-white) / 50%);
     border-radius: 0;
-    background: rgb(255 255 255 / 99%);
-    box-shadow: 0 16px 40px rgb(8 38 99 / 16%);
+    background: rgb(var(--color-white) / 99%);
+    box-shadow: 0 16px 40px color-mix(in srgb, var(--color-ink) 16%, transparent);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
   }
@@ -213,10 +175,6 @@
     padding: 110px 0 140px;
   }
 
-  .hero-copy h1 {
-    font-size: 2rem;
-  }
-
   .hero-copy .btn {
     width: 100%;
   }
@@ -243,19 +201,10 @@
     height: 300px;
   }
 
-  .tracking-card {
-    right: -8px;
-    top: 46px;
-    width: 190px;
-    transform: scale(0.8);
-    transform-origin: top right;
-  }
-
   .split-grid--reverse .split-copy,
   .split-grid--reverse .photo-frame {
     order: initial;
   }
-
 
   .photo-frame {
     position: relative;
@@ -267,7 +216,6 @@
     height: auto
   }
 
-  .dashboard-card,
   .calendar-card {
     position: relative;
   }
@@ -363,8 +311,6 @@
     height: 100%;
   }
 
-
-
   .trust-grid {
     padding-block: 0;
   }
@@ -381,16 +327,6 @@
 
   .promise-section p {
     width: 100%;
-  }
-
-  .collage {
-    margin-top: 6px;
-  }
-
-  .collage img,
-  .collage img:first-child,
-  .collage img:last-child {
-    height: 115px;
   }
 
   .industries-collage-grid {
@@ -414,10 +350,6 @@
     padding-block: 72px;
   }
 
-  .device-mockup {
-    min-height: 255px;
-  }
-
   .new-way-section {
     position: relative;
     padding-top: 20px;
@@ -427,16 +359,19 @@
     font-size: 2.1rem;
   }
 
-  .laptop-screen {
-    width: 83%;
-  }
-
-  .phone-screen {
-    right: 0;
-  }
-
   .site-footer {
     min-height: 68px;
+  }
+
+  .footer-legal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .footer-legal-links a {
+    display: inline-block;
+    padding-block: 12px;
   }
 
   .contact-actions .btn {
@@ -447,11 +382,12 @@
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: $bp-xs-max) {
 
   .container,
   .site-header,
-  .site-footer {
+  .site-footer,
+  .footer-legal {
     width: min(100% - 24px, 620px);
   }
 
@@ -464,5 +400,4 @@
   }
 
 }
-
 

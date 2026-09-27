@@ -36,7 +36,15 @@ Clases reutilizables: `.section`, `.wave-section`, `.split-grid`, `.info-card`, 
 | ----------- | --------- | ------- |
 | `Brand` | `src/components/Brand.tsx` | `light?: boolean` |
 | `SectionHeading` | `src/components/SectionHeading.tsx` | `eyebrow?: string`, `title: string`, `centered?: boolean` |
-| `InfoCard` | `src/components/InfoCard.tsx` | `icon: ReactNode`, `title: string`, `label: string`, `children: ReactNode` |
+| `InfoCard` | `src/components/InfoCard.tsx` | `icon?: ReactNode`, `image?: { src, alt }`, `title: string`, `label?: string`, `items?: string[]`, `children?: ReactNode` |
+| `StepsList` | `src/components/StepsList.tsx` | `steps: StepItem[]` (cada paso con `icon` o `image`) |
+| `ImageWithFallback` | `src/components/ImageWithFallback.tsx` | Props de `<img>` + `fallbackSrc?: string`. Usar en lugar de `<img>` |
+| `ImageSlider` | `src/components/ImageSlider.tsx` | `slides: ImageSource[]`, `label: string`, `arrows?: boolean`, `dots?: boolean`, `className?: string` |
+| `RichText` | `src/components/RichText.tsx` | `text: string` (soporta `<q>`, `<em>`, `<i>`, `<strong>`, `<b>`) |
+| `ErrorBoundary` | `src/components/ErrorBoundary.tsx` | `children`, `fallback?: ReactNode`, `name?: string` |
+| `PageError` | `src/components/PageError.tsx` | — |
+
+Detalle, variantes y ejemplos en `docs/COMPONENTS.md`.
 
 **Antes de crear un componente nuevo, revisar estos.**
 
@@ -52,6 +60,8 @@ El proyecto usa `react-router-dom`. Las rutas viven en `src/App.tsx` dentro de `
 6. Mientras no exista el mockup de Figma de la página, usar `ComingSoonSection` (`src/components/ComingSoonSection.tsx`) como contenido temporal — no inventar diseño definitivo.
 7. Si la página necesita imágenes, usar `pexels_search` y documentar en `docs/IMAGES.md`.
 8. Agregar la URL a `public/sitemap.xml`.
+9. Envolver cada `<section>` en `<ErrorBoundary name="<Página>: <sección>">` para que un error solo oculte esa sección.
+10. Si una lista del data lleva íconos o imágenes, ponerlos en cada elemento con su tipo explícito (`IconItem`, `StepItem` en `src/data/types.ts`), nunca en un arreglo paralelo por índice.
 
 Páginas actuales: Home (`/`, completa), Empresas (`/empresas`), Clientes (`/clientes`), Industrias (`/industrias`) y Contacto (`/contacto`) — estas últimas cuatro son placeholders pendientes de mockup en Figma.
 
