@@ -49,10 +49,11 @@ background: color-mix(in srgb, var(--color-blue) 19%, transparent);
 - H1: `clamp(2.35rem, 4vw, 4.05rem)` — peso 850, letter-spacing -0.045em
 - H2: `clamp(2rem, 3.4vw, 3.2rem)`
 - H3: `1.1rem`
-- Body: `14px` / line-height 1.55
-- Small: `11px–12px`
+- Body: `0.875rem` (14px) / line-height 1.55
+- Small: `0.6875rem–0.75rem` (11–12px)
 - Tracking: `-0.045em` es solo para tamaños de display (H1/H2). `h3` y los títulos de card (`.info-card h2`) usan `-0.01em`: con el tracking de display las letras se juntan en tamaños de subtítulo.
-- Roles de párrafo `p.lead` (18px) y `p.statement` (24px): se definen al inicio de `custom.scss`, no en `typography.scss`, porque deben ganarle a `.hero-copy p` (misma especificidad) por orden de carga.
+- Unidades: todos los `font-size` se escriben en `rem` (1rem = 16px; el proyecto no redefine el tamaño raíz), así el texto escala si la persona cambia el tamaño de fuente del navegador. Spacing, bordes, anchos y breakpoints siguen en `px`. El `line-height` se escribe sin unidades.
+- Roles de párrafo `p.lead` (`1.125rem`, 18px) y `p.statement` (`1.5rem`, 24px): se definen al inicio de `custom.scss`, no en `typography.scss`, porque deben ganarle a `.hero-copy p` (misma especificidad) por orden de carga.
 
 ## Spacing
 
@@ -133,7 +134,7 @@ Clientes (desktop): el header vive fuera de `.page`, así que su fondo blanco an
 - `.wave-section` — añade ondas lineales azules al pie. Hoy están desactivadas a propósito: `.wave-section-bottom::after` tiene `display: none`
 - `.split-grid` — grid de dos columnas (texto + imagen)
 - `.info-card` — tarjeta con icono, título y descripción
-- `.btn`, `.btn-primary`, `.btn-coral`, `.btn-outline` — variantes de botón
+- `.btn`, `.btn-primary`, `.btn-coral`, `.btn-outline` — variantes de botón. Texto de `1rem` (16px) en mobile y tablet y de `1.125rem` (18px) en desktop (más de `$page-break-mobile`, 961px en adelante).
 - `.info-card--media` + `.info-card-media` (`cards.scss`) — card con `<img>` al 40% del ancho y todo el alto, `object-fit: cover`, desvanecido con `mask-image` y franja de blur (`::before`, `backdrop-filter: blur(6px)`, 64px) hacia el texto. El contenido va en `.info-card-body`
 - `.step-media` (`sections.scss`) — variante de `.step-line > span` con `<img>` circular en lugar de ícono
 - `.industry-list` — lista con palomita azul; `.industry-list q` se muestra en itálica
@@ -170,6 +171,10 @@ Clientes (desktop): el header vive fuera de `.page`, así que su fondo blanco an
 
 - Flechas de los pasos en secciones navy (Empresas): blancas como el texto; el azul sobre el fondo navy no alcanzaba contraste 3:1.
 - Áreas táctiles: los links legales del pie de página (mobile) tienen `padding-block: 12px` para llegar a 44px; las flechas del slider amplían su área táctil sin cambiar el tamaño visible.
-- Formulario de Contacto: en mobile los campos usan `font-size: 16px`; con menos, iOS hace zoom automático al enfocar.
+- Formulario de Contacto (`.contact-form`, `FormField` local de `Contacto.tsx`):
+  - **Floating labels**: el control se renderiza antes de su `<label>` (asociado con `for`/`id`) dentro de `.form-control`, y lleva `placeholder=" "`. El label sube cuando el campo tiene foco, tiene valor (`:not(:placeholder-shown)`) o está autocompletado (`:autofill`). En los `<select>` el label siempre está arriba, porque siempre muestran un valor.
+  - Los campos usan `font-size: 1rem` (16px) en todos los anchos; con menos, iOS hace zoom automático al enfocar. Miden 58px de alto.
+  - El borde de los campos es `--text-secondary` al 65% (3.5:1), porque `--line` no llega al 3:1 que exige WCAG para contornos de controles. Hints y labels usan `--text-secondary`: `--text-muted` (3.9:1) no alcanza AA en texto pequeño.
+  - Error: borde rojo con anillo interior (sin layout shift), label rojo e icono en el mensaje, para no depender solo del color. Los errores de campo no llevan `role="alert"`: al enviar, el foco va al primer campo inválido y el lector anuncia su mensaje vía `aria-describedby`. Solo el error de sistema usa `role="alert"`.
 - Antes → Ahora (Clientes): la etiqueta "Antes:/Ahora:" es visible en mobile (una columna, sin encabezados); en desktop la leyenda superior ya lo indica y la etiqueta queda solo para lectores de pantalla.
 - Página legal: el texto largo se limita a ~70 caracteres por línea.

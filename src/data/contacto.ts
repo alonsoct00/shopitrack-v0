@@ -91,11 +91,22 @@ export const volumeOptions = [
 
 export const formCopy = {
   helperEmail: "Utiliza tu correo corporativo.",
-  privacyLabel: "He leído y acepto el Aviso de Privacidad.",
+  privacyLabelBefore: "He leído y acepto el ",
+  privacyLinkLabel: "Aviso de Privacidad",
+  privacyLabelAfter: ".",
+  newTabNotice: "(se abre en una pestaña nueva)",
   submitLabel: "Agendar conversación.",
   submitLoadingLabel: "Enviando...",
-  errorRequired: "Este campo es obligatorio.",
-  errorEmail: "Ingresa un correo corporativo válido.",
+  requiredNote: "Los campos marcados con * son obligatorios.",
+  errorFirstName: "Ingresa tu nombre.",
+  errorLastName: "Ingresa tus apellidos.",
+  errorCompany: "Ingresa el nombre de tu empresa.",
+  errorEmailRequired: "Ingresa tu correo electrónico.",
+  errorEmailFormat: "Ingresa un correo válido, por ejemplo nombre@empresa.com.",
+  errorEmail:
+    "Ingresa un correo corporativo válido. No aceptamos correos personales como Gmail u Outlook.",
+  errorPhone:
+    "Ingresa un teléfono válido: de 7 a 15 dígitos; puedes usar espacios, guiones o +.",
   errorPrivacy: "Acepta el Aviso de Privacidad para continuar.",
   errorSystem: "No pudimos enviar tu solicitud. Inténtalo nuevamente.",
   successTitle: "¡Gracias por contactarnos!",

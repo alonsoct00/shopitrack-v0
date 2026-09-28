@@ -92,7 +92,7 @@ Rutas en `src/data/contacto.ts` (`contactoImages`, `contactSteps`). WebP con `cw
 | Hero | `/images/hero-contacto.webp` (+ `hero-contacto-800.webp` en `srcSet`) | Fondo CSS en desktop, `<img>` en mobile |
 | Qué ocurrirá (6 pasos) | `/images/contacto-paso-1..6.webp` | 16:9; comparte la card de pasos de Clientes |
 
-**Aviso de Privacidad:** la ruta `/aviso-de-privacidad` ya existe (enlazada desde el Footer). La mención en el FAQ de Clientes y el checkbox de Contacto siguen como texto sin enlace. La sección 09 completa se omitió por decisión explícita (el PDF la marca con una X roja, indicando descarte del revisor); la mención en el FAQ se dejó como texto plano sin enlace, sin inventar la ruta.
+**Aviso de Privacidad:** la ruta `/aviso-de-privacidad` ya existe (enlazada desde el Footer). El checkbox de Contacto enlaza a esa página en una pestaña nueva; la mención en el FAQ de Clientes sigue como texto sin enlace. La sección 09 completa se omitió por decisión explícita (el PDF la marca con una X roja, indicando descarte del revisor); la mención en el FAQ se dejó como texto plano sin enlace, sin inventar la ruta.
 
 ## Imagen genérica de respaldo
 

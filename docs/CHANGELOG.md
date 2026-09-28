@@ -98,6 +98,63 @@ Validación en todas las entradas: `npm run typecheck`, `npm run lint` y `npm ru
 - **Grids donde la imagen no debe dictar la altura de la fila**: `contain: size` en el contenedor de la imagen.
 - **Zona crítica 801–960px**: para ajustes solo de ese rango, usar `@include mobile-only { @media (min-width: $bp-tablet-min) { … } }`.
 
+### Botones
+
+- Los `.btn` usan `font-size: 1.125rem` (18px) en desktop, a partir de 961px (`$page-break-mobile + 1`, en `buttons.scss`). Mobile y tablet siguen en 16px. Todos los CTAs caben en una línea desde 1024px; a 961px, "Agenda una conversación con nuestro equipo" pasa a 2 líneas dentro de su alto de 60px, igual que ya ocurría con 16px.
+
+### Limpieza de estilos
+
+- Se revisaron todos los comentarios de `src/styles/*.scss` e `index.css`. Los 11 existentes explican intención y seguían siendo correctos, así que se conservaron.
+- Los patrones de hero repetidos se extrajeron a mixins documentados en `mixins.scss`:
+  - `hero-photo-legibility($image)`: tratamiento de legibilidad en desktop, antes copiado en Clientes, Sectores y Contacto.
+  - `hero-mobile-photo`: composición de mobile, antes copiada en Empresa, Clientes, Sectores y Contacto.
+- Se documentaron las dos decisiones no evidentes que faltaban: `contain: size` en `.cost-row-media` y `height: auto` en el viewport del slider de Clientes.
+- Verificación: el CSS compilado es idéntico al anterior, salvo el orden de dos propiedades independientes dentro del mismo bloque.
+
+### Tipografía: `font-size` en rem
+
+- Se convirtieron a `rem` los 91 `font-size` que estaban en `px`, en 8 archivos: `custom.scss` (63), `sections.scss` (11), `responsive.scss` (7), `layout.scss` (4), `cards.scss` (3), `buttons.scss`, `hero.scss` y `typography.scss` (1 cada uno). La base es 1rem = 16px, porque el proyecto no redefine el tamaño raíz. Por ejemplo: 12px → 0.75rem, 14px → 0.875rem, 16px → 1rem, 18px → 1.125rem, 20px → 1.25rem y 24px → 1.5rem.
+- Con el tamaño de fuente por defecto del navegador el resultado visual es idéntico. La diferencia es que ahora el texto escala si la persona aumenta el tamaño de fuente del navegador.
+- Se conservaron los tamaños responsive existentes dentro de `mobile-only`, `tablet` y las demás media queries, sin variables nuevas, `clamp()` nuevos ni estilos inline.
+- `line-height`: no había ninguno con unidades, todos eran unitless o `normal`. Se revisaron las proporciones reales en el navegador y solo se ajustó uno: el `h3` de "Otros sectores" en Sectores (`.changes h3`, 20px), de 1.6 a 1.35, porque en mobile ocupa varias líneas y quedaba suelto para un subtítulo.
+- Verificación:
+  - El CSS compilado cambia solo en líneas de `font-size`, más el `line-height` mencionado.
+  - Los H1 de los heroes mantienen tamaño, line-height de 1.05 y número de líneas en los 13 anchos, de 360 a 1440px.
+  - No hay overflow horizontal.
+
+### Formulario de Contacto: UX, accesibilidad y validación
+
+Archivos: `src/pages/Contacto.tsx`, `src/data/contacto.ts` y `src/styles/custom.scss` (bloque `.page-contacto`). Sin librerías nuevas. No cambiaron los campos, cuáles son obligatorios ni el envío.
+
+- **Floating labels**, con CSS puro y label semántico:
+  - El label ocupa el lugar del placeholder y sube al enfocar, al escribir, cuando el campo ya tiene valor o con autofill. Se detecta con `:placeholder-shown`, `:autofill` y `:-webkit-autofill`, así que funciona aunque el navegador rellene sin disparar eventos.
+  - Los `<select>` muestran siempre su label arriba, porque siempre tienen un valor visible; así se ven consistentes con los inputs sin forzar el patrón. Tienen chevron propio (`appearance: none`) porque Safari ignora alto y padding en el select nativo.
+  - El textarea ahora usa `FormField`, igual que el resto, con 132px de alto mínimo y `resize: vertical`.
+- **Obligatorios**: nota "Los campos marcados con * son obligatorios." al inicio del formulario, y asterisco también en la casilla de privacidad. Los campos siguen llevando `required`, que los lectores de pantalla anuncian.
+- **Validación** (`validate`):
+  - El correo se valida recortando espacios, que llegan al pegar o con el autofill y antes producían un error falso.
+  - Los mensajes del correo se separaron en tres: vacío, formato inválido y correo personal (los dominios de `blockedEmailDomains`).
+  - El teléfono, que es opcional, se valida solo si se escribe algo: acepta dígitos, espacios, `+`, `-`, `.` y paréntesis, con 7 a 15 dígitos.
+  - Sector, volumen y mensaje siguen siendo opcionales, que es la regla actual.
+- **Mensajes**: los errores genéricos ("Este campo es obligatorio.") se reemplazaron por mensajes específicos en `formCopy`: `errorFirstName`, `errorLastName`, `errorCompany`, `errorEmailRequired`, `errorEmailFormat`, `errorEmail` y `errorPhone`. Se eliminó `errorRequired`, que quedó sin uso.
+- **Accesibilidad**:
+  - Los errores de campo ya no usan `role="alert"`; antes se anunciaban todos a la vez al enviar. Ahora el foco va al primer campo inválido, después del render para que se lea con su mensaje.
+  - `aria-describedby` combina el hint y el error; antes el hint desaparecía al haber error.
+  - Foco visible con `outline` de 2px en todos los controles.
+  - La casilla de privacidad tiene un área táctil de 44px en todo el label.
+  - Contraste: bordes de 3.5:1 y hints y labels de 8.6:1.
+- **Estados**:
+  - Envío: el botón se deshabilita con indicador de carga (sin animación si hay `prefers-reduced-motion`), el formulario marca `aria-busy` y se ignora un segundo envío.
+  - Error de sistema: recuadro con icono y `role="alert"`, separado de los errores de campo.
+  - Éxito: la página sube al inicio y el foco va al título de confirmación.
+- **Enlace al Aviso de Privacidad**: en la casilla de consentimiento, "Aviso de Privacidad" enlaza a `/aviso-de-privacidad` y se abre en una pestaña nueva (`target="_blank"`, `rel="noopener noreferrer"`), así la persona no pierde lo que ya escribió. Lleva un icono `ExternalLink` y el texto `sr-only` "(se abre en una pestaña nueva)". El copy se dividió en `privacyLabelBefore`, `privacyLinkLabel` y `privacyLabelAfter` sin cambiar el texto visible. Al hacer clic en el enlace no se marca la casilla; al hacer clic en el resto del texto, sí.
+- **Responsive**: 2 columnas desde 961px y 1 columna en 960px o menos (incluye la zona 801–960px). No hay overflow entre 360 y 1440px. Desde 1280px el botón pasa de `display: block` a `flex` para que el indicador de carga quede junto al texto.
+- **Verificado**:
+  - Orden de Tab lógico: campos, casilla, botón.
+  - La casilla se activa con la barra espaciadora y el envío con Enter.
+  - Los labels suben cuando el valor se asigna sin eventos.
+  - Los mensajes de error correctos aparecen en cada caso.
+
 ### Pendiente
 
 - `AGENTS.md` sigue listando la ruta `/industrias`; la ruta real es `/sectores`.
