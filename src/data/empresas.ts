@@ -33,10 +33,24 @@ export const empresasImages = {
   heroSrcSet:
     "/images/hero-empresa-reverse-800.webp 800w, /images/hero-empresa-reverse.webp 1670w",
   lastImpression: "/images/ultima-impresion.webp",
-  cta: "/images/evaluacion-100.webp",
   integration: "/images/shopitrack-demo-false.webp",
   integration2: "/images/comunicacion-shopi-pasos.webp",
 };
+
+export const ctaSlides: ImageSource[] = [
+  {
+    src: "/images/evaluacion-100.webp",
+    alt: "Cliente calificando con cinco estrellas su experiencia de compra",
+  },
+  {
+    src: "/images/demo-shopitrack.webp",
+    alt: "Asesora de Shopitrack muestra en una laptop el seguimiento de rutas de entrega a un cliente",
+  },
+  {
+    src: "/images/shopitrack-demo-solutions.webp",
+    alt: "Equipo revisa con una asesora de Shopitrack la ruta de entrega en una laptop",
+  },
+];
 
 export const costCards: {
   title: string;

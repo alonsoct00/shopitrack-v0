@@ -248,3 +248,11 @@ No es un componente reutilizable, pero sí una convención activa del proyecto p
 - NotFound: `#page-not-found.page.page-not-found`
 
 Estos wrappers permiten personalizar `hero` o secciones por ruta sin afectar otras páginas. Ejemplo: `.page-clientes .hero { ... }`.
+
+## SectorIcons
+
+Iconos SVG propios para motivos que `lucide-react` no incluye (`src/components/SectorIcons.tsx`): `LipstickIcon` (Cosméticos) y `TeddyBearIcon` (Juguetes). Siguen el estilo de trazo de lucide (`currentColor`, trazo de 2px, extremos redondeados) y se usan como el `icon` de un `IconItem`, igual que un icono de lucide.
+
+```ts
+{ text: "Juguetes", icon: TeddyBearIcon }
+```

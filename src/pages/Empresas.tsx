@@ -9,6 +9,7 @@ import {
   communicationActors,
   costCards,
   coordinationSteps,
+  ctaSlides,
   empresasImages,
   integrationItems,
   logisticItems,
@@ -490,15 +491,19 @@ export function Empresas() {
                   </Link>
                 </div>
               </div>
-              <div className="photo-frame">
-                <ImageWithFallback
-                  src={empresasImages.cta}
-                  width={1674}
-                  height={940}
-                  alt="Cliente calificando con cinco estrellas su experiencia de compra"
-                  loading="lazy"
-                  className="photo-frame-img"
-                />
+              <div className="photo-frame cta-fade">
+                {ctaSlides.map((slide) => (
+                  <ImageWithFallback
+                    key={slide.src}
+                    src={slide.src}
+                    width={1672}
+                    height={941}
+                    alt={slide.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="photo-frame-img"
+                  />
+                ))}
               </div>
             </div>
           </section>

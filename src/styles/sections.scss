@@ -444,6 +444,15 @@
   border-radius: 50%;
   background: var(--border, #d7e2f2);
   cursor: pointer;
+  position: relative;
+}
+
+// Invisible hit area: the 8px dots are too small to tap on touch screens.
+.industries-showcase-dots button::before,
+.image-slider-dots button::before {
+  content: "";
+  position: absolute;
+  inset: -12px -4px;
 }
 
 .industries-showcase-dots button.is-active,

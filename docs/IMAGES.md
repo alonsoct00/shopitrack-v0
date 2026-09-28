@@ -33,7 +33,7 @@ Imágenes propias en `public/images`, convertidas de PNG/JPG a WebP (`cwebp -q 8
 | La última impresión | `/images/ultima-impresion.webp` | Fondo CSS decorativo |
 | Integración natural | `/images/shopitrack-demo-false.webp` | Persona usando Shopitrack en su laptop junto a sus sistemas ERP, WMS y TMS |
 | Integración natural | `/images/comunicacion-shopi-pasos.webp` | Empresa, operador y cliente conectados durante la coordinación de una entrega |
-| CTA final | `/images/evaluacion-100.webp` | Cliente calificando con cinco estrellas su experiencia de compra |
+| CTA final (crossfade automático cada 4s, `ctaSlides`) | `/images/evaluacion-100.webp`, `demo-shopitrack.webp`, `shopitrack-demo-solutions.webp` | CSS puro; con `prefers-reduced-motion` queda fija la primera |
 
 ### Beneficios (`orgBenefits`)
 

@@ -453,6 +453,36 @@ p.statement {
                     max-width: none;
                 }
             }
+
+            // 801-960: the desktop two-column stories and three-column trust band
+            // squeeze text and photos into slivers; one story per row and the
+            // trust photos paired under the copy keep both readable.
+            @media (min-width: $bp-tablet-min) {
+                .story-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .trust-grid {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 0 24px;
+                    padding-block: var(--space-lg);
+
+                    .trust-text {
+                        grid-column: 1 / -1;
+                        grid-row: 1;
+                        margin-bottom: var(--space-md);
+                    }
+
+                    img {
+                        height: 280px;
+                    }
+
+                    .photo-frame:first-child img,
+                    .photo-frame:last-child img {
+                        mask-image: linear-gradient(to top, transparent 0%, #000 35%);
+                    }
+                }
+            }
         }
     }
 
@@ -776,6 +806,49 @@ p.statement {
                 .photo-frame {
                     img {
                         mask-image: linear-gradient(to left, transparent 0%, #ffffff 10%, #ffffff 95%, transparent 100%);
+                    }
+                }
+            }
+
+            // Crossfade: the three images share one grid cell. Each one fades in
+            // over 1s on top of the previous one (4s per image, 12s cycle); the
+            // -1s start shows the first image at once.
+            .cta-fade {
+                display: grid;
+
+                img {
+                    grid-area: 1 / 1;
+                    width: 100%;
+                    height: auto;
+                    aspect-ratio: 1672 / 941;
+                    object-fit: cover;
+                    opacity: 0;
+                    animation: cta-fade 12s linear infinite;
+
+                    &:nth-child(1) {
+                        animation-delay: -1s;
+                    }
+
+                    &:nth-child(2) {
+                        animation-delay: 3s;
+                    }
+
+                    &:nth-child(3) {
+                        animation-delay: 7s;
+                    }
+                }
+
+                &:hover img {
+                    animation-play-state: paused;
+                }
+
+                @media (prefers-reduced-motion: reduce) {
+                    img {
+                        animation: none;
+                    }
+
+                    img:first-child {
+                        opacity: 1;
                     }
                 }
             }
@@ -1107,7 +1180,8 @@ p.statement {
                 .info-card-media {
                     flex: none;
                     width: 100%;
-                    height: 180px;
+                    height: auto;
+                    aspect-ratio: 16 / 9;
                     mask-image: linear-gradient(to bottom, #000 90%, transparent);
                 }
 
@@ -1123,6 +1197,12 @@ p.statement {
 
             .benefits-section .info-card--media .info-card-body {
                 min-width: 0;
+            }
+
+            @media (min-width: $bp-tablet-min) {
+                .benefits-section .benefits-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
             }
 
             @include tablet {
@@ -1794,6 +1874,19 @@ p.statement {
         }
 
         @include mobile-only {
+            .hero {
+                padding-bottom: var(--space-lg);
+                background-image: none;
+
+                &::before {
+                    display: none;
+                }
+
+                .photo-frame-img {
+                    visibility: visible;
+                }
+            }
+
             .sectors-list {
                 gap: var(--space-md);
             }
@@ -2066,6 +2159,19 @@ p.statement {
         }
 
         @include mobile-only {
+            .hero {
+                padding-bottom: var(--space-lg);
+                background-image: none;
+
+                &::before {
+                    display: none;
+                }
+
+                .photo-frame-img {
+                    visibility: visible;
+                }
+            }
+
             .contact-form {
                 padding: var(--space-md);
             }
@@ -2088,6 +2194,18 @@ p.statement {
             .contact-context-grid .info-card {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            @media (max-width: $bp-mobile-max) {
+                .contact-context-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 12px;
+                }
+
+                .contact-context-grid .info-card {
+                    gap: 10px;
+                    padding: 16px 10px;
+                }
             }
         }
 
@@ -2219,4 +2337,16 @@ p.statement {
             }
         }
     }
+}
+
+// Fade in on top (z-index 2), drop below once settled, and only vanish after
+// the next image has fully covered it: the frame never dips into transparency.
+@keyframes cta-fade {
+    0% { opacity: 0; z-index: 2; }
+    8.333% { opacity: 1; z-index: 2; }
+    20% { z-index: 2; }
+    20.001% { z-index: 1; }
+    41.667% { opacity: 1; z-index: 1; }
+    41.668% { opacity: 0; }
+    100% { opacity: 0; z-index: 1; }
 }
