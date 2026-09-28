@@ -123,6 +123,68 @@ p.statement {
 }
 
 .page {
+    // Shared by Clientes and Contacto step cards.
+    .experience-steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: $bp-mobile-max) {
+            grid-template-columns: 1fr;
+            max-width: 560px;
+            margin-inline: auto;
+        }
+
+        // Step images are 16:9 compositions with UI details at the edges:
+        // matching the frame to that ratio keeps them whole.
+        .info-card--media {
+            flex-direction: column;
+            min-height: 0;
+            padding: 0;
+            gap: 0;
+            align-items: stretch;
+
+            &::before {
+                display: none;
+            }
+        }
+
+        .info-card-media {
+            flex: none;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1672 / 941;
+            object-fit: cover;
+            mask-image: none;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .info-card-body {
+            min-width: 0;
+            padding: 18px 22px 22px;
+        }
+
+        .info-card h2 {
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-blue);
+        }
+
+        .info-card p {
+            font-size: 17px;
+            line-height: 1.45;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-wrap: pretty;
+        }
+    }
+
     &.page-home {
         .hero {
             position: relative;
@@ -1148,67 +1210,6 @@ p.statement {
             }
         }
 
-        .experience-steps-grid {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-
-            @include tablet {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            @media (max-width: $bp-mobile-max) {
-                grid-template-columns: 1fr;
-                max-width: 560px;
-                margin-inline: auto;
-            }
-
-            // Step images are 16:9 compositions with UI details at the edges:
-            // matching the frame to that ratio keeps them whole.
-            .info-card--media {
-                flex-direction: column;
-                min-height: 0;
-                padding: 0;
-                gap: 0;
-                align-items: stretch;
-
-                &::before {
-                    display: none;
-                }
-            }
-
-            .info-card-media {
-                flex: none;
-                width: 100%;
-                height: auto;
-                aspect-ratio: 1672 / 941;
-                object-fit: cover;
-                mask-image: none;
-                border-bottom: 1px solid var(--card-border);
-            }
-
-            .info-card-body {
-                min-width: 0;
-                padding: 18px 22px 22px;
-            }
-
-            .info-card h2 {
-                margin-bottom: 6px;
-                font-size: 13px;
-                font-weight: 700;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                color: var(--color-blue);
-            }
-
-            .info-card p {
-                font-size: 17px;
-                line-height: 1.45;
-                font-weight: 500;
-                color: var(--text-primary);
-                text-wrap: pretty;
-            }
-        }
-
         .text-content {
             h2 {
                 margin-bottom: 16px;
@@ -1868,12 +1869,26 @@ p.statement {
     }
 
     &.page-contacto {
-        .step-number {
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--color-blue);
-        }
 
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(90deg,
+                    rgb(var(--color-mist) / 0.86) 0%,
+                    rgb(var(--color-mist) / 0.78) 34%,
+                    rgb(var(--color-mist) / 0.4) 44%,
+                    rgb(var(--color-mist) / 0) 56%),
+                url(/images/hero-contacto.png) no-repeat left center / cover;
+            @include hero-decor-layers;
+
+            &::before {
+                background: none;
+                filter: none;
+                backdrop-filter: blur(6px);
+                mask-image: linear-gradient(90deg, #000 34%, transparent 50%);
+            }
+        }
         .text-copy {
             font-size: 1rem;
         }
@@ -1892,18 +1907,6 @@ p.statement {
 
         .contact-context-grid .info-card .round-icon {
             margin: 0;
-        }
-
-        .contact-steps-grid .info-card {
-            min-height: auto;
-            padding: var(--space-md);
-            align-items: flex-start;
-
-            .round-icon {
-                width: 52px;
-                height: 52px;
-                margin: 0;
-            }
         }
 
         .contact-form-section {

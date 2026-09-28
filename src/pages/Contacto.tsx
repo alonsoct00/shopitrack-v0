@@ -228,6 +228,7 @@ export function Contacto() {
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
+                  className="photo-frame-img visible md:invisible"
                 />
               </div>
             </div>
@@ -272,14 +273,14 @@ export function Contacto() {
                 title="¿Qué ocurrirá cuando nos contactes?"
                 centered
               />
-              <div className="change-grid contact-steps-grid">
-                {contactSteps.map(([label, text], index) => (
+              <div className="change-grid experience-steps-grid">
+                {contactSteps.map((step) => (
                   <InfoCard
-                    key={label}
-                    icon={<span className="step-number">{index + 1}</span>}
-                    title={label}
+                    key={step.label}
+                    image={step.image}
+                    title={step.label}
                   >
-                    {text}
+                    {step.text}
                   </InfoCard>
                 ))}
               </div>
