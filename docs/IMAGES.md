@@ -23,36 +23,32 @@ Todas las imágenes son fotografías de Pexels (licencia libre) seleccionadas pa
 
 ## Página Empresa
 
-Reutiliza imágenes ya existentes en `public/images` (sin descargar nuevas):
+Imágenes propias en `public/images`, convertidas de PNG/JPG a WebP (`cwebp -q 80 -m 6`, dimensiones originales). Rutas en `src/data/empresas.ts` y `src/styles/custom.scss`.
 
-| Ubicación | Archivo | Finalidad |
+| Ubicación | Archivo | Alt / uso |
 | ----------- | ------- | ----------- |
-| Hero | `/images/shopi-atencion-cliente.webp` | Repartidor entregando a clienta (reutilizada de Home) |
-| La última impresión | `/images/entrega-feliz.webp` | Cliente recibiendo su pedido (reutilizada de Home) |
-| CTA final | `/images/shopi-atencion-cliente.webp` | Misma foto del hero, reutilizada para cerrar el ciclo |
-| Costo de una entrega fallida (monetario) | `/images/entrega-fallida-a.jpg` | Repartidor revisando en su tablet una entrega fallida |
-| Costo de una entrega fallida (invisible) | `/images/entrega-fallida-b.jpg` | Clienta frustrada esperando su pedido |
+| Hero | `/images/hero-empresa-reverse.webp` (+ `-800.webp` para `srcSet`) | Cliente sonriendo mientras abre un paquete en casa. Fondo CSS en desktop, `<img>` en mobile |
+| Costo monetario | `/images/entrega-fallida-operadores.webp` | Dos operadores de reparto esperando dentro de su unidad |
+| Costo invisible | `/images/entrega-fallida-cliente.webp` | Clienta preocupada revisando su celular mientras espera su pedido |
+| La última impresión | `/images/ultima-impresion.webp` | Fondo CSS decorativo |
+| Integración natural | `/images/shopitrack-demo-false.webp` | Persona usando Shopitrack en su laptop junto a sus sistemas ERP, WMS y TMS |
+| Integración natural | `/images/comunicacion-shopi-pasos.webp` | Empresa, operador y cliente conectados durante la coordinación de una entrega |
+| CTA final | `/images/evaluacion-100.webp` | Cliente calificando con cinco estrellas su experiencia de compra |
 
 ### Beneficios (`orgBenefits`)
 
-Imágenes demo reutilizadas de `public/images` (se repiten en otras secciones; reemplazar por definitivas en `src/data/empresas.ts`):
+| Card | Archivo |
+| ---- | ------- |
+| Dirección | `/images/empresa-direccion.webp` |
+| Logística | `/images/empresa-logistics.webp` |
+| Transporte | `/images/empresa-transporte.webp` |
+| eCommerce | `/images/empresa-ecommerce.webp` |
+| Servicio al Cliente | `/images/empresa-atencion-cliente.webp` |
+| Marketing | `/images/empresa-marketing.webp` |
 
-| Card | Archivo | Alt |
-| ---- | ------- | --- |
-| Dirección | `/images/pc-shopi.webp` | Panel de Shopitrack en laptop y celular |
-| Logística | `/images/logistics-issues.webp` | Paquetes en un centro de distribución |
-| Transporte | `/images/carretera-lastmile.webp` | Camiones de reparto circulando por una autopista |
-| eCommerce | `/images/entrega-feliz.webp` | Repartidor entregando un paquete a una clienta sonriente |
-| Servicio al Cliente | `/images/shopi-atencion-cliente-800.webp` | Agente de Shopitrack atendiendo clientes con diadema |
-| Marketing | `/images/atencion-confianza.webp` | Agente sonriendo durante una llamada con un cliente |
-
-Se recomiendan imágenes horizontales: la card las recorta al 40% del ancho con `object-fit: cover`.
+Los `alt` viven junto a cada imagen en `src/data/empresas.ts`. En desktop la card las recorta al 40% del ancho con `object-fit: cover`; en mobile ocupan el ancho completo con 180px de alto.
 
 ### Placeholders de assets faltantes
-
-| Ubicación | Placeholder | Reemplazar en |
-| --------- | ----------- | ------------- |
-| "Integración natural" (abajo) | `div.usecase-card-media.cost-media` | `src/pages/Empresas.tsx` |
 
 `public/images/placeholder-asset.svg` es un SVG propio (fondo `--surface`, borde punteado `--line`, texto "ASSET FALTANTE" en `--text-muted`) para usar en cualquier `<img>` pendiente.
 
@@ -60,25 +56,32 @@ Se recomiendan imágenes horizontales: la card las recorta al 40% del ancho con 
 
 ## Página Sectores
 
-Reutiliza imágenes ya existentes en `public/images`:
+Rutas en `src/data/sectores.ts` (`sectoresImages` y `image` de cada sector). WebP generados con `cwebp -q 80 -m 6`.
 
-| Ubicación | Archivo | Finalidad |
-| ----------- | ------- | ----------- |
-| Hero | `/images/hero-img.webp` | Repartidor entregando (genérico, reutilizada de Home) |
-| El problema común | `/images/logistics-issues.webp` | Empresa gestionando una entrega (reutilizada de Home) |
-| CTA final | `/images/entrega-feliz.webp` | Cliente recibiendo su pedido (reutilizada de Home) |
+| Ubicación | Archivo |
+| ----------- | ------- |
+| Hero | `/images/hero-sectores.png` (+ `hero-sectores-800.webp` en `srcSet`) |
+| El problema común | `/images/sectores-bottom-hero-img.png` |
+| CTA final | `/images/entrega-feliz.webp` |
+| 03 Departamentales y Autoservicio | `/images/sector-departamentales-autoservicio.webp` |
+| 04 Muebles y decoración | `/images/sector-muebles-y-decoracion.webp` |
+| 05 Electrodomésticos y línea blanca | `/images/sector-electrodomesticos-linea-blanca.webp` |
+| 06 Hogar | `/images/sector-de-servicios-hogar.webp` |
+| 07 Servicios de tecnología | `/images/sector-de-atencion-telefonia-internet.webp` |
+| 08 Salud y bienestar | `/images/sector-de-salud-bienestar.webp` |
 
-**ASSET FALTANTE — 6 secciones de sector:** Retail, Muebles y decoración, Electrodomésticos y línea blanca, Hogar (construcción/mudanzas), Tecnología, Salud y bienestar no tienen foto específica; el proyecto no cuenta con fotos de mueble/electrodoméstico/obra/salud, y no hay herramienta de búsqueda de imágenes disponible en esta sesión. Se dejó un placeholder visible ("ASSET FALTANTE") en cada `.photo-frame` de sector, consistente con la decisión ya tomada para la página Empresa. Reemplazar en `src/data/sectores.ts` no aplica (las imágenes son placeholders fijos en `Sectores.tsx`, no datos) — sustituir directamente el `<div className="usecase-card-media">` por un `<img>` una vez elegidas las 7 fotos (una por sector, en el orden: Retail, Muebles, Electrodomésticos, Hogar, Tecnología, Salud).
+Las imágenes de sector son 16:9 con el sujeto al centro: en desktop se recortan a la columna izquierda de la card, en tablet a 21:9 y en mobile se ven en 16:9.
 
 ## Página Cliente
 
-Reutiliza imagen ya existente en `public/images`:
+Imágenes propias en `public/images`; rutas en `src/data/clientes.ts` (`clientesImages`, `clientSteps`, `appScreens`). Los WebP se generaron con `cwebp -q 80 -m 6`.
 
-| Ubicación | Archivo | Finalidad |
+| Ubicación | Archivo | Notas |
 | ----------- | ------- | ----------- |
-| Hero | `/images/cliente-preocupado.webp` | Persona esperando una entrega en casa (reutilizada de Home) |
-
-**ASSET FALTANTE — 3 secciones:** "Lo que implica esperar" (persona utilizando su tiempo mientras espera), "La aplicación" (pantallas reales de la app) y el CTA final "Descarga la aplicación" (mockup real de la app) no tienen foto/mockup específico; el proyecto no cuenta con capturas de la app (aún no existe) ni con una foto de "persona productiva esperando en casa" distinta a la ya usada en el hero. Se dejaron placeholders visibles ("ASSET FALTANTE") en cada `.photo-frame`, mismo patrón usado en Empresa y Sectores.
+| Hero | `/images/hero-clientes.jpg` (+ `hero-clientes-800.webp` en `srcSet`) | Fondo CSS en desktop, `<img>` en mobile |
+| Así funciona (6 pasos) | `/images/clientes-paso-1..6.png` | 16:9; el marco de la card usa la misma proporción para no recortar |
+| La aplicación (slider) | `/images/app-clientes-notificacion.webp`, `-status-pedido.webp`, `-reminder-pedido.webp`, `-status-cambio.webp` | 16:9; el viewport del slider usa la misma proporción |
+| CTA final | `/images/footer-clientes-shopitrack.webp` | Antes/después de la misma clienta |
 
 **Aviso de Privacidad:** la ruta `/aviso-de-privacidad` ya existe (enlazada desde el Footer). La mención en el FAQ de Clientes y el checkbox de Contacto siguen como texto sin enlace. La sección 09 completa se omitió por decisión explícita (el PDF la marca con una X roja, indicando descarte del revisor); la mención en el FAQ se dejó como texto plano sin enlace, sin inventar la ruta.
 

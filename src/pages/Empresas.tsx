@@ -98,9 +98,9 @@ export function Empresas() {
                   src={empresasImages.hero}
                   srcSet={empresasImages.heroSrcSet}
                   sizes="(max-width: 800px) 100vw, 50vw"
-                  alt="Repartidor entregando un paquete a una clienta sonriente"
-                  width={1400}
-                  height={782}
+                  alt="Cliente sonriendo mientras abre un paquete en casa"
+                  width={1670}
+                  height={942}
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
@@ -162,7 +162,10 @@ export function Empresas() {
                       className="cost-row-media"
                       src={card.image.src}
                       alt={card.image.alt}
+                      width={1050}
+                      height={590}
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 ))}
@@ -331,17 +334,13 @@ export function Empresas() {
                   <h3>El objetivo es potenciar.</h3>
                 </div>
               </div>
-              <div
-                className="cost-media"
-                role="img"
-                aria-label="Imagen pendiente: costo de una entrega fallida"
-              >
+              <div className="cost-media">
                 <div className="photo-frame my-2">
                   <ImageWithFallback
                     src={empresasImages.integration}
-                    width={1024}
-                    height={559}
-                    alt="Cliente y repartidor coordinando la entrega de un paquete"
+                    width={1536}
+                    height={1024}
+                    alt="Persona usando Shopitrack en su laptop junto a sus sistemas ERP, WMS y TMS"
                     loading="lazy"
                     className="photo-frame-img"
                   />
@@ -350,9 +349,9 @@ export function Empresas() {
                 <div className="photo-frame my-2">
                   <ImageWithFallback
                     src={empresasImages.integration2}
-                    width={1024}
-                    height={559}
-                    alt="Cliente y repartidor coordinando la entrega de un paquete"
+                    width={1672}
+                    height={940}
+                    alt="Empresa, operador y cliente conectados durante la coordinación de una entrega"
                     loading="lazy"
                     className="photo-frame-img"
                   />
@@ -494,9 +493,9 @@ export function Empresas() {
               <div className="photo-frame">
                 <ImageWithFallback
                   src={empresasImages.cta}
-                  width={1024}
-                  height={559}
-                  alt="Cliente y repartidor coordinando la entrega de un paquete"
+                  width={1674}
+                  height={940}
+                  alt="Cliente calificando con cinco estrellas su experiencia de compra"
                   loading="lazy"
                   className="photo-frame-img"
                 />

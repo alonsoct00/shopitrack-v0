@@ -1,4 +1,4 @@
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { InfoCard } from "@/components/InfoCard";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Seo } from "@/components/Seo";
@@ -88,7 +88,7 @@ export function Clientes() {
 
         <ErrorBoundary name="Clientes: split-section">
           <section
-            className="split-section section wave-section-bottom"
+            className="hero-bottom split-section section wave-section-bottom"
             data-reveal
           >
             <div className="container">
@@ -108,13 +108,14 @@ export function Clientes() {
                   </h3>
                 </div>
                 <div className="photo-frame">
-                  <div
-                    className="usecase-card-media"
-                    role="img"
-                    aria-label="Imagen pendiente: persona utilizando su tiempo mientras espera una entrega"
-                  >
-                    <span>ASSET FALTANTE</span>
-                  </div>
+                  <ImageWithFallback
+                    src={clientesImages.waiting}
+                    width={1672}
+                    height={940}
+                    alt="Empresa, operador y cliente conectados durante la coordinación de una entrega"
+                    loading="lazy"
+                    className="photo-frame-img"
+                  />
                 </div>
               </div>
             </div>
@@ -150,7 +151,7 @@ export function Clientes() {
 
         <ErrorBoundary name="Clientes: steps-section">
           <section
-            className="steps-section section wave-section-bottom"
+            className="steps-section client-steps section wave-section-bottom"
             data-reveal
           >
             <div className="container">
@@ -176,40 +177,38 @@ export function Clientes() {
         </ErrorBoundary>
 
         <ErrorBoundary name="Clientes: section">
-          <section className="section" data-reveal>
+          <section className="before-after-section section" data-reveal>
             <div className="container">
               <SectionHeading title="Lo que cambia para ti" centered />
-              <div className="before-after-legend" aria-hidden="true">
-                <span className="before-after-legend-item">
-                  <X className="before-after-mark" /> Antes
-                </span>
-                <span className="before-after-legend-item before-after-legend-item--after">
-                  <Check className="before-after-mark" /> Ahora
-                </span>
-              </div>
-              <div className="before-after-list">
-                {beforeAfterItems.map((item) => (
-                  <div className="before-after-row" key={item.before}>
-                    <div className="before-after-item">
-                      <X className="before-after-mark" aria-hidden="true" />
-                      <p>
-                        <span className="before-after-label">Antes: </span>
-                        {item.before}
-                      </p>
-                    </div>
-                    <span className="before-after-arrow" aria-hidden="true">
-                      <ArrowRight />
-                    </span>
-                    <div className="before-after-item before-after-item--after">
-                      <Check className="before-after-mark" aria-hidden="true" />
-                      <p>
-                        <span className="before-after-label">Ahora: </span>
-                        {item.after}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <ul className="before-after-list">
+                {beforeAfterItems.map(
+                  ({ before, after, beforeIcon: BeforeIcon, afterIcon: AfterIcon }) => (
+                    <li className="before-after-row" key={before}>
+                      <div className="before-after-item">
+                        <span className="before-after-icon" aria-hidden="true">
+                          <BeforeIcon />
+                        </span>
+                        <p>
+                          <span className="before-after-label">Antes</span>
+                          {before}
+                        </p>
+                      </div>
+                      <span className="before-after-arrow" aria-hidden="true">
+                        <ArrowRight />
+                      </span>
+                      <div className="before-after-item before-after-item--after">
+                        <span className="before-after-icon" aria-hidden="true">
+                          <AfterIcon />
+                        </span>
+                        <p>
+                          <span className="before-after-label">Ahora</span>
+                          {after}
+                        </p>
+                      </div>
+                    </li>
+                  ),
+                )}
+              </ul>
             </div>
           </section>
         </ErrorBoundary>
@@ -279,9 +278,7 @@ export function Clientes() {
           >
             <div className="container contact-grid">
               <div className="text-content">
-                <h2>
-                  Recupera el control de tu día a día.
-                </h2>
+                <h2>Recupera el control de tu día a día.</h2>
                 <p>
                   La próxima vez que una tienda utilice Shopitrack, tendrás una
                   forma mucho más sencilla de coordinar el momento de recibir tu
@@ -294,13 +291,15 @@ export function Clientes() {
                 </div>
               </div>
               <div className="photo-frame">
-                <div
-                  className="usecase-card-media"
-                  role="img"
-                  aria-label="Imagen pendiente: mockup real de la aplicación"
-                >
-                  <span>ASSET FALTANTE</span>
-                </div>
+                <ImageWithFallback
+                  src={clientesImages.cta}
+                  width={1672}
+                  height={941}
+                  alt="La misma clienta antes, preocupada esperando su pedido, y después, tranquila siguiendo la entrega en su celular"
+                  loading="lazy"
+                  decoding="async"
+                  className="photo-frame-img"
+                />
               </div>
             </div>
           </section>

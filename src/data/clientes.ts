@@ -1,10 +1,24 @@
 import { AppleStoreIcon, GooglePlayIcon } from "@/components/StoreIcons";
-import type { IconItem, ImageSource } from "@/data/types";
+import {
+  CalendarCheck,
+  CalendarX,
+  CircleHelp,
+  Clock3,
+  Coffee,
+  Dices,
+  Frown,
+  Handshake,
+  Hourglass,
+  Smile,
+} from "lucide-react";
+import type { Icon, IconItem, ImageSource } from "@/data/types";
 
 export const clientesImages = {
-  hero: "/images/cliente-preocupado.webp",
+  hero: "/images/hero-clientes.jpg",
   heroSrcSet:
-    "/images/cliente-preocupado-800.webp 800w, /images/cliente-preocupado.webp 1050w",
+    "/images/hero-clientes-800.webp 800w, /images/hero-clientes.jpg 1672w",
+  waiting: "/images/cliente-implica-esperar.png",
+  cta: "/images/footer-clientes-shopitrack.webp",
 };
 
 export const heroQuotes = [
@@ -24,9 +38,8 @@ export const waitingCostItems = [
   "Quitarle tiempo a la familia.",
 ];
 
-const stepPlaceholder = "/images/placeholder-asset.svg";
+//const stepPlaceholder = "/images/placeholder-asset.svg";
 
-// Imágenes pendientes: reemplazar cada src por el asset final del paso.
 export const clientSteps: {
   label: string;
   text: string;
@@ -36,45 +49,48 @@ export const clientSteps: {
     label: "Paso 1",
     text: "La tienda propone una fecha.",
     image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: la tienda propone una fecha",
+      src: "/images/clientes-paso-1.png",
+      alt: "la tienda propone una fecha",
     },
   },
   {
     label: "Paso 2",
     text: "Tú la aceptas o pides otra.",
     image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: aceptas la fecha o pides otra",
+      src: "/images/clientes-paso-2.png",
+      alt: "aceptas la fecha o pides otra",
     },
   },
   {
     label: "Paso 3",
     text: "El día acordado, recibes un recordatorio de “Hoy es el día”.",
     image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: recordatorio del día de entrega",
+      src: "/images/clientes-paso-3.png",
+      alt: "recordatorio del día de entrega",
     },
   },
   {
     label: "Paso 4",
     text: "Te avisan 2 horas antes la hora aproximada de llegada para asegurarte de estar en el domicilio de entrega.",
     image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: aviso de la hora aproximada de llegada",
+      src: "/images/clientes-paso-4.png",
+      alt: "aviso de la hora aproximada de llegada",
     },
   },
   {
     label: "Paso 5",
     text: "Recibes tu compra.",
-    image: { src: stepPlaceholder, alt: "Imagen pendiente: recibes tu compra" },
+    image: {
+      src: "/images/clientes-paso-5.png",
+      alt: "recibes tu compra",
+    },
   },
   {
     label: "Paso 6",
     text: "Calificas la experiencia. Ganas y acumulas puntos canjeables.",
     image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: calificas la experiencia",
+      src: "/images/clientes-paso-6.png",
+      alt: "calificas la experiencia",
     },
   },
 ];
@@ -82,23 +98,41 @@ export const clientSteps: {
 export const stepsFootnote =
   "*3, 4, 5, Nadie puede asegurar que no habrá imprevistos, pero avisarte si sucede es respetar tu tiempo.";
 
-export const beforeAfterItems = [
-  { before: "Esperabas.", after: "Te organizas." },
+export const beforeAfterItems: {
+  before: string;
+  after: string;
+  beforeIcon: Icon;
+  afterIcon: Icon;
+}[] = [
+  {
+    before: "Esperabas.",
+    after: "Te organizas.",
+    beforeIcon: Hourglass,
+    afterIcon: CalendarCheck,
+  },
   {
     before: "No sabías cuándo llegaría.",
     after: "Conoces una hora aproximada.",
+    beforeIcon: CircleHelp,
+    afterIcon: Clock3,
   },
   {
     before: "Cancelabas actividades.",
     after: "Decides cómo aprovechar tu tiempo.",
+    beforeIcon: CalendarX,
+    afterIcon: Coffee,
   },
   {
     before: "Todo dependía de la suerte.",
     after: "La entrega ocurre con mayor coordinación.",
+    beforeIcon: Dices,
+    afterIcon: Handshake,
   },
   {
     before: "Terminabas frustrado.",
     after: "La compra termina con tranquilidad.",
+    beforeIcon: Frown,
+    afterIcon: Smile,
   },
 ];
 
@@ -110,13 +144,24 @@ export const appFeatureItems = [
   "Te informa y actualiza de algún imprevisto o cambio.",
 ];
 
-// Pantallas de la app pendientes: reemplazar cada src por la captura real.
-const appScreenPlaceholder = "/images/placeholder-asset.svg";
-
-export const appScreens: ImageSource[] = appFeatureItems.map((feature) => ({
-  src: appScreenPlaceholder,
-  alt: `Imagen pendiente: pantalla de la app — ${feature}`,
-}));
+export const appScreens: ImageSource[] = [
+  {
+    src: "/images/app-clientes-notificacion.webp",
+    alt: "Clienta recibiendo en su celular una notificación de su pedido",
+  },
+  {
+    src: "/images/app-clientes-status-pedido.webp",
+    alt: "La app muestra el avance del pedido en camino hacia su domicilio",
+  },
+  {
+    src: "/images/app-clientes-reminder-pedido.webp",
+    alt: "Recordatorio de entrega con horario estimado de 14:00 a 16:00",
+  },
+  {
+    src: "/images/app-clientes-status-cambio.webp",
+    alt: "Aviso de retraso por congestión vial con la nueva hora estimada de entrega",
+  },
+];
 
 // URLs de descarga pendientes: mientras estén vacías los botones se muestran deshabilitados.
 const appStoreUrl = "";

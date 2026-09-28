@@ -1,24 +1,44 @@
 import {
+  Armchair,
+  Baby,
+  BedDouble,
+  BookOpen,
+  CarFront,
   Cpu,
+  Dumbbell,
+  Flower2,
+  Gem,
   HeartPulse,
+  Laptop,
+  NotebookPen,
+  PawPrint,
+  Shirt,
   Sofa,
+  Sprout,
   Store,
   WashingMachine,
+  Wine,
   Wrench,
 } from "lucide-react";
-import type { Icon } from "@/data/types";
+import {
+  LipstickIcon,
+  TeddyBearIcon,
+} from "@/components/SectorIcons";
+import type { Icon, IconItem, ImageSource } from "@/data/types";
 
 export const sectoresImages = {
-  hero: "/images/hero-img.webp",
-  heroSrcSet: "/images/hero-img-800.webp 800w, /images/hero-img.webp 1400w",
-  commonProblem: "/images/logistics-issues.webp",
-  cta: "/images/entrega-feliz.webp",
+  hero: "/images/hero-sectores.png",
+  heroSrcSet:
+    "/images/hero-sectores-800.webp 800w, /images/hero-sectores.png 1672w",
+  commonProblem: "/images/sectores-bottom-hero-img.png",
+  cta: "/images/footer-sectores-img.webp",
 };
 
 export interface SectorEntry {
   number: string;
   name: string;
   icon: Icon;
+  image: ImageSource;
   challenge: string[];
   today: string[];
   change: string[];
@@ -28,6 +48,10 @@ export const sectors: SectorEntry[] = [
   {
     number: "03",
     name: "Departamentales y Autoservicio",
+    image: {
+      src: "/images/sector-departamentales-autoservicio.webp",
+      alt: "Carrito de supermercado lleno en una tienda departamental con ropa y electrónica",
+    },
     icon: Store,
     challenge: [
       "Miles de entregas diarias.",
@@ -50,6 +74,10 @@ export const sectors: SectorEntry[] = [
   {
     number: "04",
     name: "Muebles y decoración",
+    image: {
+      src: "/images/sector-muebles-y-decoracion.webp",
+      alt: "Sala recién amueblada con cajas de entrega junto al sofá",
+    },
     icon: Sofa,
     challenge: [
       "Los productos ocupan espacio",
@@ -73,6 +101,10 @@ export const sectors: SectorEntry[] = [
   {
     number: "05",
     name: "Electrodomésticos y línea blanca",
+    image: {
+      src: "/images/sector-electrodomesticos-linea-blanca.webp",
+      alt: "Cocina y sala con refrigerador, estufa, lavadora y pantalla recién instalados",
+    },
     icon: WashingMachine,
     challenge: [
       "Una lavadora, un refrigerador, una secadora, un centro de lavado.",
@@ -93,6 +125,10 @@ export const sectors: SectorEntry[] = [
   {
     number: "06",
     name: "Hogar (reparaciones, construcción, mudanzas)",
+    image: {
+      src: "/images/sector-de-servicios-hogar.webp",
+      alt: "Herramientas, escalera y cajas de mudanza en una casa en reparación",
+    },
     icon: Wrench,
     challenge: [
       "Materiales y equipos pesados, voluminosos y costosos de transportar.",
@@ -113,6 +149,10 @@ export const sectors: SectorEntry[] = [
   {
     number: "07",
     name: "Servicios de tecnología (Internet, telefonía)",
+    image: {
+      src: "/images/sector-de-atencion-telefonia-internet.webp",
+      alt: "Router, cableado y teléfono listos para una instalación de internet en casa",
+    },
     icon: Cpu,
     challenge: [
       "Productos de alto valor.",
@@ -133,6 +173,10 @@ export const sectors: SectorEntry[] = [
   {
     number: "08",
     name: "Salud y bienestar",
+    image: {
+      src: "/images/sector-de-salud-bienestar.webp",
+      alt: "Botiquín, estetoscopio y medicamentos con una ambulancia al fondo",
+    },
     icon: HeartPulse,
     challenge: [
       "Medicamentos, equipos médicos, suplementos especializados y artículos para recuperación.",
@@ -152,21 +196,21 @@ export const sectors: SectorEntry[] = [
   },
 ];
 
-export const otherSectors = [
-  "Artículos deportivos",
-  "Artículos para bebé",
-  "Colchones y blancos",
-  "Cosméticos",
-  "Equipos de electrónica de alto valor",
-  "Flores y regalos",
-  "Jardinería y exteriores",
-  "Joyería y relojería",
-  "Juguetes",
-  "Libros y entretenimiento",
-  "Mascotas",
-  "Moda",
-  "Muebles y artículos para oficina",
-  "Papelería",
-  "Refacciones automotrices",
-  "Vinos y licores",
+export const otherSectors: IconItem[] = [
+  { text: "Artículos deportivos", icon: Dumbbell },
+  { text: "Artículos para bebé", icon: Baby },
+  { text: "Colchones y blancos", icon: BedDouble },
+  { text: "Cosméticos", icon: LipstickIcon },
+  { text: "Equipos de electrónica de alto valor", icon: Laptop },
+  { text: "Flores y regalos", icon: Flower2 },
+  { text: "Jardinería y exteriores", icon: Sprout },
+  { text: "Joyería y relojería", icon: Gem },
+  { text: "Juguetes", icon: TeddyBearIcon },
+  { text: "Libros y entretenimiento", icon: BookOpen },
+  { text: "Mascotas", icon: PawPrint },
+  { text: "Moda", icon: Shirt },
+  { text: "Muebles y artículos para oficina", icon: Armchair },
+  { text: "Papelería", icon: NotebookPen },
+  { text: "Refacciones automotrices", icon: CarFront },
+  { text: "Vinos y licores", icon: Wine },
 ];

@@ -84,6 +84,7 @@ export function Sectores() {
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
+                  className="photo-frame-img visible md:invisible"
                 />
               </div>
             </div>
@@ -155,13 +156,15 @@ export function Sectores() {
                       aria-labelledby={titleId}
                       data-reveal
                     >
-                      <div
-                        className="usecase-card-media sector-card-media"
-                        role="img"
-                        aria-label={`Imagen pendiente: ${sector.name}`}
-                      >
-                        <span>ASSET FALTANTE</span>
-                      </div>
+                      <ImageWithFallback
+                        className="sector-card-media"
+                        src={sector.image.src}
+                        alt={sector.image.alt}
+                        width={1672}
+                        height={941}
+                        loading="lazy"
+                        decoding="async"
+                      />
                       <div className="sector-card-body">
                         <header className="sector-card-header">
                           <div
@@ -215,10 +218,13 @@ export function Sectores() {
                   La naturaleza del producto puede cambiar. <br />
                   El principio permanece.
                 </h3>
-                <ul className="industry-list other-sectors-list">
-                  {otherSectors.map((item) => (
-                    <li key={item}>
-                      <RichText text={item} />
+                <ul className="other-sectors-list">
+                  {otherSectors.map(({ text, icon: ItemIcon }) => (
+                    <li key={text}>
+                      <span className="round-icon" aria-hidden="true">
+                        <ItemIcon />
+                      </span>
+                      <RichText text={text} />
                     </li>
                   ))}
                 </ul>
@@ -258,9 +264,9 @@ export function Sectores() {
               <div className="photo-frame">
                 <ImageWithFallback
                   src={sectoresImages.cta}
-                  width={900}
-                  height={508}
-                  alt="Cliente recibiendo su pedido con una sonrisa"
+                  width={1672}
+                  height={941}
+                  alt="Dos profesionales cierran un acuerdo frente a una camioneta de reparto, con distintos sectores conectados"
                   loading="lazy"
                   className="photo-frame-img"
                 />

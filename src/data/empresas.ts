@@ -29,13 +29,13 @@ import type { Icon, IconItem, ImageSource, StepItem } from "@/data/types";
 import { steps } from "@/data/home";
 
 export const empresasImages = {
-  hero: "/images/hero-empresa-reverse.png",
+  hero: "/images/hero-empresa-reverse.webp",
   heroSrcSet:
-    "/images/hero-empresa-reverse.png 800w, /images/hero-empresa-reverse.png 1024w",
-  lastImpression: "/images/ultima-impresion.jpg",
-  cta: "/images/evaluacion-100.png",
-  integration: "/images/shopitrack-demo-false.png",
-  integration2: "/images/comunicacion-shopi-pasos.png",
+    "/images/hero-empresa-reverse-800.webp 800w, /images/hero-empresa-reverse.webp 1670w",
+  lastImpression: "/images/ultima-impresion.webp",
+  cta: "/images/evaluacion-100.webp",
+  integration: "/images/shopitrack-demo-false.webp",
+  integration2: "/images/comunicacion-shopi-pasos.webp",
 };
 
 export const costCards: {
@@ -46,8 +46,8 @@ export const costCards: {
   {
     title: "Una entrega fallida tiene costos monetarios.",
     image: {
-      src: "/images/entrega-fallida-operadores.png",
-      alt: "Repartidor revisando en su tablet una entrega que no pudo completar",
+      src: "/images/entrega-fallida-operadores.webp",
+      alt: "Dos operadores de reparto esperando dentro de su unidad",
     },
     items: [
       { text: "Combustible.", icon: Fuel },
@@ -61,8 +61,8 @@ export const costCards: {
   {
     title: "Pero también tiene costos invisibles.",
     image: {
-      src: "/images/entrega-fallida-cliente.png",
-      alt: "Clienta frustrada mirando el reloj mientras espera su pedido",
+      src: "/images/entrega-fallida-cliente.webp",
+      alt: "Clienta preocupada revisando su celular mientras espera su pedido",
     },
     items: [
       { text: "Frustración.", icon: Frown },
@@ -107,8 +107,8 @@ export const orgBenefits: {
     title: "Dirección",
     icon: Building2,
     image: {
-      src: "/images/empresa-direccion.png",
-      alt: "Panel de Shopitrack en laptop y celular",
+      src: "/images/empresa-direccion.webp",
+      alt: "Repartidor entregando un paquete a una clienta sonriente",
     },
     label: "Blinda la marca",
     description: "",
@@ -122,8 +122,8 @@ export const orgBenefits: {
     icon: Package,
     label: "Reduce fricciones operativas.",
     image: {
-      src: "/images/empresa-logistics.png",
-      alt: "Paquetes en un centro de distribución",
+      src: "/images/empresa-logistics.webp",
+      alt: "Repartidor revisando sus entregas en una tablet junto a su unidad",
     },
     description: "",
     items: [
@@ -138,8 +138,8 @@ export const orgBenefits: {
     title: "Transporte",
     icon: Truck,
     image: {
-      src: "/images/empresa-transporte.png",
-      alt: "Camiones de reparto circulando por una autopista",
+      src: "/images/empresa-transporte.webp",
+      alt: "Camioneta de reparto en ruta con entregas confirmadas en el mapa",
     },
     label: "Rutas más eficientes.",
     description: "",
@@ -154,8 +154,8 @@ export const orgBenefits: {
     title: "eCommerce",
     icon: ShoppingCart,
     image: {
-      src: "/images/empresa-ecommerce.png",
-      alt: "Repartidor entregando un paquete a una clienta sonriente",
+      src: "/images/empresa-ecommerce.webp",
+      alt: "Clienta abriendo su compra con notificaciones del seguimiento de su pedido",
     },
     label: "Una mejor experiencia end-to-end.",
     description: "",
@@ -169,8 +169,8 @@ export const orgBenefits: {
     title: "Servicio al Cliente",
     icon: Headphones,
     image: {
-      src: "/images/empresa-atencion-cliente.png",
-      alt: "Agente de Shopitrack atendiendo clientes con diadema",
+      src: "/images/empresa-atencion-cliente.webp",
+      alt: "Agente de servicio al cliente con diadema atendiendo con menos llamadas y reclamaciones",
     },
     label: "Menos contacto reactivo.",
     description: "",
@@ -184,8 +184,8 @@ export const orgBenefits: {
     title: "Marketing",
     icon: Megaphone,
     image: {
-      src: "/images/empresa-marketing.png",
-      alt: "Agente sonriendo durante una llamada con un cliente",
+      src: "/images/empresa-marketing.webp",
+      alt: "Clienta abriendo su pedido junto a reseñas de cinco estrellas",
     },
     label: "Una promesa de marca que se cumple.",
     description: "",
