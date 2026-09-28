@@ -27,10 +27,10 @@ import {
 import type { Icon, IconItem, ImageSource } from "@/data/types";
 
 export const sectoresImages = {
-  hero: "/images/hero-sectores.png",
+  hero: "/images/hero-sectores.webp",
   heroSrcSet:
-    "/images/hero-sectores-800.webp 800w, /images/hero-sectores.png 1672w",
-  commonProblem: "/images/sectores-bottom-hero-img.png",
+    "/images/hero-sectores-800.webp 800w, /images/hero-sectores.webp 1672w",
+  commonProblem: "/images/sectores-bottom-hero-img.webp",
   cta: "/images/footer-sectores-img.webp",
 };
 

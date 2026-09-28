@@ -14,10 +14,10 @@ import {
 import type { Icon, IconItem, ImageSource } from "@/data/types";
 
 export const clientesImages = {
-  hero: "/images/hero-clientes.jpg",
+  hero: "/images/hero-clientes.webp",
   heroSrcSet:
-    "/images/hero-clientes-800.webp 800w, /images/hero-clientes.jpg 1672w",
-  waiting: "/images/cliente-implica-esperar.png",
+    "/images/hero-clientes-800.webp 800w, /images/hero-clientes.webp 1672w",
+  waiting: "/images/cliente-implica-esperar.webp",
   cta: "/images/footer-clientes-shopitrack.webp",
 };
 
@@ -49,7 +49,7 @@ export const clientSteps: {
     label: "Paso 1",
     text: "La tienda propone una fecha.",
     image: {
-      src: "/images/clientes-paso-1.png",
+      src: "/images/clientes-paso-1.webp",
       alt: "la tienda propone una fecha",
     },
   },
@@ -57,7 +57,7 @@ export const clientSteps: {
     label: "Paso 2",
     text: "Tú la aceptas o pides otra.",
     image: {
-      src: "/images/clientes-paso-2.png",
+      src: "/images/clientes-paso-2.webp",
       alt: "aceptas la fecha o pides otra",
     },
   },
@@ -65,7 +65,7 @@ export const clientSteps: {
     label: "Paso 3",
     text: "El día acordado, recibes un recordatorio de “Hoy es el día”.",
     image: {
-      src: "/images/clientes-paso-3.png",
+      src: "/images/clientes-paso-3.webp",
       alt: "recordatorio del día de entrega",
     },
   },
@@ -73,7 +73,7 @@ export const clientSteps: {
     label: "Paso 4",
     text: "Te avisan 2 horas antes la hora aproximada de llegada para asegurarte de estar en el domicilio de entrega.",
     image: {
-      src: "/images/clientes-paso-4.png",
+      src: "/images/clientes-paso-4.webp",
       alt: "aviso de la hora aproximada de llegada",
     },
   },
@@ -81,7 +81,7 @@ export const clientSteps: {
     label: "Paso 5",
     text: "Recibes tu compra.",
     image: {
-      src: "/images/clientes-paso-5.png",
+      src: "/images/clientes-paso-5.webp",
       alt: "recibes tu compra",
     },
   },
@@ -89,7 +89,7 @@ export const clientSteps: {
     label: "Paso 6",
     text: "Calificas la experiencia. Ganas y acumulas puntos canjeables.",
     image: {
-      src: "/images/clientes-paso-6.png",
+      src: "/images/clientes-paso-6.webp",
       alt: "calificas la experiencia",
     },
   },

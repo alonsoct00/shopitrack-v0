@@ -6,7 +6,7 @@ export const images = {
   company: "/images/dos-historias-empresa.webp",
   customer: "/images/entrega-feliz.webp",
   customerAngry: "/images/dos-historias-cliente.webp",
-  operator: "/images/costo-invisible.jpg",
+  operator: "/images/costo-invisible.webp",
   delivery: "/images/nueva-forma-ultima-milla.webp",
   deviceMockup: "/images/pc-shopi.webp",
   calendarCard: "/images/calendario-shopi.webp",

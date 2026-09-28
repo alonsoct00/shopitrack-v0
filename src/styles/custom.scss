@@ -209,7 +209,7 @@ p.statement {
         }
 
         .cost-section {
-            background: linear-gradient(90deg, var(--surface-fade) 65%, rgb(var(--color-white) / 0.010) 68%), url(/images/costo-invisible.jpg) no-repeat right center !important;            background-size: contain !important;
+            background: linear-gradient(90deg, var(--surface-fade) 65%, rgb(var(--color-white) / 0.010) 68%), url(/images/costo-invisible.webp) no-repeat right center !important;            background-size: contain !important;
             .cost-text {
                 padding: 20px;
             }
@@ -322,7 +322,7 @@ p.statement {
 
             }
             .cost-section {
-                background: linear-gradient(90deg, var(--surface-fade) 68%, rgb(var(--color-white) / 0.01) 72%), url(/images/costo-invisible.jpg) no-repeat right center !important;            background-size: contain !important;
+                background: linear-gradient(90deg, var(--surface-fade) 68%, rgb(var(--color-white) / 0.01) 72%), url(/images/costo-invisible.webp) no-repeat right center !important;            background-size: contain !important;
                 .cost-text {
                     padding-inline: 0px;
                     padding-block: 20px;
@@ -1162,7 +1162,7 @@ p.statement {
                     rgb(var(--color-mist) / 0.78) 34%,
                     rgb(var(--color-mist) / 0.4) 44%,
                     rgb(var(--color-mist) / 0) 56%),
-                url(/images/hero-clientes.jpg) no-repeat left center / cover;
+                url(/images/hero-clientes.webp) no-repeat left center / cover;
             @include hero-decor-layers;
 
             &::before {
@@ -1542,7 +1542,7 @@ p.statement {
                     rgb(var(--color-mist) / 0.78) 34%,
                     rgb(var(--color-mist) / 0.4) 44%,
                     rgb(var(--color-mist) / 0) 56%),
-                url(/images/hero-sectores.png) no-repeat left center / cover;
+                url(/images/hero-sectores.webp) no-repeat left center / cover;
             @include hero-decor-layers;
 
             &::before {
@@ -1879,7 +1879,7 @@ p.statement {
                     rgb(var(--color-mist) / 0.78) 34%,
                     rgb(var(--color-mist) / 0.4) 44%,
                     rgb(var(--color-mist) / 0) 56%),
-                url(/images/hero-contacto.png) no-repeat left center / cover;
+                url(/images/hero-contacto.webp) no-repeat left center / cover;
             @include hero-decor-layers;
 
             &::before {

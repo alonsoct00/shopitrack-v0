@@ -2,8 +2,8 @@ import { BarChart3, Goal, MapPin, Package, Route, Target } from "lucide-react";
 import type { IconItem, ImageSource } from "@/data/types";
 
 export const contactoImages = {
-  hero: "/images/hero-contacto.png",
-  heroSrcSet: "/images/hero-contacto.png 800w, /images/hero-contacto.png 1024w",
+  hero: "/images/hero-contacto.webp",
+  heroSrcSet: "/images/hero-contacto-800.webp 800w, /images/hero-contacto.webp 1672w",
 };
 
 export const contactSteps: {

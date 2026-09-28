@@ -60,8 +60,8 @@ Rutas en `src/data/sectores.ts` (`sectoresImages` y `image` de cada sector). Web
 
 | Ubicación | Archivo |
 | ----------- | ------- |
-| Hero | `/images/hero-sectores.png` (+ `hero-sectores-800.webp` en `srcSet`) |
-| El problema común | `/images/sectores-bottom-hero-img.png` |
+| Hero | `/images/hero-sectores.webp` (+ `hero-sectores-800.webp` en `srcSet`) |
+| El problema común | `/images/sectores-bottom-hero-img.webp` |
 | CTA final | `/images/entrega-feliz.webp` |
 | 03 Departamentales y Autoservicio | `/images/sector-departamentales-autoservicio.webp` |
 | 04 Muebles y decoración | `/images/sector-muebles-y-decoracion.webp` |
@@ -78,10 +78,19 @@ Imágenes propias en `public/images`; rutas en `src/data/clientes.ts` (`clientes
 
 | Ubicación | Archivo | Notas |
 | ----------- | ------- | ----------- |
-| Hero | `/images/hero-clientes.jpg` (+ `hero-clientes-800.webp` en `srcSet`) | Fondo CSS en desktop, `<img>` en mobile |
-| Así funciona (6 pasos) | `/images/clientes-paso-1..6.png` | 16:9; el marco de la card usa la misma proporción para no recortar |
+| Hero | `/images/hero-clientes.webp` (+ `hero-clientes-800.webp` en `srcSet`) | Fondo CSS en desktop, `<img>` en mobile |
+| Así funciona (6 pasos) | `/images/clientes-paso-1..6.webp` | 16:9; el marco de la card usa la misma proporción para no recortar |
 | La aplicación (slider) | `/images/app-clientes-notificacion.webp`, `-status-pedido.webp`, `-reminder-pedido.webp`, `-status-cambio.webp` | 16:9; el viewport del slider usa la misma proporción |
 | CTA final | `/images/footer-clientes-shopitrack.webp` | Antes/después de la misma clienta |
+
+## Página Contacto
+
+Rutas en `src/data/contacto.ts` (`contactoImages`, `contactSteps`). WebP con `cwebp -q 80 -m 6`.
+
+| Ubicación | Archivo | Notas |
+| ----------- | ------- | ----------- |
+| Hero | `/images/hero-contacto.webp` (+ `hero-contacto-800.webp` en `srcSet`) | Fondo CSS en desktop, `<img>` en mobile |
+| Qué ocurrirá (6 pasos) | `/images/contacto-paso-1..6.webp` | 16:9; comparte la card de pasos de Clientes |
 
 **Aviso de Privacidad:** la ruta `/aviso-de-privacidad` ya existe (enlazada desde el Footer). La mención en el FAQ de Clientes y el checkbox de Contacto siguen como texto sin enlace. La sección 09 completa se omitió por decisión explícita (el PDF la marca con una X roja, indicando descarte del revisor); la mención en el FAQ se dejó como texto plano sin enlace, sin inventar la ruta.
 
