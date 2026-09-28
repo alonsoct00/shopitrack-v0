@@ -552,9 +552,7 @@ export function Contacto() {
           <section className="section closing-section" data-reveal>
             <div className="container closing-copy">
               {closingLines.map((line) => (
-                <p key={line}>
-                  <strong>{line}</strong>
-                </p>
+                <p key={line}>{line}</p>
               ))}
             </div>
           </section>
