@@ -17,6 +17,7 @@ import {
   ShieldCheck,
   ShoppingCart,
   Smile,
+  Star,
   ThumbsDown,
   TrendingUp,
   Truck,
@@ -24,19 +25,44 @@ import {
   UserX,
   Warehouse,
 } from "lucide-react";
-import type { Icon, IconItem, StepItem } from "@/data/types";
+import type { Icon, IconItem, ImageSource, StepItem } from "@/data/types";
+import { steps } from "@/data/home";
 
 export const empresasImages = {
-  hero: "/images/shopi-atencion-cliente.webp",
+  hero: "/images/hero-empresa-reverse.webp",
   heroSrcSet:
-    "/images/shopi-atencion-cliente-800.webp 800w, /images/shopi-atencion-cliente.webp 1024w",
-  lastImpression: "/images/entrega-feliz.webp",
-  cta: "/images/shopi-atencion-cliente.webp",
+    "/images/hero-empresa-reverse-800.webp 800w, /images/hero-empresa-reverse.webp 1670w",
+  lastImpression: "/images/ultima-impresion.webp",
+  integration: "/images/shopitrack-demo-false.webp",
+  integration2: "/images/comunicacion-shopi-pasos.webp",
 };
 
-export const costCards: { title: string; items: IconItem[] }[] = [
+export const ctaSlides: ImageSource[] = [
+  {
+    src: "/images/evaluacion-100.webp",
+    alt: "Cliente calificando con cinco estrellas su experiencia de compra",
+  },
+  {
+    src: "/images/demo-shopitrack.webp",
+    alt: "Asesora de Shopitrack muestra en una laptop el seguimiento de rutas de entrega a un cliente",
+  },
+  {
+    src: "/images/shopitrack-demo-solutions.webp",
+    alt: "Equipo revisa con una asesora de Shopitrack la ruta de entrega en una laptop",
+  },
+];
+
+export const costCards: {
+  title: string;
+  items: IconItem[];
+  image: ImageSource;
+}[] = [
   {
     title: "Una entrega fallida tiene costos monetarios.",
+    image: {
+      src: "/images/entrega-fallida-operadores.webp",
+      alt: "Dos operadores de reparto esperando dentro de su unidad",
+    },
     items: [
       { text: "Combustible.", icon: Fuel },
       { text: "Kilómetros estériles.", icon: Route },
@@ -48,6 +74,10 @@ export const costCards: { title: string; items: IconItem[] }[] = [
   },
   {
     title: "Pero también tiene costos invisibles.",
+    image: {
+      src: "/images/entrega-fallida-cliente.webp",
+      alt: "Clienta preocupada revisando su celular mientras espera su pedido",
+    },
     items: [
       { text: "Frustración.", icon: Frown },
       { text: "Desconfianza.", icon: ShieldAlert },
@@ -68,48 +98,9 @@ export const logisticItems: IconItem[] = [
   { text: "Más centros de distribución.", icon: Warehouse },
 ];
 
-const stepPlaceholder = "/images/placeholder-asset.svg";
-
 export const coordinationSteps: StepItem[] = [
-  {
-    text: "Propuesta inicial de la fecha de entrega",
-    image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: Propuesta inicial de la fecha de entrega",
-    },
-  },
-  {
-    text: "Se logra un acuerdo",
-    image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: Se logra un acuerdo",
-    },
-  },
-  {
-    text: "Confirmación del día 0",
-    image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: Confirmación del día 0",
-    },
-  },
-  {
-    text: "Avisa proximidad y ETA",
-    image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: Avisa proximidad y ETA",
-    },
-  },
-  {
-    text: "Entrega exitosa",
-    image: { src: stepPlaceholder, alt: "Imagen pendiente: Entrega exitosa" },
-  },
-  {
-    text: "Evaluación del servicio",
-    image: {
-      src: stepPlaceholder,
-      alt: "Imagen pendiente: Evaluación del servicio",
-    },
-  },
+  ...steps,
+  { text: "Evaluación del servicio", icon: Star },
 ];
 
 export const communicationActors: IconItem[] = [
@@ -130,8 +121,8 @@ export const orgBenefits: {
     title: "Dirección",
     icon: Building2,
     image: {
-      src: "/images/pc-shopi.webp",
-      alt: "Panel de Shopitrack en laptop y celular",
+      src: "/images/empresa-direccion.webp",
+      alt: "Repartidor entregando un paquete a una clienta sonriente",
     },
     label: "Blinda la marca",
     description: "",
@@ -145,8 +136,8 @@ export const orgBenefits: {
     icon: Package,
     label: "Reduce fricciones operativas.",
     image: {
-      src: "/images/logistics-issues.webp",
-      alt: "Paquetes en un centro de distribución",
+      src: "/images/empresa-logistics.webp",
+      alt: "Repartidor revisando sus entregas en una tablet junto a su unidad",
     },
     description: "",
     items: [
@@ -161,8 +152,8 @@ export const orgBenefits: {
     title: "Transporte",
     icon: Truck,
     image: {
-      src: "/images/carretera-lastmile.webp",
-      alt: "Camiones de reparto circulando por una autopista",
+      src: "/images/empresa-transporte.webp",
+      alt: "Camioneta de reparto en ruta con entregas confirmadas en el mapa",
     },
     label: "Rutas más eficientes.",
     description: "",
@@ -177,8 +168,8 @@ export const orgBenefits: {
     title: "eCommerce",
     icon: ShoppingCart,
     image: {
-      src: "/images/entrega-feliz.webp",
-      alt: "Repartidor entregando un paquete a una clienta sonriente",
+      src: "/images/empresa-ecommerce.webp",
+      alt: "Clienta abriendo su compra con notificaciones del seguimiento de su pedido",
     },
     label: "Una mejor experiencia end-to-end.",
     description: "",
@@ -192,8 +183,8 @@ export const orgBenefits: {
     title: "Servicio al Cliente",
     icon: Headphones,
     image: {
-      src: "/images/shopi-atencion-cliente-800.webp",
-      alt: "Agente de Shopitrack atendiendo clientes con diadema",
+      src: "/images/empresa-atencion-cliente.webp",
+      alt: "Agente de servicio al cliente con diadema atendiendo con menos llamadas y reclamaciones",
     },
     label: "Menos contacto reactivo.",
     description: "",
@@ -207,8 +198,8 @@ export const orgBenefits: {
     title: "Marketing",
     icon: Megaphone,
     image: {
-      src: "/images/atencion-confianza.webp",
-      alt: "Agente sonriendo durante una llamada con un cliente",
+      src: "/images/empresa-marketing.webp",
+      alt: "Clienta abriendo su pedido junto a reseñas de cinco estrellas",
     },
     label: "Una promesa de marca que se cumple.",
     description: "",

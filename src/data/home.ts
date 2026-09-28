@@ -2,14 +2,16 @@ import { Bell, CalendarDays, Check, Clock3, PackageCheck } from "lucide-react";
 import type { StepItem } from "@/data/types";
 
 export const images = {
-  courier: "/images/repartidor.webp",
-  company: "/images/logistics-issues.webp",
+  courier: "/images/home-fallas.webp",
+  company: "/images/dos-historias-empresa.webp",
   customer: "/images/entrega-feliz.webp",
-  customerAngry: "/images/cliente-preocupado.webp",
-  operator: "/images/atencion-confianza.webp",
-  delivery: "/images/shopi-atencion-cliente.webp",
+  customerAngry: "/images/dos-historias-cliente.webp",
+  operator: "/images/costo-invisible.webp",
+  delivery: "/images/nueva-forma-ultima-milla.webp",
   deviceMockup: "/images/pc-shopi.webp",
   calendarCard: "/images/calendario-shopi.webp",
+  trust1: "/images/confianza1.webp",
+  trust2: "/images/confianza2.webp",
 };
 
 export const steps: StepItem[] = [

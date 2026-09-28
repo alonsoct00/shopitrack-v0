@@ -81,7 +81,7 @@ Cada paso (`StepItem` en `src/data/types.ts`) lleva `icon` **o** `image`, nunca 
 { text: "Entrega exitosa", image: { src: "/images/entrega.webp", alt: "Repartidor entregando" } }
 ```
 
-Con `image` se renderiza un `<img>` circular (`.step-media`, `object-fit: cover`) en lugar del ícono. Mientras no exista la imagen final, usar `/images/placeholder-asset.svg` (ver `coordinationSteps` en `src/data/empresas.ts`).
+Con `image` se renderiza un `<img>` circular (`.step-media`, `object-fit: cover`) en lugar del ícono. Mientras no exista la imagen final, usar `/images/placeholder-asset.svg`.
 
 Variante `variant="flow"` (`.steps-list--flow`): sin numeración y con el texto en `<h4>`. Se usa en Empresas para "Constante comunicación" (`communicationActors`: Empresa → Operador → Cliente), limitada a 720px de ancho.
 
@@ -248,3 +248,11 @@ No es un componente reutilizable, pero sí una convención activa del proyecto p
 - NotFound: `#page-not-found.page.page-not-found`
 
 Estos wrappers permiten personalizar `hero` o secciones por ruta sin afectar otras páginas. Ejemplo: `.page-clientes .hero { ... }`.
+
+## SectorIcons
+
+Iconos SVG propios para motivos que `lucide-react` no incluye (`src/components/SectorIcons.tsx`): `LipstickIcon` (Cosméticos) y `TeddyBearIcon` (Juguetes). Siguen el estilo de trazo de lucide (`currentColor`, trazo de 2px, extremos redondeados) y se usan como el `icon` de un `IconItem`, igual que un icono de lucide.
+
+```ts
+{ text: "Juguetes", icon: TeddyBearIcon }
+```

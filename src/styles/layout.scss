@@ -1,3 +1,5 @@
+@use "breakpoints" as *;
+
 .site-shell {
   overflow: hidden;
 }
@@ -75,12 +77,36 @@
     backdrop-filter 0.35s ease;
 }
 
-.site-header--scrolled {
-  background: rgb(var(--color-white) / 65%);
+@mixin header-glass {
+  background: rgb(var(--color-white) / 75%);
   border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 8%, transparent);
   box-shadow: 0 8px 32px color-mix(in srgb, var(--color-ink) 8%, transparent);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+
+@mixin header-glass--scrolled {
+  background: rgb(var(--color-white) / 75%) !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 8%, transparent);
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--color-ink) 8%, transparent);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    backdrop-filter 0.35s ease !important;
+}
+
+.site-header--scrolled {
+  @include header-glass--scrolled;
+}
+
+@media (min-width: $bp-tablet-min) {
+  .site-header {
+    @include header-glass;
+  }
 }
 
 .brand {
@@ -108,7 +134,7 @@
   display: flex;
   align-items: center;
   gap: 2px;
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 750;
   color: var(--nav-link);
 }
@@ -119,7 +145,7 @@
   border-radius: 16px;
   transition: color 0.2s ease, background-color 0.2s ease;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.9375rem;
 }
 
 .site-nav a:not(.btn):hover {
@@ -145,12 +171,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: min(100% - 48px, 1280px);
+  width: min(100% - 48px, 1400px);
   margin: auto;
 }
 
 .footer-legal {
-  width: min(100% - 48px, 1280px);
+  width: min(100% - 48px, 1400px);
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -159,7 +185,7 @@
   gap: var(--space-xs) var(--space-md);
   padding: var(--space-sm) 0 var(--space-md);
   border-top: 1px solid var(--line);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .footer-legal-links {
@@ -179,7 +205,7 @@
 
 .footer-copyright {
   margin: 0;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--text-secondary);
 }
 
@@ -196,4 +222,12 @@
   color: var(--surface);
   background: var(--text-primary);
   border-radius: 50%;
+  position: relative;
+}
+
+// Invisible hit area so the 24px icons are comfortable to tap.
+.socials a::before {
+  content: "";
+  position: absolute;
+  inset: -10px -5px;
 }

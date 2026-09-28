@@ -19,16 +19,40 @@
   }
 
 .change-grid .info-card h2 {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .change-grid .info-card h3 {
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .change-grid .info-card p {
-  font-size: 16px;
+  font-size: 1rem;
 }
+
+}
+
+@media (min-width: 1280px) {
+
+  .hero-copy {
+    .btn {
+      min-width: 320px;
+    }
+  }
+
+  .industry-grid {
+    .btn {
+      min-width: 320px;
+    }
+  }
+
+  .contact-form {
+    .btn {
+      min-width: 320px;
+      margin: 20px auto;
+      display: block;
+    }
+  }
 
 }
 
@@ -47,7 +71,7 @@
 
   .site-nav {
     gap: 16px;
-    font-size: 11px;
+    font-size: 0.6875rem;
   }
 
   .site-header .btn {
@@ -87,7 +111,7 @@
   }
 
   .step p {
-    font-size: 10px;
+    font-size: 0.625rem;
     max-width: 120px;
   }
 
@@ -149,7 +173,7 @@
     padding: 13px 14px;
     border-radius: 10px;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .site-nav .btn {
@@ -311,13 +335,33 @@
     height: 100%;
   }
 
-  .trust-grid {
+  .trust-section {
     padding-block: 0;
   }
 
+  .trust-grid {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 0;
+  }
+
+  .trust-text {
+    padding-block: 8px;
+  }
+
   .trust-grid img {
-    height: 240px;
-    order: -1;
+    height: 320px;
+    margin: 20px 0;
+  }
+
+  .trust-grid .photo-frame:first-child img {
+    mask-image: linear-gradient(to top, transparent 0%, #000 45%), linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    mask-composite: intersect;
+  }
+
+  .trust-grid .photo-frame:last-child img {
+    mask-image: linear-gradient(to top, transparent 0%, #000 45%), linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    mask-composite: intersect;
   }
 
   .industry-list {
@@ -377,7 +421,7 @@
   .contact-actions .btn {
     width: 100%;
     height: 60px;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: normal;
   }
 }

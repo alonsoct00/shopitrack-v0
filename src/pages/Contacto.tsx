@@ -1,12 +1,19 @@
 import {
+  useEffect,
   useId,
+  useRef,
   useState,
   type ChangeEvent,
   type FormEvent,
   type ReactNode,
 } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import {
+  AlertCircle,
+  ArrowRight,
+  ExternalLink,
+  LoaderCircle,
+} from "lucide-react";
 import { InfoCard } from "@/components/InfoCard";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Seo } from "@/components/Seo";
@@ -59,19 +66,26 @@ function isCorporateEmail(email: string) {
   return !blockedEmailDomains.includes(domain);
 }
 
+function isValidPhone(phone: string) {
+  const digits = phone.replace(/\D/g, "").length;
+  return /^\+?[\d\s().-]+$/.test(phone) && digits >= 7 && digits <= 15;
+}
+
 function validate(data: ContactFormData): FormErrors {
   const errors: FormErrors = {};
-  if (!data.firstName.trim()) errors.firstName = formCopy.errorRequired;
-  if (!data.lastName.trim()) errors.lastName = formCopy.errorRequired;
-  if (!data.company.trim()) errors.company = formCopy.errorRequired;
-  if (!data.email.trim()) {
-    errors.email = formCopy.errorRequired;
-  } else if (
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) ||
-    !isCorporateEmail(data.email)
-  ) {
+  const email = data.email.trim();
+  const phone = data.phone.trim();
+  if (!data.firstName.trim()) errors.firstName = formCopy.errorFirstName;
+  if (!data.lastName.trim()) errors.lastName = formCopy.errorLastName;
+  if (!data.company.trim()) errors.company = formCopy.errorCompany;
+  if (!email) {
+    errors.email = formCopy.errorEmailRequired;
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errors.email = formCopy.errorEmailFormat;
+  } else if (!isCorporateEmail(email)) {
     errors.email = formCopy.errorEmail;
   }
+  if (phone && !isValidPhone(phone)) errors.phone = formCopy.errorPhone;
   if (!data.privacyAccepted) errors.privacyAccepted = formCopy.errorPrivacy;
   return errors;
 }
@@ -82,12 +96,16 @@ async function submitContactRequest(data: ContactFormData): Promise<void> {
   return Promise.resolve();
 }
 
+// The control is rendered before its <label> so CSS sibling selectors can float
+// the label when the field has focus, a value or browser autofill. Controls
+// need placeholder=" " for :placeholder-shown to detect an empty field.
 function FormField({
   id,
   label,
   required,
   error,
   hint,
+  full,
   children,
 }: {
   id: string;
@@ -95,31 +113,39 @@ function FormField({
   required?: boolean;
   error?: string;
   hint?: string;
+  full?: boolean;
   children: ReactNode;
 }) {
   return (
-    <div className="form-field">
-      <label htmlFor={id}>
-        {label}
-        {required && (
-          <span className="required-mark" aria-hidden="true">
-            {" "}
-            *
-          </span>
-        )}
-      </label>
-      {children}
-      {hint && !error && (
+    <div className={`form-field${full ? " form-field--full" : ""}`}>
+      <div className="form-control">
+        {children}
+        <label htmlFor={id}>
+          {label}
+          {required && (
+            <span className="required-mark" aria-hidden="true">
+              {" "}
+              *
+            </span>
+          )}
+        </label>
+      </div>
+      {hint && (
         <p className="field-hint" id={`${id}-hint`}>
           {hint}
         </p>
       )}
-      {error && (
-        <p className="field-error" id={`${id}-error`} role="alert">
-          {error}
-        </p>
-      )}
+      {error && <FieldError id={`${id}-error`}>{error}</FieldError>}
     </div>
+  );
+}
+
+function FieldError({ id, children }: { id: string; children: ReactNode }) {
+  return (
+    <p className="field-error" id={id}>
+      <AlertCircle size={14} aria-hidden="true" />
+      {children}
+    </p>
   );
 }
 
@@ -131,13 +157,33 @@ export function Contacto() {
     "idle" | "submitting" | "success" | "error"
   >("idle");
 
+  const formRef = useRef<HTMLFormElement>(null);
+  const successTitleRef = useRef<HTMLHeadingElement>(null);
+  const focusFirstError = useRef(false);
+
   const fieldId = (name: keyof ContactFormData) => `${formBaseId}-${name}`;
   const describedBy = (name: keyof ContactFormData, hasHint?: boolean) =>
-    errors[name]
-      ? fieldId(name) + "-error"
-      : hasHint
-        ? fieldId(name) + "-hint"
-        : undefined;
+    [
+      hasHint && fieldId(name) + "-hint",
+      errors[name] && fieldId(name) + "-error",
+    ]
+      .filter(Boolean)
+      .join(" ") || undefined;
+
+  // Focus runs after render so the field is announced with its error message.
+  useEffect(() => {
+    if (!focusFirstError.current) return;
+    focusFirstError.current = false;
+    formRef.current
+      ?.querySelector<HTMLElement>('[aria-invalid="true"]')
+      ?.focus();
+  }, [errors]);
+
+  useEffect(() => {
+    if (status !== "success") return;
+    window.scrollTo({ top: 0 });
+    successTitleRef.current?.focus();
+  }, [status]);
 
   function updateField<K extends keyof ContactFormData>(
     name: K,
@@ -157,9 +203,13 @@ export function Contacto() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (status === "submitting") return;
     const validationErrors = validate(formData);
     setErrors(validationErrors);
-    if (Object.keys(validationErrors).length > 0) return;
+    if (Object.keys(validationErrors).length > 0) {
+      focusFirstError.current = true;
+      return;
+    }
 
     setStatus("submitting");
     try {
@@ -180,7 +230,13 @@ export function Contacto() {
             aria-labelledby="contacto-success-title"
           >
             <div className="container form-success">
-              <h1 id="contacto-success-title">{formCopy.successTitle}</h1>
+              <h1
+                id="contacto-success-title"
+                ref={successTitleRef}
+                tabIndex={-1}
+              >
+                {formCopy.successTitle}
+              </h1>
               <p>{formCopy.successBody}</p>
               <Link className="btn btn-primary" to="/">
                 {formCopy.successCta} <ArrowRight size={16} />
@@ -228,6 +284,7 @@ export function Contacto() {
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
+                  className="photo-frame-img visible md:invisible"
                 />
               </div>
             </div>
@@ -272,14 +329,14 @@ export function Contacto() {
                 title="¿Qué ocurrirá cuando nos contactes?"
                 centered
               />
-              <div className="change-grid contact-steps-grid">
-                {contactSteps.map(([label, text], index) => (
+              <div className="change-grid experience-steps-grid">
+                {contactSteps.map((step) => (
                   <InfoCard
-                    key={label}
-                    icon={<span className="step-number">{index + 1}</span>}
-                    title={label}
+                    key={step.label}
+                    image={step.image}
+                    title={step.label}
                   >
-                    {text}
+                    {step.text}
                   </InfoCard>
                 ))}
               </div>
@@ -304,7 +361,14 @@ export function Contacto() {
                 especialistas se pondrá en contacto contigo.
               </p>
 
-              <form className="contact-form" onSubmit={handleSubmit} noValidate>
+              <form
+                className="contact-form"
+                ref={formRef}
+                onSubmit={handleSubmit}
+                noValidate
+                aria-busy={status === "submitting"}
+              >
+                <p className="form-required-note">{formCopy.requiredNote}</p>
                 <div className="contact-form-grid">
                   <FormField
                     id={fieldId("firstName")}
@@ -320,6 +384,7 @@ export function Contacto() {
                       required
                       value={formData.firstName}
                       onChange={handleTextChange("firstName")}
+                      placeholder=" "
                       aria-invalid={!!errors.firstName}
                       aria-describedby={describedBy("firstName")}
                     />
@@ -339,6 +404,7 @@ export function Contacto() {
                       required
                       value={formData.lastName}
                       onChange={handleTextChange("lastName")}
+                      placeholder=" "
                       aria-invalid={!!errors.lastName}
                       aria-describedby={describedBy("lastName")}
                     />
@@ -358,6 +424,7 @@ export function Contacto() {
                       required
                       value={formData.company}
                       onChange={handleTextChange("company")}
+                      placeholder=" "
                       aria-invalid={!!errors.company}
                       aria-describedby={describedBy("company")}
                     />
@@ -375,6 +442,7 @@ export function Contacto() {
                       autoComplete="organization-title"
                       value={formData.role}
                       onChange={handleTextChange("role")}
+                      placeholder=" "
                       aria-invalid={!!errors.role}
                       aria-describedby={describedBy("role")}
                     />
@@ -395,6 +463,7 @@ export function Contacto() {
                       required
                       value={formData.email}
                       onChange={handleTextChange("email")}
+                      placeholder=" "
                       aria-invalid={!!errors.email}
                       aria-describedby={describedBy("email", true)}
                     />
@@ -412,6 +481,7 @@ export function Contacto() {
                       autoComplete="tel"
                       value={formData.phone}
                       onChange={handleTextChange("phone")}
+                      placeholder=" "
                       aria-invalid={!!errors.phone}
                       aria-describedby={describedBy("phone")}
                     />
@@ -427,6 +497,7 @@ export function Contacto() {
                       name="industry"
                       value={formData.industry}
                       onChange={handleTextChange("industry")}
+                      className={formData.industry ? undefined : "is-empty"}
                       aria-invalid={!!errors.industry}
                       aria-describedby={describedBy("industry")}
                     >
@@ -449,6 +520,7 @@ export function Contacto() {
                       name="volume"
                       value={formData.volume}
                       onChange={handleTextChange("volume")}
+                      className={formData.volume ? undefined : "is-empty"}
                       aria-invalid={!!errors.volume}
                       aria-describedby={describedBy("volume")}
                     >
@@ -461,27 +533,23 @@ export function Contacto() {
                     </select>
                   </FormField>
 
-                  <div className="form-field form-field--full">
-                    <label htmlFor={fieldId("message")}>Mensaje</label>
+                  <FormField
+                    id={fieldId("message")}
+                    label="Mensaje"
+                    error={errors.message}
+                    full
+                  >
                     <textarea
                       id={fieldId("message")}
                       name="message"
                       rows={4}
                       value={formData.message}
                       onChange={handleTextChange("message")}
+                      placeholder=" "
                       aria-invalid={!!errors.message}
                       aria-describedby={describedBy("message")}
                     />
-                    {errors.message && (
-                      <p
-                        className="field-error"
-                        id={`${fieldId("message")}-error`}
-                        role="alert"
-                      >
-                        {errors.message}
-                      </p>
-                    )}
-                  </div>
+                  </FormField>
                 </div>
 
                 <div className="form-privacy">
@@ -498,21 +566,31 @@ export function Contacto() {
                     aria-describedby={describedBy("privacyAccepted")}
                   />
                   <label htmlFor={fieldId("privacyAccepted")}>
-                    {formCopy.privacyLabel}
+                    {formCopy.privacyLabelBefore}
+                    <Link
+                      to="/aviso-de-privacidad"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {formCopy.privacyLinkLabel}
+                      <ExternalLink size={12} aria-hidden="true" />
+                      <span className="sr-only"> {formCopy.newTabNotice}</span>
+                    </Link>
+                    {formCopy.privacyLabelAfter}
+                    <span className="required-mark" aria-hidden="true">
+                      {"\u00a0*"}
+                    </span>
                   </label>
                 </div>
                 {errors.privacyAccepted && (
-                  <p
-                    className="field-error"
-                    id={`${fieldId("privacyAccepted")}-error`}
-                    role="alert"
-                  >
+                  <FieldError id={`${fieldId("privacyAccepted")}-error`}>
                     {errors.privacyAccepted}
-                  </p>
+                  </FieldError>
                 )}
 
                 {status === "error" && (
-                  <p className="field-error form-system-error" role="alert">
+                  <p className="form-system-error" role="alert">
+                    <AlertCircle size={18} aria-hidden="true" />
                     {formCopy.errorSystem}
                   </p>
                 )}
@@ -522,6 +600,13 @@ export function Contacto() {
                   type="submit"
                   disabled={status === "submitting"}
                 >
+                  {status === "submitting" && (
+                    <LoaderCircle
+                      className="btn-spinner"
+                      size={18}
+                      aria-hidden="true"
+                    />
+                  )}
                   {status === "submitting"
                     ? formCopy.submitLoadingLabel
                     : formCopy.submitLabel}
@@ -551,9 +636,7 @@ export function Contacto() {
           <section className="section closing-section" data-reveal>
             <div className="container closing-copy">
               {closingLines.map((line) => (
-                <p key={line}>
-                  <strong>{line}</strong>
-                </p>
+                <p key={line}>{line}</p>
               ))}
             </div>
           </section>

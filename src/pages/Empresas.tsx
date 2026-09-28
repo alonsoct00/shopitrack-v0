@@ -9,6 +9,7 @@ import {
   communicationActors,
   costCards,
   coordinationSteps,
+  ctaSlides,
   empresasImages,
   integrationItems,
   logisticItems,
@@ -98,12 +99,13 @@ export function Empresas() {
                   src={empresasImages.hero}
                   srcSet={empresasImages.heroSrcSet}
                   sizes="(max-width: 800px) 100vw, 50vw"
-                  alt="Repartidor entregando un paquete a una clienta sonriente"
-                  width={1400}
-                  height={782}
+                  alt="Cliente sonriendo mientras abre un paquete en casa"
+                  width={1670}
+                  height={942}
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
+                  className="photo-frame-img visible md:invisible"
                 />
               </div>
             </div>
@@ -149,24 +151,25 @@ export function Empresas() {
                 title="El verdadero costo de una entrega fallida"
                 lead="Una entrega fallida cuesta dos veces."
               />
-              <div className="split-grid stretch mt-4">
-                <div className="cost-grid">
-                  {costCards.map((card) => (
+              <div className="cost-grid mt-4">
+                {costCards.map((card) => (
+                  <div className="cost-row" key={card.title}>
                     <StatCard
-                      key={card.title}
                       title={card.title}
                       items={card.items}
                       bullet="cross"
                     />
-                  ))}
-                </div>
-                <div
-                  className="usecase-card-media cost-media"
-                  role="img"
-                  aria-label="Imagen pendiente: costo de una entrega fallida"
-                >
-                  <span>ASSET FALTANTE</span>
-                </div>
+                    <ImageWithFallback
+                      className="cost-row-media"
+                      src={card.image.src}
+                      alt={card.image.alt}
+                      width={1050}
+                      height={590}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -206,15 +209,13 @@ export function Empresas() {
             <div className="container">
               <div className="split-grid">
                 <div className="split-copy">
-                  <SectionHeading
-                    title="El problema nunca fue la logística"
-                  />
+                  <SectionHeading title="El problema nunca fue la logística" />
                   <div className="logistic-grid">
                     <StatCard items={logisticItems} />
                   </div>
                 </div>
                 <div className="text-content">
-                  <h4>Todo ello, sin duda, mejora la operación.</h4>
+                  <h3>Todo ello, sin duda, mejora la operación.</h3>
                   <p>Pero ninguno responde la pregunta más importante:</p>
                   <h3>
                     ¿La persona que va a recibir, puede recibir cuándo llegue la
@@ -245,7 +246,7 @@ export function Empresas() {
               <StepsList steps={coordinationSteps} />
             </div>
 
-            <div className="container mt-6 communication-flow">
+            <div className="sr-only container mt-6 communication-flow">
               <h3>Constante comunicación</h3>
               <StepsList steps={communicationActors} variant="flow" />
             </div>
@@ -289,7 +290,7 @@ export function Empresas() {
             <div className="container split-grid stretch mt-4">
               <div>
                 <SectionHeading title="Integración natural" />
-                <div className="text-copy">
+                <div className="text-copy mt-4">
                   <ul className="integration-list industry-list industry-list--stack">
                     <li>
                       <span>
@@ -334,12 +335,28 @@ export function Empresas() {
                   <h3>El objetivo es potenciar.</h3>
                 </div>
               </div>
-              <div
-                className="usecase-card-media cost-media"
-                role="img"
-                aria-label="Imagen pendiente: costo de una entrega fallida"
-              >
-                <span>ASSET FALTANTE</span>
+              <div className="cost-media">
+                <div className="photo-frame my-2">
+                  <ImageWithFallback
+                    src={empresasImages.integration}
+                    width={1536}
+                    height={1024}
+                    alt="Persona usando Shopitrack en su laptop junto a sus sistemas ERP, WMS y TMS"
+                    loading="lazy"
+                    className="photo-frame-img"
+                  />
+                </div>
+
+                <div className="photo-frame my-2">
+                  <ImageWithFallback
+                    src={empresasImages.integration2}
+                    width={1672}
+                    height={940}
+                    alt="Empresa, operador y cliente conectados durante la coordinación de una entrega"
+                    loading="lazy"
+                    className="photo-frame-img"
+                  />
+                </div>
               </div>
             </div>
           </section>
@@ -426,7 +443,13 @@ export function Empresas() {
                       con sus clientes.
                     </p>
                     <h3>
-                      <b>Shopitrack</b> construye consistencia
+                      <b
+                        className="highlight-blue"
+                        style={{ color: "var(--color-blue)", fontWeight: 600 }}
+                      >
+                        Shopitrack
+                      </b>{" "}
+                      construye consistencia
                     </h3>
                     <h3>Y la consistencia se convierte en reputación</h3>
 
@@ -453,32 +476,34 @@ export function Empresas() {
             <div className="container contact-grid">
               <div>
                 <h2>
-                  Convierte cada entrega en una oportunidad para fortalecer tu
-                  marca.
+                  Descubre cómo convertir cada entrega en la oportunidad para
+                  fortalecer tu marca.
                 </h2>
-                <p>
-                  Shopitrack te ayuda a cumplir tu promesa donde más importa: en
-                  la puerta de tu cliente.
+                <p className="sr-only contact-description">
+                  Conversemos sobre tu operación, tus retos y la forma en que
+                  Shopitrack coordinará la comunicación entre tu empresa, tus
+                  operadores y tus clientes.
                 </p>
                 <div className="contact-actions">
                   <Link className="btn btn-coral" to="/contacto">
                     Agenda una demostración personalizada{" "}
                     <ArrowRight size={15} />
                   </Link>
-                  <Link className="btn btn-outline" to="/contacto">
-                    Habla con un especialista
-                  </Link>
                 </div>
               </div>
-              <div className="photo-frame">
-                <ImageWithFallback
-                  src={empresasImages.cta}
-                  width={1024}
-                  height={559}
-                  alt="Cliente y repartidor coordinando la entrega de un paquete"
-                  loading="lazy"
-                  className="photo-frame-img"
-                />
+              <div className="photo-frame cta-fade">
+                {ctaSlides.map((slide) => (
+                  <ImageWithFallback
+                    key={slide.src}
+                    src={slide.src}
+                    width={1672}
+                    height={941}
+                    alt={slide.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="photo-frame-img"
+                  />
+                ))}
               </div>
             </div>
           </section>

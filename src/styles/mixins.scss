@@ -46,6 +46,45 @@
   }
 }
 
+// Desktop hero with a full-bleed photo behind the copy: the mist gradient and a
+// blurred band (masked to the copy column) keep the text readable without
+// washing out or blurring the subject on the right half of the photo.
+@mixin hero-photo-legibility($image) {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg,
+            rgb(var(--color-mist) / 0.86) 0%,
+            rgb(var(--color-mist) / 0.78) 34%,
+            rgb(var(--color-mist) / 0.4) 44%,
+            rgb(var(--color-mist) / 0) 56%),
+        url($image) no-repeat left center / cover;
+    @include hero-decor-layers;
+
+    &::before {
+        background: none;
+        filter: none;
+        backdrop-filter: blur(6px);
+        mask-image: linear-gradient(90deg, #000 34%, transparent 50%);
+    }
+}
+
+// Mobile hero composition (inside `mobile-only`): the background photo would sit
+// under the copy, so it is replaced (each page sets its own `background`) and the
+// `.photo-frame-img` below the copy is shown instead. That image carries
+// `md:invisible`, which would otherwise leave an empty gap between 768 and 960px.
+@mixin hero-mobile-photo {
+    padding-bottom: var(--space-lg);
+
+    &::before {
+        display: none;
+    }
+
+    .photo-frame-img {
+        visibility: visible;
+    }
+}
+
 @mixin contact-actions-row($justify: null) {
     flex-direction: row;
     justify-content: $justify;

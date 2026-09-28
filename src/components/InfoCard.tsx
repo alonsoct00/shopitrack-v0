@@ -33,7 +33,7 @@ export function InfoCard({
       <div className="info-card-body">
         <h2><RichText text={title} /></h2>
         {label && <h3><RichText text={label} /></h3>}
-        {children && <p>{children}</p>}
+        {children && (typeof children === "string" ? <p>{children}</p> : children)}
         {items && (
           <ul className="industry-list">
             {items.map((item) => (
