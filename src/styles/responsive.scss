@@ -96,7 +96,7 @@
   }
 
   .steps-list {
-    gap: 10px;
+    --steps-gap: 10px;
   }
 
   .step-line>span {
@@ -121,7 +121,8 @@
     height: 140px;
   }
 
-  .industry-list {
+  .industry-list,
+  .industry-groups {
     gap: 8px 16px;
   }
 
@@ -291,6 +292,7 @@
   }
 
   .steps-list {
+    grid-auto-flow: row;
     grid-template-columns: 1fr;
     gap: 26px;
   }
@@ -367,6 +369,11 @@
   .industry-list {
     gap: 9px 15px;
     grid-template-columns: 1fr;
+  }
+
+  .industry-groups {
+    grid-template-columns: 1fr;
+    gap: 9px;
   }
 
   .promise-section p {

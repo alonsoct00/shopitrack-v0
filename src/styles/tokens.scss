@@ -36,9 +36,9 @@
 
   --hero-gradient: linear-gradient(112deg, #eff8ff 0%, #f9fcff 46%, #dff0ff 100%);
   --section-cost-bg: #f2f8ff;
-  --section-trust-bg: #0a438f;
-  --section-promise-bg: #062c78;
-  --section-contact-bg: #06409a;
+  --section-trust-bg: rgb(var(--color-navy));
+  --section-promise-bg: rgb(var(--color-navy));
+  --section-contact-bg: rgb(var(--color-navy));
   --story-card-bg: #f4f8fc;
 
   --nav-link: #45618a;

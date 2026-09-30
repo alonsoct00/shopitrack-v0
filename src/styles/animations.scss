@@ -39,6 +39,10 @@ html.reveal-ready .steps-list .step {
   }
 }
 
+html.reveal-ready .steps-list .step.is-visible {
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

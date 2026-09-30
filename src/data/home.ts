@@ -31,15 +31,30 @@ export const steps: StepItem[] = [
   },
 ];
 
-export const industries = [
-  "Retail",
-  "Electrodomésticos",
-  "Muebles",
-  "Mejoramiento del hogar",
-  "Farmacias",
-  "Tecnología",
-  "Departamentales",
-  "Marketplace",
-  "Materiales para construcción",
-  "Artículos deportivos",
+export const industryGroups: {
+  title: string;
+  items: string[];
+  className: string;
+}[] = [
+  {
+    title: "Productos tangibles",
+    items: [
+      "Retail",
+      "Electrodomésticos",
+      "Muebles",
+      "Mejoramiento del hogar",
+      "Farmacias",
+      "Tecnología",
+      "Departamentales",
+      "Marketplace",
+      "Materiales para construcción",
+      "Artículos deportivos",
+    ],
+    className: "tangible-products",
+  },
+  {
+    title: "Servicios",
+    items: ["Instalaciones", "Ambulancias", "Mantenimiento"],
+    className: "services",
+  },
 ];

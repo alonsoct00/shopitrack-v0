@@ -11,7 +11,8 @@ import { LottiePlayer } from "@/components/LottiePlayer";
 import { StepsList } from "@/components/StepsList";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Seo } from "@/components/Seo";
-import { images, industries, steps } from "@/data/home";
+import { images, industryGroups } from "@/data/home";
+import { coordinationSteps } from "@/data/empresas";
 import { seoConfig } from "@/data/seo";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
@@ -34,13 +35,17 @@ export function Home() {
                 </h1>
                 <p style={{ marginBottom: 4 }}>
                   Cada día miles de entregas dependen <br />
-                  de una suposición: Que habrá alguien para recibir.
+                  de una suposición: <br />
+                  Que habrá alguien para recibir.
                 </p>
                 <p>
-                  <b>Cuando esa suposición falla... Todo lo demás también.</b>
+                  <b>
+                    Cuando esa suposición falla... <br />
+                    Todo lo demás también.
+                  </b>
                 </p>
 
-                <a className="btn btn-primary" href="#como-funciona">
+                <a className="hidden btn btn-primary" href="#como-funciona">
                   Descubre por qué <ArrowRight size={16} />
                 </a>
               </div>
@@ -69,7 +74,7 @@ export function Home() {
             data-reveal
           >
             <div className="container">
-              <div className="split-grid stretch">
+              <div className="como-funciona-top split-grid stretch">
                 <div className="photo-frame photo-frame">
                   <ImageWithFallback
                     src={images.courier}
@@ -119,12 +124,18 @@ export function Home() {
                     <div className="round-icon">
                       <Building2 />
                     </div>
-                    <strong>Empresa</strong>
-                    <h3>
-                      Programó. Preparó. Asigno. Despachó. <br />
-                      Cargó la unidad y salió a ruta <br />
-                      Pero encontró una puerta cerrada.
-                    </h3>
+                    <div className="story-copy">
+                      <strong>Empresa</strong>
+                      <h3>
+                        Programó, preparó, <br /> asignó, despachó.
+                      </h3>
+                      <h3>
+                        Cargó la unidad y salió a ruta <br />
+                        <span className="inner-highlight ">
+                          Pero encontró una puerta cerrada.
+                        </span>
+                      </h3>
+                    </div>
                   </div>
                 </article>
                 <article className="story-card blur-left story-reverse">
@@ -139,11 +150,14 @@ export function Home() {
                     <div className="round-icon">
                       <CircleUserRound />
                     </div>
-                    <strong>Cliente</strong>
-                    <h3>
-                      Compró. Canceló actividades. <br />
-                      Nunca supo exactamente cuándo llegaría.
-                    </h3>
+                    <div className="story-copy">
+                      <strong>Cliente</strong>
+                      <h3>
+                        Compró. <br />
+                        Canceló actividades.
+                      </h3>
+                      <h3> Nunca supo exactamente cuándo llegaría.</h3>
+                    </div>
                   </div>
                 </article>
               </div>
@@ -245,10 +259,10 @@ export function Home() {
           >
             <div className="container">
               <SectionHeading
-                title="Cinco pasos. Una mejor experiencia de entrega."
+                title="Seis pasos. Una mejor experiencia de entrega."
                 centered
               />
-              <StepsList steps={steps} />
+              <StepsList steps={coordinationSteps} />
             </div>
           </section>
         </ErrorBoundary>
@@ -343,11 +357,18 @@ export function Home() {
                 <h2>
                   Una plataforma para cualquier empresa que acuda a domicilio.
                 </h2>
-                <ul className="industry-list">
-                  {industries.map((industry) => (
-                    <li key={industry}>{industry}</li>
+                <div className="industry-groups">
+                  {industryGroups.map((group) => (
+                    <div key={group.title}>
+                      <h3 className="sr-only">{group.title}</h3>
+                      <ul className={`industry-list ${group.className}`}>
+                        {group.items.map((industry) => (
+                          <li key={industry}>{industry}</li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
+                </div>
                 <p>
                   Cada sector comparte exactamente el mismo reto. Coordinar
                   personas. No únicamente entregas.
@@ -357,24 +378,6 @@ export function Home() {
                 </Link>
               </div>
               <IndustriesShowcase />
-            </div>
-          </section>
-        </ErrorBoundary>
-
-        <ErrorBoundary name="Home: promise-section">
-          <section
-            style={{ height: "0" }}
-            className="sr-only p-0 m-0 h-0 promise-section section"
-            data-reveal
-          >
-            <div className="container">
-              <p>
-                No importa qué tan bueno sea un producto. No importa qué tan
-                eficiente sea una operación. No importa qué tan atractivo sea un
-                precio. Si la entrega termina mal... La compra también. Por eso
-                la última milla no es el final de la logística. Es el final de
-                la promesa.
-              </p>
             </div>
           </section>
         </ErrorBoundary>
@@ -392,15 +395,15 @@ export function Home() {
                   clientes.
                 </h2>
                 <p>
-                  Conoce cómo transformar la entrega en una experiencia que
+                  Conoce cómo transformar la entrega en una experiencia
                   <br />
-                  fortalezca la confianza de tus clientes.
+                  que fortalezca la confianza de tus clientes.
                 </p>
                 <div className="contact-actions">
                   <Link className="btn btn-coral" to="/contacto">
                     Agenda una demostración <ArrowRight size={15} />
                   </Link>
-                  <a className="btn btn-outline" href="#como-funciona">
+                  <a className="hidden btn btn-outline" href="#como-funciona">
                     Explora cómo funciona Shopitrack
                   </a>
                 </div>
