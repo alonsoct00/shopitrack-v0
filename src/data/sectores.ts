@@ -199,7 +199,7 @@ export const sectors: SectorEntry[] = [
     number: "09",
     name: "Seguros",
     image: {
-      src: "/images/seguros.webp",
+      src: "/images/sector-de-seguros.webp",
       alt: "Ajustador de seguros revisando los daños de un siniestro junto al asegurado",
     },
     icon: ShieldCheck,
