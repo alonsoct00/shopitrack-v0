@@ -19,7 +19,7 @@ import {
   Smile,
   UtensilsCrossed,
 } from "lucide-react";
-import type { Icon, IconItem, ImageSource } from "@/data/types";
+import type { FaqItem, Icon, IconItem, ImageSource } from "@/data/types";
 
 export const clientesImages = {
   hero: "/images/hero-clientes.webp",
@@ -201,7 +201,7 @@ export const ctaStoreLinks: StoreLink[] = [
   },
 ];
 
-export const faqItems = [
+export const faqItems: FaqItem[] = [
   {
     question: "¿Tiene algún costo para mí?",
     answer: "No. La aplicación es gratuita para quienes reciben sus compras.",

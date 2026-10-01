@@ -17,6 +17,7 @@ import {
 } from "@/data/clientes";
 import { seoConfig } from "@/data/seo";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { FaqSection } from "@/components/FaqSection";
 import { RichText } from "@/components/RichText";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 import { ImageSlider } from "@/components/ImageSlider";
@@ -266,19 +267,7 @@ export function Clientes() {
         </ErrorBoundary>
 
         <ErrorBoundary name="Clientes: section">
-          <section className="section faq-section" data-reveal>
-            <div className="container">
-              <SectionHeading centered title="Preguntas frecuentes" />
-              <div className="faq-list">
-                {faqItems.map((item) => (
-                  <details className="faq-item" key={item.question}>
-                    <summary>{item.question}</summary>
-                    <p>{item.answer}</p>
-                  </details>
-                ))}
-              </div>
-            </div>
-          </section>
+          <FaqSection items={faqItems} />
         </ErrorBoundary>
 
         <ErrorBoundary name="Clientes: contact-section">

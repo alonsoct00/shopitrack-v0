@@ -1,5 +1,5 @@
 import { BarChart3, Goal, MapPin, Package, Route, Target } from "lucide-react";
-import type { IconItem, ImageSource } from "@/data/types";
+import type { FaqItem, IconItem, ImageSource } from "@/data/types";
 
 export const contactoImages = {
   hero: "/images/hero-contacto.webp",
@@ -129,7 +129,7 @@ export const blockedEmailDomains = [
   "zoho.com",
 ];
 
-export const faqItems = [
+export const faqItems: FaqItem[] = [
   {
     question: "¿La demostración tiene costo?",
     answer:

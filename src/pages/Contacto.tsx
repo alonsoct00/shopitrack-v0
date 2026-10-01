@@ -29,6 +29,7 @@ import {
 } from "@/data/contacto";
 import { seoConfig } from "@/data/seo";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { FaqSection } from "@/components/FaqSection";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 interface ContactFormData {
@@ -613,19 +614,7 @@ export function Contacto() {
         </ErrorBoundary>
 
         <ErrorBoundary name="Contacto: section">
-          <section className="section faq-section" data-reveal>
-            <div className="container">
-              <SectionHeading title="Preguntas frecuentes" centered />
-              <div className="faq-list">
-                {faqItems.map((item) => (
-                  <details className="faq-item" key={item.question}>
-                    <summary>{item.question}</summary>
-                    <p>{item.answer}</p>
-                  </details>
-                ))}
-              </div>
-            </div>
-          </section>
+          <FaqSection items={faqItems} />
         </ErrorBoundary>
 
         <ErrorBoundary name="Contacto: section">

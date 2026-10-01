@@ -41,6 +41,7 @@ Clases reutilizables: `.section`, `.wave-section`, `.split-grid`, `.info-card`, 
 | `ImageWithFallback` | `src/components/ImageWithFallback.tsx` | Props de `<img>` + `fallbackSrc?: string`. Usar en lugar de `<img>` |
 | `ImageSlider` | `src/components/ImageSlider.tsx` | `slides: ImageSource[]`, `label: string`, `arrows?: boolean`, `dots?: boolean`, `className?: string` |
 | `RichText` | `src/components/RichText.tsx` | `text: string` (soporta `<q>`, `<em>`, `<i>`, `<strong>`, `<b>`) |
+| `FaqSection` | `src/components/FaqSection.tsx` | `items: FaqItem[]` |
 | `ErrorBoundary` | `src/components/ErrorBoundary.tsx` | `children`, `fallback?: ReactNode`, `name?: string` |
 | `PageError` | `src/components/PageError.tsx` | — |
 
