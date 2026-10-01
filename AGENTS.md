@@ -147,5 +147,6 @@ Si algún check falla, corregir los errores antes de considerar el trabajo termi
 - **docs/README.md**: índice de la documentación técnica detallada.
 - **docs/ARCHITECTURE.md**, **docs/DESIGN-SYSTEM.md**, **docs/COMPONENTS.md**, **docs/RESPONSIVE.md**, **docs/IMAGES.md**, **docs/SEO.md**: documentación técnica por área.
 - **docs/AI-CONTEXT.md**: contexto adicional para agentes de IA.
+- **docs/ANALYTICS.md**: pixels y analytics centralizados en `src/analytics/`. No agregar scripts de tracking en páginas, componentes ni `index.html`.
 
 Antes de empezar a trabajar, leer el README.md y este archivo.

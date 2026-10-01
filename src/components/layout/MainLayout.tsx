@@ -4,9 +4,11 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { PageError } from '@/components/PageError';
+import { usePageViews } from '@/analytics/usePageViews';
 
 export function MainLayout() {
   const { pathname, hash } = useLocation();
+  usePageViews();
 
   useLayoutEffect(() => {
     if (hash) return;
