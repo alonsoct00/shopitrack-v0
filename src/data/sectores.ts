@@ -12,18 +12,19 @@ import {
   Laptop,
   NotebookPen,
   PawPrint,
+  ShieldCheck,
   Shirt,
+  ShoppingCart,
   Sofa,
   Sprout,
   Store,
+  Truck,
+  Warehouse,
   WashingMachine,
   Wine,
   Wrench,
 } from "lucide-react";
-import {
-  LipstickIcon,
-  TeddyBearIcon,
-} from "@/components/SectorIcons";
+import { LipstickIcon, TeddyBearIcon } from "@/components/SectorIcons";
 import type { Icon, IconItem, ImageSource } from "@/data/types";
 
 export const sectoresImages = {
@@ -194,6 +195,38 @@ export const sectors: SectorEntry[] = [
       "Fortalece la confianza en uno de los momentos más sensibles de la experiencia.",
     ],
   },
+  {
+    number: "09",
+    name: "Seguros",
+    image: {
+      src: "/images/sector-de-seguros.webp",
+      alt: "Ajustador de seguros revisando los daños de un siniestro junto al asegurado",
+    },
+    icon: ShieldCheck,
+    challenge: [
+      "El ajustador debe llegar al lugar donde ocurrió el siniestro.",
+      "Cada traslado consume tiempo y recursos.",
+      "La disponibilidad del asegurado no siempre está confirmada.",
+    ],
+    today: [
+      "El ajustador se desplaza sin saber si el asegurado podrá recibirlo.",
+      "Si la visita falla, el caso se reprograma.",
+      "Un nuevo traslado retrasa la atención del siniestro.",
+    ],
+    change: [
+      "La visita se confirma con el asegurado antes del traslado.",
+      "El ajustador se desplaza con mayor certeza.",
+      "Se reducen las visitas fallidas y los recorridos innecesarios.",
+      "El asegurado sabe cuándo será atendido.",
+    ],
+  },
+];
+
+export const featuredSectors: IconItem[] = [
+  { text: "Operadores logísticos", icon: Warehouse },
+  { text: "Transporte de Carga", icon: Truck },
+  { text: "e-Commerce", icon: ShoppingCart },
+  { text: "Servicios a domicilio", icon: Wrench },
 ];
 
 export const otherSectors: IconItem[] = [

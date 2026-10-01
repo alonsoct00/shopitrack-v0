@@ -10,7 +10,7 @@ export type LegalDocument = {
   sections: LegalSection[];
 };
 
-export const COMPANY_NAME = "Shopitrack SA de CV";
+export const COMPANY_NAME = "Shopitrack S.A.P.I., de C.V.";
 
 // Texto base para maquetación. Requiere revisión legal antes de publicarse;
 // los datos marcados como [POR DEFINIR] los debe proporcionar la empresa.

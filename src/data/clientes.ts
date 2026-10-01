@@ -1,17 +1,25 @@
 import { AppleStoreIcon, GooglePlayIcon } from "@/components/StoreIcons";
 import {
+  BellRing,
+  Building2,
   CalendarCheck,
+  CalendarClock,
   CalendarX,
   CircleHelp,
   Clock3,
   Coffee,
   Dices,
   Frown,
+  Gamepad2,
   Handshake,
   Hourglass,
+  MapPin,
+  Package,
+  PhoneCall,
   Smile,
+  UtensilsCrossed,
 } from "lucide-react";
-import type { Icon, IconItem, ImageSource } from "@/data/types";
+import type { FaqItem, Icon, IconItem, ImageSource } from "@/data/types";
 
 export const clientesImages = {
   hero: "/images/hero-clientes.webp",
@@ -21,21 +29,27 @@ export const clientesImages = {
   cta: "/images/footer-clientes-shopitrack.webp",
 };
 
-export const heroQuotes = [
-  "Hoy no puedo salir porque espero un paquete.",
-  "Espero que no llegue mientras estoy en la oficina, el gym, el banco o recogiendo a los niños.",
-  "¿Y si tocaron cuando salí sólo por 10 minutos?",
-  "¿Si no encuentran a nadie, vendrán más tarde o mañana?",
-  "¿Tengo que estar llamando a rastrear mi orden?",
-  "¿Siempre tengo que esperar de 8:00am a 7:00 pm?",
+export const heroQuotes: IconItem[] = [
+  { text: "Hoy no puedo salir porque espero un paquete.", icon: Package },
+  {
+    text: "Espero que no llegue mientras estoy en la oficina, el gym, el banco o recogiendo a los niños.",
+    icon: MapPin,
+  },
+  { text: "¿Y si tocaron cuando salí sólo por 10 minutos?", icon: BellRing },
+  {
+    text: "¿Si no encuentran a nadie, vendrán más tarde o mañana?",
+    icon: CalendarClock,
+  },
+  { text: "¿Tengo que estar llamando a rastrear mi orden?", icon: PhoneCall },
+  { text: "¿Siempre tengo que esperar de 8:00am a 7:00 pm?", icon: Hourglass },
 ];
 
-export const waitingCostItems = [
-  "Horas esperando.",
-  "Cancelar reuniones, citas, compromisos.",
-  "Salidas pospuestas.",
-  "Salir corriendo del trabajo.",
-  "Quitarle tiempo a la familia.",
+export const waitingCostItems: IconItem[] = [
+  { text: "Horas esperando.", icon: Clock3 },
+  { text: "Cancelar reuniones, citas, compromisos.", icon: CalendarX },
+  { text: "Salidas pospuestas.", icon: UtensilsCrossed },
+  { text: "Salir corriendo del trabajo.", icon: Building2 },
+  { text: "Quitarle tiempo a la familia.", icon: Gamepad2 },
 ];
 
 //const stepPlaceholder = "/images/placeholder-asset.svg";
@@ -187,7 +201,7 @@ export const ctaStoreLinks: StoreLink[] = [
   },
 ];
 
-export const faqItems = [
+export const faqItems: FaqItem[] = [
   {
     question: "¿Tiene algún costo para mí?",
     answer: "No. La aplicación es gratuita para quienes reciben sus compras.",

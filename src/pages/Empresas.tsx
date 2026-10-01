@@ -14,9 +14,7 @@ import {
   integrationItems,
   logisticItems,
   orgBenefits,
-  roiCards,
   trustItems,
-  useCases,
 } from "@/data/empresas";
 import { seoConfig } from "@/data/seo";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
@@ -113,7 +111,10 @@ export function Empresas() {
         </ErrorBoundary>
 
         <ErrorBoundary name="Empresas: split-section">
-          <section className="split-section section" data-reveal>
+          <section
+            className="invisible-promise split-section section"
+            data-reveal
+          >
             <div className="container">
               <div className="full-grid">
                 <div className="text-content text-center">
@@ -191,7 +192,7 @@ export function Empresas() {
                     La última milla no es el final de la operación. <br />
                     Es el principio del recuerdo.
                   </h3>
-                  <p>
+                  <p className="sr-only">
                     Cada entrega es momento donde esa promesa se fortalece o se
                     rompe.
                   </p>
@@ -209,7 +210,7 @@ export function Empresas() {
             <div className="container">
               <div className="split-grid">
                 <div className="split-copy">
-                  <SectionHeading title="El problema nunca fue la logística" />
+                  <SectionHeading title="El problema nunca fue la logística." />
                   <div className="logistic-grid">
                     <StatCard items={logisticItems} />
                   </div>
@@ -225,7 +226,7 @@ export function Empresas() {
                     Mientras esas respuestas sigan siendo una suposición, la
                     suerte seguirá decidiendo.
                   </p>
-                  <h3>Shopitrack renueva la suposición por certeza.</h3>
+                  <h3>Shopitrack cambia la suposición por certeza.</h3>
                 </div>
               </div>
             </div>
@@ -258,7 +259,7 @@ export function Empresas() {
             <div className="container">
               <SectionHeading
                 title="Beneficios para toda la organización"
-                lead="Protege la reputación de la marca y fortalece la lealtad del cliente con cada entrega cumplida."
+                lead=""
                 centered
               />
               <div className="benefits-grid">
@@ -294,7 +295,7 @@ export function Empresas() {
                   <ul className="integration-list industry-list industry-list--stack">
                     <li>
                       <span>
-                        <b>Shopitrack</b> no sustituye el <strong>ERP</strong>.
+                        <b>Shopitrack</b> no requiere desarrollo.
                       </span>
                     </li>
                     <li>
@@ -362,61 +363,6 @@ export function Empresas() {
           </section>
         </ErrorBoundary>
 
-        <ErrorBoundary name="Empresas: usecases-section">
-          <section className="sr-only usecases-section section" data-reveal>
-            <div className="container">
-              <SectionHeading
-                title="Casos de uso"
-                lead="Dónde Shopitrack marca más la diferencia."
-                centered
-              />
-              <div className="usecases-grid">
-                {useCases.map((useCase) => (
-                  <article className="usecase-card" key={useCase.title}>
-                    <div
-                      className="usecase-card-media"
-                      role="img"
-                      aria-label={`Imagen pendiente: ${useCase.title}`}
-                    >
-                      <span>ASSET FALTANTE</span>
-                    </div>
-                    <h3>{useCase.title}</h3>
-                    <p>{useCase.description}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
-        </ErrorBoundary>
-
-        <ErrorBoundary name="Empresas: roi-section">
-          <section
-            className="sr-only roi-section section wave-section-bottom"
-            data-reveal
-          >
-            <div className="container">
-              <SectionHeading
-                title="ROI"
-                lead="La pregunta no es sólo cuánto cuesta Shopitrack. También cuánto cuesta seguir trabajando igual."
-                centered
-              />
-              <div className="roi-grid">
-                {roiCards.map((card) => {
-                  const RoiIcon = card.icon;
-                  return (
-                    <StatCard
-                      key={card.title}
-                      icon={<RoiIcon />}
-                      title={card.title}
-                      items={card.items}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </section>
-        </ErrorBoundary>
-
         <ErrorBoundary name="Empresas: confidence-section">
           <section
             className="confidence-section split-section section"
@@ -442,16 +388,8 @@ export function Empresas() {
                       experiencia predecible, construirán relaciones más fuertes
                       con sus clientes.
                     </p>
-                    <h3>
-                      <b
-                        className="highlight-blue"
-                        style={{ color: "var(--color-blue)", fontWeight: 600 }}
-                      >
-                        Shopitrack
-                      </b>{" "}
-                      construye consistencia
-                    </h3>
-                    <h3>Y la consistencia se convierte en reputación</h3>
+                    <h3>Shopitrack construye consistencia.</h3>
+                    <h3>Y la consistencia se convierte en reputación.</h3>
 
                     <ul className="sr-only industry-list industry-list--stack">
                       {trustItems.map((item) => (

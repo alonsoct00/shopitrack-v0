@@ -19,7 +19,6 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { Seo } from "@/components/Seo";
 import {
   blockedEmailDomains,
-  closingLines,
   contactSteps,
   contactoImages,
   faqItems,
@@ -30,6 +29,7 @@ import {
 } from "@/data/contacto";
 import { seoConfig } from "@/data/seo";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { FaqSection } from "@/components/FaqSection";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 interface ContactFormData {
@@ -293,7 +293,7 @@ export function Contacto() {
 
         <ErrorBoundary name="Contacto: split-section">
           <section
-            className="split-section section wave-section-bottom"
+            className="hero-bottom split-section section wave-section-bottom"
             data-reveal
           >
             <div className="container">
@@ -313,10 +313,7 @@ export function Contacto() {
                   <InfoCard key={text} icon={<ItemIcon />} title={text} />
                 ))}
               </div>
-              <p className="text-copy">
-                ¡No buscamos recopilar información. Buscamos comprender el
-                contexto.
-              </p>
+              <p className="text-copy">Buscamos comprender el contexto.</p>
             </div>
           </section>
         </ErrorBoundary>
@@ -617,27 +614,24 @@ export function Contacto() {
         </ErrorBoundary>
 
         <ErrorBoundary name="Contacto: section">
-          <section className="section faq-section" data-reveal>
-            <div className="container">
-              <SectionHeading title="Preguntas frecuentes" centered />
-              <div className="faq-list">
-                {faqItems.map((item) => (
-                  <details className="faq-item" key={item.question}>
-                    <summary>{item.question}</summary>
-                    <p>{item.answer}</p>
-                  </details>
-                ))}
-              </div>
-            </div>
-          </section>
+          <FaqSection items={faqItems} />
         </ErrorBoundary>
 
         <ErrorBoundary name="Contacto: section">
           <section className="section closing-section" data-reveal>
             <div className="container closing-copy">
-              {closingLines.map((line) => (
-                <p key={line}>{line}</p>
-              ))}
+              <p>
+                Queremos que tu empresa se sume a la exigencia actual de las
+                entregas.
+              </p>
+              <p className="strong">
+                Porque las mejores relaciones comerciales
+                <br />
+                comienzan cuando las promesas se cumplen.
+              </p>
+              <p className="strong" style={{ fontSize: "1.25rem" }}>
+                Y cada entrega es la oportunidad para demostrarlo.
+              </p>
             </div>
           </section>
         </ErrorBoundary>

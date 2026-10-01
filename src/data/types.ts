@@ -7,6 +7,11 @@ export type IconItem = {
   icon: Icon;
 };
 
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
 export type ImageSource = {
   src: string;
   alt: string;

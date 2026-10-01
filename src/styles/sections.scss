@@ -1,6 +1,5 @@
 .split-section {
   background: var(--surface);
-  padding-top: 20px;
   position: relative
 }
 
@@ -140,9 +139,11 @@
 }
 
 .steps-list {
+  --steps-gap: 16px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--steps-gap);
 }
 
 .steps-list .step {
@@ -160,19 +161,37 @@
   margin-bottom: 12px;
 }
 
-.step-line>span {
+// Círculo de pasos/iconos: 68px totales con el borde incluido (box-sizing global).
+.step-line>span,
+.info-card>.round-icon,
+.sector-icon,
+.other-sectors-list .round-icon,
+.story-text .round-icon {
   display: grid;
   place-items: center;
   justify-content: center;
   width: 68px;
   height: 68px;
-  margin: auto;
   flex: 0 0 auto;
   color: var(--surface);
   font-weight: 800;
   background: var(--color-blue);
   border: 8px solid var(--icon-bg);
   border-radius: 50%;
+}
+
+.step-line>span {
+  margin: auto;
+}
+
+// Variante WHITE: fondo blanco, contenido azul.
+.steps-section .step-line>span,
+.info-card>.round-icon,
+.sector-icon,
+.other-sectors-list .round-icon,
+.story-text .round-icon {
+  color: var(--color-blue);
+  background: var(--surface);
 }
 
 .step-line>span.step-media {
@@ -205,6 +224,8 @@
   right: 0;
   left: auto;
   margin: 0 auto;
+  // Centra la flecha en el hueco entre dos círculos.
+  transform: translateX(calc(50% + var(--steps-gap) / 2));
 }
 
 .step-line i svg {
@@ -229,15 +250,12 @@
 
 .info-card {
   .round-icon {
-    width: 68px;
-    height: 68px;
     margin: auto;
-    background-color: var(--icon-bg);
 
     svg {
       font-size: 1.125rem;
       width: 100%;
-      height: 50%;
+      height: 34px;
       color: var(--color-blue);
     }
   }
@@ -336,6 +354,20 @@
   grid-template-columns: 1fr 1fr;
   gap: 8px 28px;
   margin: 24px 0;
+}
+
+// Home: un grupo de industrias por columna.
+.industry-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 8px 28px;
+  margin: 24px 0;
+}
+
+.industry-groups .industry-list {
+  grid-template-columns: 1fr;
+  margin: 0;
 }
 
 .industry-list li {

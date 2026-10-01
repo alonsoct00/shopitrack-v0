@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Clock3, Shuffle, Target } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Seo } from "@/components/Seo";
-import { otherSectors, sectoresImages, sectors } from "@/data/sectores";
+import {
+  featuredSectors,
+  otherSectors,
+  sectoresImages,
+  sectors,
+} from "@/data/sectores";
 import { seoConfig } from "@/data/seo";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { RichText } from "@/components/RichText";
@@ -92,38 +97,38 @@ export function Sectores() {
         </ErrorBoundary>
 
         <ErrorBoundary name="Sectores: split-section">
-          <section className="split-section section" data-reveal>
+          <section className="hero-bottom split-section section" data-reveal>
             <div className="container">
               <div className="split-grid stretch">
                 <div className="split-copy">
-                  <SectionHeading eyebrow="" title="El problema común" />
+                  <SectionHeading
+                    eyebrow=""
+                    title="Existe un punto donde toda entrega o visita coincide."
+                  />
                   <h2 className="sr-only">
                     Todas dependen de que alguien esté disponible para recibir.
                   </h2>
-
                   <p>
-                    Las empresas creen que su operación es demasiado particular:
-                    <br />
-                    Que su logística es diferente. <br />
-                    Que sus procesos son únicos. <br />
-                    Y, en efecto, lo son.
-                  </p>
-                  <p>
-                    Pero existe un punto donde todas coinciden. <br />
-                    Todas dependen de que alguien esté disponible para recibir.
-                    <br />
-                    <strong>Ese momento es universal.</strong>
+                    Existe un punto donde toda entrega o visita coincide. <br />
                   </p>
                   <p>
                     No importa el producto. <br />
+                    No importa el servicio. <br />
                     No importa el tamaño. <br />
                     No importa el sector.
                   </p>
                   <p>
-                    La incertidumbre siempre tiene el mismo efecto: <br />
-                    Entregas fallidas, tiempo perdido, clientes frustrados y
-                    costos que suben.
+                    Todas dependen de que alguien esté disponible para recibir.
+                    <br />
+                    <strong>Ese momento es crucial.</strong>
                   </p>
+                  <p className="strong" style={{ marginBottom: "6px" }}>
+                    La incertidumbre siempre tiene el mismo efecto:
+                  </p>
+                  <h3 className="strong">
+                    Entregas fallidas, tiempo perdido, clientes frustrados{" "}
+                    <br /> y costos que aumentan.
+                  </h3>
                 </div>
                 <div className="photo-frame">
                   <ImageWithFallback
@@ -215,10 +220,21 @@ export function Sectores() {
               <SectionHeading eyebrow="" title="Otros sectores" centered />
               <div className="text-content-copy">
                 <h3 className="text-center mb-6">
-                  La naturaleza del producto puede cambiar. <br />
+                  La naturaleza del producto o servicio puede cambiar.
+                  <br />
                   El principio permanece.
                 </h3>
-                <ul className="other-sectors-list">
+                <ul className="other-sectors-list other-sectors-list--featured">
+                  {featuredSectors.map(({ text, icon: ItemIcon }) => (
+                    <li key={text}>
+                      <span className="round-icon" aria-hidden="true">
+                        <ItemIcon />
+                      </span>
+                      <RichText text={text} />
+                    </li>
+                  ))}
+                </ul>
+                <ul className="sr-only other-sectors-list">
                   {otherSectors.map(({ text, icon: ItemIcon }) => (
                     <li key={text}>
                       <span className="round-icon" aria-hidden="true">
@@ -228,8 +244,15 @@ export function Sectores() {
                     </li>
                   ))}
                 </ul>
-                <h3>
-                  La compra termina cuando alguien recibe aquello que esperaba.
+                <h3
+                  style={{
+                    textAlign: "center",
+                    fontSize: "1.4rem",
+                    lineHeight: "1.35",
+                    fontWeight: "600",
+                  }}
+                >
+                  La experiencia termina cuando alguien recibe lo que esperaba.
                 </h3>
               </div>
             </div>

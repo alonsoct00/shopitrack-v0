@@ -20,7 +20,10 @@ export function Header() {
       className={scrolled ? "site-header site-header--scrolled" : "site-header"}
     >
       <Brand />
-      <nav className={menuOpen ? "site-nav site-nav--open" : "site-nav"}>
+      <nav
+        id="site-nav"
+        className={menuOpen ? "site-nav site-nav--open" : "site-nav"}
+      >
         {siteNav.map((item) => (
           <NavLink
             to={item.path}
@@ -43,6 +46,8 @@ export function Header() {
       <button
         className="menu-toggle"
         aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+        aria-expanded={menuOpen}
+        aria-controls="site-nav"
         onClick={() => setMenuOpen(!menuOpen)}
       >
         {menuOpen ? <X /> : <Menu />}

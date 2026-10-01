@@ -17,6 +17,7 @@ import {
 } from "@/data/clientes";
 import { seoConfig } from "@/data/seo";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { FaqSection } from "@/components/FaqSection";
 import { RichText } from "@/components/RichText";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 import { ImageSlider } from "@/components/ImageSlider";
@@ -52,9 +53,14 @@ export function Clientes() {
                 <h1 id="clientes-hero-title">
                   Mi vida no debería detenerse porque espero una entrega.
                 </h1>
-                <ul className="pain-list">
-                  {heroQuotes.map((quote) => (
-                    <li key={quote}>&ldquo;{quote}&rdquo;</li>
+                <ul className="pain-list pain-list--icons">
+                  {heroQuotes.map(({ text, icon: QuoteIcon }) => (
+                    <li key={text}>
+                      <span className="pain-list-icon" aria-hidden="true">
+                        <QuoteIcon />
+                      </span>
+                      <span>&ldquo;{text}&rdquo;</span>
+                    </li>
                   ))}
                 </ul>
                 <p>
@@ -95,10 +101,15 @@ export function Clientes() {
               <div className="split-grid stretch">
                 <div className="split-copy text-content">
                   <SectionHeading eyebrow="" title="Lo que implica esperar" />
-                  <ul className="pain-list">
-                    {waitingCostItems.map((item) => (
-                      <li key={item}>
-                        <RichText text={item} />
+                  <ul className="pain-list pain-list--icons">
+                    {waitingCostItems.map(({ text, icon: ItemIcon }) => (
+                      <li key={text}>
+                        <span className="pain-list-icon" aria-hidden="true">
+                          <ItemIcon />
+                        </span>
+                        <span>
+                          <RichText text={text} />
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -256,19 +267,7 @@ export function Clientes() {
         </ErrorBoundary>
 
         <ErrorBoundary name="Clientes: section">
-          <section className="section faq-section" data-reveal>
-            <div className="container">
-              <SectionHeading centered title="Preguntas frecuentes" />
-              <div className="faq-list">
-                {faqItems.map((item) => (
-                  <details className="faq-item" key={item.question}>
-                    <summary>{item.question}</summary>
-                    <p>{item.answer}</p>
-                  </details>
-                ))}
-              </div>
-            </div>
-          </section>
+          <FaqSection items={faqItems} />
         </ErrorBoundary>
 
         <ErrorBoundary name="Clientes: contact-section">

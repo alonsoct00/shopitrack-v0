@@ -198,6 +198,22 @@ Componentes de layout compartidos por todas las páginas (`src/components/layout
 - Envuelve `Header`, `Footer` y el `Outlet` en `ErrorBoundary` (el de página con `key={pathname}` y fallback `PageError`).
 - Hace scroll al inicio en cada cambio de ruta (`useLayoutEffect` + `window.scrollTo({ behavior: 'instant' })`, para saltarse el `scroll-behavior: smooth` del `html`). Si la URL trae `#hash`, no fuerza el top.
 
+## FaqSection
+
+Sección "Preguntas frecuentes" con acordeón nativo (`details`/`summary`), usada en Clientes y Contacto (`src/components/FaqSection.tsx`). Cada página pasa sus propias preguntas y la envuelve en su `ErrorBoundary`.
+
+```tsx
+import { FaqSection } from '@/components/FaqSection';
+
+<ErrorBoundary name="Clientes: faq">
+  <FaqSection items={faqItems} />
+</ErrorBoundary>
+```
+
+| Prop | Tipo | Descripción |
+| ---- | ---- | ----------- |
+| `items` | `FaqItem[]` | Preguntas y respuestas (`{ question, answer }`, en `src/data/types.ts`) |
+
 ## ComingSoonSection
 
 Placeholder reutilizable para páginas pendientes de mockup en Figma (Empresas, Clientes, Industrias).

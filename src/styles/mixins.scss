@@ -49,15 +49,16 @@
 // Desktop hero with a full-bleed photo behind the copy: the mist gradient and a
 // blurred band (masked to the copy column) keep the text readable without
 // washing out or blurring the subject on the right half of the photo.
-@mixin hero-photo-legibility($image) {
+// Version white: `hero-photo-legibility($image, --color-white, --color-white)`.
+@mixin hero-photo-legibility($image, $tone: --color-sky, $fade: --color-mist) {
     position: relative;
     overflow: hidden;
     background:
         linear-gradient(90deg,
-            rgb(var(--color-mist) / 0.86) 0%,
-            rgb(var(--color-mist) / 0.78) 34%,
-            rgb(var(--color-mist) / 0.4) 44%,
-            rgb(var(--color-mist) / 0) 56%),
+            rgb(var(#{$tone}) / 0.86) 0%,
+            rgb(var(#{$tone}) / 0.78) 34%,
+            rgb(var(#{$fade}) / 0.4) 44%,
+            rgb(var(#{$fade}) / 0) 56%),
         url($image) no-repeat left center / cover;
     @include hero-decor-layers;
 
