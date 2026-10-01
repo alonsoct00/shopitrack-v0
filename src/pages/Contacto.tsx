@@ -228,7 +228,8 @@ export function Contacto() {
           <section
             className="hero section"
             aria-labelledby="contacto-success-title"
-          >
+          ></section>
+          <section className="section-form-success">
             <div className="container form-success">
               <h1
                 id="contacto-success-title"
