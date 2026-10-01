@@ -276,7 +276,7 @@ export function Home() {
                   <ul className="card-list">
                     <li>Menos entregas fallidas</li>
                     <li>Menos costos operativos</li>
-                    <li>Más lealtad de los cliente</li>
+                    <li>Más lealtad de los clientes</li>
                     <li>Más recompra.</li>
                   </ul>
                 </InfoCard>
@@ -391,8 +391,7 @@ export function Home() {
             <div className="container text-center">
               <div className="text-container">
                 <h2>
-                  Transforma cada entrega en una mejor experiencia para tus
-                  clientes.
+                  Transforma cada entrega en una mejor experiencia para todos.
                 </h2>
                 <p>
                   Conoce cómo transformar la entrega en una experiencia

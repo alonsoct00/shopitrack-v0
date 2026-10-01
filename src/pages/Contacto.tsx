@@ -313,7 +313,18 @@ export function Contacto() {
                   <InfoCard key={text} icon={<ItemIcon />} title={text} />
                 ))}
               </div>
-              <p className="text-copy">Buscamos comprender el contexto.</p>
+              <p
+                className="text-copy"
+                style={{
+                  marginTop: "16px",
+                  marginBottom: "0",
+                  fontSize: "1.2rem",
+                  fontWeight: "500",
+                  color: "white",
+                }}
+              >
+                Buscamos comprender el contexto.
+              </p>
             </div>
           </section>
         </ErrorBoundary>

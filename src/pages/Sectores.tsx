@@ -111,12 +111,12 @@ export function Sectores() {
                   <p>
                     Existe un punto donde toda entrega o visita coincide. <br />
                   </p>
-                  <p>
-                    No importa el producto. <br />
-                    No importa el servicio. <br />
-                    No importa el tamaño. <br />
-                    No importa el sector.
-                  </p>
+                  <ul className="industry-list">
+                    <li>No importa el producto.</li>
+                    <li>No importa el servicio.</li>
+                    <li>No importa el tamaño.</li>
+                    <li>No importa el sector.</li>
+                  </ul>
                   <p>
                     Todas dependen de que alguien esté disponible para recibir.
                     <br />
