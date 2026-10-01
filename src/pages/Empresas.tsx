@@ -226,7 +226,7 @@ export function Empresas() {
                     Mientras esas respuestas sigan siendo una suposición, la
                     suerte seguirá decidiendo.
                   </p>
-                  <h3>Shopitrack renueva la suposición por certeza.</h3>
+                  <h3>Shopitrack cambia la suposición por certeza.</h3>
                 </div>
               </div>
             </div>
@@ -259,7 +259,7 @@ export function Empresas() {
             <div className="container">
               <SectionHeading
                 title="Beneficios para toda la organización"
-                lead="Protege la reputación de la marca y fortalece la lealtad del cliente con cada entrega cumplida."
+                lead=""
                 centered
               />
               <div className="benefits-grid">
@@ -295,7 +295,7 @@ export function Empresas() {
                   <ul className="integration-list industry-list industry-list--stack">
                     <li>
                       <span>
-                        <b>Shopitrack</b> no sustituye el <strong>ERP</strong>.
+                        <b>Shopitrack</b> no requiere desarrollo.
                       </span>
                     </li>
                     <li>

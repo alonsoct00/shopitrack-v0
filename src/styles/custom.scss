@@ -116,12 +116,12 @@ p.statement {
 }
 
 .closing-copy {
-    max-width: 620px;
+    max-width: 820px;
     text-align: center;
 }
 
 .closing-copy p {
-    margin: 0 0 16px;
+    margin: 0 0 4px;
     font-size: 1.125rem;
 }
 
@@ -1700,6 +1700,16 @@ p.statement {
 
         .hero-bottom {
             background: linear-gradient(90deg, rgb(var(--color-mist) / 0.9) 80%, var(--surface) 85%) !important;
+
+            .split-copy {
+
+                h3.strong {
+                    font-size: 1.25rem;
+                    line-height: 1.2;
+                    color: var(--text-secondary);
+                }
+
+            }
         }
         .split-copy p {
             margin-bottom: var(--space-sm);
@@ -1890,6 +1900,13 @@ p.statement {
                     gap: 14px;
                     padding: 14px 16px;
                     font-size: 1.0625rem;
+                }
+            }
+
+            // 4 elementos: una sola fila hasta tablet, 2x2 en mobile.
+            &--featured {
+                @media (min-width: #{$page-break-mobile + 1px}) {
+                    grid-template-columns: repeat(4, 1fr);
                 }
             }
         }

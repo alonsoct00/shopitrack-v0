@@ -69,6 +69,7 @@ Rutas en `src/data/sectores.ts` (`sectoresImages` y `image` de cada sector). Web
 | 06 Hogar | `/images/sector-de-servicios-hogar.webp` |
 | 07 Servicios de tecnología | `/images/sector-de-atencion-telefonia-internet.webp` |
 | 08 Salud y bienestar | `/images/sector-de-salud-bienestar.webp` |
+| 09 Seguros | Pendiente: usa `/images/placeholder-asset.svg` hasta tener `/images/sector-de-seguros.webp` |
 
 Las imágenes de sector son 16:9 con el sujeto al centro: en desktop se recortan a la columna izquierda de la card, en tablet a 21:9 y en mobile se ven en 16:9.
 

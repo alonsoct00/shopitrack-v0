@@ -3,7 +3,8 @@ import type { IconItem, ImageSource } from "@/data/types";
 
 export const contactoImages = {
   hero: "/images/hero-contacto.webp",
-  heroSrcSet: "/images/hero-contacto-800.webp 800w, /images/hero-contacto.webp 1672w",
+  heroSrcSet:
+    "/images/hero-contacto-800.webp 800w, /images/hero-contacto.webp 1672w",
 };
 
 export const contactSteps: {
@@ -71,14 +72,14 @@ export const operationContextItems: IconItem[] = [
 ];
 
 export const industryOptions = [
-  "Retail",
-  "Muebles",
-  "Electrodomésticos",
-  "Construcción",
-  "Salud",
-  "Moda",
-  "Tecnología",
-  "Otra",
+  "Departamentales / Autoservicio",
+  "Muebles y Decoración",
+  "Electrodomésticos y Línea Blanca",
+  "Hogar (Reparaciones, Instalaciones, Mudanzas)",
+  "Servicios de Tecnología (Internet, Telefonía)",
+  "e-Commerce",
+  "Operador Logístico",
+  "Otro",
 ] as const;
 
 export const volumeOptions = [
@@ -165,9 +166,3 @@ export const faqItems = [
   },
 ];
 
-export const closingLines = [
-  "No traemos otra aplicación.",
-  "Queremos que tu empresa se sume a la nueva tendencia de entregas.",
-  "Porque las mejores relaciones comerciales comienzan cuando las promesas se cumplen.",
-  "Y cada entrega es la oportunidad para demostrarlo.",
-];
