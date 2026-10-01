@@ -221,14 +221,14 @@ export const integrationItems: {
     title: "No sustituye ",
     icon: Layers,
     label:
-      "el sistema del Operador logístico. Tus sistemas siguen siendo los mismos.",
+      "El sistema del Operador logístico. Tus sistemas siguen siendo los mismos.",
     description: "",
   },
   {
     title: "Se integra",
     icon: Puzzle,
     label:
-      "a la operación existente sin obligar a la empresa a cambiar lo que ya funciona eficientemente.",
+      "A la operación existente sin obligar a la empresa a cambiar lo que ya funciona eficientemente.",
     description: "",
   },
 ];

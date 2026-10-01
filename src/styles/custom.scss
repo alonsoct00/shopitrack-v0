@@ -234,7 +234,7 @@ p.statement {
 
         .steps-section {
 
-                background: linear-gradient(180deg, rgb(var(--color-navy) / 95%) 95%, rgb(var(--color-white) / 0.05) 99%);
+                background: linear-gradient(180deg, rgb(var(--color-navy) / 99%) 100%, rgb(var(--color-white) / 0.05) 99%);
 
                 h2 {
                     color: var(--surface);
@@ -537,8 +537,12 @@ p.statement {
             }
         }
 
+        .invisible-promise {
+            background: linear-gradient(100deg, rgb(var(--color-mist) / 0.9) 80%, var(--surface) 85%) !important;
+        }
+
         .cost-section {
-            background: linear-gradient(180deg, var(--surface-alt) 0%, var(--surface) 100%) !important;
+            background: linear-gradient(180deg, var(--surface-alt) 90%, var(--surface) 150%) !important;
             .cost-grid {
                 display: grid;
                 grid-template-columns: 1fr;
@@ -561,7 +565,6 @@ p.statement {
 
                         .round-icon {
                             margin-right: 8px;
-                            
                         }
 
                     }
@@ -573,6 +576,7 @@ p.statement {
                 grid-template-columns: 1.15fr 0.85fr;
                 align-items: stretch;
                 gap: 18px;
+                background-color: rgb(var(--color-mist) / 0.9);
 
                 @include mobile-only {
                     grid-template-columns: 1fr;
@@ -628,6 +632,8 @@ p.statement {
 
         .logistic-problem {
 
+            background: linear-gradient(200deg, rgb(var(--color-mist) / 0.9) 80%, var(--surface) 85%) !important;
+
             .info-card {
                 min-height: auto;
                 padding: 20px;
@@ -655,7 +661,7 @@ p.statement {
         }
 
         .steps-section {
-            background: linear-gradient(180deg, rgb(var(--color-navy) / 95%) 95%, rgb(var(--color-white) / 0.05) 99%);
+            background: linear-gradient(180deg, rgb(var(--color-navy) / 99%) 100%, rgb(var(--color-white) / 0.05) 99%);
             h1, h2, h3, h4, p, span, small {
                 color: var(--surface);
             }
@@ -696,6 +702,8 @@ p.statement {
 
         .tech-integration {
 
+            background: linear-gradient(180deg, var(--surface-alt) 90%, var(--surface) 150%) !important;
+
             .info-card h2 {
                 font-size: 1.5rem;
                 font-weight: 600;
@@ -733,6 +741,13 @@ p.statement {
                     max-width: 100%;
                     margin-inline: 0;
                     width: 75%;
+
+                    .step-line {
+                        span {
+                            background-color: var(--surface);
+                            color: var(--color-blue);
+                        }
+                    }
                 }
 
                 .steps-list--flow h4 {
@@ -757,6 +772,7 @@ p.statement {
                     justify-content: space-between;
                     align-items: center;
                     gap: 16px;
+                    background: rgb(var(--color-navy) / 100%) 100% !important;
 
                     .round-icon {
                         margin: 0;
@@ -765,6 +781,9 @@ p.statement {
                     .info-card-body {
                         flex: 1 1 auto;
                         min-width: 0;
+                        h2, h3, span {
+                            color: var(--surface);
+                        }
                     }
                 }
             }
@@ -886,7 +905,6 @@ p.statement {
         .stat-card h2 {
             font-size: 1.1875rem;
             font-weight: 600;
-            color: var(--color-blue);
             margin-bottom: 10px;
         }
 
@@ -922,6 +940,11 @@ p.statement {
                 width: 40px;
                 height: 40px;
                 margin: 0 24px 0 0;
+                background: var(--icon-bg);
+
+                svg {
+                    height: 20px;
+                }
             }
         }
 
@@ -1303,11 +1326,13 @@ p.statement {
         }
 
         .hero-bottom {
+
+            background: linear-gradient(100deg, rgb(var(--color-mist) / 0.9) 80%, var(--surface) 85%) !important;
             .photo-frame {
               img {
                 width: 100%;
                 height: auto;
-                mask-image: linear-gradient(to left, transparent 0%, #ffffff 10%, #ffffff 95%, transparent 100%);
+                mask-image: linear-gradient(to left, transparent 0%, rgb(var(--color-mist) / 0.9) 10%, rgb(var(--color-mist) / 0.9) 95%, transparent 100%);
               }   
             }
         }
@@ -1356,6 +1381,32 @@ p.statement {
             font-weight: 700;
         }
 
+        .pain-list--icons li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding-left: 0;
+
+            &::before {
+                display: none;
+            }
+        }
+
+        .pain-list-icon {
+            display: inline-flex;
+            align-items: center;
+            flex: 0 0 auto;
+            height: 1lh;
+
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        
+        .steps-section.client-steps {
+            background: linear-gradient(180deg, rgb(var(--color-sky) / 0.25) 100%, var(--surface) 100%) !important;
+        }
         .clientes-intro-copy {
             max-width: 640px;
             margin: 0 auto;
@@ -1363,7 +1414,7 @@ p.statement {
 
         .adapted-section,
         .app-demo-section {
-            background: linear-gradient(160deg, var(--color-ink) 0%, var(--section-contact-bg) 100%);
+            background: linear-gradient(160deg, rgb(var(--color-navy) / 0.99) 0%, var(--section-contact-bg) 100%);
 
             h2,
             h3,
@@ -1406,6 +1457,10 @@ p.statement {
             margin-top: 28px;
             font-size: 1rem;
             color: var(--text-muted);
+        }
+
+        .before-after-section {
+            background: linear-gradient(100deg, rgb(var(--color-mist) / 0.9) 80%, var(--surface) 85%) !important;
         }
 
         .before-after-list {
@@ -1528,6 +1583,10 @@ p.statement {
                 opacity: 0.7;
             }
         }
+
+        .faq-section {
+            background: linear-gradient(320deg, rgb(var(--color-mist) / 0.9) 80%, var(--surface) 85%) !important;
+        }
         .contact-section {
             .photo-frame {
                 img {
@@ -1633,7 +1692,14 @@ p.statement {
         }
 
         .hero {
-            @include hero-photo-legibility("/images/hero-sectores.webp");
+            @include hero-photo-legibility("/images/hero-sectores.webp", --color-white, --color-white);
+            &::before {
+                display: none;
+            }
+        }
+
+        .hero-bottom {
+            background: linear-gradient(90deg, rgb(var(--color-mist) / 0.9) 80%, var(--surface) 85%) !important;
         }
         .split-copy p {
             margin-bottom: var(--space-sm);
@@ -1642,6 +1708,10 @@ p.statement {
             &:last-child {
                 margin-bottom: 0;
             }
+        }
+
+        .sectors-section {
+            background: linear-gradient(120deg, rgb(var(--color-navy) / 155%) 100%, rgb(var(--color-white) / 0) 150%);
         }
 
         .sectors-list {
@@ -1930,6 +2000,18 @@ p.statement {
             @include sr-only;
         }
 
+        .hero-bottom {
+            background: linear-gradient(160deg, rgb(var(--color-navy) / 0.99) 0%, var(--section-contact-bg) 100%);
+            .section-heading {
+                h2 {
+                    color: var(--surface);
+                }
+            }
+            .text-copy {
+                color: rgb(var(--color-white) / 80%);
+            }
+        }
+
         .contact-context-grid .info-card {
             min-height: auto;
             padding: 20px;
@@ -1943,7 +2025,7 @@ p.statement {
         }
 
         .contact-form-section {
-            background: linear-gradient(160deg, var(--color-ink) 0%, var(--section-contact-bg) 100%);
+            background: linear-gradient(160deg, rgb(var(--color-navy) / 0.99) 0%, var(--section-contact-bg) 100%);
 
             .section-heading {
                 margin-bottom: var(--space-sm);
@@ -2208,6 +2290,10 @@ p.statement {
                 flex: none;
                 margin-top: 1px;
             }
+        }
+
+        .faq-section {
+            background: linear-gradient(320deg, rgb(var(--color-mist) / 0.9) 80%, var(--surface) 85%) !important;
         }
 
         // responsive.scss centers this button with display: block from 1280px;

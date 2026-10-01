@@ -293,7 +293,7 @@ export function Contacto() {
 
         <ErrorBoundary name="Contacto: split-section">
           <section
-            className="split-section section wave-section-bottom"
+            className="hero-bottom split-section section wave-section-bottom"
             data-reveal
           >
             <div className="container">

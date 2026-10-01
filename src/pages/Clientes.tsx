@@ -52,9 +52,14 @@ export function Clientes() {
                 <h1 id="clientes-hero-title">
                   Mi vida no debería detenerse porque espero una entrega.
                 </h1>
-                <ul className="pain-list">
-                  {heroQuotes.map((quote) => (
-                    <li key={quote}>&ldquo;{quote}&rdquo;</li>
+                <ul className="pain-list pain-list--icons">
+                  {heroQuotes.map(({ text, icon: QuoteIcon }) => (
+                    <li key={text}>
+                      <span className="pain-list-icon" aria-hidden="true">
+                        <QuoteIcon />
+                      </span>
+                      <span>&ldquo;{text}&rdquo;</span>
+                    </li>
                   ))}
                 </ul>
                 <p>
@@ -95,10 +100,15 @@ export function Clientes() {
               <div className="split-grid stretch">
                 <div className="split-copy text-content">
                   <SectionHeading eyebrow="" title="Lo que implica esperar" />
-                  <ul className="pain-list">
-                    {waitingCostItems.map((item) => (
-                      <li key={item}>
-                        <RichText text={item} />
+                  <ul className="pain-list pain-list--icons">
+                    {waitingCostItems.map(({ text, icon: ItemIcon }) => (
+                      <li key={text}>
+                        <span className="pain-list-icon" aria-hidden="true">
+                          <ItemIcon />
+                        </span>
+                        <span>
+                          <RichText text={text} />
+                        </span>
                       </li>
                     ))}
                   </ul>

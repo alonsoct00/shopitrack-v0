@@ -92,7 +92,7 @@ export function Sectores() {
         </ErrorBoundary>
 
         <ErrorBoundary name="Sectores: split-section">
-          <section className="split-section section" data-reveal>
+          <section className="hero-bottom split-section section" data-reveal>
             <div className="container">
               <div className="split-grid stretch">
                 <div className="split-copy">
