@@ -228,7 +228,8 @@ export function Contacto() {
           <section
             className="hero section"
             aria-labelledby="contacto-success-title"
-          >
+          ></section>
+          <section className="section-form-success">
             <div className="container form-success">
               <h1
                 id="contacto-success-title"
@@ -313,7 +314,18 @@ export function Contacto() {
                   <InfoCard key={text} icon={<ItemIcon />} title={text} />
                 ))}
               </div>
-              <p className="text-copy">Buscamos comprender el contexto.</p>
+              <p
+                className="text-copy"
+                style={{
+                  marginTop: "16px",
+                  marginBottom: "0",
+                  fontSize: "1.2rem",
+                  fontWeight: "500",
+                  color: "white",
+                }}
+              >
+                Buscamos comprender el contexto.
+              </p>
             </div>
           </section>
         </ErrorBoundary>

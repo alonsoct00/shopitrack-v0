@@ -28,6 +28,7 @@ export function Footer() {
       <div className="footer-legal">
         <nav className="footer-legal-links" aria-label="Legal">
           <Link to="/aviso-de-privacidad">Aviso de privacidad</Link>
+          <Link to="/cookies">Política de cookies</Link>
           {/*<Link to="/terminos-y-condiciones">Términos y condiciones</Link>*/}
         </nav>
         <p className="footer-copyright">

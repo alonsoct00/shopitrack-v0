@@ -76,7 +76,7 @@ export const clientSteps: {
     },
   },
   {
-    label: "Paso 3",
+    label: "Paso 3*",
     text: "El día acordado, recibes un recordatorio de “Hoy es el día”.",
     image: {
       src: "/images/clientes-paso-3.webp",
@@ -84,7 +84,7 @@ export const clientSteps: {
     },
   },
   {
-    label: "Paso 4",
+    label: "Paso 4*",
     text: "Te avisan 2 horas antes la hora aproximada de llegada para asegurarte de estar en el domicilio de entrega.",
     image: {
       src: "/images/clientes-paso-4.webp",
@@ -92,7 +92,7 @@ export const clientSteps: {
     },
   },
   {
-    label: "Paso 5",
+    label: "Paso 5*",
     text: "Recibes tu compra.",
     image: {
       src: "/images/clientes-paso-5.webp",

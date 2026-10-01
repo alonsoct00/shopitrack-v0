@@ -10,6 +10,7 @@
 | [RESPONSIVE.md](./RESPONSIVE.md) | Breakpoints y comportamiento responsive |
 | [IMAGES.md](./IMAGES.md) | Imágenes utilizadas, prompts y cómo agregar nuevas |
 | [SEO.md](./SEO.md) | Meta tags, Open Graph, JSON-LD y sitemap |
+| [ANALYTICS.md](./ANALYTICS.md) | Pixels y analytics (LinkedIn, GTM, GA4): activación por variables de entorno y cómo agregar servicios |
 | [AI-CONTEXT.md](./AI-CONTEXT.md) | Contexto y reglas para agentes de IA |
 | [SHOPITRACK_PROJECT_CONTEXT.md](./SHOPITRACK_PROJECT_CONTEXT.md) | Contexto general del proyecto y estado de la primera versión, para compartir con otros agentes |
 | [CHANGELOG.md](./CHANGELOG.md) | Registro de ajustes de diseño, responsive y assets por página, con los patrones reutilizables |

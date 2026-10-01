@@ -556,15 +556,17 @@ p.statement {
                 url(/images/hero-empresa-reverse.webp) no-repeat right center !important;
             background-size: 100% !important;
             @include hero-decor-layers;
-        }
-        .section-heading {
-            margin-bottom: 0;
 
-            + .text-content {
-                margin-top: 8px;
-                @include text-content-copy;
+            .section-heading {
+                margin-bottom: 0;
+    
+                + .text-content {
+                    margin-top: 8px;
+                    @include text-content-copy;
+                }
             }
         }
+
 
         .invisible-promise {
             background: linear-gradient(100deg, rgb(var(--color-mist) / 0.9) 80%, var(--surface) 85%) !important;
@@ -1483,8 +1485,8 @@ p.statement {
         .steps-footnote {
             max-width: 100%;
             margin-top: 28px;
-            font-size: 1rem;
-            color: var(--text-muted);
+            font-size: 1.125rem;
+            color: var(--text-primary);
         }
 
         .before-after-section {
@@ -1709,6 +1711,11 @@ p.statement {
             background: linear-gradient(90deg, rgb(var(--color-mist) / 0.9) 80%, var(--surface) 85%) !important;
 
             .split-copy {
+
+                .industry-list {
+                    grid-template-columns: 1fr;
+                    margin: 0 0 var(--space-sm);
+                }
 
                 h3.strong {
                     font-size: 1.25rem;
@@ -2443,6 +2450,26 @@ p.statement {
                 margin-bottom: var(--space-sm);
                 font-size: 1rem;
                 line-height: 1.6;
+            }
+
+            ul {
+                margin: 0 0 var(--space-sm);
+                padding-left: 1.25rem;
+                list-style: disc;
+            }
+
+            li {
+                margin-bottom: 6px;
+                font-size: 1rem;
+                line-height: 1.6;
+                color: var(--text-secondary);
+            }
+
+            a {
+                color: var(--color-blue);
+                text-decoration: underline;
+                text-underline-offset: 3px;
+                overflow-wrap: anywhere;
             }
         }
 

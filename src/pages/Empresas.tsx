@@ -127,7 +127,7 @@ export function Empresas() {
                       instalaciones tecnológicas o moda.
                     </p>
                     <h4>
-                      La promesa siempre es la misma. <q>Confía en nosotros.</q>
+                      La promesa siempre es la misma: <q>Confía en nosotros.</q>
                     </h4>
                     <p>
                       Esa promesa no termina cuando se aprueba el pago. <br />
@@ -414,7 +414,7 @@ export function Empresas() {
             <div className="container contact-grid">
               <div>
                 <h2>
-                  Descubre cómo convertir cada entrega en la oportunidad para
+                  Descubre como hacer de cada entrega la oportunidad de
                   fortalecer tu marca.
                 </h2>
                 <p className="sr-only contact-description">

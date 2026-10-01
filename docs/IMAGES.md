@@ -10,7 +10,7 @@ Todas las imágenes son fotografías de Pexels (licencia libre) seleccionadas pa
 | Cost section | `pexels-photo-7706523` | Operadora revisando entregas | Sección "Costo invisible" |
 | New way | `pexels-photo-8989470` | Cliente y repartidor coordinando | Sección "Nueva forma" |
 | Trust | `pexels-photo-6869055` | Cliente recibiendo paquete | Sección "Confianza" |
-| Industries collage | `8989470`, `6699423`, `6869055` | Entregas | Collage de industrias |
+| Industries collage | `/images/home-mosaico-*.webp` (9, propias) | Departamental, Autoservicio, Muebles y decoración, Línea blanca, Internet, Mudanzas, Reparaciones, Seguros, Transporte escolar | `IndustriesShowcase`; WebP con `cwebp -q 80 -m 6`, máx. 800px. Originales PNG/JPEG junto a ellas |
 | Promise bg | `pexels-photo-417074` | Fondo de ciudad | Fondo de sección "Promesa" |
 
 ## Prompts para regenerar con IA

@@ -7,7 +7,7 @@ import { Sectores } from '@/pages/Sectores';
 import { Contacto } from '@/pages/Contacto';
 import { NotFound } from '@/pages/NotFound';
 import { LegalPage } from '@/pages/LegalPage';
-import { privacyNotice, termsAndConditions } from '@/data/legal';
+import { cookiePolicy, privacyNotice, termsAndConditions } from '@/data/legal';
 import { seoConfig } from '@/data/seo';
 
 function App() {
@@ -23,6 +23,10 @@ function App() {
           <Route
             path="aviso-de-privacidad"
             element={<LegalPage content={privacyNotice} seo={seoConfig.privacidad} />}
+          />
+          <Route
+            path="cookies"
+            element={<LegalPage content={cookiePolicy} seo={seoConfig.cookies} />}
           />
           <Route
             path="terminos-y-condiciones"
