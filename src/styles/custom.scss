@@ -111,6 +111,30 @@ p.statement {
     color: var(--text-secondary);
 }
 
+// Mobile: el padding pasa al summary para que toda la fila sea tocable.
+@include mobile-only {
+    .faq-item {
+        padding: 0;
+
+        summary {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 18px 20px;
+        }
+
+        summary::after {
+            flex: none;
+        }
+
+        p {
+            margin: 0;
+            padding: 0 20px 18px;
+            font-size: 0.9375rem;
+        }
+    }
+}
+
 .closing-section {
     background: var(--surface-alt);
 }
@@ -284,6 +308,11 @@ p.statement {
                         font-size: 1rem;
                         line-height: 1.8;
                         min-height: 120px;
+
+                        // Apiladas ya no hay columnas que igualar.
+                        @media (max-width: $bp-mobile-max) {
+                            min-height: 0;
+                        }
                     }
 
                 }
@@ -1162,7 +1191,6 @@ p.statement {
             }
 
             .steps-section {
-                padding-bottom: 160px;
                 .step-line {
                     display: flex;
                 }
@@ -1636,27 +1664,6 @@ p.statement {
                 }
             }
 
-            .faq-item {
-                padding: 0;
-
-                summary {
-                    display: flex;
-                    justify-content: space-between;
-                    gap: 12px;
-                    padding: 18px 20px;
-                }
-
-                summary::after {
-                    flex: none;
-                }
-
-                p {
-                    margin: 0;
-                    padding: 0 20px 18px;
-                    font-size: 0.9375rem;
-                }
-            }
-
             // 801–960px still fits both cards side by side; stack only on phones.
             @media (max-width: $bp-mobile-max) {
                 .before-after-list {
@@ -1966,12 +1973,8 @@ p.statement {
                 padding: 0 var(--space-xs) var(--space-xs);
             }
 
-            .sector-card-header {
-                align-items: flex-start;
-
-                h2 {
-                    font-size: 1.4rem;
-                }
+            .sector-card-header h2 {
+                font-size: 1.4rem;
             }
 
             .sector-blocks {
@@ -2286,6 +2289,11 @@ p.statement {
                 outline: 2px solid var(--color-blue);
                 outline-offset: 2px;
                 border-radius: 2px;
+            }
+
+            // Padding en un elemento en línea: amplía el área táctil sin mover el texto.
+            @include mobile-only {
+                padding-block: 8px;
             }
         }
 
