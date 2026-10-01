@@ -13,6 +13,7 @@ export const seoConfig: Record<
   | "sectores"
   | "contacto"
   | "privacidad"
+  | "cookies"
   | "terminos"
   | "notFound",
   SeoEntry
@@ -53,6 +54,12 @@ export const seoConfig: Record<
     title: "Aviso de privacidad | Shopitrack",
     description:
       "Conoce cómo Shopitrack trata y protege la información personal que recibe a través de su sitio y sus servicios de coordinación de entregas.",
+  },
+  cookies: {
+    path: "/cookies",
+    title: "Política de cookies | Shopitrack",
+    description:
+      "Conoce qué cookies y tecnologías de rastreo utiliza el sitio de Shopitrack, para qué sirven y cómo puedes gestionarlas desde tu navegador.",
   },
   terminos: {
     path: "/terminos-y-condiciones",

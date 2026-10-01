@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Seo } from "@/components/Seo";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { legalReviewNote, type LegalDocument } from "@/data/legal";
@@ -40,6 +41,21 @@ export function LegalPage({
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
+                  {section.items && (
+                    <ul>
+                      {section.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {section.outro?.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                  {section.link && (
+                    <p>
+                      <Link to={section.link.to}>{section.link.label}</Link>
+                    </p>
+                  )}
                 </section>
               ))}
             </article>

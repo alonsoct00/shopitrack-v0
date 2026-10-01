@@ -50,4 +50,4 @@ Las páginas no cambian.
 
 ## Consentimiento
 
-El sitio no tiene un gestor de consentimiento (CMP) y los servicios activos cargan al abrir la página. Si se requiere consentimiento previo, basta con mover la llamada a `initAnalytics()` al momento en que el usuario acepte; el resto de la arquitectura no cambia. Validar con el área legal si el Aviso de Privacidad debe mencionar estas tecnologías.
+El sitio no tiene un gestor de consentimiento (CMP) y los servicios activos cargan al abrir la página. Si se requiere consentimiento previo, basta con mover la llamada a `initAnalytics()` al momento en que el usuario acepte; el resto de la arquitectura no cambia. El Aviso de privacidad (`/aviso-de-privacidad`) y la Política de cookies (`/cookies`), en `src/data/legal.ts`, describen LinkedIn Insight Tag como activo y GTM, GA4 y Meta Pixel como posibles. Al activar o agregar un servicio, actualizar ambos textos.
