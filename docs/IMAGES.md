@@ -81,7 +81,7 @@ Imágenes propias en `public/images`; rutas en `src/data/clientes.ts` (`clientes
 | ----------- | ------- | ----------- |
 | Hero | `/images/hero-clientes.webp` (+ `hero-clientes-800.webp` en `srcSet`) | Fondo CSS en desktop, `<img>` en mobile |
 | Así funciona (6 pasos) | `/images/clientes-paso-1..6.webp` | 16:9; el marco de la card usa la misma proporción para no recortar |
-| La aplicación (slider) | `/images/app-clientes-notificacion.webp`, `-status-pedido.webp`, `-reminder-pedido.webp`, `-status-cambio.webp` | 16:9; el viewport del slider usa la misma proporción |
+| La aplicación (slider) | `/images/app-clientes-notificacion.png`, `-status-pedido.png`, `-reminder-pedido.png`, `-status-cambio.png` | 16:9; el viewport del slider usa la misma proporción |
 | CTA final | `/images/footer-clientes-shopitrack.webp` | Antes/después de la misma clienta |
 
 ## Página Contacto

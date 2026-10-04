@@ -667,7 +667,10 @@ export function Contacto() {
                 <a className="btn btn-coral" href="#formulario-contacto">
                   Agenda una demostración personalizada <ArrowRight size={15} />
                 </a>
-                <a className="btn btn-outline" href="#formulario-contacto">
+                <a
+                  className="hidden btn btn-outline"
+                  href="#formulario-contacto"
+                >
                   Habla con un especialista
                 </a>
               </div>
