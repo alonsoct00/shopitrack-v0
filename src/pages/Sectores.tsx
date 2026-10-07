@@ -66,8 +66,8 @@ export function Sectores() {
                 </h1>
                 <p>
                   Cada sector tiene desafíos distintos. Pero todas dependen de
-                  que una entrega ocurra en el momento correcto y con la
-                  información adecuada.
+                  que una entrega ocurra en el momento adecuado y con la
+                  información oportuna.
                 </p>
                 <p className="statement">
                   <strong>

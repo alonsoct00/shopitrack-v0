@@ -13,7 +13,7 @@ export type LegalDocument = {
   sections: LegalSection[];
 };
 
-export const COMPANY_NAME = "Shopitrack S.A.P.I., de C.V.";
+export const COMPANY_NAME = "Shopitrack SU, S.A.P.I., de C.V.";
 
 // Texto base para maquetación. Requiere revisión legal antes de publicarse;
 // los datos entre corchetes ([POR DEFINIR], [CORREO DE PRIVACIDAD]…) los debe proporcionar la empresa.
@@ -241,7 +241,10 @@ export const cookiePolicy: LegalDocument = {
       paragraphs: [
         "Si mediante estas tecnologías se recaban datos personales, los tratamos conforme a nuestro Aviso de privacidad, donde también encontrarás cómo ejercer tus derechos de acceso, rectificación, cancelación y oposición (ARCO).",
       ],
-      link: { to: "/aviso-de-privacidad", label: "Consulta el Aviso de privacidad" },
+      link: {
+        to: "/aviso-de-privacidad",
+        label: "Consulta el Aviso de privacidad",
+      },
     },
     {
       title: "Cambios a esta política",
@@ -251,7 +254,9 @@ export const cookiePolicy: LegalDocument = {
     },
     {
       title: "Contacto",
-      paragraphs: [`Si tienes dudas sobre esta política, escríbenos a ${PRIVACY_EMAIL}.`],
+      paragraphs: [
+        `Si tienes dudas sobre esta política, escríbenos a ${PRIVACY_EMAIL}.`,
+      ],
     },
   ],
 };

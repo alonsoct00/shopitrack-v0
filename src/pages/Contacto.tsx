@@ -482,6 +482,7 @@ export function Contacto() {
                     id={fieldId("phone")}
                     label="Teléfono"
                     error={errors.phone}
+                    hint={formCopy.helperPhone}
                   >
                     <input
                       id={fieldId("phone")}
