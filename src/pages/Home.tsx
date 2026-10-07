@@ -180,12 +180,19 @@ export function Home() {
                   de unidad, y costo de re-proceso. Pero lo más costoso es
                   aquello que no aparece en el P&L.
                 </p>
-                <p style={{ marginBottom: 6 }}>
-                  <b>Confianza.</b> Una mala entrega puede borrar una excelente
-                  experiencia de compra.
+                <p
+                  style={{
+                    marginBottom: 6,
+                    lineHeight: 1.5,
+                    marginBlock: 5,
+                    fontWeight: 600,
+                  }}
+                >
+                  Una mala entrega puede borrar una excelente experiencia de
+                  compra.
                 </p>
                 <p className="highlight">
-                  Porque el cliente no recordará como empezó. su compra, sino
+                  Porque el cliente no recordará como empezó su compra, sino
                   como terminó.
                 </p>
               </div>
@@ -371,7 +378,7 @@ export function Home() {
                 </div>
                 <p>
                   Cada sector comparte exactamente el mismo reto. Coordinar
-                  personas. No únicamente entregas.
+                  personas.
                 </p>
                 <Link className="btn btn-primary" to="/sectores">
                   Explorar sectores <ArrowRight size={16} />

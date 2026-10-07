@@ -204,6 +204,11 @@ export function Contacto() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (status === "submitting") return;
+    // Honeypot filled: fake success so the bot gets no signal to adapt.
+    if (new FormData(e.currentTarget).get("website")) {
+      setStatus("success");
+      return;
+    }
     const validationErrors = validate(formData);
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length > 0) {
@@ -482,6 +487,7 @@ export function Contacto() {
                     id={fieldId("phone")}
                     label="Teléfono"
                     error={errors.phone}
+                    hint={formCopy.helperPhone}
                   >
                     <input
                       id={fieldId("phone")}
@@ -559,6 +565,17 @@ export function Contacto() {
                       aria-describedby={describedBy("message")}
                     />
                   </FormField>
+                </div>
+
+                <div className="form-honeypot" aria-hidden="true">
+                  <label htmlFor={`${formBaseId}-website`}>Sitio web</label>
+                  <input
+                    id={`${formBaseId}-website`}
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
                 </div>
 
                 <div className="form-privacy">
@@ -667,7 +684,10 @@ export function Contacto() {
                 <a className="btn btn-coral" href="#formulario-contacto">
                   Agenda una demostración personalizada <ArrowRight size={15} />
                 </a>
-                <a className="btn btn-outline" href="#formulario-contacto">
+                <a
+                  className="hidden btn btn-outline"
+                  href="#formulario-contacto"
+                >
                   Habla con un especialista
                 </a>
               </div>

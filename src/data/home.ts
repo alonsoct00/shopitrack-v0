@@ -26,7 +26,7 @@ export const steps: StepItem[] = [
     icon: Clock3,
   },
   {
-    text: "La entrega se realiza, el cliente confirma la recepción y evalúa su experiencia.",
+    text: "La entrega se realiza, el cliente confirma la recepción.",
     icon: PackageCheck,
   },
 ];

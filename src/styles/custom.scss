@@ -2223,7 +2223,7 @@ p.statement {
 
         .field-hint {
             margin: 0;
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             color: var(--text-secondary);
         }
 
@@ -2241,6 +2241,15 @@ p.statement {
                 flex: none;
                 margin-top: 2px;
             }
+        }
+
+        // Off-screen instead of display:none: many bots skip fields hidden that way.
+        .form-honeypot {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
         }
 
         .form-privacy {

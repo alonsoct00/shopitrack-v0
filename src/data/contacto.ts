@@ -92,6 +92,7 @@ export const volumeOptions = [
 
 export const formCopy = {
   helperEmail: "Utiliza tu correo corporativo.",
+  helperPhone: "Si nos compartes tu número te contactaremos por WhatsApp. ",
   privacyLabelBefore: "He leído y acepto el ",
   privacyLinkLabel: "Aviso de Privacidad",
   privacyLabelAfter: ".",
@@ -165,4 +166,3 @@ export const faqItems: FaqItem[] = [
       "Sí. Podemos organizar sesiones adicionales para los distintos equipos involucrados.",
   },
 ];
-

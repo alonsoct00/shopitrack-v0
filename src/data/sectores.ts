@@ -214,10 +214,10 @@ export const sectors: SectorEntry[] = [
       "Un nuevo traslado retrasa la atención del siniestro.",
     ],
     change: [
-      "La visita se confirma con el asegurado antes del traslado.",
-      "El ajustador se desplaza con mayor certeza.",
-      "Se reducen las visitas fallidas y los recorridos innecesarios.",
-      "El asegurado sabe cuándo será atendido.",
+      "El auxilio se confirma con el asegurado.",
+      "El asegurado recibe un tiempo estimado de llegada del ajustador al sitio.",
+      "Decide si espera o si reprograma.",
+      "El asegurado puede hacer otras cosas durante la espera.",
     ],
   },
 ];

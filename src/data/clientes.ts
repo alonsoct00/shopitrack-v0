@@ -160,19 +160,19 @@ export const appFeatureItems = [
 
 export const appScreens: ImageSource[] = [
   {
-    src: "/images/app-clientes-notificacion.webp",
+    src: "/images/app-clientes-notificacion.png",
     alt: "Clienta recibiendo en su celular una notificación de su pedido",
   },
   {
-    src: "/images/app-clientes-status-pedido.webp",
+    src: "/images/app-clientes-status-pedido.png",
     alt: "La app muestra el avance del pedido en camino hacia su domicilio",
   },
   {
-    src: "/images/app-clientes-reminder-pedido.webp",
+    src: "/images/app-clientes-reminder-pedido.png",
     alt: "Recordatorio de entrega con horario estimado de 14:00 a 16:00",
   },
   {
-    src: "/images/app-clientes-status-cambio.webp",
+    src: "/images/app-clientes-status-cambio.png",
     alt: "Aviso de retraso por congestión vial con la nueva hora estimada de entrega",
   },
 ];

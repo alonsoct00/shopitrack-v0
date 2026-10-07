@@ -134,7 +134,13 @@ export function Empresas() {
                       Termina cuando el cliente <b>recibe exactamente</b> lo que
                       esperaba.
                     </p>
-                    <h3>
+                    <h3
+                      style={{
+                        fontWeight: 600,
+                        marginTop: 6,
+                        marginBottom: 0,
+                      }}
+                    >
                       Cada entrega es momento donde esa promesa se fortalece o
                       se rompe.
                     </h3>
@@ -372,16 +378,16 @@ export function Empresas() {
               <div className="split-grid">
                 <div className="split-copy">
                   <SectionHeading
-                    title="La confianza como ventaja competitiva"
+                    title="La confianza como ventaja competitiva."
                     lead="La confianza no se construye en una sola entrega. Se construye en la consistencia."
                   />
                   <div className="text-copy">
                     <ul className="confidence-list">
-                      <li>Los productos pueden copiarse</li>
-                      <li>Los precios cambian</li>
-                      <li>Las promociones terminan</li>
-                      <li>La tecnología evoluciona</li>
-                      <li>La confianza se debe mantener</li>
+                      <li>Los productos pueden copiarse.</li>
+                      <li>Los precios cambian.</li>
+                      <li>Las promociones terminan.</li>
+                      <li>La tecnología evoluciona.</li>
+                      <li>La confianza se debe mantener.</li>
                     </ul>
                     <p>
                       Las empresas que logren entregar sistemáticamente una

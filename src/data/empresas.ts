@@ -165,7 +165,7 @@ export const orgBenefits: {
     ],
   },
   {
-    title: "eCommerce",
+    title: "e-Commerce",
     icon: ShoppingCart,
     image: {
       src: "/images/empresa-ecommerce.webp",
