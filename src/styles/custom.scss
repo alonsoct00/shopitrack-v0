@@ -2243,6 +2243,15 @@ p.statement {
             }
         }
 
+        // Off-screen instead of display:none: many bots skip fields hidden that way.
+        .form-honeypot {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
         .form-privacy {
             display: flex;
             align-items: flex-start;
